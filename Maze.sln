@@ -1,0 +1,11 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze.Windows", "Maze.Windows\Maze.Windows.csproj", "{3B2E8080-609C-41E1-87C6-8CA867268990}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze", "Maze\Maze.csproj", "{3DC35AE1-7442-4F3C-B4D6-0EC5067BF940}"
+EndProject
+Global
+EndGlobal
