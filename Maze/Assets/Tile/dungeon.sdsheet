@@ -1,0 +1,250 @@
+!SpriteSheet
+Id: f84f9dfb-7579-4013-bab3-2311f9817aab
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Type: Sprite2D
+ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+IsCompressed: false
+PremultiplyAlpha: false
+Packing: {}
+Sprites:
+    8dc0043c944936bc2056c75c5706c969:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 0, Y: 0, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    883ca7a0ae9d381a6690db4f33fff290:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 16, Y: 0, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    005f45cabbcbd9b17bda580d7fb68ef1:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 32, Y: 0, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    648581e3c5966d57684a15e062f9dbe7:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 48, Y: 0, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    9beddaeee7f6189dedba194b1a592174:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 64, Y: 0, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    659933952441d71dbf23914a624a1f7c:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 80, Y: 0, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    2fa52b5401a9712c40663282f636ec75:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 0, Y: 16, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    ff5b2ba51d9899841a32d3821d2f729d:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 16, Y: 16, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    dde36196d168bfc8cf9c984267e7e6b9:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 32, Y: 16, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    5c5342af8221660dbaa8f641a525e6bf:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 48, Y: 16, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    bed635cab1709ee2d2d1303c9c5408a5:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 64, Y: 16, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    8e4d1e9f411feb4b2ca0f949b0334462:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 80, Y: 16, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    591fc4cf15e1d7aaf87983cd1eaa6b48:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 0, Y: 32, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    4ace2f301a4426cb810bd198dff29253:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 16, Y: 32, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    616f69e63e142702e244196ec3aea40d:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 32, Y: 32, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    1e8bb2015119e589368461545ee14ea6:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 48, Y: 32, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    3afa9bb20e4aec1978571ad39e343954:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 64, Y: 32, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    3acd5620b1e8c47058ec3e579ee6194c:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 80, Y: 32, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    722d13ebe1e6548f2b063886b16b3698:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 0, Y: 48, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    fd0d5316faefd403485417a35bb26875:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 16, Y: 48, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    7d2ce4913e567ddb4e51767713cbe368:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 32, Y: 48, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    04a8f1764432331db1f6306d07aef298:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 48, Y: 48, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    e34b0b60d07d5649cb3027938aaaa03a:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 64, Y: 48, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    ee7c7d7d31f39d5fb62acc5d201e119d:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 80, Y: 48, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    56f2d18fb90800631eb7348e13293727:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 0, Y: 64, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    d8a3de2ba74d23508c714babb363cae6:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 16, Y: 64, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    db468eed577580924a4e25418f420c11:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 32, Y: 64, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    39484d8c0f15ca1b94db921649279d11:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 48, Y: 64, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    17c3ae80cb7dfc13a3698b03bba1b45c:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 64, Y: 64, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    24a20d63659bb7bfe75b80f3280f0de6:
+        Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/character and tileset/Dungeon_Tileset.png
+        Name: Tile
+        TextureRegion: {X: 80, Y: 64, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}

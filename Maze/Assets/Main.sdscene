@@ -1,0 +1,61 @@
+!SceneAsset
+Id: 2c57425a-d3e1-47d3-bbfb-8bfaddcb8780
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! c293d920-ea23-4e36-bf92-4e43d3c0254b
+        - ref!! cebba01e-4a00-454e-a295-db2416d08a75
+        - ref!! 8c61760e-a3e9-42a2-876c-16cb52cf3229
+    Parts:
+        -   Entity:
+                Id: 8c61760e-a3e9-42a2-876c-16cb52cf3229
+                Name: Entity
+                Components:
+                    730096567e5b08c5b2c3098888381751: !TransformComponent
+                        Id: 951f4dcb-9411-4d3e-8a21-34ade7341262
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    131732a509bbac2cd75225fe6d5fbd31: !Maze.Map.Test,Maze
+                        Id: 25c3eb3c-86f7-4e55-833d-d4afc660d54e
+                        width: 6
+                        height: 5
+                        sheetUrl: Tile/dungeon
+                        start: {X: -3.0, Y: 3.0}
+                        step: {X: 1.0, Y: -1.0}
+        -   Entity:
+                Id: c293d920-ea23-4e36-bf92-4e43d3c0254b
+                Name: Sprite
+                Components:
+                    4494ce5358638088b2e993ff6a8e5b92: !TransformComponent
+                        Id: 800eb501-70b2-451b-adda-6c72a61c46f5
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    2130977b8978b00159563912f3090d3f: !SpriteComponent
+                        Id: 81fae76d-0446-4ee6-a897-c54b5a70c394
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: null
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+        -   Entity:
+                Id: cebba01e-4a00-454e-a295-db2416d08a75
+                Name: Camera
+                Components:
+                    c63fef54b5fd69e240546be813d72cb6: !TransformComponent
+                        Id: 007ba274-eef7-426c-9004-8aba3e34b268
+                        Position: {X: 0.0, Y: 0.0, Z: 10.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a8b9b29dc8b10b0647499247c49c6c54: !CameraComponent
+                        Id: 656cf53a-745e-4892-8f23-53c2e8d3f5fd
+                        Name: null
+                        Projection: Orthographic
+                        OrthographicSize: 15.0
+                        AspectRatio: 1.33
+                        Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a
