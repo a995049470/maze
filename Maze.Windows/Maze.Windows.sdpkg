@@ -16,4 +16,5 @@ Bundles: []
 TemplateFolders: []
 RootAssets:
     - 2c57425a-d3e1-47d3-bbfb-8bfaddcb8780:Main
+    - 676bc869-3ef1-4dd0-bf6a-d21f1b89be6c:Level/dungeon
     - f84f9dfb-7579-4013-bab3-2311f9817aab:Tile/dungeon
