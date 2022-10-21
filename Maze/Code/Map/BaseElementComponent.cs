@@ -28,7 +28,7 @@ namespace Maze.Map
                 spriteSheet.CurrentFrame = StaticData.FrameIndex;
             }
             Entity.Transform.Position = new Vector3(DynamicData.Pos.X, DynamicData.Pos.Y, 0);
-            Log.Info($"({DynamicData.Pos.X}, {DynamicData.Pos.Y})");
+            
             
         }
     }

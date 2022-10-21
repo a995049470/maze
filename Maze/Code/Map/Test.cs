@@ -7,6 +7,8 @@ using Stride.Core.Mathematics;
 using Stride.Input;
 using Stride.Engine;
 using Stride.Core.Diagnostics;
+using Stride.Rendering.Sprites;
+using Stride.Graphics;
 
 namespace Maze.Map
 {
@@ -15,12 +17,13 @@ namespace Maze.Map
         public int width;
         public int height;
         public string sheetUrl;
+        public string saveUrl;
+    
         public Int2 start;
         public Int2 step;
 
-        public override void Start()
+        public void TestLoadTile()
         {
-           
             int count = width * height;
             for (int i = 0; i < count; i++)
             {
@@ -38,8 +41,15 @@ namespace Maze.Map
                 entity.Add(tileComp);
                 tileComp.Create();
             }
-
         }
+        
+        public override void Start()
+        {
+            TestLoadTile();
+
+        }   
+
+        
       
 
         

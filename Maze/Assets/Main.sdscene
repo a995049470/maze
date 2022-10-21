@@ -20,8 +20,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    c21a042999c53c529465a7b7a7705d53: !Maze.Map.Level,Maze
-                        Id: da1709d0-d84d-4358-8aa3-50a2c1cd2461
+                    89fa5bc91aa2ceb7bc8b5e4508cb1a2e: !Maze.Map.Level,Maze
+                        Id: 0f1c04cf-452a-4478-b18a-14a948ca4e8b
                         JsonAssetUrl: Level/dungeon
                         levelId: 0
         -   Entity:
@@ -53,6 +53,6 @@ Hierarchy:
                         Id: 656cf53a-745e-4892-8f23-53c2e8d3f5fd
                         Name: null
                         Projection: Orthographic
-                        OrthographicSize: 15.0
+                        OrthographicSize: 40.0
                         AspectRatio: 1.33
                         Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a
