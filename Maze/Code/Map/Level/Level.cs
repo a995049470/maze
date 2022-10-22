@@ -36,7 +36,6 @@ namespace Maze.Map
         private float lastUpdateTime;
         public float DeltaTime { get=> (float)Game.UpdateTime.Elapsed.TotalSeconds; }
         public int FrameCount { get => Game.UpdateTime.FrameCount; }
-        public Stride.Core.Diagnostics.Logger CurrentLog { get => Log; }
         public void AddElement(int x, int y, IElement element)
         {
             //TODO:可能需要越界检查
@@ -282,7 +281,7 @@ namespace Maze.Map
 
                                 CreateEnemy(assetUrl, layer, frameIndex, pos, pos, wayPoints, flag);
                             }
-                            if(tag == MapUtils.tag_player)
+                            else if(tag == MapUtils.tag_player)
                             {
                                 CreatePlayer(assetUrl, layer, frameIndex, pos, pos);
                             }

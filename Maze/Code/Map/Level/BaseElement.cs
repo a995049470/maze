@@ -36,7 +36,7 @@ namespace Maze.Map
         public virtual void Create()
         {
             var sheet = CurrentLevel.Content.Load<SpriteSheet>(StaticData.AssetUrl);
-            Entity = new Entity();
+            Entity = Entity ?? new Entity();
             CurrentLevel.SceneSystem.SceneInstance.RootScene.Entities.Add(Entity); 
             var spriteComponent = Entity.GetOrCreate<SpriteComponent>();
             spriteComponent.Sampler = SpriteSampler.PointClamp;

@@ -25,7 +25,6 @@ Hierarchy:
                         Camera: ref!! 656cf53a-745e-4892-8f23-53c2e8d3f5fd
                         JsonAssetUrl: Level/dungeon
                         levelId: 0
-                        DeltaTime: 0.0
         -   Entity:
                 Id: c293d920-ea23-4e36-bf92-4e43d3c0254b
                 Name: Sprite
@@ -55,5 +54,6 @@ Hierarchy:
                         Id: 656cf53a-745e-4892-8f23-53c2e8d3f5fd
                         Name: null
                         Projection: Orthographic
+                        OrthographicSize: 15.0
                         AspectRatio: 1.33
                         Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a

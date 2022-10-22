@@ -526,13 +526,27 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
+							"__identifier": "Player",
+							"__grid": [1,5],
+							"__pivot": [0,0],
+							"__tags": ["Player"],
+							"__tile": { "tilesetUid": 3, "x": 144, "y": 128, "w": 16, "h": 16 },
+							"__smartColor": "#00FFC8",
+							"iid": "249328d0-5110-11ed-b0cd-075d55a8b0b4",
+							"width": 16,
+							"height": 16,
+							"defUid": 14,
+							"px": [16,80],
+							"fieldInstances": []
+						},
+						{
 							"__identifier": "Solider",
 							"__grid": [4,5],
 							"__pivot": [0,0],
 							"__tags": ["Enemy"],
 							"__tile": { "tilesetUid": 3, "x": 112, "y": 112, "w": 16, "h": 16 },
 							"__smartColor": "#C50003",
-							"iid": "21b0c960-5110-11ed-b0cd-13cd48ef6e8c",
+							"iid": "15f0ef60-5110-11ed-ab63-9b85411bc402",
 							"width": 16,
 							"height": 16,
 							"defUid": 18,
@@ -554,20 +568,6 @@
 									"params": ["Loop"]
 								}] }
 							]
-						},
-						{
-							"__identifier": "Player",
-							"__grid": [1,5],
-							"__pivot": [0,0],
-							"__tags": ["Player"],
-							"__tile": { "tilesetUid": 3, "x": 144, "y": 128, "w": 16, "h": 16 },
-							"__smartColor": "#00FFC8",
-							"iid": "249328d0-5110-11ed-b0cd-075d55a8b0b4",
-							"width": 16,
-							"height": 16,
-							"defUid": 14,
-							"px": [16,80],
-							"fieldInstances": []
 						}
 					]
 				},

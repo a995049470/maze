@@ -19,7 +19,7 @@ namespace Maze.Map
             if(frame != lastUpdateFrame)
             {
                 lastUpdateFrame = frame;
-                currentTime += targetTime;
+                currentTime += deltaTime;
                 isArrive = currentTime >= targetTime;
                 if(isArrive) currentTime -= targetTime;
             }
