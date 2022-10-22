@@ -18,7 +18,7 @@ namespace Maze.Map
         public DynamicData_Enemy() : base()
         {
             //测试用..
-            MoveTimer = new Timer(0.2f, 0.4f);
+            MoveTimer = new Timer(0.2f, 0.6f);
         }
 
         //起点都是当前位置
@@ -59,7 +59,7 @@ namespace Maze.Map
         public void ChangeMoveDir()
         {
             if(!isAutoMove) return;
-            moveDir *= 1;
+            moveDir *= -1;
             MoveNextPointIndex();
         }
 

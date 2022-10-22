@@ -352,7 +352,6 @@ namespace Maze.Map
         {
             PlayerUpdate();
             EnemyUpdate();
-            Log.Info(DeltaTime.ToString());
         }
 
 
