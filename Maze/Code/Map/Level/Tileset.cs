@@ -28,9 +28,10 @@ namespace Maze.Map
             {
                 if (data.ContainsKey(MapUtils.customData_isWalkable))
                 {
-                    isWalkable = 
+                    isWalkable = ((bool)data[MapUtils.customData_isWalkable]);
                 }
             }
+            return isWalkable;
         }
     }
 }
