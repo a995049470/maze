@@ -5,9 +5,11 @@ namespace Maze.Map
     {
         public const string ground = "Ground";
         public const string building = "Building";
-        public const string Entities = "Entities";
-        public const string Tiles = "Tiles";
-        public const string IntGrid = "IntGrid";
+        
+        //层级种类
+        public const string layer_entities = "Entities";
+        public const string layer_Tiles = "Tiles";
+        public const string layer_intGrid = "IntGrid";
 
         //json keys
         public const string levels = "levels";
@@ -26,6 +28,7 @@ namespace Maze.Map
         public const string height = "height";
         public const string iid = "iid";
         public const string px = "px";
+        public const string py = "py";
         public const string tilesetUid = "tilesetUid";
         public const string x = "x";
         public const string y = "y";
@@ -53,10 +56,19 @@ namespace Maze.Map
         public const string customData = "customData";
         public const string tileId = "tileId";
         public const string data = "data";
+        public const string realEditorValues = "realEditorValues";
+        public const string _params = "params";
+        public const string cx = "cx";
+        public const string cy = "cy";
+
+
 
         public const string tag_enemy = "Enemy";
         public const string tag_point = "Point";
         public const string tag_player = "Player";
+
+        public const string filed_wayPoints = "WayPoints";
+        public const string filed_cycle = "Cycle";
 
         public const string customData_isWalkable = "isWalkable";
         

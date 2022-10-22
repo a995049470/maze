@@ -9,6 +9,9 @@ using System.IO;
 using System.Collections.Generic;
 using Stride.Input;
 using System.Text;
+using System;
+using Stride.Core.Collections;
+using ServiceWire;
 
 namespace Maze.Map
 {
@@ -21,6 +24,7 @@ namespace Maze.Map
         
         private Grid[,] grids;
         private IPlayer player;
+        private FastCollection<IEnemy> enemies = new FastCollection<IEnemy>(4);
         private int mapNumX;
         private int mapNumY;
         private int mapGridSize;
@@ -32,6 +36,7 @@ namespace Maze.Map
         private float lastUpdateTime;
         public float DeltaTime { get=> (float)Game.UpdateTime.Elapsed.TotalSeconds; }
         public int FrameCount { get => Game.UpdateTime.FrameCount; }
+        public Stride.Core.Diagnostics.Logger CurrentLog { get => Log; }
         public void AddElement(int x, int y, IElement element)
         {
             //TODO:可能需要越界检查
@@ -87,17 +92,19 @@ namespace Maze.Map
             player = playerComponent;
         }
 
-        private void CreateUnit(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId)
+        private void CreateEnemy(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId, Int2[] wayPoints, CycleFlag flag)
         {
             var staticData = new StaticData_Unit();
             staticData.AssetUrl = assetUrl;
             staticData.Layer = layer;
             staticData.FrameIndex = frameIndex;
-            var dynamicData = new DynamicData_Unit();
+            var dynamicData = new DynamicData_Enemy();
             dynamicData.Pos = pos;
-            var unit = new UnitElement(staticData, dynamicData);
+            dynamicData.SetWayPoints(wayPoints, flag);
+            var unit = new EnemyElement(staticData, dynamicData);
             unit.SetLevel(this);
             AddElement(gridId.X, gridId.Y, unit);
+            enemies.Add(unit);
         }
 
         public Int2 PxToPos(int x, int y)
@@ -190,8 +197,8 @@ namespace Maze.Map
                     var layerInstance = layerInstances[i];
                     var layer = layerNum - i;
                     var layerType = ((string)layerInstance[MapUtils.__type]);
-                    var isLoadTile = layerType == MapUtils.Tiles || layerType == MapUtils.IntGrid;
-                    var isLoadEntities = layerType == MapUtils.Entities;
+                    var isLoadTile = layerType == MapUtils.layer_Tiles || layerType == MapUtils.layer_intGrid;
+                    var isLoadEntities = layerType == MapUtils.layer_entities;
                     //填充tile
                     if (isLoadTile)
                     {
@@ -201,7 +208,7 @@ namespace Maze.Map
                             continue;
                         }
                         var assetUrl = tileset.AssetUrl; 
-                        var isTiles = layerType == MapUtils.Tiles;
+                        var isTiles = layerType == MapUtils.layer_Tiles;
                         var key = isTiles ? MapUtils.gridTiles : MapUtils.autoLayerTiles;
                         var tiles = layerInstance[key];
                         //暂时默认所有tile都是1x1的
@@ -245,7 +252,35 @@ namespace Maze.Map
                             var gridId = pos;
                             if(tag == MapUtils.tag_enemy)
                             {
-                                CreateUnit(assetUrl, layer, frameIndex, pos, pos);
+                                Int2[] wayPoints = null;
+                                CycleFlag flag = CycleFlag.Loop;
+                                var fieldInstances = entityInstance[MapUtils.fieldInstances];
+                                var fieldCount = fieldInstances.Count;
+                                for (int k = 0; k < fieldCount; k++)
+                                {
+                                    var fieldInstance = fieldInstances[k];
+                                    var identifier = ((string)fieldInstance[MapUtils.__identifier]);
+                                    if(identifier == MapUtils.filed_wayPoints)
+                                    {
+                                        var values = fieldInstance[MapUtils.__value];
+                                        int valutCount = values.Count;
+                                        wayPoints = new Int2[valutCount + 1];
+                                        wayPoints[0] = pos;
+                                        for (int n = 0; n < valutCount; n++)
+                                        {
+                                            var value = values[n];
+                                            wayPoints[n + 1] = new Int2(((int)value[MapUtils.cx]), mapNumY - 1 - ((int)value[MapUtils.cy]));
+                                        }
+                                    }
+                                    else if(identifier == MapUtils.filed_cycle)
+                                    {
+                                        var value = ((string)fieldInstance[MapUtils.__value]);
+                                        flag = Enum.Parse<CycleFlag>(value);
+                                    }
+                                }
+                                
+
+                                CreateEnemy(assetUrl, layer, frameIndex, pos, pos, wayPoints, flag);
                             }
                             if(tag == MapUtils.tag_player)
                             {
@@ -287,6 +322,15 @@ namespace Maze.Map
             }
         }
 
+        public bool IsWalkable(Int2 pos)
+        {
+            var gridId = PosToGridId(pos);
+            var grid = GetGrid(gridId.X, gridId.Y);
+            return grid?.IsWalkable() ?? false;
+        }
+
+        
+       
         private void PlayerUpdate(){
             var dir = Int2.Zero;
             if(Input.IsKeyPressed(upKey)) dir.Y = 1;
@@ -297,28 +341,19 @@ namespace Maze.Map
             if(dir != Int2.Zero) player?.Move(dir.X, dir.Y);
         }
 
-        public bool IsWalkable(Int2 pos)
+        private void EnemyUpdate()
         {
-            var gridId = PosToGridId(pos);
-            var grid = GetGrid(gridId.X, gridId.Y);
-            return grid?.IsWalkable() ?? false;
+            foreach (var enemy in enemies)
+            {
+                enemy.AutoMove();
+            }
         }
-       
-        
 
         public override void Update()
         {
             PlayerUpdate();
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"FrameCount:{Game.UpdateTime.FrameCount}");
-            sb.AppendLine($"FramePerSecond:{Game.UpdateTime.FramePerSecond}");
-            sb.AppendLine($"FramePerSecondUpdated:{Game.UpdateTime.FramePerSecondUpdated}");
-            sb.AppendLine($"TimePerFrame:{Game.UpdateTime.TimePerFrame.TotalMilliseconds}");
-            sb.AppendLine($"Total:{Game.UpdateTime.Total.TotalMilliseconds}");
-            sb.AppendLine($"WarpElapsed:{Game.UpdateTime.WarpElapsed.TotalMilliseconds}");
-            sb.AppendLine($"TotalSeconds:{Game.UpdateTime.Elapsed.TotalSeconds}");
-    
-            Log.Info(sb.ToString());
+            EnemyUpdate();
+            Log.Info(DeltaTime.ToString());
         }
 
 

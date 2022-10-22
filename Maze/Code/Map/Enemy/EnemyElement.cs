@@ -27,6 +27,7 @@ namespace Maze.Map
                 var isWalkable = CurrentLevel.IsWalkable(targetPos);
                 if(isWalkable)
                 {
+                    CurrentLevel.ElementMove(enemyData.Pos, targetPos, this);
                     enemyData.Pos = targetPos;
                     Entity.Transform.Position = new Vector3(targetPos.X, targetPos.Y, GetPosZ());
                 }

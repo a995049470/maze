@@ -549,10 +549,7 @@
 									"id": "V_String",
 									"params": ["4,7"]
 								} ] },
-								{ "__identifier": "Cycle", "__value": "Loop", "__type": "LocalEnum.CycleFlag", "__tile": null, "defUid": 34, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["Loop"]
-								}] }
+								{ "__identifier": "Cycle", "__value": null, "__type": "LocalEnum.CycleFlag", "__tile": null, "defUid": 34, "realEditorValues": [] }
 							]
 						},
 						{
@@ -604,7 +601,6 @@
 						{ "px": [16,80], "src": [16,16], "f": 0, "t": 11, "d": [56] },
 						{ "px": [32,80], "src": [32,16], "f": 0, "t": 12, "d": [57] },
 						{ "px": [48,80], "src": [48,16], "f": 0, "t": 13, "d": [58] },
-						{ "px": [64,80], "src": [64,16], "f": 0, "t": 14, "d": [59] },
 						{ "px": [80,80], "src": [80,16], "f": 0, "t": 15, "d": [60] },
 						{ "px": [0,96], "src": [0,32], "f": 0, "t": 20, "d": [66] },
 						{ "px": [16,96], "src": [16,32], "f": 0, "t": 21, "d": [67] },
