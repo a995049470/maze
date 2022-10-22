@@ -10,7 +10,7 @@
 	},
 	"jsonVersion": "1.1.3",
 	"appBuildId": 458364,
-	"nextUid": 31,
+	"nextUid": 34,
 	"identifierStyle": "Capitalize",
 	"worldLayout": "Free",
 	"worldGridWidth": 256,
@@ -230,6 +230,64 @@
 					"allowedRefs": "OnlySame",
 					"allowedRefTags": [],
 					"tilesetUid": null
+				},
+				{
+					"identifier": "Test",
+					"__type": "LocalEnum.Test",
+					"uid": 31,
+					"type": "F_Enum(27)",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "ValueOnly",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
+				},
+				{
+					"identifier": "Point",
+					"__type": "Array<Point>",
+					"uid": 32,
+					"type": "F_Point",
+					"isArray": true,
+					"canBeNull": true,
+					"arrayMinLength": 2,
+					"arrayMaxLength": 128,
+					"editorDisplayMode": "PointPath",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
 				}
 			]
 		},
@@ -413,18 +471,21 @@
 				"averageColors": "f433f534f534f534f534f433f423f423f423f423f433f323f323f323f323f433f423f423f423f423f433f323f423f423f323f433f423f423f423f423f433f323f323f323f323f433f755f755f666d644f322f433f433f433f433f3225644564456448433f534f433f433f534f534f5345644564456444433f323f323f323f32367762775e755e7653654f644f423f423f423f4238975267736674765f211f4236643676787778643977757674b96389a367749884855385427554776367747663677489a39883975"
 			}
 		}
-	], "enums": [{ "identifier": "Test", "uid": 27, "values": [
-		{ "id": "A", "tileId": null, "color": 12355463, "__tileSrcRect": null },
-		{ "id": "B", "tileId": null, "color": 15561073, "__tileSrcRect": null },
-		{ "id": "C", "tileId": null, "color": 10570057, "__tileSrcRect": null }
-	], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }], "externalEnums": [], "levelFields": [] },
+	], "enums": [
+		{ "identifier": "Test", "uid": 27, "values": [
+			{ "id": "A", "tileId": null, "color": 12355463, "__tileSrcRect": null },
+			{ "id": "B", "tileId": null, "color": 15561073, "__tileSrcRect": null },
+			{ "id": "C", "tileId": null, "color": 10570057, "__tileSrcRect": null }
+		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] },
+		{ "identifier": "CycleFlag", "uid": 33, "values": [ { "id": "Loop", "tileId": null, "color": 4456323, "__tileSrcRect": null }, { "id": "PingPong", "tileId": null, "color": 14745344, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }
+	], "externalEnums": [], "levelFields": [] },
 	"levels": [
 		{
 			"identifier": "Level_0",
 			"iid": "5a792080-2a00-11ed-b3c0-6b63a2f33671",
 			"uid": 0,
-			"worldX": 0,
-			"worldY": 0,
+			"worldX": -96,
+			"worldY": -32,
 			"worldDepth": 0,
 			"pxWid": 176,
 			"pxHei": 144,
@@ -476,21 +537,23 @@
 							"height": 16,
 							"defUid": 18,
 							"px": [64,80],
-							"fieldInstances": [{ "__identifier": "HP", "__value": 10, "__type": "Int", "__tile": null, "defUid": 19, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Solider",
-							"__grid": [4,7],
-							"__pivot": [0,0],
-							"__tags": ["Enemy"],
-							"__tile": { "tilesetUid": 3, "x": 112, "y": 112, "w": 16, "h": 16 },
-							"__smartColor": "#C50003",
-							"iid": "22f186c0-5110-11ed-b0cd-658f22da8811",
-							"width": 16,
-							"height": 16,
-							"defUid": 18,
-							"px": [64,112],
-							"fieldInstances": [{ "__identifier": "HP", "__value": 10, "__type": "Int", "__tile": null, "defUid": 19, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "HP", "__value": 10, "__type": "Int", "__tile": null, "defUid": 19, "realEditorValues": [] },
+								{ "__identifier": "Test", "__value": "A", "__type": "LocalEnum.Test", "__tile": null, "defUid": 31, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["A"]
+								}] },
+								{ "__identifier": "Point", "__value": [ { "cx": 2, "cy": 5 }, { "cx": 2, "cy": 7 }, { "cx": 4, "cy": 7 } ], "__type": "Array<Point>", "__tile": null, "defUid": 32, "realEditorValues": [ {
+									"id": "V_String",
+									"params": ["2,5"]
+								}, {
+									"id": "V_String",
+									"params": ["2,7"]
+								}, {
+									"id": "V_String",
+									"params": ["4,7"]
+								} ] }
+							]
 						},
 						{
 							"__identifier": "Player",

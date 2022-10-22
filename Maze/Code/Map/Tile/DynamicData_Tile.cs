@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Maze.Map
 {
+
     public class DynamicData_Tile : DynamicData
     {
-        
+            
     }
 }

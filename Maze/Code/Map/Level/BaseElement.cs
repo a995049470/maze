@@ -10,17 +10,18 @@ namespace Maze.Map
     {
         void SetLevel(Level level);
         void Create();
-        ScriptComponent GetComponent();
+        bool IsWalkable();
     }
 
-    public class BaseElementComponent<T, V> : ScriptComponent, IElement where T : StaticData where V : DynamicData
+    public abstract class BaseElement<T, V> : IElement where T : StaticData where V : DynamicData
     {
         public T StaticData;
         public V DynamicData;
         private const float gap = 0.1f;
-        protected Level targetLevel;
+        protected Level CurrentLevel;
+        protected Entity Entity;
 
-        public BaseElementComponent(T staticData, V dynamicData)
+        public BaseElement(T staticData, V dynamicData)
         {
             StaticData = staticData;
             DynamicData = dynamicData;
@@ -34,7 +35,9 @@ namespace Maze.Map
 
         public virtual void Create()
         {
-            var sheet = Content.Load<SpriteSheet>(StaticData.AssetUrl);
+            var sheet = CurrentLevel.Content.Load<SpriteSheet>(StaticData.AssetUrl);
+            Entity = new Entity();
+            CurrentLevel.SceneSystem.SceneInstance.RootScene.Entities.Add(Entity); 
             var spriteComponent = Entity.GetOrCreate<SpriteComponent>();
             spriteComponent.Sampler = SpriteSampler.PointClamp;
             if (spriteComponent.SpriteProvider is SpriteFromSheet spriteSheet)
@@ -44,19 +47,16 @@ namespace Maze.Map
             }
 
             Entity.Transform.Position = new Vector3(DynamicData.Pos.X, DynamicData.Pos.Y, GetPosZ());
-
-
         }
 
-
-        public ScriptComponent GetComponent()
-        {
-            return this;
-        }
+    
 
         public void SetLevel(Level level)
         {
-            targetLevel = level;
+            CurrentLevel = level;
         }
+
+        public abstract bool IsWalkable();
+        
     }
 }

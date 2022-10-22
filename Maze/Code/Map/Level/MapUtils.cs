@@ -50,6 +50,9 @@ namespace Maze.Map
         public const string __tilesetDefUid = "__tilesetDefUid";
         public const string __tags = "__tags";
         public const string __tile = "__tile";
+        public const string customData = "customData";
+        public const string tileId = "tileId";
+        public const string data = "data";
 
         public const string tag_enemy = "Enemy";
         public const string tag_point = "Point";

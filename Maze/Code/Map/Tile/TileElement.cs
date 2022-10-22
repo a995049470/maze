@@ -11,11 +11,16 @@ using System.Threading.Tasks;
 
 namespace Maze.Map
 {
-    public class ItemComponent : BaseElementComponent<StaticData_Item, DynamicData_Item>
+    public class TileElement : BaseElement<StaticData_Tile, DynamicData_Tile>
     {
-        public ItemComponent(StaticData_Item staticData, DynamicData_Item dynamicData) : base(staticData, dynamicData)
+        public TileElement(StaticData_Tile staticData, DynamicData_Tile dynamicData) : base(staticData, dynamicData)
         {
 
+        }
+
+        public override bool IsWalkable()
+        {
+            return StaticData.IsWalkable;
         }
     }
 }

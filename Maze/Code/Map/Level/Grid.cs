@@ -28,5 +28,16 @@ namespace Maze.Map
         {
             elements.Remove(element);
         }
+        
+        public bool IsWalkable()
+        {
+            bool isWalkable = true;
+            foreach (var element in elements)
+            {
+                isWalkable &= element.IsWalkable();
+                if(!isWalkable) break;
+            }
+            return isWalkable;
+        }
     }
 }

@@ -8,8 +8,8 @@ namespace Maze.Map
 {
     public class StaticData_Building : StaticData
     {
-        public bool IsWalkable;
-        public bool IsVisionBarrier;
+        public bool IsWalkable = true;
+        public bool IsVisionBarrier = false;
 
     }
 }

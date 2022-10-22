@@ -33,12 +33,9 @@ namespace Maze.Map
                 var pos = start;
                 pos.X += step.X * (i % width);
                 pos.Y += step.Y * (i / width);
-                var entity = new Entity();
-                SceneSystem.SceneInstance.RootScene.Entities.Add(entity);
                 var dynamicData = new DynamicData_Tile();
                 dynamicData.Pos = pos;
-                var tileComp = new TileComponent(data, dynamicData);
-                entity.Add(tileComp);
+                var tileComp = new TileElement(data, dynamicData);
                 tileComp.Create();
             }
         }

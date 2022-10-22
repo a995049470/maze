@@ -9,6 +9,7 @@ namespace Maze.Map
 {
     public class DynamicData_Unit : DynamicData
     {
-       
+        public Timer MoveTimer;
+
     }
 }
