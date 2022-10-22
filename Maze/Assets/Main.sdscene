@@ -16,12 +16,13 @@ Hierarchy:
                 Components:
                     730096567e5b08c5b2c3098888381751: !TransformComponent
                         Id: 951f4dcb-9411-4d3e-8a21-34ade7341262
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Position: {X: 1.5778991, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    89fa5bc91aa2ceb7bc8b5e4508cb1a2e: !Maze.Map.Level,Maze
+                    34b9ed4e0640bc300b9548c11bf7b58c: !Maze.Map.Level,Maze
                         Id: 0f1c04cf-452a-4478-b18a-14a948ca4e8b
+                        Camera: ref!! 656cf53a-745e-4892-8f23-53c2e8d3f5fd
                         JsonAssetUrl: Level/dungeon
                         levelId: 0
         -   Entity:
@@ -53,6 +54,5 @@ Hierarchy:
                         Id: 656cf53a-745e-4892-8f23-53c2e8d3f5fd
                         Name: null
                         Projection: Orthographic
-                        OrthographicSize: 40.0
                         AspectRatio: 1.33
                         Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a

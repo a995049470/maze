@@ -11,8 +11,7 @@ namespace Maze.Map
 {
     public class StaticData_Tile : StaticData
     {
- 
-        public bool IsWalkable;
-        public bool IsVisionBarrier;
+        public bool IsWalkable = true;
+        public bool IsVisionBarrier = false;
     }
 }

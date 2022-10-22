@@ -97,7 +97,7 @@ Hierarchy:
                         Name: null
                         Projection: Perspective
                         Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a
-                    c5733a68327859db7719ddb14708182b: !Maze.BasicCameraController,Maze
+                    1a276fb1ed6399d578a32fdc6537d608: !Maze.BasicCameraController,Maze
                         Id: e7eb6e11-ccba-43d5-aee3-802e88a7ec31
                         Gamepad: false
                         KeyboardMovementSpeed: {X: 5.0, Y: 5.0, Z: 5.0}
