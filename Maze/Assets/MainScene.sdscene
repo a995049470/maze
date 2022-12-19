@@ -12,6 +12,7 @@ Hierarchy:
         - ref!! 729b2b43-8e55-43d6-ba80-d1e258ca67df
         - ref!! 2e290285-f336-4d3d-9de5-ed9574c9a6d8
         - ref!! 424fa40a-bfbf-4f46-a831-42250f396a63
+        - ref!! 4cf24883-fb51-477d-a7c1-456e1aef7745
     Parts:
         -   Entity:
                 Id: 2e290285-f336-4d3d-9de5-ed9574c9a6d8
@@ -44,6 +45,19 @@ Hierarchy:
                         Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
                         Materials:
                             43b148beb8dac87abe861fddfa284a57~0: 43a08188-ad84-4679-9759-f1549bd4c100:CubeMat
+        -   Entity:
+                Id: 4cf24883-fb51-477d-a7c1-456e1aef7745
+                Name: Entity
+                Components:
+                    fa6122edf66546f2b5821166483e5f6e: !TransformComponent
+                        Id: 2a6cb612-318d-4a26-98c1-915a3f199795
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    cca65bbc498ef54ee127d63a09b09025: !Maze.Code.Render.TestEffect,Maze
+                        Id: e3e07742-4940-4f0d-b68a-7eec44391238
+                        effect: null
         -   Entity:
                 Id: 729b2b43-8e55-43d6-ba80-d1e258ca67df
                 Name: Ground
