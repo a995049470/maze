@@ -25,6 +25,8 @@ Hierarchy:
                         Camera: ref!! 656cf53a-745e-4892-8f23-53c2e8d3f5fd
                         JsonAssetUrl: Level/dungeon
                         levelId: 0
+                    9e44a4cb6db9604dc494b4ac041b0396: !Maze.Code.Profiling.RenderDoc,Maze
+                        Id: e311705b-38c7-41a2-a6e7-f3bdfe72f7ac
         -   Entity:
                 Id: c293d920-ea23-4e36-bf92-4e43d3c0254b
                 Name: Sprite
