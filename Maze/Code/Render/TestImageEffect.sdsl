@@ -1,0 +1,13 @@
+﻿
+namespace Stride.Rendering.Images
+{
+    shader TestImageEffect:ImageEffectShader
+    {
+        [Color]
+        stage float3 MyColor;
+        stage override float4 Shading()
+        {
+            return float4(MyColor, 1.0);
+        }
+    };
+}

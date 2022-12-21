@@ -13,6 +13,8 @@ using Stride.Graphics;
 using SharpDX.Direct3D11;
 using Stride.Core.Diagnostics;
 using System.ComponentModel;
+using Stride.Rendering.Images;
+using Stride.Core.Annotations;
 
 namespace Maze.Code.Render
 {
@@ -34,11 +36,23 @@ namespace Maze.Code.Render
         }
     }
 
+    [DataContract]
     public class VisionRenderer
     {
         private static readonly ProfilingKey Vision = new ProfilingKey(new ProfilingKey("Compositing"), "Vision");
-        
+
         private Texture visionTex;
+        private Texture dest;
+        private ImageEffectShader test;
+        public int Width = 1280;
+        public int Height = 720;
+        public Color3 MyColor = new Color3(0.0f, 1.0f, 1.0f);
+        
+        
+        public VisionRenderer()
+        {
+            test = new ImageEffectShader("TestImageEffect");
+        }
         
         public void CreateVisionTex(RenderSystem renderSystem, int width, int height)
         {
@@ -50,17 +64,21 @@ namespace Maze.Code.Render
                 {
                     visionTex.ReleaseData();
                     visionTex = null;
+                    dest.ReleaseData();
+                    dest = null;
                 }
             }
             if (isNeedCreate)
             {
                 visionTex = Texture.New2D(renderSystem.GraphicsDevice, width, height, PixelFormat.R32_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
+                dest = Texture.New2D(renderSystem.GraphicsDevice, width, height, PixelFormat.R16G16B16A16_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
             }
         }
 
         public void DrawView(RenderContext context, RenderDrawContext drawContext, RenderStage visionStage)
         {
             var renderSystem = context.RenderSystem;
+            CreateVisionTex(renderSystem, Width, Height);
             drawContext.CommandList.ResourceBarrierTransition(visionTex, GraphicsResourceState.RenderTarget);
             using(drawContext.QueryManager.BeginProfile(Color.Yellow, Vision))
             using(drawContext.PushRenderTargetsAndRestore())
@@ -68,16 +86,23 @@ namespace Maze.Code.Render
                 drawContext.CommandList.Clear(visionTex, Color4.Black);
                 drawContext.CommandList.SetRenderTarget(null, visionTex);
                 renderSystem.Draw(drawContext, context.RenderView, visionStage);
+
+                drawContext.CommandList.ResourceBarrierTransition(visionTex, GraphicsResourceState.PixelShaderResource);
+                test.Parameters.Set(TestImageEffectKeys.MyColor, MyColor);
+                test.SetInput(visionTex);
+                test.SetOutput(dest);
+                test.Draw(drawContext);
             }
         }
         
     }
 
-    [Display("Forward Renderer(扩展)")]
+    [Display("Forward Renderer EX")]
     public class ForwardRendererEx : ForwardRenderer
     {
         public RenderStage VisionStage { get; set; }
-        private VisionRenderer visionRenderer = new VisionRenderer();
+        [NotNull]
+        public VisionRenderer VisionRenderer = new VisionRenderer();
 
         protected override void CollectStages(RenderContext context)
         {
@@ -101,8 +126,7 @@ namespace Maze.Code.Render
         {
             if(VisionStage != null)
             {
-                visionRenderer.CreateVisionTex(context.RenderSystem, 1280, 720);
-                visionRenderer.DrawView(context, drawContext, VisionStage);
+                VisionRenderer?.DrawView(context, drawContext, VisionStage);
             }
             base.DrawView(context, drawContext, eyeIndex, eyeCount);
         }

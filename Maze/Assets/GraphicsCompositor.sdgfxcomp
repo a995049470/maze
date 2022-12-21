@@ -138,7 +138,7 @@ SharedRenderers:
             87ff1d9cdd52418daf76385176a0e316: ref!! c8716e1e-e9e7-4c81-b628-ea61b302738b
             5e059d4cc2db4ee8a1f28a40f4ac3ae8: ref!! 7eb79a54-bcf3-463a-9ff4-66d1ef72a75e
         GBufferRenderStage: ref!! f789e3e3-cfb8-437a-83fa-8bd751becb5f
-        PostEffects: !PostProcessingEffects ref!! 4483da6b-f368-4880-957f-61050db45ca4
+        PostEffects*: null
         LightShafts: null
         VRSettings:
             Enabled: false
@@ -231,7 +231,7 @@ SharedRenderers:
             7850a42ddefbad6f068ffdf98273183f: ref!! c8716e1e-e9e7-4c81-b628-ea61b302738b
             74070bcf2ad16419123b7bcb6929da8a: ref!! 7eb79a54-bcf3-463a-9ff4-66d1ef72a75e
         GBufferRenderStage: ref!! f789e3e3-cfb8-437a-83fa-8bd751becb5f
-        PostEffects: !PostProcessingEffects ref!! 4483da6b-f368-4880-957f-61050db45ca4
+        PostEffects*: !PostProcessingEffects ref!! 4483da6b-f368-4880-957f-61050db45ca4
         LightShafts: null
         VRSettings:
             Enabled: false
@@ -239,7 +239,12 @@ SharedRenderers:
             Overlays: {}
         SubsurfaceScatteringBlurEffect: null
         MSAALevel: None
-        MSAAResolver: {}
+        MSAAResolver:
+            FilterRadius: 1.702
+        VisionRenderer:
+            Width: 1280
+            Height: 720
+            MyColor: {R: 0.875, G: 0.0, B: 1.0}
         VisionStage: ref!! 6d58b863-d1c8-41d8-80d7-bba11d4682a9
 Game: !Stride.Rendering.Compositing.SceneCameraRenderer,Stride.Engine
     Id: 76fe87cf-f574-4ad6-85b8-e9a9586be0e2
