@@ -1,41 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Stride.Core.Mathematics;
-using Stride.Input;
-using Stride.Engine;
-using Stride.Rendering.Compositing;
+﻿using Stride.Core.Mathematics;
 using Stride.Core;
 using Stride.Rendering;
 using Stride.Graphics;
-using SharpDX.Direct3D11;
 using Stride.Core.Diagnostics;
-using System.ComponentModel;
 using Stride.Rendering.Images;
-using Stride.Core.Annotations;
 
 namespace Maze.Code.Render
 {
-    public class VisionStageSelector : RenderStageSelector
-    {
-        [DefaultValue(RenderGroupMask.All)]
-        public RenderGroupMask RenderGroup { get; set; } = RenderGroupMask.All;
-
-        [DefaultValue(null)]
-        public RenderStage VisionRenderStage { get; set; }
-
-        public string EffectName { get; set; }
-        public override void Process(RenderObject renderObject)
-        {
-            if (((RenderGroupMask)(1U << (int)renderObject.RenderGroup) & RenderGroup) != 0 && VisionRenderStage != null)
-            {
-                renderObject.ActiveRenderStages[VisionRenderStage.Index] = new ActiveRenderStage(EffectName);
-            }
-        }
-    }
-
     [DataContract]
     public class VisionRenderer
     {
@@ -95,41 +66,5 @@ namespace Maze.Code.Render
             }
         }
         
-    }
-
-    [Display("Forward Renderer EX")]
-    public class ForwardRendererEx : ForwardRenderer
-    {
-        public RenderStage VisionStage { get; set; }
-        [NotNull]
-        public VisionRenderer VisionRenderer = new VisionRenderer();
-
-        protected override void CollectStages(RenderContext context)
-        {
-            base.CollectStages(context);
-            if (VisionStage != null)
-            {
-                VisionStage.Output = new RenderOutputDescription(PixelFormat.R32_Float, PixelFormat.D24_UNorm_S8_UInt);
-            }
-        }
-
-        protected override void CollectView(RenderContext context)
-        {
-            base.CollectView(context);
-            if (VisionStage != null)
-            {
-                context.RenderView.RenderStages.Add(VisionStage);
-            }
-        }
-
-        protected override void DrawView(RenderContext context, RenderDrawContext drawContext, int eyeIndex, int eyeCount)
-        {
-            if(VisionStage != null)
-            {
-                VisionRenderer?.DrawView(context, drawContext, VisionStage);
-            }
-            base.DrawView(context, drawContext, eyeIndex, eyeCount);
-        }
-
     }
 }

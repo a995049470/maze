@@ -48,7 +48,7 @@ Hierarchy:
                 Components:
                     c63fef54b5fd69e240546be813d72cb6: !TransformComponent
                         Id: 007ba274-eef7-426c-9004-8aba3e34b268
-                        Position: {X: 0.0, Y: 0.0, Z: 10.0}
+                        Position: {X: 2.0, Y: 2.0, Z: 10.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -56,6 +56,6 @@ Hierarchy:
                         Id: 656cf53a-745e-4892-8f23-53c2e8d3f5fd
                         Name: null
                         Projection: Orthographic
-                        OrthographicSize: 15.0
+                        OrthographicSize: 6.0
                         AspectRatio: 1.33
                         Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a
