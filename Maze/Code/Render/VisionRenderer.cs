@@ -30,7 +30,7 @@ namespace Maze.Code.Render
             bool isNeedCreate = true;
             if (visionTex != null)
             {
-                isNeedCreate = visionTex.Description.Width != width || visionTex.Description.Height != height;
+                isNeedCreate = visionTex.Width != width || visionTex.Height != height;
                 if (isNeedCreate)
                 {
                     visionTex.ReleaseData();
@@ -56,7 +56,10 @@ namespace Maze.Code.Render
             {
                 drawContext.CommandList.Clear(visionTex, Color4.Black);
                 drawContext.CommandList.SetRenderTarget(null, visionTex);
+                var viewport = new Viewport(0, 0, visionTex.Width, visionTex.Height);
+                drawContext.CommandList.SetViewport(viewport);               
                 renderSystem.Draw(drawContext, context.RenderView, visionStage);
+               
 
                 drawContext.CommandList.ResourceBarrierTransition(visionTex, GraphicsResourceState.PixelShaderResource);
                 test.Parameters.Set(TestImageEffectKeys.MyColor, MyColor);
