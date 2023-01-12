@@ -14,7 +14,7 @@ using Stride.Core.Annotations;
 
 namespace Maze.Code.Render
 {
-
+    [DataContract]
     [Display("Forward Renderer EX")]
     public class LForwardRenderer : ForwardRenderer
     {

@@ -1,8 +1,10 @@
-﻿using Stride.Rendering;
+﻿using Stride.Core;
+using Stride.Rendering;
 using System.ComponentModel;
 
 namespace Maze.Code.Render
 {
+    [DataContract]
     public class VisionStageSelector : RenderStageSelector
     {
         [DefaultValue(RenderGroupMask.All)]

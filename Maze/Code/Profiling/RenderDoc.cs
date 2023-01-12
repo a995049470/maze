@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Stride.Core.Mathematics;
 using Stride.Input;
 using Stride.Engine;
+using Stride.Engine.Design;
+using Maze.Code.Render;
+using System.Reflection;
 
 namespace Maze.Code.Profiling
 {
@@ -15,7 +18,6 @@ namespace Maze.Code.Profiling
 
         public override void Start()
         {
-            // Initialization of the script.
             GameProfiler.EnableProfiling();
         }
     }
