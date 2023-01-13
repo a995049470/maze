@@ -12,6 +12,7 @@ namespace Maze.Code.Render
     [DataContract("CellSpriteComponent")]
     [Display("CellSprite", Expand = ExpandRule.Once)]
     [DefaultEntityComponentRenderer(typeof(CellSpriteRenderProcessor))]
+    [DisableSuperClassRenderProcessor]
     [ComponentOrder(10001)]
     [ComponentCategory("Sprites")]
     public class CellSpriteComponent : SpriteComponent

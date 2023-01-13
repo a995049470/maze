@@ -5,7 +5,7 @@ using System;
 
 namespace Maze.Code.Render
 {
-    public class LSprite3DBatch : Sprite3DBatch
+    public class CellSprite3DBatch : Sprite3DBatch
     {
         public class DrawParameter
         {
@@ -22,7 +22,7 @@ namespace Maze.Code.Render
 
 
 
-        public LSprite3DBatch(GraphicsDevice device, int bufferElementCount = 1024, int batchCapacity = 64) : base(device, bufferElementCount, batchCapacity)
+        public CellSprite3DBatch(GraphicsDevice device, int bufferElementCount = 1024, int batchCapacity = 64) : base(device, bufferElementCount, batchCapacity)
         {
             drawParameters = new DrawParameter[batchCapacity];
         }
