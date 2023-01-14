@@ -18,10 +18,9 @@ namespace Maze.Code.Profiling
 
         public override void Start()
         {
-            var cellSpriteType = typeof(CellSpriteComponent).GetTypeInfo();
-            var spriteType = typeof(SpriteComponent).GetTypeInfo();
-            Log.Info($"cellSpriteType.Equals(spriteType) : {cellSpriteType.Equals(spriteType)}");
-            Log.Info($"spriteType.Equals(cellSpriteType) : {spriteType.Equals(cellSpriteType)}");
+            var t1 = typeof(CellSpriteComponent).GetTypeInfo();
+            var t2 = typeof(CellSpriteComponent).GetTypeInfo();
+            Log.Info($"t1.Equals(t2) : {t1.Equals(t2)}");
             GameProfiler.EnableProfiling();
         }
     }

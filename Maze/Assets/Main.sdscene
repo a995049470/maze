@@ -9,7 +9,24 @@ Hierarchy:
         - ref!! c293d920-ea23-4e36-bf92-4e43d3c0254b
         - ref!! cebba01e-4a00-454e-a295-db2416d08a75
         - ref!! 8c61760e-a3e9-42a2-876c-16cb52cf3229
+        - ref!! 2c3e0328-31e9-4197-8c47-776a16c4e699
     Parts:
+        -   Entity:
+                Id: 2c3e0328-31e9-4197-8c47-776a16c4e699
+                Name: Entity
+                Components:
+                    dd3499540305bc226681f0ea44bcd81a: !TransformComponent
+                        Id: 037e968b-ac7b-4c3b-8d50-682f36564bd3
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f87d8b5db0d0a4f83ae35249005e966f: !CellSpriteComponent
+                        Id: 1dc3a7de-0d16-47ea-892c-ff46af5efb74
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: f84f9dfb-7579-4013-bab3-2311f9817aab:Tile/dungeon
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        CellValue: 0.0
         -   Entity:
                 Id: 8c61760e-a3e9-42a2-876c-16cb52cf3229
                 Name: Entity

@@ -22,4 +22,18 @@
       <HintPath>..\Plugins\Newtonsoft.Json\Bin\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Code\Render\CellSprite.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Code\Render\CellSprite.sdsl">
+      <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
 </Project>

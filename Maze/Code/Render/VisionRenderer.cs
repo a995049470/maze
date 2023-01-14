@@ -60,12 +60,11 @@ namespace Maze.Code.Render
                 drawContext.CommandList.SetViewport(viewport);               
                 renderSystem.Draw(drawContext, context.RenderView, visionStage);
                
-
-                drawContext.CommandList.ResourceBarrierTransition(visionTex, GraphicsResourceState.PixelShaderResource);
-                test.Parameters.Set(TestImageEffectKeys.MyColor, MyColor);
-                test.SetInput(visionTex);
-                test.SetOutput(dest);
-                test.Draw(drawContext);
+                //drawContext.CommandList.ResourceBarrierTransition(visionTex, GraphicsResourceState.PixelShaderResource);
+                //test.Parameters.Set(TestImageEffectKeys.MyColor, MyColor);
+                //test.SetInput(visionTex);
+                //test.SetOutput(dest);
+                //test.Draw(drawContext);
             }
         }
         

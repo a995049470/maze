@@ -1,4 +1,5 @@
-﻿using Stride.Core.Mathematics;
+﻿using Microsoft.VisualBasic.Logging;
+using Stride.Core.Mathematics;
 using Stride.Graphics;
 using Stride.Rendering;
 using System;
@@ -14,9 +15,7 @@ namespace Maze.Code.Render
         }
 
 
-        public static readonly ValueParameterKey<float> CellValue = ParameterKeys.NewValue<float>();
-
-        protected ValueParameter<float>? cellValueUpdater;
+        protected PermutationParameter<float>? cellValueUpdater;
         private EffectInstance defaultSpriteEffect;
         private DrawParameter[] drawParameters;
 
@@ -135,8 +134,9 @@ namespace Maze.Code.Render
             // setup in the original BasicEffect.fx shader.
             if (textureUpdater.HasValue)
                 Effect.Parameters.Set(textureUpdater.Value, parameter.Texture);
-            if (cellValueUpdater.HasValue)
-                Effect.Parameters.Set(cellValueUpdater.Value, parameter.CellValue);
+            
+            //if (cellValueUpdater.HasValue)
+            //    Effect.Parameters.Set(cellValueUpdater.Value, parameter.CellValue);
             Effect.Apply(GraphicsContext);
 
             // Draw the batch of sprites
@@ -147,8 +147,7 @@ namespace Maze.Code.Render
         {
             base.PrepareParameters();
             cellValueUpdater = null;
-            if (Effect.Effect.HasParameter(CellValue))
-                cellValueUpdater = Effect.Parameters.GetAccessor(CellValue);
+            
         }
 
         protected override void FlushBatch()
@@ -188,7 +187,8 @@ namespace Maze.Code.Render
                     drawParameter = drawParameters[index];
                 }
 
-                if (drawParameter.Texture != previousDrawParameter.Texture ||
+                if (previousDrawParameter == null ||
+                    drawParameter.Texture != previousDrawParameter.Texture ||
                     drawParameter.CellValue != previousDrawParameter.CellValue)
                 {
                     if (i > offset)
