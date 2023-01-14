@@ -26,7 +26,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: f84f9dfb-7579-4013-bab3-2311f9817aab:Tile/dungeon
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        CellValue: 0.0
+                        CellValue: 0.6
         -   Entity:
                 Id: 8c61760e-a3e9-42a2-876c-16cb52cf3229
                 Name: Entity

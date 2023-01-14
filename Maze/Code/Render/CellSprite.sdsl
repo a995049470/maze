@@ -1,6 +1,6 @@
 ﻿shader CellSprite : SpriteBase
 {
-    float CellValue;
+    stage float CellValue;
     
     stage override float4 Shading()
     {
@@ -10,12 +10,4 @@
     }
 };
 
-namespace Stride.Rendering
-{
-    partial effect CellSpriteEffect
-    {
-        using params SpriteBaseKeys;
-        using params CellSpriteKeys;
-        mixin CellSprite;
-    };
-}
+

@@ -18,26 +18,6 @@ namespace Stride.Rendering
 {
     public static partial class CellSpriteKeys
     {
-        public static readonly PermutationParameterKey<float> CellValue = ParameterKeys.NewPermutation<float>();
-    }
-}
-namespace Stride.Rendering
-{
-    internal static partial class ShaderMixins
-    {
-        internal partial class CellSpriteEffect  : IShaderMixinBuilder
-        {
-            public void Generate(ShaderMixinSource mixin, ShaderMixinContext context)
-            {
-                context.Mixin(mixin, "CellSprite");
-            }
-
-            [ModuleInitializer]
-            internal static void __Initialize__()
-
-            {
-                ShaderMixinManager.Register("CellSpriteEffect", new CellSpriteEffect());
-            }
-        }
+        public static readonly ValueParameterKey<float> CellValue = ParameterKeys.NewValue<float>();
     }
 }
