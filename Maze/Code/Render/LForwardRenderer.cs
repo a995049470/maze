@@ -42,10 +42,10 @@ namespace Maze.Code.Render
 
         protected override void DrawView(RenderContext context, RenderDrawContext drawContext, int eyeIndex, int eyeCount)
         {
-            if(VisionStage != null)
-            {
-                VisionRenderer?.DrawView(context, drawContext, VisionStage);
-            }
+            //if(VisionStage != null)
+            //{
+            //    VisionRenderer?.DrawView(context, drawContext, VisionStage);
+            //}
             base.DrawView(context, drawContext, eyeIndex, eyeCount);
         }
 

@@ -3,6 +3,6 @@
     partial effect CellSpriteEffect
     {
         using params SpriteBaseKeys;
-        mixin CellSprite;
+        mixin CellSprite<SpriteBaseKeys.ColorIsSRgb>;
     };
 }

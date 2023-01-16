@@ -134,8 +134,8 @@ namespace Maze.Code.Render
             // setup in the original BasicEffect.fx shader.
             if (textureUpdater.HasValue)
                 Effect.Parameters.Set(textureUpdater.Value, parameter.Texture);
-            if (cellValueUpdater.HasValue)
-                Effect.Parameters.Set(cellValueUpdater.Value, parameter.CellValue);
+            //if (cellValueUpdater.HasValue)
+            //    Effect.Parameters.Set(cellValueUpdater.Value, parameter.CellValue);
             Effect.Apply(GraphicsContext);
 
             // Draw the batch of sprites
@@ -146,8 +146,8 @@ namespace Maze.Code.Render
         {
             base.PrepareParameters();
             cellValueUpdater = null;
-            if (Effect.Effect.HasParameter(CellSpriteKeys.CellValue))
-                cellValueUpdater = Effect.Parameters.GetAccessor(CellSpriteKeys.CellValue);
+            //if (Effect.Effect.HasParameter(CellSpriteKeys.CellValue))
+            //    cellValueUpdater = Effect.Parameters.GetAccessor(CellSpriteKeys.CellValue);
             
         }
 

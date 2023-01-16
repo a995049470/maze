@@ -12,60 +12,81 @@ namespace Maze.Code.Render
     {
         private static readonly ProfilingKey Vision = new ProfilingKey(new ProfilingKey("Compositing"), "Vision");
 
-        private Texture visionTex;
-        private Texture dest;
-        private ImageEffectShader test;
-        public int Width = 1280;
-        public int Height = 720;
+        private Texture cellTex;
+        public int CellTexWidth = 1280;
+        public int CellTexHeight = 720;
+
+        private Texture transmittanceTex;
+        public int TransmittanceTexWidth = 1280;
+        public int TransmittanceTexHeight = 720;
+
         public Color3 MyColor = new Color3(0.0f, 1.0f, 1.0f);
         
+        private Texture dest;
+        private ImageEffectShader test;
         
         public VisionRenderer()
         {
             test = new ImageEffectShader("TestImageEffect");
         }
         
-        public void CreateVisionTex(RenderSystem renderSystem, int width, int height)
+        public void CreateTexture(RenderSystem renderSystem, ref Texture tex, int width, int height, PixelFormat pixelFormat, TextureFlags flags)
         {
             bool isNeedCreate = true;
-            if (visionTex != null)
+           
+            if (tex != null)
             {
-                isNeedCreate = visionTex.Width != width || visionTex.Height != height;
+                isNeedCreate = tex.Width != width || tex.Height != height;
                 if (isNeedCreate)
                 {
-                    visionTex.ReleaseData();
-                    visionTex = null;
-                    dest.ReleaseData();
-                    dest = null;
+                    tex.ReleaseData();
+                    tex = null; 
                 }
             }
             if (isNeedCreate)
             {
-                visionTex = Texture.New2D(renderSystem.GraphicsDevice, width, height, PixelFormat.R32_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
-                dest = Texture.New2D(renderSystem.GraphicsDevice, width, height, PixelFormat.R16G16B16A16_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
+                tex = Texture.New2D(renderSystem.GraphicsDevice, width, height, pixelFormat, flags);
             }
         }
 
-        public void DrawView(RenderContext context, RenderDrawContext drawContext, RenderStage visionStage)
+        private void CreateTextures(RenderSystem renderSystem)
+        {
+            CreateTexture(renderSystem, ref cellTex, CellTexWidth, CellTexHeight, PixelFormat.R11G11B10_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
+            CreateTexture(renderSystem, ref transmittanceTex, TransmittanceTexWidth, TransmittanceTexHeight, PixelFormat.R11G11B10_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
+
+        }
+
+
+
+        
+
+        
+
+        public void DrawView(RenderContext context, RenderDrawContext drawContext, RenderStage visionStage, RenderStage transmittanceStage)
         {
             var renderSystem = context.RenderSystem;
-            CreateVisionTex(renderSystem, Width, Height);
-            drawContext.CommandList.ResourceBarrierTransition(visionTex, GraphicsResourceState.RenderTarget);
+            CreateTextures(renderSystem);
+            drawContext.CommandList.ResourceBarrierTransition(cellTex, GraphicsResourceState.RenderTarget);
             using(drawContext.QueryManager.BeginProfile(Color.Yellow, Vision))
-            using(drawContext.PushRenderTargetsAndRestore())
+
+            using (drawContext.PushRenderTargetsAndRestore())
             {
-                drawContext.CommandList.Clear(visionTex, Color4.Black);
-                drawContext.CommandList.SetRenderTarget(null, visionTex);
-                var viewport = new Viewport(0, 0, visionTex.Width, visionTex.Height);
-                drawContext.CommandList.SetViewport(viewport);               
-                renderSystem.Draw(drawContext, context.RenderView, visionStage);
-               
-                //drawContext.CommandList.ResourceBarrierTransition(visionTex, GraphicsResourceState.PixelShaderResource);
-                //test.Parameters.Set(TestImageEffectKeys.MyColor, MyColor);
-                //test.SetInput(visionTex);
-                //test.SetOutput(dest);
-                //test.Draw(drawContext);
+                drawContext.CommandList.Clear(transmittanceTex, Color4.White);
+                drawContext.CommandList.SetRenderTarget(null, transmittanceTex);
+                var viewPort = new Viewport(0, 0, transmittanceTex.Width, transmittanceTex.Height);
+                drawContext.CommandList.SetViewport(viewPort);
+                renderSystem.Draw(drawContext, context.RenderView, transmittanceStage);
             }
+
+            using (drawContext.PushRenderTargetsAndRestore())
+            {
+                drawContext.CommandList.Clear(cellTex, Color4.Black);
+                drawContext.CommandList.SetRenderTarget(null, cellTex);
+                var viewport = new Viewport(0, 0, cellTex.Width, cellTex.Height);
+                drawContext.CommandList.SetViewport(viewport);               
+                renderSystem.Draw(drawContext, context.RenderView, visionStage);                     
+            }
+
         }
         
     }

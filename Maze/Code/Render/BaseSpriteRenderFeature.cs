@@ -290,7 +290,12 @@ namespace Maze.Code.Render
             public EffectInstance GetOrCreateEffect(EffectSystem effectSystem)
             {
                 if (string.IsNullOrEmpty(effectName)) return null;
-                return effect ?? (effect = new EffectInstance(effectSystem.LoadEffect(effectName).WaitForResult()));
+                if(effect == null)
+                {
+                    effect = new EffectInstance(effectSystem.LoadEffect(effectName).WaitForResult());
+                    effect.Parameters.Set(SpriteBaseKeys.ColorIsSRgb, isSrgb);
+                }
+                return effect;
             }
 
             public EffectInstance GetOrCreatePickingSpriteEffect(EffectSystem effectSystem)

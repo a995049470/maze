@@ -29,11 +29,23 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="Code\Render\CellSpriteEffect.sdfx.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Code\Render\CellSprite.sdsl">
       <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
     </None>
+    <None Update="Code\Render\CellSpriteEffect.sdfx">
+      <LastGenOutput>CellSpriteEffect.sdfx.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Code\Render\CellSprite\" />
   </ItemGroup>
 </Project>

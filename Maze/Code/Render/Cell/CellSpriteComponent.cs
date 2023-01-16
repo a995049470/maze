@@ -17,6 +17,6 @@ namespace Maze.Code.Render
     [ComponentCategory("Sprites")]
     public class CellSpriteComponent : SpriteComponent
     {
-        public float CellValue;
+
     }
 }

@@ -1,0 +1,30 @@
+﻿// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ & https://stride3d.net) and Silicon Studio Corp. (https://www.siliconstudio.co.jp)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+shader CellSprite<bool TSRgb> : SpriteBatchShader<TSRgb>
+{
+    //// -------------------------------------
+    //// streams
+    //// -------------------------------------
+    //stage stream float4 Color : COLOR;
+    //stage stream float4 ColorAdd : COLOR1;
+    //stage stream float Swizzle : BATCH_SWIZZLE;
+
+    //// -------------------------------------
+    //// VertexShader
+    //// -------------------------------------
+    //stage override void VSMain()
+    //{
+    //    base.VSMain();
+    //    if (TSRgb)
+    //    {
+    //        streams.Color = ColorUtility.ToLinear(streams.Color);
+    //    }
+    //}
+
+    //// Shading of the sprite
+    stage override float4 Shading()
+    {
+        float4 color = base.Shading();
+        return color.r;
+    }
+};
