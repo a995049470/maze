@@ -24,28 +24,47 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Code\Render\CellSprite.sdsl.cs">
-      <DesignTime>True</DesignTime>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Update="Code\Render\CellSpriteEffect.sdfx.cs">
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="Code\Render\Cell\CellSpriteEffect.sdfx.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Render\Cell\CellSprite.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CellSprite.sdsl</DependentUpon>
+    </Compile>
+    <Compile Update="Code\Render\Tansmittance\TansmittanceSpriteEffect.sdfx.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TansmittanceSpriteEffect.sdfx</DependentUpon>
+    </Compile>
+    <Compile Update="Code\Render\Tansmittance\TansmittanceSprite.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Code\Render\CellSprite.sdsl">
-      <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
-    </None>
-    <None Update="Code\Render\CellSpriteEffect.sdfx">
+    <None Update="Code\Render\Cell\CellSpriteEffect.sdfx">
       <LastGenOutput>CellSpriteEffect.sdfx.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Code\Render\CellSprite\" />
+    <None Update="Code\Render\Cell\CellSprite.sdsl">
+      <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\Tansmittance\TansmittanceSpriteEffect.sdfx">
+      <LastGenOutput>TansmittanceSpriteEffect.sdfx.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\Tansmittance\TansmittanceSprite.sdsl">
+      <LastGenOutput>TansmittanceSprite.sdsl.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>
