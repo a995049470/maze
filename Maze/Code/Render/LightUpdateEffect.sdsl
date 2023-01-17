@@ -1,0 +1,27 @@
+﻿
+namespace Stride.Rendering.Images
+{
+    shader LightUpdateEffect:ImageEffectShader
+    {
+        #define MainTex Texture0
+        #define MainTexSampler Sampler0
+
+        #define LastLightTex Texture1
+        #define LastLightTexSampler Sampler1
+
+        #define CurrentLightTex Texture2
+        #define CurrentLightTexSampler Sampler2
+
+
+        stage override float4 Shading()
+        {
+            float2 uv = streams.TexCoord;
+            float4 color = MainTex.Sample(MainTexSampler, uv);
+            float4 lastLightColor = LastLightTex.Sample(LastLightTexSampler, uv);
+            float4 currentLightColor = CurrentLightTex.Sample(CurrentLightTexSampler, uv);
+            color.rgb = color.rgb - lastLightColor.rgb + currentLightColor.rgb;
+            return color;
+        }
+
+    };
+}

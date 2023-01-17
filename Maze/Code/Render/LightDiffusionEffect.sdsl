@@ -1,0 +1,28 @@
+﻿
+namespace Stride.Rendering.Images
+{
+    shader LightDiffusionEffect:ImageEffectShader
+    {
+        #define MainTex Texture0
+        #define MainTexSampler Sampler0
+        #define MainTexTexelSize Texture0TexelSize
+        #define LightTex Texture1
+        #define LightTexSampler Sampler1
+        #define TransmittanceTex Texture2
+        #define TransmittanceTexSampler Sampler2
+
+        override stage float4 Shading()
+        {
+            float2 uv = streams.TexCoord;
+            float4 color = MainTex.Sample(MainTexSampler, uv);
+            float2 uvs = float2[]
+            {
+                uv + float2(1, 0) * MainTexTexelSize,
+                uv + float2(0, 1) * MainTexTexelSize,
+                uv + float2(-1, 0) * MainTexTexelSize,
+                uv + float2(0, -1) * MainTexTexelSize
+            };
+            return color;
+        }
+    };
+}
