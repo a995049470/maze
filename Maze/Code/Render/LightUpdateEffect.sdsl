@@ -4,13 +4,13 @@ namespace Stride.Rendering.Images
     shader LightUpdateEffect:ImageEffectShader
     {
         #define MainTex Texture0
-        #define MainTexSampler Sampler0
+        #define MainTexSampler PointSampler
 
         #define LastLightTex Texture1
-        #define LastLightTexSampler Sampler1
+        #define LastLightTexSampler PointSampler
 
         #define CurrentLightTex Texture2
-        #define CurrentLightTexSampler Sampler2
+        #define CurrentLightTexSampler PointSampler
 
 
         stage override float4 Shading()
@@ -22,6 +22,5 @@ namespace Stride.Rendering.Images
             color.rgb = color.rgb - lastLightColor.rgb + currentLightColor.rgb;
             return color;
         }
-
     };
 }

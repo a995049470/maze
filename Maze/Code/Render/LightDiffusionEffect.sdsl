@@ -1,27 +1,39 @@
-﻿
+
 namespace Stride.Rendering.Images
 {
     shader LightDiffusionEffect:ImageEffectShader
     {
         #define MainTex Texture0
-        #define MainTexSampler Sampler0
+        #define MainTexSampler PointSampler
         #define MainTexTexelSize Texture0TexelSize
         #define LightTex Texture1
-        #define LightTexSampler Sampler1
+        #define LightTexSampler PointSampler
         #define TransmittanceTex Texture2
-        #define TransmittanceTexSampler Sampler2
+        #define TransmittanceTexSampler PointSampler
 
         override stage float4 Shading()
         {
-            float2 uv = streams.TexCoord;
-            float4 color = MainTex.Sample(MainTexSampler, uv);
-            float2 uvs = float2[]
+            float2 uv0 = streams.TexCoord;
+            float4 c0 = MainTex.Sample(MainTexSampler, uv0);
+            float4 t0 = TransmittanceTex.Sample(TransmittanceTexSampler, uv0);
+            float4 light = LightTex.Sample(LightTexSampler, uv0);
+            float2 uvs[] = 
             {
-                uv + float2(1, 0) * MainTexTexelSize,
-                uv + float2(0, 1) * MainTexTexelSize,
-                uv + float2(-1, 0) * MainTexTexelSize,
-                uv + float2(0, -1) * MainTexTexelSize
-            };
+                uv0 + float2(1, 0) * MainTexTexelSize,
+                uv0 + float2(0, 1) * MainTexTexelSize,
+                uv0 + float2(-1, 0) * MainTexTexelSize,
+                uv0 + float2(0, -1) * MainTexTexelSize
+            };      
+            float4 color = 0;
+            for(int i = 0; i < 4; i++)
+            {   
+                float2 uv = uvs[i];
+                float4 t = TransmittanceTex.Sample(TransmittanceTexSampler, uv) * t0;
+                float4 c = MainTex.Sample(MainTexSampler, uv);
+                color += ((c + c0) * 0.5 - c0) * t + c0;
+            }
+            color *= 0.25;
+            color = max((color - light) * t0, 0) + light;
             return color;
         }
     };

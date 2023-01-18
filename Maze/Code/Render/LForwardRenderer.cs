@@ -19,15 +19,21 @@ namespace Maze.Code.Render
     public class LForwardRenderer : ForwardRenderer
     {
         public RenderStage VisionStage { get; set; }
+        public RenderStage TransmittanceStage { get; set; }
         [NotNull]
         public VisionRenderer VisionRenderer = new VisionRenderer();
+        
 
         protected override void CollectStages(RenderContext context)
         {
             base.CollectStages(context);
             if (VisionStage != null)
             {
-                VisionStage.Output = new RenderOutputDescription(PixelFormat.R32_Float, PixelFormat.D24_UNorm_S8_UInt);
+                VisionStage.Output = new RenderOutputDescription(PixelFormat.R11G11B10_Float);
+            }
+            if(TransmittanceStage != null)
+            {
+                TransmittanceStage.Output = new RenderOutputDescription(PixelFormat.R11G11B10_Float);
             }
         }
 
@@ -42,10 +48,10 @@ namespace Maze.Code.Render
 
         protected override void DrawView(RenderContext context, RenderDrawContext drawContext, int eyeIndex, int eyeCount)
         {
-            //if(VisionStage != null)
-            //{
-            //    VisionRenderer?.DrawView(context, drawContext, VisionStage);
-            //}
+            if(VisionStage != null && TransmittanceStage != null)
+            {
+                VisionRenderer?.DrawView(context, drawContext, VisionStage, TransmittanceStage);
+            }
             base.DrawView(context, drawContext, eyeIndex, eyeCount);
         }
 

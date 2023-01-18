@@ -40,6 +40,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CellSprite.sdsl</DependentUpon>
     </Compile>
+    <Compile Update="Code\Render\LightDiffusionEffect.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Render\LightUpdateEffect.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Code\Render\Tansmittance\TansmittanceSpriteEffect.sdfx.cs">
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -59,6 +69,12 @@
     </None>
     <None Update="Code\Render\Cell\CellSprite.sdsl">
       <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\LightDiffusionEffect.sdsl">
+      <LastGenOutput>LightDiffusionEffect.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\LightUpdateEffect.sdsl">
+      <LastGenOutput>LightUpdateEffect.sdsl.cs</LastGenOutput>
     </None>
     <None Update="Code\Render\Tansmittance\TansmittanceSpriteEffect.sdfx">
       <LastGenOutput>TansmittanceSpriteEffect.sdfx.cs</LastGenOutput>
