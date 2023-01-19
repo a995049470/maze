@@ -11,6 +11,7 @@ using Stride.Rendering;
 using Stride.Graphics;
 using SharpDX.Direct3D11;
 using Stride.Core.Annotations;
+using Stride.Core.Collections;
 
 namespace Maze.Code.Render
 {
@@ -22,7 +23,35 @@ namespace Maze.Code.Render
         public RenderStage TransmittanceStage { get; set; }
         [NotNull]
         public VisionRenderer VisionRenderer = new VisionRenderer();
-        
+        private IVisionSpriteRenderFeature visionSpriteRenderFeature;
+
+        protected override void InitializeCore()
+        {
+            base.InitializeCore();
+            Context.RenderSystem.RenderFeatures.CollectionChanged += OnRenderFeaturesChange;
+        }
+
+        protected override void Destroy()
+        {
+            base.Destroy();
+            Context.RenderSystem.RenderFeatures.CollectionChanged -= OnRenderFeaturesChange;
+        }
+
+        private void OnRenderFeaturesChange(object sender, ref FastTrackingCollectionChangedEventArgs e)
+        {
+            if(e.Item is IVisionSpriteRenderFeature renderFeature)
+            {
+                switch (e.Action)
+                {
+                    case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                        visionSpriteRenderFeature = renderFeature;
+                        break;
+                    case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
+                        if(visionSpriteRenderFeature == renderFeature) visionSpriteRenderFeature = null;
+                        break;                             
+                }
+            }
+        }
 
         protected override void CollectStages(RenderContext context)
         {

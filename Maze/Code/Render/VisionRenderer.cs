@@ -141,7 +141,6 @@ namespace Maze.Code.Render
                     brightnessAltas.Swap();
                 }
 
-
                 lightAltas.Swap();
                 
 
