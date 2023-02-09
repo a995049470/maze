@@ -43,6 +43,10 @@ RenderStages:
         Name: Vision
         EffectSlotName: Vision
         SortMode: !BackToFrontSortMode {}
+    c3d4572f6527f00ea4c6096047e07e2b*:
+        Id: 8a95864f-b96f-40da-8e1d-5bcae9fd9cce
+        Name: Transmittance
+        EffectSlotName: Transmittance
 RenderFeatures:
     d8fb80b0e7995140a46bca8dc36ee8a2: !Stride.Rendering.MeshRenderFeature,Stride.Rendering
         RenderStageSelectors:
@@ -123,10 +127,14 @@ RenderFeatures:
                 EffectName: Test
     33d74acc4442d0f48164c4a79b20af5e*: !Maze.Code.Render.CellSpriteRenderFeature,Maze
         RenderStageSelectors:
-            d2aa6ef1ce77128c8979686076571e1f: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering
-                OpaqueRenderStage: ref!! ea6ab0c2-4ac2-480c-a838-aea239f3bfee
-                TransparentRenderStage: ref!! d7570d20-4d84-4b50-91ba-6604c9dfe958
+            c319b93c692da3d8c6f58d879f0c6740: !Maze.Code.Render.VisionStageSelector,Maze
+                VisionRenderStage: ref!! 6d58b863-d1c8-41d8-80d7-bba11d4682a9
                 EffectName: Test
+    53cbb88ef6f7d393b21530f0b01391a9*: !Maze.Code.Render.TransmittanceSpriteRenderFeature,Maze
+        RenderStageSelectors:
+            6925b22917d6ff09eb4831be1d3e32e1: !Maze.Code.Render.TransmittanceStageSelector,Maze
+                TransmittanceRenderStage: ref!! 8a95864f-b96f-40da-8e1d-5bcae9fd9cce
+                EffectName: Test2
     28e9bf54a5adbe063f59fb17acb2723e: ~(Deleted)
 SharedRenderers:
     60459475d3a3adaf2d1ba5d99913ca75: !Stride.Rendering.Compositing.ForwardRenderer,Stride.Engine
@@ -248,8 +256,11 @@ SharedRenderers:
         VisionRenderer:
             Width: 640
             Height: 360
+            AirTransmittance: 0.99
+            DiffusionCount: 32
             MyColor: {R: 0.875, G: 0.0, B: 1.0}
         VisionStage: ref!! 6d58b863-d1c8-41d8-80d7-bba11d4682a9
+        TransmittanceStage: ref!! 8a95864f-b96f-40da-8e1d-5bcae9fd9cce
 Game: !Stride.Rendering.Compositing.SceneCameraRenderer,Stride.Engine
     Id: 76fe87cf-f574-4ad6-85b8-e9a9586be0e2
     Camera: ref!! 7d54ab15-a371-4bb5-b3ae-b354e9c2717a

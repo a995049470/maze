@@ -73,6 +73,10 @@ namespace Maze.Code.Render
             {
                 context.RenderView.RenderStages.Add(VisionStage);
             }
+            if(TransmittanceStage != null)
+            {
+                context.RenderView.RenderStages.Add(TransmittanceStage);
+            }
         }
 
         protected override void DrawView(RenderContext context, RenderDrawContext drawContext, int eyeIndex, int eyeCount)

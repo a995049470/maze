@@ -290,6 +290,7 @@ namespace Maze.Code.Render
             public EffectInstance GetOrCreateEffect(EffectSystem effectSystem)
             {
                 if (string.IsNullOrEmpty(effectName)) return null;
+                return null;
                 if(effect == null)
                 {
                     effect = new EffectInstance(effectSystem.LoadEffect(effectName).WaitForResult());

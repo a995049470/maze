@@ -1,0 +1,29 @@
+!PrefabAsset
+Id: 6cf1e643-7d24-480e-93a1-0adc021c17d3
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
+    Parts:
+        -   Entity:
+                Id: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
+                Name: Sprite
+                Components:
+                    87e04caee1642eb4a5643d502765673e: !TransformComponent
+                        Id: 98217dc2-de89-4eb8-93af-0f5fef2fb68b
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4a2f2ae6e6fc42ad4b45d76b4b50ad27: !SpriteComponent
+                        Id: 9b0f1e74-81d5-4756-96d4-ce944bb39ca8
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
+                        Id: a782ff5e-34a7-4a33-b9cd-5f8cddb83393
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Intensity: 0.0

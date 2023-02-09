@@ -1,0 +1,16 @@
+!SpriteSheet
+Id: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Type: Sprite2D
+ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+Packing: {}
+Sprites:
+    a00e2ee8e9beedc1d76ca29d90c0703b:
+        Source: !file ../../../Resources/Texture/white.png
+        Name: white
+        TextureRegion: {X: 0, Y: 0, Width: 16, Height: 16}
+        PixelsPerUnit: 16.0
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
