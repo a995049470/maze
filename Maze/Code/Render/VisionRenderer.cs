@@ -12,12 +12,15 @@ namespace Maze.Code.Render
         public Texture BackTexture;
         public Texture CurrentTexture;
 
+        private Texture[] textures = new Texture[2];
+
         public void Swap()
         {
             var temp = BackTexture;
             BackTexture = CurrentTexture;
             CurrentTexture = temp;
-        }
+            
+        }  
     }
 
     [DataContract]
@@ -72,13 +75,18 @@ namespace Maze.Code.Render
 
         private void CreateTextures(RenderSystem renderSystem)
         {
-            CreateTexture(renderSystem, ref lightAltas.BackTexture, Width, Height, PixelFormat.R11G11B10_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
-            CreateTexture(renderSystem, ref lightAltas.CurrentTexture, Width, Height, PixelFormat.R11G11B10_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
-            CreateTexture(renderSystem, ref transmittanceTex, Width, Height, PixelFormat.R11G11B10_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
-            CreateTexture(renderSystem, ref brightnessAltas.CurrentTexture, Width, Height, PixelFormat.R11G11B10_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
-            CreateTexture(renderSystem, ref brightnessAltas.BackTexture, Width, Height, PixelFormat.R11G11B10_Float, TextureFlags.RenderTarget | TextureFlags.ShaderResource);
+            var format = PixelFormat.R16G16B16A16_Float;
+            var flag = TextureFlags.RenderTarget | TextureFlags.ShaderResource;
+            CreateTexture(renderSystem, ref lightAltas.BackTexture, Width, Height, format, flag);
+            CreateTexture(renderSystem, ref lightAltas.CurrentTexture, Width, Height, format, flag);
+            
+            CreateTexture(renderSystem, ref transmittanceTex, Width, Height, format, flag);
+            
+            CreateTexture(renderSystem, ref brightnessAltas.CurrentTexture, Width, Height, format, flag);
+            CreateTexture(renderSystem, ref brightnessAltas.BackTexture, Width, Height, format, flag);
         }
         
+
 
         public void DrawView(RenderContext context, RenderDrawContext drawContext, RenderStage visionStage, RenderStage transmittanceStage)
         {
@@ -144,13 +152,7 @@ namespace Maze.Code.Render
                 lightAltas.Swap();
                 
 
-            }
-            
-            
-
-            
-
-            
+            }                                       
         }
         
     }
