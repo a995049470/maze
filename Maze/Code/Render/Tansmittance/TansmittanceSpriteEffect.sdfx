@@ -1,8 +1,0 @@
-﻿namespace Stride.Rendering
-{
-    partial effect TansmittanceSpriteEffect
-    {
-        using params SpriteBaseKeys;
-        mixin TansmittanceSprite<SpriteBaseKeys.ColorIsSRgb>;
-    };
-}

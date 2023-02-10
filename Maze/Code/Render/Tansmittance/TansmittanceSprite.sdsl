@@ -1,4 +1,0 @@
-﻿shader TansmittanceSprite<bool TSRgb> : SpriteBatchShader<TSRgb>
-{
-    
-};

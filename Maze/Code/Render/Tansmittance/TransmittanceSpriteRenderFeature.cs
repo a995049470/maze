@@ -9,7 +9,7 @@ namespace Maze.Code.Render
 {
     public class TransmittanceSpriteRenderFeature : BaseSpriteRenderFeature<RenderTransmittanceSprite, Sprite3DBatch>
     {
-        protected override string effectName => "CellSpriteRenderFeature";
+        protected override string effectName => "TransmittanceSpriteEffect";
 
         protected override string alphaCutoffEffectName => "";
 

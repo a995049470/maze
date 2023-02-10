@@ -1,0 +1,12 @@
+﻿shader TransmittanceSprite<bool TSRgb> : SpriteBatchShader<TSRgb>
+{
+    
+};
+namespace Stride.Rendering
+{
+    partial effect TransmittanceSpriteEffect
+    {
+        using params SpriteBaseKeys;
+        mixin TransmittanceSprite<SpriteBaseKeys.ColorIsSRgb>;
+    };
+}

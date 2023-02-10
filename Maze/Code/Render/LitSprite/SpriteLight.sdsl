@@ -1,0 +1,6 @@
+﻿shader SpriteLight
+{
+    stage Texture2D SpriteLightTexture;
+    stage float2 SpriteLightTexelSize;
+
+};

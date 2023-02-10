@@ -1,0 +1,23 @@
+﻿shader LitSprite<bool TSRgb> : SpriteBatchShader<TSRgb>, SpriteLight
+{
+    //#define SpriteLightTextureSampler LinearSampler
+    //float3 GetLightColor(float2 uv)
+    //{
+    //    return SpriteLightTexture.Sample(SpriteLightTextureSampler, uv).rgb;
+    //}
+
+    stage override float4 Shading()
+    {
+        float2 screenPos = streams.ShadingPosition.xy / streams.ShadingPosition.w;
+        return base.Shading();
+    }
+};
+
+namespace Stride.Rendering
+{
+    partial effect LitSpriteEffect
+    {
+        using params SpriteBaseKeys;
+        mixin LitSprite<SpriteBaseKeys.ColorIsSRgb>;
+    };
+}

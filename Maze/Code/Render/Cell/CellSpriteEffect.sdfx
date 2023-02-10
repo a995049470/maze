@@ -1,8 +1,0 @@
-﻿namespace Stride.Rendering
-{
-    partial effect CellSpriteEffect
-    {
-        using params SpriteBaseKeys;
-        mixin CellSprite<SpriteBaseKeys.ColorIsSRgb>;
-    };
-}

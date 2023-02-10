@@ -16,20 +16,26 @@ using Buffer = Stride.Graphics.Buffer;
 
 namespace Stride.Rendering
 {
+    public static partial class LitSpriteKeys
+    {
+    }
+}
+namespace Stride.Rendering
+{
     internal static partial class ShaderMixins
     {
-        internal partial class CellSpriteEffect  : IShaderMixinBuilder
+        internal partial class LitSpriteEffect  : IShaderMixinBuilder
         {
             public void Generate(ShaderMixinSource mixin, ShaderMixinContext context)
             {
-                context.Mixin(mixin, "CellSprite", context.GetParam(SpriteBaseKeys.ColorIsSRgb));
+                context.Mixin(mixin, "LitSprite", context.GetParam(SpriteBaseKeys.ColorIsSRgb));
             }
 
             [ModuleInitializer]
             internal static void __Initialize__()
 
             {
-                ShaderMixinManager.Register("CellSpriteEffect", new CellSpriteEffect());
+                ShaderMixinManager.Register("LitSpriteEffect", new LitSpriteEffect());
             }
         }
     }
