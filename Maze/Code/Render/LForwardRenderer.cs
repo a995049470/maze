@@ -12,6 +12,7 @@ using Stride.Graphics;
 using SharpDX.Direct3D11;
 using Stride.Core.Annotations;
 using Stride.Core.Collections;
+using System.Collections.Specialized;
 
 namespace Maze.Code.Render
 {
@@ -23,12 +24,20 @@ namespace Maze.Code.Render
         public RenderStage TransmittanceStage { get; set; }
         [NotNull]
         public VisionRenderer VisionRenderer = new VisionRenderer();
-        private IVisionSpriteRenderFeature visionSpriteRenderFeature;
+            
+        public LForwardRenderer()
+        { 
+        }
 
         protected override void InitializeCore()
         {
             base.InitializeCore();
             Context.RenderSystem.RenderFeatures.CollectionChanged += OnRenderFeaturesChange;
+            foreach (var renderFeature in Context.RenderSystem.RenderFeatures)
+            {
+                var e = new FastTrackingCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, renderFeature, null);
+                OnRenderFeaturesChange(this, ref e);
+            }
         }
 
         protected override void Destroy()
@@ -39,16 +48,14 @@ namespace Maze.Code.Render
 
         private void OnRenderFeaturesChange(object sender, ref FastTrackingCollectionChangedEventArgs e)
         {
-            if(e.Item is IVisionSpriteRenderFeature renderFeature)
+            if(e.Item is ISpriteLitRenderFeature renderFeature)
             {
                 switch (e.Action)
                 {
                     case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
-                        visionSpriteRenderFeature = renderFeature;
+                        renderFeature.SetVisionRender(VisionRenderer);
                         break;
-                    case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
-                        if(visionSpriteRenderFeature == renderFeature) visionSpriteRenderFeature = null;
-                        break;                             
+                            
                 }
             }
         }

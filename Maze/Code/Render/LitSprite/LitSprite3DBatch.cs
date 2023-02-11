@@ -11,16 +11,19 @@ namespace Maze.Code.Render
 {
     public class LitSprite3DBatch : Sprite3DBatch
     {
-        private Texture spriteLightTexture;   
-        public LitSprite3DBatch(GraphicsDevice device, int bufferElementCount = 1024, int batchCapacity = 64) : base(device, bufferElementCount, batchCapacity)
+        
+        private VisionRenderer visionRender;
+        public LitSprite3DBatch(GraphicsDevice device, VisionRenderer renderer, int bufferElementCount = 1024, int batchCapacity = 64) : base(device, bufferElementCount, batchCapacity)
         {
+            visionRender = renderer;
         }
 
         protected override void PrepareForRendering()
         {
-            if(spriteLightTexture != null)
+            var lightTex = visionRender?.GetLightTexture();
+            if(lightTex != null)
             {
-                Parameters.Set(SpriteLightKeys.SpriteLightTexture, spriteLightTexture);
+                Parameters.Set(SpriteLightKeys.SpriteLightTexture, lightTex);
             }
             base.PrepareForRendering();
         }

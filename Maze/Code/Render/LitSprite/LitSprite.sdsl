@@ -1,16 +1,27 @@
-﻿shader LitSprite<bool TSRgb> : SpriteBatchShader<TSRgb>, SpriteLight
+﻿shader LitSprite<bool TSRgb> : SpriteBatchShader<TSRgb>, SpriteLight, ScreenPositionBase
 {
-    //#define SpriteLightTextureSampler LinearSampler
-    //float3 GetLightColor(float2 uv)
-    //{
-    //    return SpriteLightTexture.Sample(SpriteLightTextureSampler, uv).rgb;
-    //}
+    #define SpriteLightTextureSampler LinearSampler
+    float3 GetLightColor(float2 uv)
+    {
+        return SpriteLightTexture.Sample(SpriteLightTextureSampler, uv).rgb;
+    }
+
+    float2 GetScreenCoords()
+    {
+        float2 screenCoords = (streams.ScreenPosition.xy) * float2(0.5, 0.5) + float2(0.5, 0.5);
+        screenCoords.y = 1 - screenCoords.y;
+        return screenCoords;
+    }
 
     stage override float4 Shading()
     {
-        float2 screenPos = streams.ShadingPosition.xy / streams.ShadingPosition.w;
-        return base.Shading();
+        float2 screenCoords = GetScreenCoords();
+        float4 color = base.Shading();
+        float3 lightColor = GetLightColor(screenCoords);
+        color.rgb *= lightColor.rgb;
+        return color;
     }
+
 };
 
 namespace Stride.Rendering

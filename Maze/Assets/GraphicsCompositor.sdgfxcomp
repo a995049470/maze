@@ -119,12 +119,6 @@ RenderFeatures:
                 TransparentRenderStage: ref!! d7570d20-4d84-4b50-91ba-6604c9dfe958
                 EffectName: null
         PipelineProcessors: {}
-    7b71abfaf398794fbd31ae07a5b2e582*: !Stride.Rendering.Sprites.SpriteRenderFeature,Stride.Rendering
-        RenderStageSelectors:
-            1dac5640c2751fc580b325074a95a3e5: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering
-                OpaqueRenderStage: ref!! ea6ab0c2-4ac2-480c-a838-aea239f3bfee
-                TransparentRenderStage: ref!! d7570d20-4d84-4b50-91ba-6604c9dfe958
-                EffectName: Test
     33d74acc4442d0f48164c4a79b20af5e*: !Maze.Code.Render.CellSpriteRenderFeature,Maze
         RenderStageSelectors:
             c319b93c692da3d8c6f58d879f0c6740: !Maze.Code.Render.VisionStageSelector,Maze
@@ -135,6 +129,12 @@ RenderFeatures:
             6925b22917d6ff09eb4831be1d3e32e1: !Maze.Code.Render.TransmittanceStageSelector,Maze
                 TransmittanceRenderStage: ref!! 8a95864f-b96f-40da-8e1d-5bcae9fd9cce
                 EffectName: Test2
+    937e9a8882386a5aa24ff12bab77408a*: !Maze.Code.Render.LitSpriteRenderFeature,Maze
+        RenderStageSelectors:
+            290f41d57ce06bba78fd2d41bfa343f9: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering
+                OpaqueRenderStage: ref!! ea6ab0c2-4ac2-480c-a838-aea239f3bfee
+                TransparentRenderStage: ref!! d7570d20-4d84-4b50-91ba-6604c9dfe958
+                EffectName: Test
     28e9bf54a5adbe063f59fb17acb2723e: ~(Deleted)
 SharedRenderers:
     60459475d3a3adaf2d1ba5d99913ca75: !Stride.Rendering.Compositing.ForwardRenderer,Stride.Engine

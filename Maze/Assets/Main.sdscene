@@ -15,6 +15,11 @@ Hierarchy:
         - ref!! 4c3cdcd8-3994-43b9-9e15-3854b11940e8
         - ref!! c2a52b58-ce2b-4bf0-bba1-2cd503b11b9b
         - ref!! e6b301c4-d6e5-459d-8296-176d14d40eea
+        - ref!! e925a9ac-9a56-48e7-b71b-3abc031c379d
+        - ref!! 0e29886a-c05a-4b17-aefd-499934e86366
+        - ref!! f5ed7b42-929e-48fd-adb0-38fdafabacce
+        - ref!! 2e0e60f9-c252-4606-bc8a-5338bced28b7
+        - ref!! b4916447-288e-43a6-89ae-27dd3876af0e
     Parts:
         -   Folder: null
             Entity:
@@ -52,6 +57,27 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             8876a2ab557bed741fe6b46779997182: ref!! d9df375e-0f1f-4233-939c-9bc52fb36063
+        -   Folder: Light
+            Entity:
+                Id: 0e29886a-c05a-4b17-aefd-499934e86366
+                Name: Wall
+                Components:
+                    fe8a97cafe6165ec5649cf7966b69e1c: !TransformComponent
+                        Id: fc32abdd-b663-4c49-bfb4-2ec4496e7074
+                        Position: {X: 0.684062, Y: 0.961239, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.47330227, W: 0.8809001}
+                        Scale: {X: 0.69577056, Y: 0.1, Z: 0.1}
+                        Children: {}
+                    fe105b06c71726e199708152906eebad: !SpriteComponent
+                        Id: 56f875e3-e15d-40b5-a50d-bd26a6a6b917
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 0.0, B: 0.0, A: 1.0}
+                    7624d55397beff3c0ce2b0c6643de474: !TransmittanceSpriteComponent
+                        Id: 6c93b80a-2696-4427-8944-cc16d4d382f4
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 0.0, B: 0.0, A: 1.0}
         -   Entity:
                 Id: 11e414aa-b428-47c2-b76e-a0abd67c9271
                 Name: Sprite
@@ -137,6 +163,27 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             8876a2ab557bed741fe6b46779997182: ref!! e70933a1-a2d5-4bf1-b658-5ff5c3881138
+        -   Folder: Light
+            Entity:
+                Id: 2e0e60f9-c252-4606-bc8a-5338bced28b7
+                Name: Wall
+                Components:
+                    fe8a97cafe6165ec5649cf7966b69e1c: !TransformComponent
+                        Id: 8e6baf35-7c44-4cf0-a47b-ba4731b7726d
+                        Position: {X: 0.85711825, Y: 0.55339223, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.99990666, W: 0.013667572}
+                        Scale: {X: 0.69577056, Y: 0.1, Z: 0.1}
+                        Children: {}
+                    fe105b06c71726e199708152906eebad: !SpriteComponent
+                        Id: ea1d6b43-277c-4423-a9b1-23a97db8896f
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 0.0, G: 0.0, B: 1.0, A: 1.0}
+                    7624d55397beff3c0ce2b0c6643de474: !TransmittanceSpriteComponent
+                        Id: 2cfa1f29-1a09-4f6f-aa95-cb0570652028
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 0.0, G: 0.0, B: 1.0, A: 1.0}
         -   Entity:
                 Id: 39467f61-5db2-454d-bbc4-96b231863b15
                 Name: Sprite
@@ -476,6 +523,21 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             8876a2ab557bed741fe6b46779997182: ref!! d0fc3ee1-a9dc-4ba5-97c3-94de3537f270
+        -   Entity:
+                Id: b4916447-288e-43a6-89ae-27dd3876af0e
+                Name: Sprite
+                Components:
+                    1efe3bf9208e5f62887009a501764c6b: !TransformComponent
+                        Id: 614e86f9-e7cc-4f6e-b461-df95a8233f8e
+                        Position: {X: -1.0443076, Y: 0.5258259, Z: -10.098076}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 8.513297, Y: 7.05445, Z: 0.8334914}
+                        Children: {}
+                    a020de89a6db5c8f4d8768ba93ca96ba: !SpriteComponent
+                        Id: 952d0d30-f3b1-405f-897e-f5db7d8a378b
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
         -   Folder: null
             Entity:
                 Id: b8cf7844-67f3-49fd-9215-cc463e3bbb9d
@@ -682,7 +744,7 @@ Hierarchy:
                 Components:
                     fe8a97cafe6165ec5649cf7966b69e1c: !TransformComponent
                         Id: 8aea3de0-4834-4e0c-8c9e-f68571496bc5
-                        Position: {X: -0.6539474, Y: 0.73733294, Z: 0.0}
+                        Position: {X: 0.116186574, Y: -0.61040086, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 0.1, Y: 0.1, Z: 0.1}
                         Children: {}
@@ -697,6 +759,28 @@ Hierarchy:
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 0.0, G: 1.0, B: 0.0, A: 1.0}
                         Intensity: 4096.0
+        -   Folder: Light
+            Entity:
+                Id: e925a9ac-9a56-48e7-b71b-3abc031c379d
+                Name: Light
+                Components:
+                    fe8a97cafe6165ec5649cf7966b69e1c: !TransformComponent
+                        Id: b1a3b66e-b59c-43e2-a706-6a2533db9b54
+                        Position: {X: 0.88658565, Y: 0.8634661, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.1, Y: 0.1, Z: 0.1}
+                        Children: {}
+                    fe105b06c71726e199708152906eebad: !SpriteComponent
+                        Id: d499c7c3-5a37-402c-9023-696c73754bc1
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                    4be9818b0ba54b9f60b8335bb8c1306e: !CellSpriteComponent
+                        Id: 66699fe6-1d9c-42f3-b742-ab35e9f35b40
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Intensity: 32.0
         -   Entity:
                 Id: ebc47798-6398-4ca1-bca9-a4f9e52471c5
                 Name: Sprite
@@ -772,6 +856,27 @@ Hierarchy:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
                 InstanceId: bdb4e1f3-ab90-4ad7-868f-f596b5abac0f
+        -   Folder: Light
+            Entity:
+                Id: f5ed7b42-929e-48fd-adb0-38fdafabacce
+                Name: Wall
+                Components:
+                    fe8a97cafe6165ec5649cf7966b69e1c: !TransformComponent
+                        Id: 14021267-0008-4ad5-a5c1-76fed69e0b2a
+                        Position: {X: 1.1133217, Y: 0.9342934, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.8454404, W: 0.5340698}
+                        Scale: {X: 0.69577056, Y: 0.1, Z: 0.1}
+                        Children: {}
+                    fe105b06c71726e199708152906eebad: !SpriteComponent
+                        Id: 6049d129-96bb-48cf-87e0-4566087b5adb
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 0.0, G: 1.0, B: 0.0, A: 1.0}
+                    7624d55397beff3c0ce2b0c6643de474: !TransmittanceSpriteComponent
+                        Id: 28aca5e1-76a4-4f98-a6b8-56ab16157a23
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 0.0, G: 1.0, B: 0.0, A: 1.0}
         -   Folder: Map
             Entity:
                 Id: f6dc6d1a-a7ad-4ba3-bcdc-a4447a5398ef
