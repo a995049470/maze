@@ -3,37 +3,70 @@ namespace Stride.Rendering.Images
 {
     shader LightDiffusionEffect:ImageEffectShader
     {
+        #define TexelSize Texture0TexelSize
+
         #define MainTex Texture0
         #define MainTexSampler PointSampler
-        #define MainTexTexelSize Texture0TexelSize
         #define LightTex Texture1
         #define LightTexSampler PointSampler
         #define TransmittanceTex Texture2
         #define TransmittanceTexSampler PointSampler
+        #define LightDirTex Texture3
+        #define LightDirTexSampler PointSampler
 
         override stage float4 Shading()
         {
             float2 uv0 = streams.TexCoord;
             float4 c0 = MainTex.Sample(MainTexSampler, uv0);
             float4 t0 = TransmittanceTex.Sample(TransmittanceTexSampler, uv0);
+            float2 dir0 = LightDirTex.Sample(LightDirTexSampler, uv0).rg;
             float4 light = LightTex.Sample(LightTexSampler, uv0);
+            float num = 8;
             float2 uvs[] = 
             {
-                uv0 + float2(1, 0) * MainTexTexelSize,
-                uv0 + float2(0, 1) * MainTexTexelSize,
-                uv0 + float2(-1, 0) * MainTexTexelSize,
-                uv0 + float2(0, -1) * MainTexTexelSize
+                uv0 + float2(1, 0) * TexelSize,
+                uv0 + float2(0, 1) * TexelSize,
+                uv0 + float2(-1, 0) * TexelSize,
+                uv0 + float2(0, -1) * TexelSize,
+                uv0 + float2(1, 1) * TexelSize,
+                uv0 + float2(-1, 1) * TexelSize,
+                uv0 + float2(1, -1) * TexelSize,
+                uv0 + float2(-1, -1) * TexelSize,
+
             };      
+            float2 dirs[] = 
+            {
+                float2(-1, 0),
+                float2(0, -1),
+                float2(1, 0),
+                float2(0, 1),
+                float2(-0.7071, -0.7071),
+                float2(0.7071, -0.7071),
+                float2(-0.7071, 0.7071),
+                float2(0.7071, 0.7071)
+            };
             float4 color = 0;
-            for(int i = 0; i < 4; i++)
+            float sumWeghit = length(t0);
+            float2 sumDir = sumWeghit * dir0;
+            for(int i = 0; i < num; i++)
             {   
                 float2 uv = uvs[i];
+                float2 dir = dirs[i];
+                float2 cellDir = LightDirTex.Sample(LightDirTexSampler, uv).rg;
+                bool isLight = length(LightTex.Sample(LightTexSampler, uv)) > 1;
+                float dirDotDir = isLight ? 1 : saturate(dot(cellDir, dir));
                 float4 t = TransmittanceTex.Sample(TransmittanceTexSampler, uv) * t0;
                 float4 c = MainTex.Sample(MainTexSampler, uv);
-                color += ((c + c0) * 0.5 - c0) * t + c0;
+                float4 dif = ((c + c0) * 0.5 - c0) * t;
+                float weight = length(dif);
+            
+                sumWeghit += weight;
+                sumDir += weight * dir;
+                color += dif + c0;
             }
-            color *= 0.25;
+            color /= num;
             color = max((color - light) * t0, 0) + light;
+            streams.ColorTarget1 = float4(normalize(sumDir / sumWeghit), 0, 0);
             return color;
         }
     };

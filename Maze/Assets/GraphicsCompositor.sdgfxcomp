@@ -254,8 +254,8 @@ SharedRenderers:
         MSAAResolver:
             FilterRadius: 1.702
         VisionRenderer:
-            Width: 640
-            Height: 360
+            Width: 320
+            Height: 180
             AirTransmittance: 0.99
             DiffusionCount: 32
             MyColor: {R: 0.875, G: 0.0, B: 1.0}

@@ -126,6 +126,18 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             8876a2ab557bed741fe6b46779997182: ref!! a5454cd4-dd9e-4478-bb4f-be1beeec17cc
+        -   Folder: null
+            Entity:
+                Id: 240c6415-cee5-4264-a37f-0f78aebd7928
+                Name: Block
+                Components:
+                    d66b6e0a68bb12f6a7485d5f4799ae41: !TransformComponent
+                        Id: 95c28fe6-e312-4e4f-870d-e786d5a721a3
+                        Position: {X: -1.0452815, Y: -0.761421, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.7117918, W: 0.7023905}
+                        Scale: {X: 0.11748964, Y: 0.431715, Z: 0.35505655}
+                        Children:
+                            8876a2ab557bed741fe6b46779997182: ref!! 39361735-01cc-4f05-98e3-7dfc45e584fe
         -   Entity:
                 Id: 24d7b078-e18c-4eb6-a367-993244d5cec2
                 Name: Sprite
@@ -475,6 +487,7 @@ Hierarchy:
                         Children:
                             28e9eb1761637d02c5f57589e7887b7e: ref!! 547f0d39-73b3-4d45-8cdf-5765fa5180ce
                             6683f0d626ab5476a5e392fc30651499: ref!! 3748a085-9cd3-434c-b1f4-7cdf739d0ac2
+                            7e91b94d8ad060b6a9e5ecc1b4db0b88: ref!! 95c28fe6-e312-4e4f-870d-e786d5a721a3
         -   Folder: null
             Entity:
                 Id: a2fe6360-7ed3-453a-a32e-a421e8c0705c
@@ -529,7 +542,7 @@ Hierarchy:
                 Components:
                     1efe3bf9208e5f62887009a501764c6b: !TransformComponent
                         Id: 614e86f9-e7cc-4f6e-b461-df95a8233f8e
-                        Position: {X: -1.0443076, Y: 0.5258259, Z: -10.098076}
+                        Position: {X: 0.030625701, Y: 0.5258259, Z: -10.098076}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 8.513297, Y: 7.05445, Z: 0.8334914}
                         Children: {}
@@ -562,6 +575,31 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             8876a2ab557bed741fe6b46779997182: ref!! 188c6200-97d3-4823-9c05-54fc9b7e1b64
+        -   Entity:
+                Id: bbadfc3d-1be2-43ca-a744-face1a25a6d9
+                Name: Sprite
+                Components:
+                    87e04caee1642eb4a5643d502765673e: !TransformComponent
+                        Id: 39361735-01cc-4f05-98e3-7dfc45e584fe
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4a2f2ae6e6fc42ad4b45d76b4b50ad27: !SpriteComponent
+                        Id: 99379338-d648-4809-a481-d2c405b9fa6b
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
+                        Id: 2a16d062-e0e4-47fb-b3b9-1e8c803bb593
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Intensity: 0.0
+            Base:
+                BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
+                BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
+                InstanceId: bdb134f2-2130-4e83-803a-50f43df1d2d8
         -   Folder: null
             Entity:
                 Id: bcf83b83-b55a-4017-b28a-b3e7da3324cc
@@ -595,7 +633,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 0.0, B: 0.0, A: 1.0}
-                        Intensity: 4096.0
+                        Intensity: 65536.0
         -   Entity:
                 Id: c42845e6-d1db-4721-a616-647928e63d0b
                 Name: Sprite

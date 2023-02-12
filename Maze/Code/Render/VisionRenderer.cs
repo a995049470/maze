@@ -7,7 +7,7 @@ using Stride.Rendering.Images;
 
 namespace Maze.Code.Render
 {
-    public class LightAltas
+    public class TextureBuffer
     {
         public Texture BackTexture;
         public Texture CurrentTexture;
@@ -30,8 +30,9 @@ namespace Maze.Code.Render
 
         public int Width = 320;
         public int Height = 180;
-        private LightAltas pixelLightAltas;
-        private LightAltas brightnessAltas;
+        private TextureBuffer pixelLightBuffer;
+        private TextureBuffer brightnessBuffer;
+        private TextureBuffer lightDirBuffer;
         private Texture transmittanceTex;   
 
         public float AirTransmittance = 0.99f;
@@ -50,8 +51,9 @@ namespace Maze.Code.Render
         {
             lightUpdateEffect = new ImageEffectShader("LightUpdateEffect");
             lightDiffusionEffect = new ImageEffectShader("LightDiffusionEffect");
-            pixelLightAltas = new LightAltas();
-            brightnessAltas = new LightAltas();
+            pixelLightBuffer = new TextureBuffer();
+            brightnessBuffer = new TextureBuffer();
+            lightDirBuffer = new TextureBuffer();
         }
         
         public void CreateTexture(RenderSystem renderSystem, ref Texture tex, int width, int height, PixelFormat pixelFormat, TextureFlags flags)
@@ -77,18 +79,22 @@ namespace Maze.Code.Render
         {
             var format = PixelFormat.R16G16B16A16_Float;
             var flag = TextureFlags.RenderTarget | TextureFlags.ShaderResource;
-            CreateTexture(renderSystem, ref pixelLightAltas.BackTexture, Width, Height, format, flag);
-            CreateTexture(renderSystem, ref pixelLightAltas.CurrentTexture, Width, Height, format, flag);
+            var dirFormat = PixelFormat.R32G32_Float;
+            CreateTexture(renderSystem, ref pixelLightBuffer.BackTexture, Width, Height, format, flag);
+            CreateTexture(renderSystem, ref pixelLightBuffer.CurrentTexture, Width, Height, format, flag);
             
             CreateTexture(renderSystem, ref transmittanceTex, Width, Height, format, flag);
             
-            CreateTexture(renderSystem, ref brightnessAltas.CurrentTexture, Width, Height, format, flag);
-            CreateTexture(renderSystem, ref brightnessAltas.BackTexture, Width, Height, format, flag);
+            CreateTexture(renderSystem, ref brightnessBuffer.CurrentTexture, Width, Height, format, flag);
+            CreateTexture(renderSystem, ref brightnessBuffer.BackTexture, Width, Height, format, flag);
+
+            CreateTexture(renderSystem, ref lightDirBuffer.CurrentTexture, Width, Height, dirFormat, flag);
+            CreateTexture(renderSystem, ref lightDirBuffer.BackTexture, Width, Height, dirFormat, flag);
         }
         
         public Texture GetLightTexture()
         {
-            return brightnessAltas.CurrentTexture;
+            return brightnessBuffer.CurrentTexture;
         }
 
 
@@ -110,50 +116,56 @@ namespace Maze.Code.Render
                 renderSystem.Draw(drawContext, context.RenderView, transmittanceStage);
             
                 //渲染格子亮度       
-                drawContext.CommandList.ResourceBarrierTransition(pixelLightAltas.CurrentTexture, GraphicsResourceState.RenderTarget);
-                drawContext.CommandList.Clear(pixelLightAltas.CurrentTexture, Color4.Black);
-                drawContext.CommandList.SetRenderTarget(null, pixelLightAltas.CurrentTexture);
-                var viewport = new Viewport(0, 0, pixelLightAltas.CurrentTexture.Width, pixelLightAltas.CurrentTexture.Height);
+                drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.RenderTarget);
+                drawContext.CommandList.Clear(pixelLightBuffer.CurrentTexture, Color4.Black);
+                drawContext.CommandList.SetRenderTarget(null, pixelLightBuffer.CurrentTexture);
+                var viewport = new Viewport(0, 0, pixelLightBuffer.CurrentTexture.Width, pixelLightBuffer.CurrentTexture.Height);
                 drawContext.CommandList.SetViewport(viewport);               
                 renderSystem.Draw(drawContext, context.RenderView, visionStage);
 
 
                 //先重新计算一下灯光
-                drawContext.CommandList.ResourceBarrierTransition(pixelLightAltas.CurrentTexture, GraphicsResourceState.PixelShaderResource);
-                drawContext.CommandList.ResourceBarrierTransition(pixelLightAltas.BackTexture, GraphicsResourceState.PixelShaderResource);
+                drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
+                drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.BackTexture, GraphicsResourceState.PixelShaderResource);
+                drawContext.CommandList.ResourceBarrierTransition(lightDirBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
 
-                drawContext.CommandList.ResourceBarrierTransition(brightnessAltas.CurrentTexture, GraphicsResourceState.PixelShaderResource);
-                drawContext.CommandList.ResourceBarrierTransition(brightnessAltas.BackTexture, GraphicsResourceState.RenderTarget);
+                drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
+                drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.BackTexture, GraphicsResourceState.RenderTarget);
+                drawContext.CommandList.ResourceBarrierTransition(lightDirBuffer.BackTexture, GraphicsResourceState.RenderTarget);
 
-                lightUpdateEffect.SetInput(0, brightnessAltas.CurrentTexture);
-                lightUpdateEffect.SetInput(1, pixelLightAltas.BackTexture);
-                lightUpdateEffect.SetInput(2, pixelLightAltas.CurrentTexture);
-                lightUpdateEffect.SetOutput(brightnessAltas.BackTexture);
-                lightUpdateEffect.SetViewport(new Viewport(0, 0, brightnessAltas.BackTexture.Width, brightnessAltas.BackTexture.Height));
+                lightUpdateEffect.SetInput(0, brightnessBuffer.CurrentTexture);
+                lightUpdateEffect.SetInput(1, pixelLightBuffer.BackTexture);
+                lightUpdateEffect.SetInput(2, pixelLightBuffer.CurrentTexture);
+                lightUpdateEffect.SetOutput(brightnessBuffer.BackTexture);
+                lightUpdateEffect.SetViewport(new Viewport(0, 0, brightnessBuffer.BackTexture.Width, brightnessBuffer.BackTexture.Height));
                 lightUpdateEffect.Draw(drawContext);
-                brightnessAltas.Swap();
+                brightnessBuffer.Swap();
 
                 //然后灯光扩散
                 int diffusionCount = MathUtil.Clamp(DiffusionCount, 0, maxDiffusionCount);
 
                 for (int i = 0; i < diffusionCount; i++)
                 {
-                    drawContext.CommandList.ResourceBarrierTransition(pixelLightAltas.CurrentTexture, GraphicsResourceState.PixelShaderResource);
+                    drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
                     drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.PixelShaderResource);
+                    drawContext.CommandList.ResourceBarrierTransition(lightDirBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
 
-                    drawContext.CommandList.ResourceBarrierTransition(brightnessAltas.CurrentTexture, GraphicsResourceState.PixelShaderResource);
-                    drawContext.CommandList.ResourceBarrierTransition(brightnessAltas.BackTexture, GraphicsResourceState.RenderTarget);
+                    drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
+                    drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.BackTexture, GraphicsResourceState.RenderTarget);
+                    drawContext.CommandList.ResourceBarrierTransition(lightDirBuffer.BackTexture, GraphicsResourceState.RenderTarget);
 
-                    lightDiffusionEffect.SetInput(0, brightnessAltas.CurrentTexture);
-                    lightDiffusionEffect.SetInput(1, pixelLightAltas.CurrentTexture);
+                    lightDiffusionEffect.SetInput(0, brightnessBuffer.CurrentTexture);
+                    lightDiffusionEffect.SetInput(1, pixelLightBuffer.CurrentTexture);
                     lightDiffusionEffect.SetInput(2, transmittanceTex);
-                    lightDiffusionEffect.SetOutput(brightnessAltas.BackTexture);
-                    lightDiffusionEffect.SetViewport(new Viewport(0, 0, brightnessAltas.BackTexture.Width, brightnessAltas.BackTexture.Height));
+                    lightDiffusionEffect.SetInput(3, lightDirBuffer.CurrentTexture);
+                    lightDiffusionEffect.SetOutput(brightnessBuffer.BackTexture, lightDirBuffer.BackTexture);
+                    lightDiffusionEffect.SetViewport(new Viewport(0, 0, brightnessBuffer.BackTexture.Width, brightnessBuffer.BackTexture.Height));
                     lightDiffusionEffect.Draw(drawContext);
-                    brightnessAltas.Swap();
+                    brightnessBuffer.Swap();
+                    lightDirBuffer.Swap();
                 }
 
-                pixelLightAltas.Swap();
+                pixelLightBuffer.Swap();
                 
 
             }                                       
