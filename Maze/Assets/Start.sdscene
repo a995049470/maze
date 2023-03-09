@@ -1,0 +1,41 @@
+!SceneAsset
+Id: 775cc5b1-cea3-4d6d-a0ec-df63bd80a7a2
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! cb952962-4f7c-4dd5-835e-779f366da48a
+        - ref!! b076566c-a2a6-4e2d-b674-d5215bfd9379
+    Parts:
+        -   Entity:
+                Id: b076566c-a2a6-4e2d-b674-d5215bfd9379
+                Name: Camera
+                Components:
+                    3be41925fd0606b4deecf7d324c7546c: !TransformComponent
+                        Id: 08f46030-22af-4e19-9dbb-37e89e41c827
+                        Position: {X: 0.0, Y: 0.0, Z: 10.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e8cf92a5c3152c88edf51bd15475e7c9: !CameraComponent
+                        Id: 55584d1a-c5c6-4b11-b94d-a16ea1480da6
+                        Name: null
+                        Projection: Orthographic
+                        Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a
+        -   Entity:
+                Id: cb952962-4f7c-4dd5-835e-779f366da48a
+                Name: Entity
+                Components:
+                    578469cffa76e5c37b1321130f600668: !TransformComponent
+                        Id: faf94763-8d5b-4c65-ad7f-9c9b2ee493ec
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    51ed7a699fdae46bbaa758b3b35c171f: !Maze.Map.Level,Maze
+                        Id: cd1fb850-e4b6-48f1-b364-29225336a1fa
+                        Camera: null
+                        JsonAssetUrl: Level/dungeon
+                        levelId: null

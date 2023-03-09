@@ -129,12 +129,12 @@ RenderFeatures:
             6925b22917d6ff09eb4831be1d3e32e1: !Maze.Code.Render.TransmittanceStageSelector,Maze
                 TransmittanceRenderStage: ref!! 8a95864f-b96f-40da-8e1d-5bcae9fd9cce
                 EffectName: Test2
-    937e9a8882386a5aa24ff12bab77408a*: !Maze.Code.Render.LitSpriteRenderFeature,Maze
+    6ebdea13eafef63ce6cf66f1d1f593e1*: !Stride.Rendering.Sprites.SpriteRenderFeature,Stride.Rendering
         RenderStageSelectors:
-            290f41d57ce06bba78fd2d41bfa343f9: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering
+            44e54f4e9ee485d62ef5a051613b7a9b: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering
                 OpaqueRenderStage: ref!! ea6ab0c2-4ac2-480c-a838-aea239f3bfee
                 TransparentRenderStage: ref!! d7570d20-4d84-4b50-91ba-6604c9dfe958
-                EffectName: Test
+                EffectName: test
     28e9bf54a5adbe063f59fb17acb2723e: ~(Deleted)
 SharedRenderers:
     60459475d3a3adaf2d1ba5d99913ca75: !Stride.Rendering.Compositing.ForwardRenderer,Stride.Engine
@@ -195,7 +195,7 @@ SharedRenderers:
             FogStart: 10.0
             SkipBackground: false
         AmbientOcclusion:
-            Enabled*: true
+            Enabled*: false
         LocalReflections:
             Enabled: false
             ResolvePassResolution: Full
