@@ -12,6 +12,7 @@ using System.Text;
 using System;
 using Stride.Core.Collections;
 using ServiceWire;
+using Maze.Code.Map;
 
 namespace Maze.Map
 {
@@ -36,6 +37,7 @@ namespace Maze.Map
         private float lastUpdateTime;
         public float DeltaTime { get=> (float)Game.UpdateTime.Elapsed.TotalSeconds; }
         public int FrameCount { get => Game.UpdateTime.FrameCount; }
+        private const float gap = 0.1f;
         public void AddElement(int x, int y, IElement element)
         {
             //TODO:可能需要越界检查
@@ -63,47 +65,61 @@ namespace Maze.Map
             AddElement(targetPos.X, targetPos.Y, element);
         }
 
+
+
+        private Entity CreateEntity(string assetUrl, int layer, int frameIndex, Int2 pos, bool isWalkable)
+        {
+            var entity = new Entity();
+            SceneSystem.SceneInstance.RootScene.Entities.Add(entity);
+            
+            Entity.Transform.Position = new Vector3(pos.X, pos.Y, gap * layer);
+
+            var mapElement = new MapElement();
+            mapElement.Pos = pos;
+            mapElement.IsWalkable = isWalkable;
+            mapElement.Layer = layer;
+            entity.Add(mapElement);
+
+            var sheet = Content.Load<SpriteSheet>(assetUrl);
+            var spriteComponent = Entity.GetOrCreate<SpriteComponent>();
+            spriteComponent.Sampler = SpriteSampler.PointClamp;
+            if (spriteComponent.SpriteProvider is SpriteFromSheet spriteSheet)
+            {
+                spriteSheet.Sheet = sheet;
+                spriteSheet.CurrentFrame = frameIndex;
+                
+                Log.Info($"{Entity.Transform.Position} {assetUrl} {frameIndex}");
+            }
+            return entity;
+        }
+
         private void CreateTile(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId, bool isWalkable = true)
         {
-            var staticData = new StaticData_Tile();
-            staticData.AssetUrl = assetUrl;
-            staticData.Layer = layer;
-            staticData.FrameIndex = frameIndex;
-            staticData.IsWalkable = isWalkable;
-            var dynamicData = new DynamicData_Tile();
-            dynamicData.Pos = pos;
-            var tile = new TileElement(staticData, dynamicData);
-            tile.SetLevel(this);
-            AddElement(gridId.X, gridId.Y, tile);
+            CreateEntity(assetUrl, layer, frameIndex, pos, isWalkable);
         }
+
+       
 
         private void CreatePlayer(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId)
         {
-            var staticData = new StaticData_Unit();
-            staticData.AssetUrl = assetUrl;
-            staticData.Layer = layer;
-            staticData.FrameIndex = frameIndex;
-            var dynamicData = new DynamicData_Unit();
-            dynamicData.Pos = pos;
-            var playerComponent = new PlayerElement(staticData, dynamicData);
-            AddElement(gridId.X, gridId.Y, playerComponent);
-            playerComponent.SetLevel(this);
-            player = playerComponent;
+
+            var entity = CreateEntity(assetUrl, layer, frameIndex, pos, true);
+
+            entity.Add(new PlayerController());
+
         }
 
         private void CreateEnemy(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId, Int2[] wayPoints, CycleFlag flag)
         {
-            var staticData = new StaticData_Unit();
-            staticData.AssetUrl = assetUrl;
-            staticData.Layer = layer;
-            staticData.FrameIndex = frameIndex;
-            var dynamicData = new DynamicData_Enemy();
-            dynamicData.Pos = pos;
-            dynamicData.SetWayPoints(wayPoints, flag);
-            var unit = new EnemyElement(staticData, dynamicData);
-            unit.SetLevel(this);
-            AddElement(gridId.X, gridId.Y, unit);
-            enemies.Add(unit);
+            var entity = CreateEntity(assetUrl, layer, frameIndex, pos, true);
+
+            var autoMove = new AutoMoveController();
+            autoMove.IsAutoMove = true;
+            autoMove.MoveDir = 1;
+            autoMove.WayPoints = wayPoints;
+            autoMove.Flag = flag;
+            autoMove.NextPointIndex = 1;
+            entity.Add(autoMove);
         }
 
         public Int2 PxToPos(int x, int y)

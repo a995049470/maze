@@ -49,7 +49,7 @@ namespace Maze.Map
             Entity.Transform.Position = new Vector3(DynamicData.Pos.X, DynamicData.Pos.Y, GetPosZ());
         }
 
-    
+        
 
         public void SetLevel(Level level)
         {
