@@ -72,7 +72,7 @@ namespace Maze.Map
             var entity = new Entity();
             SceneSystem.SceneInstance.RootScene.Entities.Add(entity);
             
-            Entity.Transform.Position = new Vector3(pos.X, pos.Y, gap * layer);
+            entity.Transform.Position = new Vector3(pos.X, pos.Y, gap * layer);
 
             var mapElement = new MapElement();
             mapElement.Pos = pos;
@@ -81,14 +81,12 @@ namespace Maze.Map
             entity.Add(mapElement);
 
             var sheet = Content.Load<SpriteSheet>(assetUrl);
-            var spriteComponent = Entity.GetOrCreate<SpriteComponent>();
+            var spriteComponent = entity.GetOrCreate<SpriteComponent>();
             spriteComponent.Sampler = SpriteSampler.PointClamp;
             if (spriteComponent.SpriteProvider is SpriteFromSheet spriteSheet)
             {
                 spriteSheet.Sheet = sheet;
-                spriteSheet.CurrentFrame = frameIndex;
-                
-                Log.Info($"{Entity.Transform.Position} {assetUrl} {frameIndex}");
+                spriteSheet.CurrentFrame = frameIndex;                          
             }
             return entity;
         }
@@ -366,8 +364,8 @@ namespace Maze.Map
 
         public override void Update()
         {
-            PlayerUpdate();
-            EnemyUpdate();
+            //PlayerUpdate();
+            //EnemyUpdate();
         }
 
 
