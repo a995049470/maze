@@ -18,11 +18,10 @@ namespace Maze.Map
 {
     public class Level : SyncScript
     {
-        
         public CameraComponent Camera;
-        public string JsonAssetUrl;     
+        public string JsonAssetUrl;
         public string levelId;
-        
+
         private Grid[,] grids;
         private IPlayer player;
         private FastCollection<IEnemy> enemies = new FastCollection<IEnemy>(4);
@@ -35,10 +34,12 @@ namespace Maze.Map
         private Keys leftKey = Keys.Left;
         private Keys rightKey = Keys.Right;
         private float lastUpdateTime;
-        public float DeltaTime { get=> (float)Game.UpdateTime.Elapsed.TotalSeconds; }
+        public float DeltaTime { get => (float)Game.UpdateTime.Elapsed.TotalSeconds; }
         public int FrameCount { get => Game.UpdateTime.FrameCount; }
         private const float gap = 0.1f;
-        public void AddElement(int x, int y, IElement element)
+        public static Level Instance { get; private set; }
+
+        public void AddElement(int x, int y, MapElementData element)
         {
             //TODO:可能需要越界检查
             var grid = grids[x, y];
@@ -50,7 +51,7 @@ namespace Maze.Map
             grid.Add(element);
         }
 
-        public void RemoveElement(int x, int y, IElement element)
+        public void RemoveElement(int x, int y, MapElementData element)
         {
             var grid = grids[x, y];
             if(grid != null)
@@ -59,7 +60,7 @@ namespace Maze.Map
             }
         }
 
-        public void ElementMove(Int2 originPos, Int2 targetPos, IElement element)
+        public void ElementMove(Int2 originPos, Int2 targetPos, MapElementData element)
         {
             RemoveElement(originPos.X, originPos.Y, element);
             AddElement(targetPos.X, targetPos.Y, element);
@@ -74,7 +75,7 @@ namespace Maze.Map
             
             entity.Transform.Position = new Vector3(pos.X, pos.Y, gap * layer);
 
-            var mapElement = new MapElement();
+            var mapElement = new MapElementComponent();
             mapElement.Pos = pos;
             mapElement.IsWalkable = isWalkable;
             mapElement.Layer = layer;
@@ -94,6 +95,7 @@ namespace Maze.Map
         private void CreateTile(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId, bool isWalkable = true)
         {
             CreateEntity(assetUrl, layer, frameIndex, pos, isWalkable);
+            
         }
 
        
@@ -103,7 +105,7 @@ namespace Maze.Map
 
             var entity = CreateEntity(assetUrl, layer, frameIndex, pos, true);
 
-            entity.Add(new PlayerController());
+            entity.Add(new PlayerControllerComponent());
 
         }
 
@@ -111,7 +113,7 @@ namespace Maze.Map
         {
             var entity = CreateEntity(assetUrl, layer, frameIndex, pos, true);
 
-            var autoMove = new AutoMoveController();
+            var autoMove = new AutoMoveControllerComponent();
             autoMove.IsAutoMove = true;
             autoMove.MoveDir = 1;
             autoMove.WayPoints = wayPoints;
@@ -318,21 +320,15 @@ namespace Maze.Map
         {
             base.Start();
 
-
+            
             using (var stream = Content.OpenAsStream(JsonAssetUrl, Stride.Core.IO.StreamFlags.Seekable))
             using (var streamReader = new StreamReader(stream))
             {
                 var json = streamReader.ReadToEnd();
                 ConvertJsonToLevel(json, 0);
-                foreach (var grid in grids)
-                {
-                    if(grid == null) continue;
-                    foreach (var element in grid.Elements)
-                    {
-                        element.Create();
-                    }
-                }
+                
             }
+            Instance = this;
         }
 
         public bool IsWalkable(Int2 pos)

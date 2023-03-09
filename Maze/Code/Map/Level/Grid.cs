@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Maze.Code.Map;
 using Stride.Core.Collections;
 using Stride.Engine;
 
@@ -6,8 +7,8 @@ namespace Maze.Map
 {
     public class Grid
     {
-        private FastCollection<IElement> elements;
-        public FastCollection<IElement> Elements
+        private FastCollection<MapElementData> elements;
+        public FastCollection<MapElementData> Elements
         {
             get => elements;
         }
@@ -16,15 +17,15 @@ namespace Maze.Map
 
         public Grid()
         {
-            elements = new FastCollection<IElement>(4);
+            elements = new FastCollection<MapElementData>(4);
         }
         
-        public void Add(IElement element)
+        public void Add(MapElementData element)
         {
             elements.Add(element);
         }
 
-        public void Remove(IElement element)
+        public void Remove(MapElementData element)
         {
             elements.Remove(element);
         }
@@ -34,7 +35,7 @@ namespace Maze.Map
             bool isWalkable = true;
             foreach (var element in elements)
             {
-                isWalkable &= element.IsWalkable();
+                isWalkable &= element.element.IsWalkable;
                 if(!isWalkable) break;
             }
             return isWalkable;
