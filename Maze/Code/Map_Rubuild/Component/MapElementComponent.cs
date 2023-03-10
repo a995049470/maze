@@ -6,9 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Stride.Core.Mathematics;
 using Stride.Engine;
+using Stride.Engine.Design;
 
 namespace Maze.Code.Map
 {
+    [DefaultEntityComponentProcessor(typeof(MapElementProcessor))]
     public class MapElementComponent : EntityComponent
     {
         public bool IsWalkable;

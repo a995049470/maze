@@ -13,8 +13,9 @@ using System;
 using Stride.Core.Collections;
 using ServiceWire;
 using Maze.Code.Map;
+using Maze.Map;
 
-namespace Maze.Map
+namespace Maze.Code.Map
 {
     public class Level : SyncScript
     {
@@ -23,27 +24,19 @@ namespace Maze.Map
         public string levelId;
 
         private Grid[,] grids;
-        private IPlayer player;
-        private FastCollection<IEnemy> enemies = new FastCollection<IEnemy>(4);
         private int mapNumX;
         private int mapNumY;
         private int mapGridSize;
-
-        private Keys upKey = Keys.Up;
-        private Keys downKey = Keys.Down;
-        private Keys leftKey = Keys.Left;
-        private Keys rightKey = Keys.Right;
-        private float lastUpdateTime;
         public float DeltaTime { get => (float)Game.UpdateTime.Elapsed.TotalSeconds; }
         public int FrameCount { get => Game.UpdateTime.FrameCount; }
         private const float gap = 0.1f;
         public static Level Instance { get; private set; }
 
-        public void AddElement(int x, int y, MapElementData element)
+        public void AddElement(int x, int y, MapElementComponent element)
         {
             //TODO:可能需要越界检查
             var grid = grids[x, y];
-            if(grid == null)
+            if (grid == null)
             {
                 grid = new Grid();
                 grids[x, y] = grid;
@@ -51,16 +44,16 @@ namespace Maze.Map
             grid.Add(element);
         }
 
-        public void RemoveElement(int x, int y, MapElementData element)
+        public void RemoveElement(int x, int y, MapElementComponent element)
         {
             var grid = grids[x, y];
-            if(grid != null)
+            if (grid != null)
             {
                 grid.Remove(element);
             }
         }
 
-        public void ElementMove(Int2 originPos, Int2 targetPos, MapElementData element)
+        public void ElementMove(Int2 originPos, Int2 targetPos, MapElementComponent element)
         {
             RemoveElement(originPos.X, originPos.Y, element);
             AddElement(targetPos.X, targetPos.Y, element);
@@ -72,7 +65,7 @@ namespace Maze.Map
         {
             var entity = new Entity();
             SceneSystem.SceneInstance.RootScene.Entities.Add(entity);
-            
+
             entity.Transform.Position = new Vector3(pos.X, pos.Y, gap * layer);
 
             var mapElement = new MapElementComponent();
@@ -87,7 +80,7 @@ namespace Maze.Map
             if (spriteComponent.SpriteProvider is SpriteFromSheet spriteSheet)
             {
                 spriteSheet.Sheet = sheet;
-                spriteSheet.CurrentFrame = frameIndex;                          
+                spriteSheet.CurrentFrame = frameIndex;
             }
             return entity;
         }
@@ -95,10 +88,10 @@ namespace Maze.Map
         private void CreateTile(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId, bool isWalkable = true)
         {
             CreateEntity(assetUrl, layer, frameIndex, pos, isWalkable);
-            
+
         }
 
-       
+
 
         private void CreatePlayer(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId)
         {
@@ -119,13 +112,14 @@ namespace Maze.Map
             autoMove.WayPoints = wayPoints;
             autoMove.Flag = flag;
             autoMove.NextPointIndex = 1;
+            autoMove.MoveTimer = new Timer(0.2f, 0.6f);
             entity.Add(autoMove);
         }
 
         public Int2 PxToPos(int x, int y)
         {
-           var pos = new Int2(x / mapGridSize , mapNumY - 1 - y / mapGridSize);
-           return pos;
+            var pos = new Int2(x / mapGridSize, mapNumY - 1 - y / mapGridSize);
+            return pos;
         }
 
         public Int2 PosToGridId(Int2 pos)
@@ -135,10 +129,10 @@ namespace Maze.Map
             return gridId;
         }
 
-        
+
         public Grid GetGrid(int x, int y)
         {
-            if(x <0 || x >= mapNumX || y < 0 || y >= mapNumY)
+            if (x < 0 || x >= mapNumX || y < 0 || y >= mapNumY)
             {
                 return null;
             }
@@ -151,7 +145,7 @@ namespace Maze.Map
         {
             var data = JsonMapper.ToObject(json);
             var defs = data[MapUtils.defs];
-            mapGridSize = ((int)data[MapUtils.defaultGridSize]);
+            mapGridSize = (int)data[MapUtils.defaultGridSize];
             var levels = data[MapUtils.levels];
             //加载所有的TileSet
             var tilesetDic = new Dictionary<int, Tileset>();
@@ -164,26 +158,26 @@ namespace Maze.Map
                     var relPath = tilesetData[MapUtils.relPath];
                     var isEmptyPath = relPath == null;
                     //空地址代表是LDtk的内置资源 不处理
-                    if(isEmptyPath) continue;
-                    var pxWid = ((int)tilesetData[MapUtils.pxWid]);
-                    var pxHei = ((int)tilesetData[MapUtils.pxHei]);
-                    var tileGridSize = ((int)tilesetData[MapUtils.tileGridSize]);
+                    if (isEmptyPath) continue;
+                    var pxWid = (int)tilesetData[MapUtils.pxWid];
+                    var pxHei = (int)tilesetData[MapUtils.pxHei];
+                    var tileGridSize = (int)tilesetData[MapUtils.tileGridSize];
                     var numX = pxWid / tileGridSize;
                     var numY = pxHei / tileGridSize;
                     //用identifier记录改图在项目中的url
-                    var identifier = ((string)tilesetData[MapUtils.identifier]);
+                    var identifier = (string)tilesetData[MapUtils.identifier];
                     var url = identifier.Replace('_', '/');
-                    var uid = ((int)tilesetData[MapUtils.uid]);
+                    var uid = (int)tilesetData[MapUtils.uid];
                     var customData = tilesetData[MapUtils.customData];
                     var dataCount = customData.Count;
                     var set = new Tileset();
                     for (int j = 0; j < dataCount; j++)
                     {
                         var tileData = customData[j];
-                        var dataJson = ((string)tileData[MapUtils.data]);
+                        var dataJson = (string)tileData[MapUtils.data];
                         var tileJsonData = JsonMapper.ToObject(dataJson);
                         //TODO:检测dataJson是否合法
-                        var tileId = ((int)tileData[MapUtils.tileId]);
+                        var tileId = (int)tileData[MapUtils.tileId];
                         set.AddJsonData(tileId, tileJsonData);
                     }
                     set.AssetUrl = url;
@@ -198,11 +192,11 @@ namespace Maze.Map
             //加载对应关卡
             {
                 var level = levels[id];
-                var width = ((int)level[MapUtils.pxWid]);
-                var hieght = ((int)level[MapUtils.pxHei]);
+                var width = (int)level[MapUtils.pxWid];
+                var hieght = (int)level[MapUtils.pxHei];
                 mapNumX = width / mapGridSize;
                 mapNumY = hieght / mapGridSize;
-                
+
                 grids = new Grid[mapNumX, mapNumY];
 
                 var layerInstances = level[MapUtils.layerInstances];
@@ -211,18 +205,18 @@ namespace Maze.Map
                 {
                     var layerInstance = layerInstances[i];
                     var layer = layerNum - i;
-                    var layerType = ((string)layerInstance[MapUtils.__type]);
+                    var layerType = (string)layerInstance[MapUtils.__type];
                     var isLoadTile = layerType == MapUtils.layer_Tiles || layerType == MapUtils.layer_intGrid;
                     var isLoadEntities = layerType == MapUtils.layer_entities;
                     //填充tile
                     if (isLoadTile)
                     {
-                        var __tilesetDefUid = ((int)layerInstance[MapUtils.__tilesetDefUid]);
-                        if(!tilesetDic.TryGetValue(__tilesetDefUid, out var tileset))
+                        var __tilesetDefUid = (int)layerInstance[MapUtils.__tilesetDefUid];
+                        if (!tilesetDic.TryGetValue(__tilesetDefUid, out var tileset))
                         {
                             continue;
                         }
-                        var assetUrl = tileset.AssetUrl; 
+                        var assetUrl = tileset.AssetUrl;
                         var isTiles = layerType == MapUtils.layer_Tiles;
                         var key = isTiles ? MapUtils.gridTiles : MapUtils.autoLayerTiles;
                         var tiles = layerInstance[key];
@@ -232,16 +226,16 @@ namespace Maze.Map
                         for (int j = 0; j < tileCount; j++)
                         {
                             var tile = tiles[j];
-                            var t = ((int)tile[MapUtils.t]);
+                            var t = (int)tile[MapUtils.t];
                             //var d = ((int)tile[MapUtils.d]);
                             var px = tile[MapUtils.px];
-                            var pos = PxToPos(((int)px[0]), ((int)px[1]));
+                            var pos = PxToPos((int)px[0], (int)px[1]);
                             var frameIndex = t;
                             var isWalkable = tileset.IsWalkable(frameIndex);
                             CreateTile(assetUrl, layer, frameIndex, pos, pos, isWalkable);
                         }
                     }
-                    else if(isLoadEntities)
+                    else if (isLoadEntities)
                     {
                         var key = MapUtils.entityInstances;
                         var entityInstances = layerInstance[key];
@@ -250,22 +244,22 @@ namespace Maze.Map
                         {
                             var entityInstance = entityInstances[j];
                             var __tile = entityInstance[MapUtils.__tile];
-                            var tilesetUid = ((int)__tile[MapUtils.tilesetUid]);
-                            if(!tilesetDic.TryGetValue(tilesetUid, out var tileset))
+                            var tilesetUid = (int)__tile[MapUtils.tilesetUid];
+                            if (!tilesetDic.TryGetValue(tilesetUid, out var tileset))
                             {
                                 continue;
                             }
-                            var assetUrl = tileset.AssetUrl; 
+                            var assetUrl = tileset.AssetUrl;
                             var __tags = entityInstance[MapUtils.__tags];
                             string tag = null;
-                            if(__tags.Count > 0) tag = ((string)__tags[0]);
+                            if (__tags.Count > 0) tag = (string)__tags[0];
                             var px = entityInstance[MapUtils.px];
-                            var pos = PxToPos(((int)px[0]), ((int)px[1]));
-                            var tileX = ((int)__tile[MapUtils.x]);
-                            var tileY = ((int)__tile[MapUtils.y]);
+                            var pos = PxToPos((int)px[0], (int)px[1]);
+                            var tileX = (int)__tile[MapUtils.x];
+                            var tileY = (int)__tile[MapUtils.y];
                             var frameIndex = tileset.GetTileId(tileX, tileY);
                             var gridId = pos;
-                            if(tag == MapUtils.tag_enemy)
+                            if (tag == MapUtils.tag_enemy)
                             {
                                 Int2[] wayPoints = null;
                                 CycleFlag flag = CycleFlag.Loop;
@@ -274,8 +268,8 @@ namespace Maze.Map
                                 for (int k = 0; k < fieldCount; k++)
                                 {
                                     var fieldInstance = fieldInstances[k];
-                                    var identifier = ((string)fieldInstance[MapUtils.__identifier]);
-                                    if(identifier == MapUtils.filed_wayPoints)
+                                    var identifier = (string)fieldInstance[MapUtils.__identifier];
+                                    if (identifier == MapUtils.filed_wayPoints)
                                     {
                                         var values = fieldInstance[MapUtils.__value];
                                         int valutCount = values.Count;
@@ -284,20 +278,20 @@ namespace Maze.Map
                                         for (int n = 0; n < valutCount; n++)
                                         {
                                             var value = values[n];
-                                            wayPoints[n + 1] = new Int2(((int)value[MapUtils.cx]), mapNumY - 1 - ((int)value[MapUtils.cy]));
+                                            wayPoints[n + 1] = new Int2((int)value[MapUtils.cx], mapNumY - 1 - (int)value[MapUtils.cy]);
                                         }
                                     }
-                                    else if(identifier == MapUtils.filed_cycle)
+                                    else if (identifier == MapUtils.filed_cycle)
                                     {
-                                        var value = ((string)fieldInstance[MapUtils.__value]);
+                                        var value = (string)fieldInstance[MapUtils.__value];
                                         flag = Enum.Parse<CycleFlag>(value);
                                     }
                                 }
-                                
+
 
                                 CreateEnemy(assetUrl, layer, frameIndex, pos, pos, wayPoints, flag);
                             }
-                            else if(tag == MapUtils.tag_player)
+                            else if (tag == MapUtils.tag_player)
                             {
                                 CreatePlayer(assetUrl, layer, frameIndex, pos, pos);
                             }
@@ -305,7 +299,7 @@ namespace Maze.Map
                             {
                                 CreateTile(assetUrl, layer, frameIndex, pos, pos);
                             }
-                            
+
                         }
 
                     }
@@ -313,22 +307,22 @@ namespace Maze.Map
             }
         }
 
-        
-        
+
+
 
         public override void Start()
         {
             base.Start();
 
-            
+            Instance = this;
+
             using (var stream = Content.OpenAsStream(JsonAssetUrl, Stride.Core.IO.StreamFlags.Seekable))
             using (var streamReader = new StreamReader(stream))
             {
                 var json = streamReader.ReadToEnd();
                 ConvertJsonToLevel(json, 0);
-                
+
             }
-            Instance = this;
         }
 
         public bool IsWalkable(Int2 pos)
@@ -338,30 +332,9 @@ namespace Maze.Map
             return grid?.IsWalkable() ?? false;
         }
 
-        
-       
-        private void PlayerUpdate(){
-            var dir = Int2.Zero;
-            if(Input.IsKeyPressed(upKey)) dir.Y = 1;
-            else if(Input.IsKeyPressed(downKey)) dir.Y = -1;
-            else if(Input.IsKeyPressed(leftKey)) dir.X = -1;
-            else if(Input.IsKeyPressed(rightKey)) dir.X = 1;
-
-            if(dir != Int2.Zero) player?.Move(dir.X, dir.Y);
-        }
-
-        private void EnemyUpdate()
-        {
-            foreach (var enemy in enemies)
-            {
-                enemy.AutoMove();
-            }
-        }
-
         public override void Update()
         {
-            //PlayerUpdate();
-            //EnemyUpdate();
+          
         }
 
 

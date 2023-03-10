@@ -3,40 +3,40 @@ using Maze.Code.Map;
 using Stride.Core.Collections;
 using Stride.Engine;
 
-namespace Maze.Map
+namespace Maze.Code.Map
 {
     public class Grid
     {
-        private FastCollection<MapElementData> elements;
-        public FastCollection<MapElementData> Elements
+        private FastCollection<MapElementComponent> elements;
+        public FastCollection<MapElementComponent> Elements
         {
             get => elements;
         }
-        
+
         //private int emptyCount = 0;
 
         public Grid()
         {
-            elements = new FastCollection<MapElementData>(4);
+            elements = new FastCollection<MapElementComponent>(4);
         }
-        
-        public void Add(MapElementData element)
+
+        public void Add(MapElementComponent element)
         {
             elements.Add(element);
         }
 
-        public void Remove(MapElementData element)
+        public void Remove(MapElementComponent element)
         {
             elements.Remove(element);
         }
-        
+
         public bool IsWalkable()
         {
             bool isWalkable = true;
             foreach (var element in elements)
             {
-                isWalkable &= element.element.IsWalkable;
-                if(!isWalkable) break;
+                isWalkable &= element.IsWalkable;
+                if (!isWalkable) break;
             }
             return isWalkable;
         }

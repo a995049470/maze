@@ -1,42 +1,31 @@
-﻿using Maze.Map;
+﻿
 using Stride.Core.Annotations;
 using Stride.Engine;
 
 namespace Maze.Code.Map
 {
-    public class MapElementData
-    {
-        public MapElementComponent element;
-    }
 
-    public class MapElementProcessor : EntityProcessor<MapElementComponent, MapElementData>
+    public class MapElementProcessor : EntityProcessor<MapElementComponent>
     {
-        public MapElementProcessor()
+        public MapElementProcessor() : base(typeof(TransformComponent))
         {
 
         }
-        protected override MapElementData GenerateComponentData([NotNull] Entity entity, [NotNull] MapElementComponent component)
+        
+        protected override void OnEntityComponentAdding(Entity entity, [NotNull] MapElementComponent component, [NotNull] MapElementComponent data)
         {
-            return new MapElementData() { element = component };
-        }
-
-        protected override void OnEntityComponentAdding(Entity entity, [NotNull] MapElementComponent component, [NotNull] MapElementData data)
-        {
-            base.OnEntityComponentAdding(entity, component, data);
-            var pos = data.element.Pos;
+        
+            var pos = component.Pos;
             Level.Instance.AddElement(pos.X, pos.Y, data);
         }
 
-        protected override void OnEntityComponentRemoved(Entity entity, [NotNull] MapElementComponent component, [NotNull] MapElementData data)
+        protected override void OnEntityComponentRemoved(Entity entity, [NotNull] MapElementComponent component, [NotNull] MapElementComponent data)
         {
             base.OnEntityComponentRemoved(entity, component, data);
-            var pos = data.element.Pos;
+            var pos = component.Pos;
             Level.Instance.RemoveElement(pos.X, pos.Y, data);
         }
 
-        protected override bool IsAssociatedDataValid([NotNull] Entity entity, [NotNull] MapElementComponent component, [NotNull] MapElementData associatedData)
-        {
-            return associatedData.element == component;
-        }
+
     }
 }

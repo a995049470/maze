@@ -34,8 +34,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    51ed7a699fdae46bbaa758b3b35c171f: !Maze.Map.Level,Maze
-                        Id: cd1fb850-e4b6-48f1-b364-29225336a1fa
+                    c75feda9a6321bd799ad0dbb8173a8ae: !Maze.Code.Map.Level,Maze
+                        Id: d78d5e8e-0ca4-4859-bfa5-906f227b986c
                         Camera: null
                         JsonAssetUrl: Level/dungeon
                         levelId: null
