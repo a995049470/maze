@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Code\Map\**" />
+    <EmbeddedResource Remove="Code\Map\**" />
+    <None Remove="Code\Map\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Stride.Engine" Version="4.1.0.1734" />
 
@@ -83,11 +89,5 @@
     <None Update="Code\Render\Tansmittance\TransmittanceSprite.sdsl">
       <LastGenOutput>TransmittanceSprite.sdsl.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Code\Map\Enemy\" />
-    <Folder Include="Code\Map\Level\" />
-    <Folder Include="Code\Map\Unit\" />
   </ItemGroup>
 </Project>

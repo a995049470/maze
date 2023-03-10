@@ -17,20 +17,23 @@ using Maze.Map;
 
 namespace Maze.Code.Map
 {
-    public class Level : SyncScript
+
+
+    public class Level : ScriptComponent
     {
-        public CameraComponent Camera;
-        public string JsonAssetUrl;
-        public string levelId;
+        private string jsonAssetUrl;
+        private string levelId;
 
         private Grid[,] grids;
         private int mapNumX;
         private int mapNumY;
         private int mapGridSize;
-        public float DeltaTime { get => (float)Game.UpdateTime.Elapsed.TotalSeconds; }
-        public int FrameCount { get => Game.UpdateTime.FrameCount; }
         private const float gap = 0.1f;
         public static Level Instance { get; private set; }
+
+        public Level()
+        {
+        }
 
         public void AddElement(int x, int y, MapElementComponent element)
         {
@@ -310,18 +313,14 @@ namespace Maze.Code.Map
 
 
 
-        public override void Start()
+        public void Load(string url)
         {
-            base.Start();
-
-            Instance = this;
-
-            using (var stream = Content.OpenAsStream(JsonAssetUrl, Stride.Core.IO.StreamFlags.Seekable))
+            jsonAssetUrl = url;
+            using (var stream = Content.OpenAsStream(jsonAssetUrl, Stride.Core.IO.StreamFlags.Seekable))
             using (var streamReader = new StreamReader(stream))
             {
                 var json = streamReader.ReadToEnd();
                 ConvertJsonToLevel(json, 0);
-
             }
         }
 
@@ -332,10 +331,7 @@ namespace Maze.Code.Map
             return grid?.IsWalkable() ?? false;
         }
 
-        public override void Update()
-        {
-          
-        }
+        
 
 
     }

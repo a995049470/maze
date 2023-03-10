@@ -1,4 +1,5 @@
 ﻿
+using Stride.Core;
 using Stride.Core.Annotations;
 using Stride.Core.Collections;
 using Stride.Engine;
@@ -13,13 +14,15 @@ namespace Maze.Code.Map
         public TransformComponent Transform;
     }
 
-    public class AutoMoveProcessor : EntityProcessor<AutoMoveControllerComponent, AutoMoveData>
+    public class AutoMoveProcessor : GameEntityProcessor<AutoMoveControllerComponent, AutoMoveData>
     {
+        
         FastCollection<AutoMoveData> datas = new FastCollection<AutoMoveData>();
         public AutoMoveProcessor() : base(typeof(MapElementComponent), typeof(TransformComponent))
         {
-
+            
         }
+
 
         public override void Update(GameTime time)
         {
@@ -32,15 +35,15 @@ namespace Maze.Code.Map
 
         private void AutoMove(GameTime time, AutoMoveData data)
         {
-            bool isCanMove = data.Controller.MoveTimer.Run((float)time.Elapsed.TotalSeconds, Level.Instance.FrameCount);
+            bool isCanMove = data.Controller.MoveTimer.Run((float)time.Elapsed.TotalSeconds, game.UpdateTime.FrameCount);
             if(isCanMove)
             {
                 var targetPos = data.Controller.GetNextMovePoint(data.MapElement.Pos);
                 var isCurrentPoint = targetPos == data.MapElement.Pos;
-                var isWalkable = Level.Instance.IsWalkable(targetPos);
+                var isWalkable = levelManager.CurrentLevel.IsWalkable(targetPos);
                 if(isWalkable)
                 {
-                    Level.Instance.ElementMove(data.MapElement.Pos, targetPos, data.MapElement);
+                    levelManager.CurrentLevel.ElementMove(data.MapElement.Pos, targetPos, data.MapElement);
                     data.MapElement.Pos = targetPos;
 
                     var entityPos = data.Transform.Position;
