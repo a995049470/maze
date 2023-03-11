@@ -14,6 +14,7 @@ using Stride.Core.Collections;
 using ServiceWire;
 using Maze.Code.Map;
 using Maze.Map;
+using Stride.Physics;
 
 namespace Maze.Code.Map
 {
@@ -76,6 +77,18 @@ namespace Maze.Code.Map
             mapElement.IsWalkable = isWalkable;
             mapElement.Layer = layer;
             entity.Add(mapElement);
+            //增加碰撞体
+            if(!mapElement.IsWalkable)
+            {
+                var collider = new StaticColliderComponent();
+                var shapeDesc = new BoxColliderShapeDesc()
+                {
+                    Is2D = true,
+                    Size = Vector3.One
+                };
+                collider.ColliderShapes.Add(shapeDesc);
+                entity.Add(collider);
+            }
 
             var sheet = Content.Load<SpriteSheet>(assetUrl);
             var spriteComponent = entity.GetOrCreate<SpriteComponent>();
@@ -102,6 +115,10 @@ namespace Maze.Code.Map
             var entity = CreateEntity(assetUrl, layer, frameIndex, pos, true);
 
             entity.Add(new PlayerControllerComponent());
+            entity.Add(new VelocityComponent()
+            {
+                Speed = 5
+            });
 
         }
 
@@ -109,14 +126,14 @@ namespace Maze.Code.Map
         {
             var entity = CreateEntity(assetUrl, layer, frameIndex, pos, true);
 
-            var autoMove = new AutoMoveControllerComponent();
-            autoMove.IsAutoMove = true;
-            autoMove.MoveDir = 1;
-            autoMove.WayPoints = wayPoints;
-            autoMove.Flag = flag;
-            autoMove.NextPointIndex = 1;
-            autoMove.MoveTimer = new Timer(0.2f, 0.6f);
-            entity.Add(autoMove);
+            //var autoMove = new AutoMoveControllerComponent();
+            //autoMove.IsAutoMove = true;
+            //autoMove.MoveDir = 1;
+            //autoMove.WayPoints = wayPoints;
+            //autoMove.Flag = flag;
+            //autoMove.NextPointIndex = 1;
+            //autoMove.MoveTimer = new Timer(0.2f, 0.6f);
+            //entity.Add(autoMove);
         }
 
         public Int2 PxToPos(int x, int y)

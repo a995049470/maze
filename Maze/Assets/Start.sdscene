@@ -34,6 +34,6 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    06837df50b6cfefd1f5d168db19e4ac5: !Maze.Code.Map.LaunchTest,Maze
-                        Id: c4b55f3a-1845-4cb6-a049-3d4dd8825c61
+                    124a9508a472eb79709ff7d23545b8f9: !Maze.Code.Map.LaunchTest,Maze
+                        Id: 32130e67-d694-4947-80bc-5731c3b8c323
                         JsonAssetUrl: Level/dungeon

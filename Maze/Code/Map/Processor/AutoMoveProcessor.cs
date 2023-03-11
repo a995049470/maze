@@ -17,7 +17,6 @@ namespace Maze.Code.Map
     public class AutoMoveProcessor : GameEntityProcessor<AutoMoveControllerComponent, AutoMoveData>
     {
         
-        FastCollection<AutoMoveData> datas = new FastCollection<AutoMoveData>();
         public AutoMoveProcessor() : base(typeof(MapElementComponent), typeof(TransformComponent))
         {
             
@@ -27,7 +26,7 @@ namespace Maze.Code.Map
         public override void Update(GameTime time)
         {
             base.Update(time);
-            foreach (AutoMoveData data in datas)
+            foreach (AutoMoveData data in ComponentDatas.Values)
             {
                 AutoMove(time, data);
             }
@@ -67,17 +66,7 @@ namespace Maze.Code.Map
             return data;
         }
 
-        protected override void OnEntityComponentAdding(Entity entity, [NotNull] AutoMoveControllerComponent component, [NotNull] AutoMoveData data)
-        {
-            base.OnEntityComponentAdding(entity, component, data);
-            datas.Add(data);
-        }
-
-        protected override void OnEntityComponentRemoved(Entity entity, [NotNull] AutoMoveControllerComponent component, [NotNull] AutoMoveData data)
-        {
-            base.OnEntityComponentRemoved(entity, component, data);
-            datas.Remove(data);
-        }
+       
 
         protected override bool IsAssociatedDataValid([NotNull] Entity entity, [NotNull] AutoMoveControllerComponent component, [NotNull] AutoMoveData associatedData)
         {

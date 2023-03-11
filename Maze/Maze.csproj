@@ -5,12 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Code\Map\**" />
-    <EmbeddedResource Remove="Code\Map\**" />
-    <None Remove="Code\Map\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Stride.Engine" Version="4.1.0.1734" />
 
