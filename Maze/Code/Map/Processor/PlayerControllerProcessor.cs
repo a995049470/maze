@@ -19,8 +19,6 @@ namespace Maze.Code.Map
         public VelocityComponent VelocityComponent;
     }
 
-   
-
     public class PlayerControllerProcessor : GameEntityProcessor<PlayerControllerComponent, PlayerControllerData>
     {
         

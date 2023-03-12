@@ -25,7 +25,8 @@ namespace Maze.Code.Map
         public override void Update(GameTime time)
         {
             base.Update(time);
-            simulation = Services.GetSafeServiceAs<SceneSystem>().SceneInstance.GetProcessor<PhysicsProcessor>()?.Simulation;
+
+            simulation = simulation ?? GetSimulation();
             foreach (var data in ComponentDatas.Values)
             {
                 if(data.Velocity.Direction != Vector2.Zero)
@@ -40,7 +41,8 @@ namespace Maze.Code.Map
                         var rotation = Quaternion.Identity;
                         Matrix.Transformation(ref scale , ref rotation, ref originPos, out var from);
                         Matrix.Transformation(ref scale , ref rotation, ref targetPos, out var to);
-                        var shape = new SphereColliderShape(true, 0.4f);
+                        var shape = new SphereColliderShape(true, 0.3f);
+                        shape.LocalOffset = new Vector3(0, -0.05f, 0);
                         var hitReslut = simulation.ShapeSweep(shape, from, to);
                         if(!hitReslut.Succeeded)
                         {

@@ -17,7 +17,7 @@ RenderStages:
         Id: d7570d20-4d84-4b50-91ba-6604c9dfe958
         Name: Transparent
         EffectSlotName: Main
-        SortMode: !BackToFrontSortMode {}
+        SortMode*: !BackToFrontSortMode {}
     554e52c061404d4684dd7c4c70f70e0e:
         Id: e23cc997-33cc-4b34-ba0b-f034c9d61d49
         Name: ShadowMapCaster
@@ -38,15 +38,6 @@ RenderStages:
         Name: GBuffer
         EffectSlotName: GBuffer
         SortMode: !FrontToBackSortMode {}
-    5e3bc3695b78843f89b2314adc177cb9*:
-        Id: 6d58b863-d1c8-41d8-80d7-bba11d4682a9
-        Name: Vision
-        EffectSlotName: Vision
-        SortMode: !BackToFrontSortMode {}
-    c3d4572f6527f00ea4c6096047e07e2b*:
-        Id: 8a95864f-b96f-40da-8e1d-5bcae9fd9cce
-        Name: Transmittance
-        EffectSlotName: Transmittance
 RenderFeatures:
     d8fb80b0e7995140a46bca8dc36ee8a2: !Stride.Rendering.MeshRenderFeature,Stride.Rendering
         RenderStageSelectors:
@@ -122,13 +113,7 @@ RenderFeatures:
     33d74acc4442d0f48164c4a79b20af5e*: !Maze.Code.Render.CellSpriteRenderFeature,Maze
         RenderStageSelectors:
             c319b93c692da3d8c6f58d879f0c6740: !Maze.Code.Render.VisionStageSelector,Maze
-                VisionRenderStage: ref!! 6d58b863-d1c8-41d8-80d7-bba11d4682a9
                 EffectName: Test
-    53cbb88ef6f7d393b21530f0b01391a9*: !Maze.Code.Render.TransmittanceSpriteRenderFeature,Maze
-        RenderStageSelectors:
-            6925b22917d6ff09eb4831be1d3e32e1: !Maze.Code.Render.TransmittanceStageSelector,Maze
-                TransmittanceRenderStage: ref!! 8a95864f-b96f-40da-8e1d-5bcae9fd9cce
-                EffectName: Test2
     6ebdea13eafef63ce6cf66f1d1f593e1*: !Stride.Rendering.Sprites.SpriteRenderFeature,Stride.Rendering
         RenderStageSelectors:
             44e54f4e9ee485d62ef5a051613b7a9b: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering
@@ -259,8 +244,8 @@ SharedRenderers:
             AirTransmittance: 0.99
             DiffusionCount: 32
             MyColor: {R: 0.875, G: 0.0, B: 1.0}
-        VisionStage: ref!! 6d58b863-d1c8-41d8-80d7-bba11d4682a9
-        TransmittanceStage: ref!! 8a95864f-b96f-40da-8e1d-5bcae9fd9cce
+        VisionStage: null
+        TransmittanceStage: null
 Game: !Stride.Rendering.Compositing.SceneCameraRenderer,Stride.Engine
     Id: 76fe87cf-f574-4ad6-85b8-e9a9586be0e2
     Camera: ref!! 7d54ab15-a371-4bb5-b3ae-b354e9c2717a

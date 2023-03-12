@@ -8,14 +8,46 @@ Hierarchy:
     RootParts:
         - ref!! cb952962-4f7c-4dd5-835e-779f366da48a
         - ref!! b076566c-a2a6-4e2d-b674-d5215bfd9379
+        - ref!! 6b43b0b4-0c4d-4526-8c5f-449009dba246
     Parts:
+        -   Entity:
+                Id: 6b43b0b4-0c4d-4526-8c5f-449009dba246
+                Name: Sprite
+                Components:
+                    ebd544e16a6d6162302b45bec344609f: !TransformComponent
+                        Id: e1159ff7-ab64-4bfa-a000-4cc2c4464a55
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    666322809cf5fec01439386b03b76c82: !SpriteComponent
+                        Id: 87d90625-b4db-46e1-a081-63b22574c769
+                        SpriteProvider: !SpriteFromSheet
+                            Sheet: f84f9dfb-7579-4013-bab3-2311f9817aab:Tile/dungeon
+                            CurrentFrame: 86
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                    579a44aac7bad4049f4e88e4a252a13b: !StaticColliderComponent
+                        Id: 460b11e0-e286-4634-ba1b-e2b7b9202cb2
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
+                        ColliderShapes:
+                            e7eb32cdef6c7eb826f396cfe701be78: !SphereColliderShapeDesc
+                                Is2D: true
+                                Radius: 0.3
+                                LocalOffset: {X: 0.0, Y: -0.05, Z: 0.0}
         -   Entity:
                 Id: b076566c-a2a6-4e2d-b674-d5215bfd9379
                 Name: Camera
                 Components:
                     3be41925fd0606b4deecf7d324c7546c: !TransformComponent
                         Id: 08f46030-22af-4e19-9dbb-37e89e41c827
-                        Position: {X: 0.0, Y: 0.0, Z: 10.0}
+                        Position: {X: 5.0, Y: 4.0, Z: 1000.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -23,6 +55,7 @@ Hierarchy:
                         Id: 55584d1a-c5c6-4b11-b94d-a16ea1480da6
                         Name: null
                         Projection: Orthographic
+                        FarClipPlane: 2000.0
                         Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a
         -   Entity:
                 Id: cb952962-4f7c-4dd5-835e-779f366da48a
@@ -30,7 +63,7 @@ Hierarchy:
                 Components:
                     578469cffa76e5c37b1321130f600668: !TransformComponent
                         Id: faf94763-8d5b-4c65-ad7f-9c9b2ee493ec
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Position: {X: 0.9001449, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}

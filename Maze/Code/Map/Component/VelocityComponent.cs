@@ -10,4 +10,5 @@ namespace Maze.Code.Map
         public Vector2 Direction;
         public float Speed;
     }
+
 }
