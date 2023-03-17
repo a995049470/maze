@@ -14,23 +14,27 @@ using Stride.Core.Collections;
 using ServiceWire;
 using Maze.Code.Map;
 using Maze.Map;
+using Stride.Physics;
 
 namespace Maze.Code.Map
 {
-    public class Level : SyncScript
+
+
+    public class Level : ScriptComponent
     {
-        public CameraComponent Camera;
-        public string JsonAssetUrl;
-        public string levelId;
+        private string jsonAssetUrl;
+        private string levelId;
 
         private Grid[,] grids;
         private int mapNumX;
         private int mapNumY;
         private int mapGridSize;
-        public float DeltaTime { get => (float)Game.UpdateTime.Elapsed.TotalSeconds; }
-        public int FrameCount { get => Game.UpdateTime.FrameCount; }
-        private const float gap = 0.1f;
+        private const float gap = 10f;
         public static Level Instance { get; private set; }
+
+        public Level()
+        {
+        }
 
         public void AddElement(int x, int y, MapElementComponent element)
         {
@@ -61,22 +65,36 @@ namespace Maze.Code.Map
 
 
 
-        private Entity CreateEntity(string assetUrl, int layer, int frameIndex, Int2 pos, bool isWalkable)
+        private Entity CreateEntity(string assetUrl, int layer, int frameIndex, Int2 pos, float z, bool isWalkable)
         {
             var entity = new Entity();
             SceneSystem.SceneInstance.RootScene.Entities.Add(entity);
 
-            entity.Transform.Position = new Vector3(pos.X, pos.Y, gap * layer);
+            entity.Transform.Position = new Vector3(pos.X, pos.Y, z);
 
             var mapElement = new MapElementComponent();
             mapElement.Pos = pos;
             mapElement.IsWalkable = isWalkable;
             mapElement.Layer = layer;
             entity.Add(mapElement);
+            //增加碰撞体
+            if(!mapElement.IsWalkable)
+            {
+                var collider = new StaticColliderComponent();
+                var shapeDesc = new BoxColliderShapeDesc()
+                {
+                    Is2D = true,
+                    Size = Vector3.One
+                };
+                collider.ColliderShapes.Add(shapeDesc);
+                entity.Add(collider);
+            }
 
             var sheet = Content.Load<SpriteSheet>(assetUrl);
             var spriteComponent = entity.GetOrCreate<SpriteComponent>();
+            spriteComponent.PremultipliedAlpha = false;
             spriteComponent.Sampler = SpriteSampler.PointClamp;
+            spriteComponent.BlendMode = SpriteBlend.AlphaBlend;
             if (spriteComponent.SpriteProvider is SpriteFromSheet spriteSheet)
             {
                 spriteSheet.Sheet = sheet;
@@ -87,8 +105,7 @@ namespace Maze.Code.Map
 
         private void CreateTile(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId, bool isWalkable = true)
         {
-            CreateEntity(assetUrl, layer, frameIndex, pos, isWalkable);
-
+            var entity = CreateEntity(assetUrl, layer, frameIndex, pos, SpriteUtils.TileZ, isWalkable);
         }
 
 
@@ -96,24 +113,32 @@ namespace Maze.Code.Map
         private void CreatePlayer(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId)
         {
 
-            var entity = CreateEntity(assetUrl, layer, frameIndex, pos, true);
+            var entity = CreateEntity(assetUrl, layer, frameIndex, pos, SpriteUtils.PlayerZ, true);
 
             entity.Add(new PlayerControllerComponent());
-
+            entity.Add(new VelocityComponent()
+            {
+                Speed = 5
+            });
+            entity.Add(new PlacerComponent());
+            entity.Name = $"Player_({pos.X}, {pos.Y})";
+            var position = entity.Transform.Position;
+            position.Z = 0.1f;
+            entity.Transform.Position = position;
         }
 
         private void CreateEnemy(string assetUrl, int layer, int frameIndex, Int2 pos, Int2 gridId, Int2[] wayPoints, CycleFlag flag)
         {
-            var entity = CreateEntity(assetUrl, layer, frameIndex, pos, true);
-
-            var autoMove = new AutoMoveControllerComponent();
-            autoMove.IsAutoMove = true;
-            autoMove.MoveDir = 1;
-            autoMove.WayPoints = wayPoints;
-            autoMove.Flag = flag;
-            autoMove.NextPointIndex = 1;
-            autoMove.MoveTimer = new Timer(0.2f, 0.6f);
-            entity.Add(autoMove);
+            var entity = CreateEntity(assetUrl, layer, frameIndex, pos, SpriteUtils.EnemyZ, true);
+           
+            //var autoMove = new AutoMoveControllerComponent();
+            //autoMove.IsAutoMove = true;
+            //autoMove.MoveDir = 1;
+            //autoMove.WayPoints = wayPoints;
+            //autoMove.Flag = flag;
+            //autoMove.NextPointIndex = 1;
+            //autoMove.MoveTimer = new Timer(0.2f, 0.6f);
+            //entity.Add(autoMove);
         }
 
         public Int2 PxToPos(int x, int y)
@@ -310,18 +335,14 @@ namespace Maze.Code.Map
 
 
 
-        public override void Start()
+        public void Load(string url)
         {
-            base.Start();
-
-            Instance = this;
-
-            using (var stream = Content.OpenAsStream(JsonAssetUrl, Stride.Core.IO.StreamFlags.Seekable))
+            jsonAssetUrl = url;
+            using (var stream = Content.OpenAsStream(jsonAssetUrl, Stride.Core.IO.StreamFlags.Seekable))
             using (var streamReader = new StreamReader(stream))
             {
                 var json = streamReader.ReadToEnd();
                 ConvertJsonToLevel(json, 0);
-
             }
         }
 
@@ -332,10 +353,7 @@ namespace Maze.Code.Map
             return grid?.IsWalkable() ?? false;
         }
 
-        public override void Update()
-        {
-          
-        }
+        
 
 
     }
