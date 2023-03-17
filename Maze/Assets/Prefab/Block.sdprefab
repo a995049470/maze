@@ -21,9 +21,3 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: a782ff5e-34a7-4a33-b9cd-5f8cddb83393
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0

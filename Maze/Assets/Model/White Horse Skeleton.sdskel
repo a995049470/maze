@@ -1,0 +1,77 @@
+!Skeleton
+Id: 8c51e0a8-5d55-4f76-a82a-ef833aca43b6
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/White Horse.glb
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Nodes:
+    8c6e06c5bc3a884494b9486de0bf9e53: {Name: RootNode, Depth: 0}
+    e913dea09ffb1b6d3aae1ae86562456c: {Name: AnimalArmature, Depth: 1}
+    b4198f5b062c4ecb471669de701ae5ed: {Name: Body, Depth: 2}
+    60abef6ef862de3fda64b874ed627c30: {Name: Back, Depth: 3}
+    96437ba2eed60781332200cbd88a6d38: {Name: Torso, Depth: 4}
+    825e606c7d1eef6ddfb0d4674fa8a11f: {Name: Torso2, Depth: 5}
+    e211bbe9b7a0e7b0a5d009f2fc11b3c9: {Name: Torso3, Depth: 6}
+    a09ca176de74210785adcbf728fa6421: {Name: Neck1, Depth: 7}
+    4bcfe6865d4983dd102436ee70224054: {Name: Neck2, Depth: 8}
+    86afba4f42910a41c873c102125180d1: {Name: Neck3, Depth: 9}
+    6b913b71ac5734888fdeed94c9734bc1: {Name: Head, Depth: 10}
+    e8cd892692703f7f25938e6923b4eb9e: {Name: Ear1.L, Depth: 11}
+    254055515cfcbb081aaf641a888f0bc0: {Name: Ear2.L, Depth: 12}
+    6682f3c40c3777f9876eb5533edd52c8: {Name: Ear3.L, Depth: 13}
+    c16a3991e67668eec449b0d64d1f0050: {Name: Ear4.L, Depth: 14}
+    61a38fb7d85c1001db8b9f36a2646348: {Name: Ear4.L_end, Depth: 15}
+    aa2172dde65a5104e3a61883baffe5cb: {Name: Ear1.R, Depth: 11}
+    bb9a2fbf434907ce210970372e206d42: {Name: Ear2.R, Depth: 12}
+    7a1af51e2a5487e2236a7f98a4efe299: {Name: Ear3.R, Depth: 13}
+    7a09aefe60b832381253b03850cee475: {Name: Ear4.R, Depth: 14}
+    363efcd1458f61067d744fc838de4408: {Name: Ear4.R_end, Depth: 15}
+    b63fbd1ac27d65e3e64cb8818ca7449a: {Name: FrontShoulder.L, Depth: 6}
+    a63d23613b11a0f542295c92b710da2c: {Name: FrontUpperLeg.L, Depth: 7}
+    1ab74fa3c809f2335e68ebcc5187b9b0: {Name: FrontLowerLeg.L, Depth: 8}
+    10e5b3b8ed669b30f6f1f44c6429210d: {Name: FrontLowerLeg.L_end, Depth: 9}
+    8038ae92453687c7b12c4829c7973ed2: {Name: FrontShoulder.R, Depth: 6}
+    382c4e600ac9e0e3dd8dcb3cd8015b3a: {Name: FrontUpperLeg.R, Depth: 7}
+    add9801fec00b6cc811a15a175772adf: {Name: FrontLowerLeg.R, Depth: 8}
+    836ab646d930249324f60df5eaf88e4e: {Name: FrontLowerLeg.R_end, Depth: 9}
+    d8d0757e9e599a14e5f2ce18f98f97a4: {Name: BackShoulder.L, Depth: 4}
+    f5ceb97271b0d541ac130d7c2f5bf322: {Name: BackLeg.L, Depth: 5}
+    6fbd7b17fa43e151fbd4f911c77b3c0c: {Name: BackUpperLeg.L, Depth: 6}
+    99da5fc7d5a2b1898009b5ba03fff2d2: {Name: BackLowerLeg.L, Depth: 7}
+    97617cfaecddcfa97f35eca7f321e978: {Name: BackLowerLeg.L_end, Depth: 8}
+    5b32b1d074126d3fcf4d6bf95839c565: {Name: BackShoulder.R, Depth: 4}
+    f50c7526670ad8fefbac5d6407e0c6a3: {Name: BackLeg.R, Depth: 5}
+    ac6e6e06f6bcf9bee03ecaff94142c71: {Name: BackUpperLeg.R, Depth: 6}
+    a66c96c805c6086593b9499c02a73aee: {Name: BackLowerLeg.R, Depth: 7}
+    9f4c6871b6e7f63c4f3bf9dd315d08a2: {Name: BackLowerLeg.R_end, Depth: 8}
+    f3ef14c3a6f12e3659bf8fd916316716: {Name: Tail1, Depth: 4}
+    3d8ec3b6bc7e20e0474507c3167c43d8: {Name: Tail2, Depth: 5}
+    b415decb10a95fd2a5cb3d42c3dfa2f0: {Name: Tail3, Depth: 6}
+    5b0259ebcd4c3083b1d1202b17f97532: {Name: Tail4, Depth: 7}
+    b8744791c295ea265933d747ecb620d4: {Name: Tail5, Depth: 8}
+    a35b207c7aecf2d6ab7a8c2b7b801c63: {Name: Tail6, Depth: 9}
+    3be9332b1c8d6d50adde1447512a8d30: {Name: Tail7, Depth: 10}
+    425d2764a7cf1dd3699d7a82a7c5cbec: {Name: Tail7_end, Depth: 11}
+    e4387883d915761d29717a85a149ca53: {Name: PoleTargetBack.L, Depth: 3}
+    37a986ab4b58f50fcdb97e6d80c52687: {Name: PoleTargetBack.L_end, Depth: 4}
+    bc513d0332329d13d9899f68cf817108: {Name: PoleTarget.L, Depth: 3}
+    d25779057a71759340c563accc7404dd: {Name: PoleTarget.L_end, Depth: 4}
+    86410220fe5dfdb30e548cb90c53e550: {Name: PoleTargetBack.R, Depth: 3}
+    4cf4658bc11b16d00e7fc397a05afe30: {Name: PoleTargetBack.R_end, Depth: 4}
+    b6e21365e9ecfd8133cfdcf51290c3ba: {Name: PoleTarget.R, Depth: 3}
+    545f127b5f4c1b87d62e623fa275f0fb: {Name: PoleTarget.R_end, Depth: 4}
+    a09689ae7d87fb734d8ba103a5d501f7: {Name: IKBackLeg.L, Depth: 2}
+    67d2df90f49ecc0fa89370f432d78590: {Name: FFB.L, Depth: 3}
+    4155a2b63559e1111d516a226b2e8e86: {Name: FFB.L_end, Depth: 4}
+    6327b63b55171503ae6b9de1577cc766: {Name: IKFrontLeg.L, Depth: 2}
+    ede7ecfd58895e42ff00aa462ce43c63: {Name: FF.L, Depth: 3}
+    4257127d26f06adf35993bf4f031c965: {Name: FF.L_end, Depth: 4}
+    48c1216fe70cd8d4f2a50ee13aa0686b: {Name: IKBackLeg.R, Depth: 2}
+    862f6c50eea7b908ac733e7194042117: {Name: FFB.R, Depth: 3}
+    e38ab6ccf8572287f0fe7b4e5a5d3ac3: {Name: FFB.R_end, Depth: 4}
+    3788da6309ec11370c5e6ecc99585603: {Name: IKFrontLeg.R, Depth: 2}
+    4bbbd42680d1e8e7933f259298d20f7f: {Name: FF.R, Depth: 3}
+    c68226add1a031c4fbadc4019c891a3b: {Name: FF.R_end, Depth: 4}
+    5fca7fbb211329a62b608be4c9746430: {Name: Horse, Depth: 1}
+~SourceHashes:
+    a01845b73b05d78e13efdd373a4fd40f~../../../Resources/Animated Animal Pack-glb/White Horse.glb: 3e31fa253a77d9e24b5d8b3a8204e34f

@@ -1,0 +1,39 @@
+!Model
+Id: 0a7f031c-cefe-4f51-b33d-058c4273820e
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/Cow.glb
+Skeleton: cd44b3e2-30c3-425e-a545-c8c164f52b8a:Model/Cow Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    ec44b9b31001bb3b8ea8d1f3316c6053:
+        Name: Main
+        MaterialInstance:
+            Material: caf7d822-8319-4793-88ff-c74b3c59d608:Model/Main_3
+    75ab57802f77663faf1fcf8318247614:
+        Name: Main_Light
+        MaterialInstance:
+            Material: 985d87cd-71af-4a1c-bef1-0d6837968f21:Model/Main_Light_3
+    7903d9abb922c628422c3acaecb1d9a8:
+        Name: Muzzle
+        MaterialInstance:
+            Material: 1858d2b5-ebea-42ac-b963-3e3e14fd7fad:Model/Muzzle_3
+    3a4bc10109a32bd5510d2c6076c3f0f3:
+        Name: Hooves
+        MaterialInstance:
+            Material: a94540d7-54d7-4a80-ab61-948f8caaf1d9:Model/Hooves_3
+    d410ecff6fd114b2b792bd9591952d9a:
+        Name: Eye_Black
+        MaterialInstance:
+            Material: 774681ce-1566-4189-9cbb-8fda1aca7db0:Model/Eye_Black_2
+    8cb8bd55a9cff931fa82393c082477e6:
+        Name: Eye_White
+        MaterialInstance:
+            Material: 214e1261-1840-49e2-85e2-197cd1319d31:Model/Eye_White_2
+    d8086ebc9d09448a2a19f72293533f53:
+        Name: Horns
+        MaterialInstance:
+            Material: de1387c9-ee80-4230-bd05-d310f9a3bea2:Model/Horns_2
+Modifiers: {}
+~SourceHashes:
+    b76312b847f8ceb2423b2c67026a59e4~../../../Resources/Animated Animal Pack-glb/Cow.glb: aeff04cb41f546b973ae7a89048af896

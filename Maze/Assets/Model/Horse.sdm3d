@@ -1,0 +1,43 @@
+!Model
+Id: 72d289e3-8435-4411-bbd1-6192cf6019da
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/Horse.glb
+Skeleton: bf97f23d-0e04-47e4-b11d-399dc2cee6cf:Model/Horse Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    ffd59e96387204788265873ba3229f74:
+        Name: Main
+        MaterialInstance:
+            Material: 5b4ba5e5-7001-4e6a-85c6-b2443bc4affe:Model/Main_7
+    65d232fc62f0180acd2e4bf86ee380b7:
+        Name: Hair
+        MaterialInstance:
+            Material: 6a112a9a-e42e-4014-86ad-58719aa0aceb:Model/Hair_2
+    8fc4518f3b2165f9253f9e5a47d29fd4:
+        Name: Main_Dark
+        MaterialInstance:
+            Material: 8e592d26-dee2-4edd-bbd1-6fe4cb58a7d9:Model/Main_Dark_3
+    99d7e8dcf37587a0f3285858e9a8a221:
+        Name: Muzzle
+        MaterialInstance:
+            Material: d106a319-ae44-4e36-aa6e-5a0f7d3f2929:Model/Muzzle_5
+    0a099f7b383fb48d8a3db9f5fda48c57:
+        Name: Hooves
+        MaterialInstance:
+            Material: 0c4e8b7e-0914-4a6b-9b09-4603bf321353:Model/Hooves_6
+    c4034e455cd364890e26a87651bdfe81:
+        Name: Main_Light
+        MaterialInstance:
+            Material: b17e8a80-3072-4167-8ec8-b6b66894af23:Model/Main_Light_7
+    3cda31c3e2595819f29a65576521448e:
+        Name: Eye_Black
+        MaterialInstance:
+            Material: 7b14630c-66c2-45ce-b4de-f7fec6294806:Model/Eye_Black_4
+    97ccdf991456dfd3af023f1a6d2df3b9:
+        Name: Eye_White
+        MaterialInstance:
+            Material: 6dd38fbb-a0bb-4893-9f0e-d6f08896ac21:Model/Eye_White_5
+Modifiers: {}
+~SourceHashes:
+    ecf4cf1af040ef86d053731fcf21ba88~../../../Resources/Animated Animal Pack-glb/Horse.glb: ed375564b35eac43787e69dc946283c0

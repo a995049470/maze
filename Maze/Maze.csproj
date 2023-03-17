@@ -56,11 +56,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SpriteLight.sdsl</DependentUpon>
     </Compile>
+    <Compile Update="Code\Render\PostProcessing\PixelStyleEffect.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Code\Render\Tansmittance\TransmittanceSprite.sdsl.cs">
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>TransmittanceSprite.sdsl</DependentUpon>
+    </Compile>
+    <Compile Update="Code\Render\TestImageEffect.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
 
@@ -80,8 +90,14 @@
     <None Update="Code\Render\LitSprite\SpriteLight.sdsl">
       <LastGenOutput>SpriteLight.sdsl.cs</LastGenOutput>
     </None>
+    <None Update="Code\Render\PostProcessing\PixelStyleEffect.sdsl">
+      <LastGenOutput>PixelStyleEffect.sdsl.cs</LastGenOutput>
+    </None>
     <None Update="Code\Render\Tansmittance\TransmittanceSprite.sdsl">
       <LastGenOutput>TransmittanceSprite.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\TestImageEffect.sdsl">
+      <LastGenOutput>TestImageEffect.sdsl.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

@@ -1,0 +1,79 @@
+!Skeleton
+Id: bb5312f5-7a4f-4dc5-9e3d-aa840860145c
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/Fox.glb
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Nodes:
+    3fa30cfa1f0400d6650d73100a96357f: {Name: RootNode, Depth: 0}
+    a7b7571d5bb31d15939407e2fe27f12d: {Name: AnimalArmature, Depth: 1}
+    17f2e85aa661dd28d3fe0fc93cedea4d: {Name: Body, Depth: 2}
+    ba70900af9f1aadbe29e0499845cbdfb: {Name: Back, Depth: 3}
+    ab337a29d9e16f54a38067952bd6ba14: {Name: Torso, Depth: 4}
+    6ebd1366de160ae5081bead73999453a: {Name: Torso2, Depth: 5}
+    cdec74a5e7873f093ce56087a9a4135c: {Name: Torso3, Depth: 6}
+    311818ad6513d0bd03703b2ef3b70fdc: {Name: Neck1, Depth: 7}
+    780c1d8930dfc2615105da88a82565cb: {Name: Neck2, Depth: 8}
+    3979e2e8247c7945b8fd7590a35aed98: {Name: Neck3, Depth: 9}
+    d3877202f8cd70adc26f1857f553b031: {Name: Head, Depth: 10}
+    b64be2026d866973f113b92cc092db3e: {Name: Head_end, Depth: 11}
+    3ae10ee223ce9c038624d911702ca018: {Name: Ear1.L, Depth: 10}
+    1e3b9e4687a15a8558e44e34b8ac79af: {Name: Ear2.L, Depth: 11}
+    6eac55ee2bd9ab8c6640b9b8840b9141: {Name: Ear3.L, Depth: 12}
+    cd72dc7d156d31ae3146b1d362b347de: {Name: Ear4.L, Depth: 13}
+    5af734368e954d4606c428434a59ef3a: {Name: Ear4.L_end, Depth: 14}
+    3fb1a8fa8c43d2af9caeef8fd62e7655: {Name: Ear1.R, Depth: 10}
+    ff13011b42818845eb5d7478c2b38bc8: {Name: Ear2.R, Depth: 11}
+    d2f47e26e94dd4e47f656235745ef258: {Name: Ear3.R, Depth: 12}
+    b77df1029f7829ab1a7ea7e95d3f4557: {Name: Ear4.R, Depth: 13}
+    32d4e25c2c7dda1b1447b5b9e11bffc5: {Name: Ear4.R_end, Depth: 14}
+    10a410fad0bfd15edb96ac528d96d94d: {Name: FrontShoulder.L, Depth: 6}
+    6383b7fbee334fcbca495eb61fa3722b: {Name: FrontUpperLeg.L, Depth: 7}
+    85c063f6026206c01d9db0ed07844005: {Name: FrontLowerLeg.L, Depth: 8}
+    cd0ae4f31d57dd8d16897af5a13759e0: {Name: FrontLowerLeg.L_end, Depth: 9}
+    f392122f72af3b542e9049e50f367b33: {Name: FrontShoulder.R, Depth: 6}
+    9e0dd29ef0a0f9c1a81246741ecdbbbf: {Name: FrontUpperLeg.R, Depth: 7}
+    2e33da79039bd4380d97c58a86cf033a: {Name: FrontLowerLeg.R, Depth: 8}
+    5f0bc086976422088c2cdea9b0772472: {Name: FrontLowerLeg.R_end, Depth: 9}
+    7874200107e3157e8d055b12a67255f0: {Name: BackShoulder.L, Depth: 4}
+    f5d5affa0df160d237faf1f1fb58b0e6: {Name: BackLeg.L, Depth: 5}
+    28bbb57ad18c65033f362a8f9770f220: {Name: BackUpperLeg.L, Depth: 6}
+    893c52daff2dd4eb77f54aecc0bd4ee3: {Name: BackLowerLeg.L, Depth: 7}
+    e6db9d028b762198da69ed71f235a039: {Name: BackLowerLeg.L_end, Depth: 8}
+    757b8625a68a12b956dff1a07ec78147: {Name: BackShoulder.R, Depth: 4}
+    692446aa5e225cb4e52ef568d0f89df4: {Name: BackLeg.R, Depth: 5}
+    9d963f074c5a17bf0455fe33068356de: {Name: BackUpperLeg.R, Depth: 6}
+    c30525ef6eef733841647cf75c313e81: {Name: BackLowerLeg.R, Depth: 7}
+    6b1ebe2ee2e9f723b9f8b3a058e0fb53: {Name: BackLowerLeg.R_end, Depth: 8}
+    079140b25c168e112d551375428cb8b9: {Name: Tail1, Depth: 4}
+    c308611673f7fc446e651bff787b92a6: {Name: Tail2, Depth: 5}
+    2faef3721d2dd5a41eaf46d561e481ea: {Name: Tail3, Depth: 6}
+    c07f917740d3cd494b7bb3646aaf5612: {Name: Tail4, Depth: 7}
+    35665602df4248446236710a73b6891e: {Name: Tail5, Depth: 8}
+    e6c88264f1639dfd61e09d443c3c206b: {Name: Tail6, Depth: 9}
+    05fbe8f09d1e87f3a1d21fefd60aabc2: {Name: Tail7, Depth: 10}
+    c6104670a821fbe8b865358f4a356e22: {Name: Tail8, Depth: 11}
+    be0016e51a438474c2f1b9d0b4927de7: {Name: Tail8_end, Depth: 12}
+    6875a40e374f2210fbabaa43a0e25e75: {Name: PoleTargetBack.L, Depth: 3}
+    5dc5a460f13921090584b8fdf6ac00e6: {Name: PoleTargetBack.L_end, Depth: 4}
+    9fe89dd896bbd796685c0dd5047759c3: {Name: PoleTarget.L, Depth: 3}
+    96bf03fefa24622a6684025be89dc2fd: {Name: PoleTarget.L_end, Depth: 4}
+    1d49083f5bd9b17587692608b68a4b22: {Name: PoleTargetBack.R, Depth: 3}
+    f8bb2ca4ce6ff17e8964866b85694eed: {Name: PoleTargetBack.R_end, Depth: 4}
+    520107dbf80d43f47fcb76115c4534f0: {Name: PoleTarget.R, Depth: 3}
+    98fc3ad0ee0d8d1b5fe723b38636099d: {Name: PoleTarget.R_end, Depth: 4}
+    c2cdded3e380a3425f8f626227be1992: {Name: IKBackLeg.L, Depth: 2}
+    a1eb31703dcdd397f4b203b8fdf3f454: {Name: FFB.L, Depth: 3}
+    d36b5d169d9c111cf44645dda9a58f1b: {Name: FFB.L_end, Depth: 4}
+    ea8fccd7a0ac55eed0d3c2045b6ef977: {Name: IKFrontLeg.L, Depth: 2}
+    18e775a7ad22e2be8de8e089646e41f8: {Name: FF.L, Depth: 3}
+    5055cfb662143f67559f2410f78f7ddd: {Name: FF.L_end, Depth: 4}
+    d387d7d0f0886528b6bcc9ee58a9f3e0: {Name: IKBackLeg.R, Depth: 2}
+    c4438a2a42fd929c65d1d866e9889277: {Name: FFB.R, Depth: 3}
+    0049c6a765b5e8c0d462502566580113: {Name: FFB.R_end, Depth: 4}
+    cfe461880c9a781c4446bc7418d14330: {Name: IKFrontLeg.R, Depth: 2}
+    4b3c08bfb109b25681951a3e8c3c91c9: {Name: FF.R, Depth: 3}
+    536c9686cb004906926b98ce2a63f420: {Name: FF.R_end, Depth: 4}
+    95c6aa73021b85734c02c215fe4d0c4c: {Name: Fox, Depth: 1}
+~SourceHashes:
+    22c933b85c4313c2f558a47f6c1bf27a~../../../Resources/Animated Animal Pack-glb/Fox.glb: 9538fc4b1a92c4e11cdec0e979fea29d

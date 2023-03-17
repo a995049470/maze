@@ -1,0 +1,35 @@
+!Model
+Id: e25495a9-2bb3-47d6-b9a2-0f098e19333e
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/Shiba Inu.glb
+Skeleton: cb832cd3-f068-42f3-bd59-c5599d3b2ec6:Model/Shiba Inu Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    68c3f77d2c1b4ef2270acad11f003940:
+        Name: Main
+        MaterialInstance:
+            Material: 03738fba-95bd-4a59-9515-55c440bc4594:Model/Main_8
+    3f13b7c7bb3a3c44fb47065314ca60e2:
+        Name: Main_Light
+        MaterialInstance:
+            Material: b40a1c50-ad04-4240-b7b9-d89f9631f7d5:Model/Main_Light_8
+    dc3f2b42f85f932236b25ceffdd9e2db:
+        Name: Black
+        MaterialInstance:
+            Material: 9da55ea5-5886-4f06-97cc-c6cd5f7b6733:Model/Black_2
+    8014e55eea63c800746d9225eb234bdc:
+        Name: Eyes_White
+        MaterialInstance:
+            Material: a8f6b833-144d-4004-8748-31eb769dd316:Model/Eyes_White_2
+    bf2450ab0992610c729b162b5675eb14:
+        Name: Eyes_Pupil
+        MaterialInstance:
+            Material: c8d224f0-1e7a-40a2-8f71-970504cd82fe:Model/Eyes_Pupil
+    230d19215a2dc26c14481bdccfec9c9c:
+        Name: Eyes_Black
+        MaterialInstance:
+            Material: 56d74f0f-4548-4d8b-bdc8-23b36177f075:Model/Eyes_Black_2
+Modifiers: {}
+~SourceHashes:
+    837c262644d2394a7d96b043f7893ccf~../../../Resources/Animated Animal Pack-glb/Shiba Inu.glb: b03ca01e1c9bc830ab4fc8b3ace35eb5

@@ -1,0 +1,27 @@
+!Model
+Id: 156acecb-8351-4550-8c98-d19f73ae3b93
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/Wolf.glb
+Skeleton: a3f88c23-2b4d-4e2c-9792-b3a2ce328871:Model/Wolf Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    f643c6ce73d29b1940463a5113d64fb8:
+        Name: Main
+        MaterialInstance:
+            Material: 3750ba59-ea76-4875-8fb0-95f0eff3d071:Model/Main_10
+    0eb6f883c112b95afac099d1cf40db1f:
+        Name: Main_Light
+        MaterialInstance:
+            Material: ba00838f-2c02-41d0-b2a4-9770a2f2ea7a:Model/Main_Light_10
+    f68c326f0b2fd0e9445a0ae5c6b3d6ee:
+        Name: Eyes_Black
+        MaterialInstance:
+            Material: a05035da-06d1-40df-8f97-917378dab7ed:Model/Eyes_Black_3
+    aa12c18fa1b3df790178a994202670a9:
+        Name: Nose
+        MaterialInstance:
+            Material: 2e1e305b-7e19-4103-a352-93beb68810fc:Model/Nose
+Modifiers: {}
+~SourceHashes:
+    7cc45cbe1dbb8e5a28a78efacf434dd3~../../../Resources/Animated Animal Pack-glb/Wolf.glb: 3a448682fb1b1a38323a8f51c0286f17

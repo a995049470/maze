@@ -1,0 +1,39 @@
+!Model
+Id: 9e2c1fe8-316b-45b3-a841-c4c153df0298
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/Deer.glb
+Skeleton: 0d1adc99-2d21-4858-9c93-7a362686cb99:Model/Deer Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    b67bb6b77f813d20429d9f74518ed77b:
+        Name: Main_Light
+        MaterialInstance:
+            Material: eec85cd6-ac60-4526-87d0-85217fd0adc1:Model/Main_Light_4
+    d449c3783b66d9ce7a736656e197ccfb:
+        Name: Main
+        MaterialInstance:
+            Material: d4ffe7ac-58e9-4852-bfd0-6fea887fbb40:Model/Main_4
+    4c0df8807f932e2aac5bd7efed388611:
+        Name: Main_Dark
+        MaterialInstance:
+            Material: 3d9cf82c-85bd-468d-851c-a82fe7873f93:Model/Main_Dark_2
+    da3341c475214aaa9788f73bf1f5296d:
+        Name: Hooves
+        MaterialInstance:
+            Material: 005d56b2-a1fb-447a-8cd5-e87ec66a7f50:Model/Hooves_4
+    e179354a7d4f55eca7d4479166148ae8:
+        Name: Eye_Lighter
+        MaterialInstance:
+            Material: fc5729e2-327e-48ad-b084-22e4ffbe3f87:Model/Eye_Lighter
+    91c793951c061ad1d5cd1fb1e77a15eb:
+        Name: Eye_Black
+        MaterialInstance:
+            Material: ef62a290-5c98-464e-9f34-a03d7f5d328f:Model/Eye_Black_3
+    cf5a6ac47ff31985f090d349b207d729:
+        Name: Eye_White
+        MaterialInstance:
+            Material: 1eededa4-2d49-40c7-b64b-c2391a906cac:Model/Eye_White_3
+Modifiers: {}
+~SourceHashes:
+    1558d6ea347c290298ce5205d6e3276f~../../../Resources/Animated Animal Pack-glb/Deer.glb: 51e1d2246e408eb3a1490513fe0e7454

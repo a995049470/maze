@@ -1,0 +1,74 @@
+!Skeleton
+Id: cb832cd3-f068-42f3-bd59-c5599d3b2ec6
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/Shiba Inu.glb
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Nodes:
+    07bbc269ac56d953ba132cabc87c0635: {Name: RootNode, Depth: 0}
+    1b6b9dd86cedb7f26994a6ff614c4021: {Name: AnimalArmature, Depth: 1}
+    563e6a4c3b3c0107d8a6db808c7f7f77: {Name: Body, Depth: 2}
+    1aade6a31ff1a596ab923e13c24631ec: {Name: Back, Depth: 3}
+    6710866b15b2ccfac261519cb3382d7f: {Name: Torso, Depth: 4}
+    3ab78002b6d3f48887d21e809ea4c1b6: {Name: Torso2, Depth: 5}
+    4714390f453cbce905539fc3f806b948: {Name: Torso3, Depth: 6}
+    fe01b93de7eedf043734e5b8314af7e1: {Name: Neck1, Depth: 7}
+    682fb82c2771fb65a9eca79cba66437b: {Name: Neck2, Depth: 8}
+    42e2f7e76c1a261b99f10e4d297e0794: {Name: Neck3, Depth: 9}
+    7e0174ccaa7a4d0ea37eb885a86234b8: {Name: Head, Depth: 10}
+    9433683c02ff74707d08a261515a149e: {Name: Head_end, Depth: 11}
+    7f37573ec2ee62ac0a28cd0ed0384466: {Name: Ear1.L, Depth: 10}
+    73f7fc2a76350aedea95504ee97867f2: {Name: Ear2.L, Depth: 11}
+    0c4dadcf9c38108bdbb14834563850f7: {Name: Ear3.L, Depth: 12}
+    8763abfc7514a472af899480384d6b76: {Name: Ear4.L, Depth: 13}
+    0cbad8007ecbf2637fbcaaf3450922e1: {Name: Ear4.L_end, Depth: 14}
+    e018c23d02816ce9ee14a1b3dd031e93: {Name: Ear1.R, Depth: 10}
+    84e6de549dbeae17ed8250bebca1ab4c: {Name: Ear2.R, Depth: 11}
+    888927d4c49451b9fabb8864cb925d18: {Name: Ear3.R, Depth: 12}
+    f83bfebf561af98ade785b367cc7e83a: {Name: Ear4.R, Depth: 13}
+    5a4b337e457f71781d3902d102ad79a0: {Name: Ear4.R_end, Depth: 14}
+    b2741599525e5f6c72fb19023db46f93: {Name: FrontShoulder.L, Depth: 6}
+    7b2ec5e681d06c80e0cfd36759582873: {Name: FrontUpperLeg.L, Depth: 7}
+    764053c63c6ad62ff341ddb414a0f1c1: {Name: FrontLowerLeg.L, Depth: 8}
+    785fb6e1f303895e2ec51fc588ca6508: {Name: FrontLowerLeg.L_end, Depth: 9}
+    a91e561c95705763b0d965f9e9b751d7: {Name: FrontShoulder.R, Depth: 6}
+    9a97778a3d1de5a7ae8307927ef32c08: {Name: FrontUpperLeg.R, Depth: 7}
+    54182ce2c42dc0e36b38b0c21e4e581f: {Name: FrontLowerLeg.R, Depth: 8}
+    2980cc1f5a0cb63363a05f54f8b6fca1: {Name: FrontLowerLeg.R_end, Depth: 9}
+    c8f3ce49f0422dced4cf65fa57761c53: {Name: BackShoulder.L, Depth: 4}
+    5420c54758b46f86275c540f0e0eb020: {Name: BackLeg.L, Depth: 5}
+    7a0cc349953a9a71a2c6481f9cdf02c7: {Name: BackUpperLeg.L, Depth: 6}
+    3ef9634ffd6db3afe4abfe35f779e022: {Name: BackLowerLeg.L, Depth: 7}
+    f995b1fc15767bffa56bb44925c3f297: {Name: BackLowerLeg.L_end, Depth: 8}
+    69f91a1ba74e0c6370c38411370e0bb7: {Name: BackShoulder.R, Depth: 4}
+    46f3430a8ffb7fa588e2b759996137ad: {Name: BackLeg.R, Depth: 5}
+    e503b4b61056c95888e5071a394713f8: {Name: BackUpperLeg.R, Depth: 6}
+    5016f5d9d675d0614351c71e65baace7: {Name: BackLowerLeg.R, Depth: 7}
+    dcf01b55da6bebb9338d3cfdd75b60db: {Name: BackLowerLeg.R_end, Depth: 8}
+    728a0f7f6118edf7001a497013437440: {Name: Tail1, Depth: 4}
+    c92b2e850e8b6987b3a93f1499f9081d: {Name: Tail2, Depth: 5}
+    37106194207d194cd68b93265cb590c0: {Name: Tail3, Depth: 6}
+    1e4546eda520557a762afa9cdaf9d8ff: {Name: Tail3_end, Depth: 7}
+    d237409ffd41fac4f1a1736d4c7a003c: {Name: PoleTargetBack.L, Depth: 3}
+    f5f0e16b604ec855e6f6769cf9f6d8b9: {Name: PoleTargetBack.L_end, Depth: 4}
+    b5cf7842680eaa9d5d3888a3283f91ac: {Name: PoleTarget.L, Depth: 3}
+    efae0c29edb654842ae54adf34a2d364: {Name: PoleTarget.L_end, Depth: 4}
+    b86f87bd06a447b1c7e1a22ef73726c0: {Name: PoleTargetBack.R, Depth: 3}
+    f745060ab2ddf3e40b31f559b0d4e1b7: {Name: PoleTargetBack.R_end, Depth: 4}
+    32a4cd4e9a6bb798a1a89ddf852c240f: {Name: PoleTarget.R, Depth: 3}
+    5fbb9a93745cd74d1f49855a35b9dd03: {Name: PoleTarget.R_end, Depth: 4}
+    e67582668620ebb6706c0ff05f744626: {Name: IKBackLeg.L, Depth: 2}
+    24fea8fc829a900256b3e82645113f98: {Name: FFB.L, Depth: 3}
+    2632018af9005b5976a11be69f6fd198: {Name: FFB.L_end, Depth: 4}
+    dc4a848a98612beb82abc4aca229533b: {Name: IKFrontLeg.L, Depth: 2}
+    316f7be7e7679fca7ecc973502f6d909: {Name: FF.L, Depth: 3}
+    af8796bde87b1c03ffd3a47a0517fe19: {Name: FF.L_end, Depth: 4}
+    1ffb876d246ed949a32fa8849ad9a0b1: {Name: IKBackLeg.R, Depth: 2}
+    abe2e8a976b62667d179175354f9973f: {Name: FFB.R, Depth: 3}
+    cb03a61011f500b253e76dbafaea4124: {Name: FFB.R_end, Depth: 4}
+    4cc1229de9d6ab8cecc35f2ff0ad73a2: {Name: IKFrontLeg.R, Depth: 2}
+    be202afddf8474a12cc75d983e784e19: {Name: FF.R, Depth: 3}
+    c4f8e333637e4e5fb9e597e39fec644d: {Name: FF.R_end, Depth: 4}
+    0a89500553f9107b214542b3e8dd90e9: {Name: ShibaInu, Depth: 1}
+~SourceHashes:
+    4bf805fc9ad7067cb79eb9b2d4bd1762~../../../Resources/Animated Animal Pack-glb/Shiba Inu.glb: b03ca01e1c9bc830ab4fc8b3ace35eb5

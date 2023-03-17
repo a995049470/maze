@@ -1,0 +1,39 @@
+!Model
+Id: b3d5b364-20e6-4a61-9727-c45df082de39
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Animated Animal Pack-glb/Donkey.glb
+Skeleton: a85590a4-d346-4ba7-a049-9cb51e1e6d5c:Model/Donkey Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    3176cff280a1d4f33821eb482d980c83:
+        Name: Main_Light
+        MaterialInstance:
+            Material: 337a18e5-05bf-46e5-bbc0-3272d8b745be:Model/Main_Light_5
+    628808ddb999074498618af8e197d288:
+        Name: Main
+        MaterialInstance:
+            Material: d02d58da-86c2-4078-a515-497a52c53449:Model/Main_5
+    6e88e64fd7141e266815548d18abd677:
+        Name: Hair
+        MaterialInstance:
+            Material: c34f4c22-1eb1-4350-afed-1134d3ab7ade:Model/Hair
+    3f175384da9973db612625680e8c2cc7:
+        Name: Muzzle
+        MaterialInstance:
+            Material: 298feaeb-65ae-45c1-89c9-d74400237d91:Model/Muzzle_4
+    6e8bced45f32da937f926d7c9c84a0dc:
+        Name: Hooves
+        MaterialInstance:
+            Material: 9225876d-225c-4caf-8b99-348abc7705e0:Model/Hooves_5
+    c95a8ad7d80442fe40336011130d3bc0:
+        Name: Eye_Dark
+        MaterialInstance:
+            Material: 1c4d7cd2-3598-4b08-9f56-9b750c8e1d8f:Model/Eye_Dark
+    e2076546359a2973bce3d1398a9ad461:
+        Name: Eye_White
+        MaterialInstance:
+            Material: af0bb25f-ec62-4f8f-8af2-07418fba5ed2:Model/Eye_White_4
+Modifiers: {}
+~SourceHashes:
+    d5f64975603ac96e8beaeb34b2032b8b~../../../Resources/Animated Animal Pack-glb/Donkey.glb: 1f1fa71702f7adc2df5ed1fa99e4c892

@@ -36,12 +36,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 2890e9d7-6c08-4661-88d0-b7f006187e22
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -61,12 +56,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 358a4131-c2ea-442e-b2ac-38485c3031d9
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -86,12 +76,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 9fa12bce-afcd-412d-959e-33a885129312
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -111,12 +96,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: f6c487fe-c9aa-43a1-9392-88be645967d4
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -149,11 +129,6 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 0.0, G: 0.0, B: 1.0, A: 1.0}
-                    7624d55397beff3c0ce2b0c6643de474: !TransmittanceSpriteComponent
-                        Id: 4bd6e602-a810-4eaf-ba79-36aa7307eccf
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 0.0, G: 0.0, B: 1.0, A: 1.0}
         -   Entity:
                 Id: 15c482eb-1c4d-4d30-a81e-903cca694c29
                 Name: Block
@@ -180,12 +155,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 803272d7-0d81-40ae-b9c8-529776f73379
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -212,8 +182,6 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    9e44a4cb6db9604dc494b4ac041b0396: !Maze.Code.Profiling.RenderDoc,Maze
-                        Id: 1c93c8ca-080d-43d3-952e-fa84c5922999
         -   Folder: null
             Entity:
                 Id: 2cdc461b-be88-4956-a6ab-6b9388cbd866
@@ -258,11 +226,6 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 0.0, G: 1.0, B: 0.0, A: 1.0}
-                    7624d55397beff3c0ce2b0c6643de474: !TransmittanceSpriteComponent
-                        Id: 655001fa-4cef-48f5-9788-b6544cc3c1d0
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 0.0, G: 1.0, B: 0.0, A: 1.0}
         -   Folder: null
             Entity:
                 Id: 332fa2f8-b3be-4e16-a04a-13d035aa920a
@@ -288,11 +251,6 @@ Hierarchy:
                         Children: {}
                     fe105b06c71726e199708152906eebad: !SpriteComponent
                         Id: 76e15438-1a45-4ed3-97a6-12ee4fe6f183
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 0.0, B: 0.0, A: 1.0}
-                    7624d55397beff3c0ce2b0c6643de474: !TransmittanceSpriteComponent
-                        Id: 8b007926-3c22-4329-82d3-0a4deedb34df
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 0.0, B: 0.0, A: 1.0}
@@ -341,12 +299,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 2495a201-9092-4f54-b18f-aabc8fc40b6d
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -366,12 +319,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 6e206ba3-e9f9-4d05-b5ca-c7b724eeeb1e
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -391,12 +339,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 29975b36-fe7a-41ed-9d6c-6d20d9fa9bc6
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -440,12 +383,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 6a40e9bc-5e5e-4739-b063-1cae9d54f3d0
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -465,12 +403,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: c8451099-26fd-46cc-b7af-1b3217ab4fc9
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -490,12 +423,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: e743d35c-b3ce-4b6f-a384-ca604a624ff0
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -526,12 +454,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 51f2125b-9adc-489b-bb14-6f9cfc84fa4b
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -591,12 +514,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 9562a294-69c5-468d-8c90-c35635a1497d
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -628,12 +546,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 747a38a0-4ebd-455e-b74e-377cd7a01ef7
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -654,12 +567,6 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 0.0, G: 1.0, B: 0.0, A: 1.0}
-                    4be9818b0ba54b9f60b8335bb8c1306e: !CellSpriteComponent
-                        Id: 82d2531f-33ba-419d-8a63-b7d0facc04d2
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 0.0, G: 1.0, B: 0.0, A: 1.0}
-                        Intensity: 4096.0
         -   Entity:
                 Id: a8892605-db24-4326-a53a-ae539d218c0e
                 Name: Sprite
@@ -675,12 +582,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 4c23129e-b114-462f-ad11-b8bae9cece1e
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -700,12 +602,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 29ff3d63-7e95-41c5-82b2-8efb332dbf15
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -749,12 +646,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 296ef1f0-008e-4a4a-bccc-8c222a422d48
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -875,12 +767,7 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    707a3c9ea55a7f4bcaf7a45a2e0908ad: !TransmittanceSpriteComponent
-                        Id: 7306b070-82ed-47e0-bd86-8e0f54170c58
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 0.0
+                    707a3c9ea55a7f4bcaf7a45a2e0908ad: ~(Deleted)
             Base:
                 BasePartAsset: 6cf1e643-7d24-480e-93a1-0adc021c17d3:Prefab/Block
                 BasePartId: b35e5c47-c8c2-43ad-80ff-f5a2c37797e5
@@ -901,12 +788,6 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 0.0, B: 0.0, A: 1.0}
-                    4be9818b0ba54b9f60b8335bb8c1306e: !CellSpriteComponent
-                        Id: d3ef5b0c-8517-4483-acd3-2c562c819e2d
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 0.0, B: 0.0, A: 1.0}
-                        Intensity: 65536.0
         -   Folder: Light
             Entity:
                 Id: fe049dab-709b-4d25-b1ea-9f06fd5d8d8e
@@ -923,9 +804,3 @@ Hierarchy:
                         SpriteProvider: !SpriteFromSheet
                             Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    4be9818b0ba54b9f60b8335bb8c1306e: !CellSpriteComponent
-                        Id: 7bbec21c-5c3c-45ca-bd70-c554712aad20
-                        SpriteProvider: !SpriteFromSheet
-                            Sheet: 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 32.0
