@@ -1,0 +1,31 @@
+!Model
+Id: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Animated Animal Pack-glb/Fox/fox.fbx
+Skeleton: c6de1426-2619-4681-8dad-ef20113bcf9f:Model/Fox/fox Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    23093c5bcadab60dba087f71742db4b0:
+        Name: Main
+        MaterialInstance:
+            Material: 62681361-9cb9-4f71-8d37-47b5dbfcd7dc:Model/Fox/Main
+    c2b9c3628601e869f4d42d5e337169fe:
+        Name: Main_Light
+        MaterialInstance:
+            Material: 3b75e1f1-941f-4378-a73d-37f00bb65b9e:Model/Fox/Main_Light
+    8a6a92363e755d8fc5646c9a5da4ceca:
+        Name: Grey
+        MaterialInstance:
+            Material: 0b9fd05c-3ceb-492b-b575-4329fba77c9f:Model/Fox/Grey
+    f7b6f68fc9d248ff84539bd16e6e6853:
+        Name: Black
+        MaterialInstance:
+            Material: ab4f4c24-f87a-4450-a6fe-ae5391ec4947:Model/Fox/Black
+    26cb6b1d3f9759867924dd0c99487ca8:
+        Name: Eyes
+        MaterialInstance:
+            Material: 3bcf528d-1f8a-44da-b94e-c0c56aeb0aff:Model/Fox/Eyes
+Modifiers: {}
+~SourceHashes:
+    961c7e746e0ae6b7ba503623bf987937~../../../../Resources/Animated Animal Pack-glb/Fox/fox.fbx: 6b35ba82f47893fdf65175425c528533

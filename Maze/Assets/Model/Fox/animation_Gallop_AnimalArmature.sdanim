@@ -1,0 +1,19 @@
+!Animation
+Id: 4efaeb8d-8194-4222-b30c-91eb7322778d
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Animated Animal Pack-glb/Fox/animation_Gallop_AnimalArmature.fbx
+ClipDuration:
+    Enabled: false
+    StartAnimationTime: 0:00:00:00.0000000
+    EndAnimationTime: 0:00:30:00.0000000
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+RepeatMode: LoopInfinite
+Type: !StandardAnimationAssetType {}
+Skeleton: c6de1426-2619-4681-8dad-ef20113bcf9f:Model/Fox/fox Skeleton
+RootMotion: false
+PreviewModel: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
+AnimationTimeMinimum: 0:00:00:00.0000000
+AnimationTimeMaximum: 0:00:00:00.5000000
+~SourceHashes:
+    ba97801f2a046a1788b9051af9a56feb~../../../../Resources/Animated Animal Pack-glb/Fox/animation_Gallop_AnimalArmature.fbx: ad783444194130af0505c23ddd65abe6

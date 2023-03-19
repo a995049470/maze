@@ -1,0 +1,19 @@
+!Animation
+Id: 53224868-c2ad-4828-ab97-cb54bd91ca88
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Animated Animal Pack-glb/Fox/animation_Idle_AnimalArmature.fbx
+ClipDuration:
+    Enabled: false
+    StartAnimationTime: 0:00:00:00.0000000
+    EndAnimationTime: 0:00:30:00.0000000
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+RepeatMode: LoopInfinite
+Type: !StandardAnimationAssetType {}
+Skeleton: c6de1426-2619-4681-8dad-ef20113bcf9f:Model/Fox/fox Skeleton
+RootMotion: false
+PreviewModel: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
+AnimationTimeMinimum: 0:00:00:00.0000000
+AnimationTimeMaximum: 0:00:00:03.2916700
+~SourceHashes:
+    b479ad26bfd3d05eae0ea36f3daa38f1~../../../../Resources/Animated Animal Pack-glb/Fox/animation_Idle_AnimalArmature.fbx: 605fa96452b302bfafca1f5601e7e2f2
