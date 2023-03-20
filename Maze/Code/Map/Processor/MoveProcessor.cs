@@ -31,10 +31,11 @@ namespace Maze.Code.Map
             {
                 if(data.Velocity.Direction != Vector2.Zero)
                 {
-                    for (int i = 0; i < 2; i++)
+                    //for (int i = 0; i < 2; i++)
                     {
-                        var dir = Vector3.Zero;
-                        dir[i] = data.Velocity.Direction[i];
+                        //var dir = Vector3.Zero;
+                        //dir[i] = data.Velocity.Direction[i
+                        var dir = new Vector3(data.Velocity.Direction.X, 0, data.Velocity.Direction.Y);
                         var originPos = data.Transform.Position;
                         var targetPos = originPos + data.Velocity.Speed * (float)time.Elapsed.TotalSeconds * dir;
                         var scale = Vector3.One;
@@ -48,7 +49,12 @@ namespace Maze.Code.Map
                         {
                             data.Transform.Position = targetPos; 
                         }
+                        if(dir.Length() > 0)
+                        {
+                            data.Transform.Rotation = Quaternion.LookRotation(dir, Vector3.UnitY);
+                        }
                     }
+
                 }
 
             }

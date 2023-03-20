@@ -8,82 +8,56 @@ Hierarchy:
     RootParts:
         - ref!! cb952962-4f7c-4dd5-835e-779f366da48a
         - ref!! b076566c-a2a6-4e2d-b674-d5215bfd9379
-        - ref!! 03d44167-9fbb-42e6-bd13-b771f4553387
-        - ref!! a111317c-f959-43b6-9233-e4b92abc876a
-        - ref!! 37056479-ec1f-47a9-b489-264f7b38da13
+        - ref!! 3e147813-7f5b-4b70-9ee8-451ded55acab
+        - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
     Parts:
         -   Entity:
-                Id: 03d44167-9fbb-42e6-bd13-b771f4553387
-                Name: Deer
+                Id: 3e147813-7f5b-4b70-9ee8-451ded55acab
+                Name: fox
                 Components:
-                    6f55d43e27ea5cc9850466ec6a073138: !TransformComponent
-                        Id: 8c476ab3-8a41-4908-91d0-97620a395167
-                        Position: {X: -0.65958023, Y: 0.0, Z: -2.5360336}
+                    d9ae5c110866e91c468ca3f0d26ea96b: !TransformComponent
+                        Id: 157ed5f2-f709-4a8d-b2f5-05233f3314b7
+                        Position: {X: -12.936689, Y: 0.0, Z: 0.10026801}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 0.6464629, Y: 0.6464629, Z: 0.6464629}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    a063dce4d13ae9dd8077ff392ab72097: !ModelComponent
-                        Id: 7ec328a4-37de-4320-a5dd-3082d29d7281
-                        Model: null
+                    9c1e3f0e1422b068348bf22cf193eb90: !ModelComponent
+                        Id: aa45af69-0eba-4a59-a462-e3eb1088f00a
+                        Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
                         Materials: {}
-                    ac9cf13fc849160d3a086185f48a3641: !AnimationComponent
-                        Id: 133adac0-8286-4192-bb3f-8ae0bca24e4a
+                    a394d83015ff611e725bf228d92f7700: !AnimationComponent
+                        Id: 6f018fa7-4302-466d-b051-54611fde1c69
                         Animations: {}
         -   Entity:
-                Id: 37056479-ec1f-47a9-b489-264f7b38da13
-                Name: Point light
+                Id: ad365e73-5f2d-4864-a539-6efd0523281b
+                Name: Ambient light
                 Components:
-                    0c1cd20c5ebc8862233ef65746c82a12: !TransformComponent
-                        Id: 8bcff340-3280-4db9-aa72-b3e3640b62dc
-                        Position: {X: -3.2760284, Y: 3.0624788, Z: -2.6415863}
+                    18a14a9e423198ee187f376a5d9de2fc: !TransformComponent
+                        Id: a5bd92fa-b659-43e7-bd14-efe760b81fa2
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    048c8ece147d1bdb7808c5991258862f: !LightComponent
-                        Id: 02e363a9-90a9-417e-bb42-d76ff30d2e18
-                        Type: !LightPoint
+                    a1b76a40882274ad1e00e78c3c1bf25c: !LightComponent
+                        Id: 3c8cf025-dcab-4a07-a219-097cb62b3202
+                        Type: !LightAmbient
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
-                            Radius: 5.0
-                            Shadow:
-                                Size: Small
-                                BiasParameters: {}
-                        Intensity: 20.0
-        -   Entity:
-                Id: a111317c-f959-43b6-9233-e4b92abc876a
-                Name: Directional light
-                Components:
-                    0cbb749380895ed6702cbc664061e717: !TransformComponent
-                        Id: bc7f8b33-d245-499b-8be3-083a019295e2
-                        Position: {X: 0.0, Y: 5.89083, Z: 0.0}
-                        Rotation: {X: -0.4825789, Y: 0.3100122, Z: -0.44274327, W: 0.6891941}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    0b660152676c089e10e2d3863a73e14f: !LightComponent
-                        Id: 2adb761c-6350-4365-a70b-e3f919703224
-                        Type: !LightDirectional
-                            Color: !ColorRgbProvider
-                                Value: {R: 1.0, G: 1.0, B: 1.0}
-                            Shadow:
-                                Size: Large
-                                DepthRange: {}
-                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
-                                ComputeTransmittance: false
-                                BiasParameters: {}
         -   Entity:
                 Id: b076566c-a2a6-4e2d-b674-d5215bfd9379
                 Name: Camera
                 Components:
                     3be41925fd0606b4deecf7d324c7546c: !TransformComponent
                         Id: 08f46030-22af-4e19-9dbb-37e89e41c827
-                        Position: {X: 0.0, Y: 0.0, Z: 10.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Position: {X: -13.470679, Y: 7.4753447, Z: 6.8135586}
+                        Rotation: {X: -0.38268346, Y: 0.0, Z: 0.0, W: 0.9238795}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     e8cf92a5c3152c88edf51bd15475e7c9: !CameraComponent
                         Id: 55584d1a-c5c6-4b11-b94d-a16ea1480da6
                         Name: null
                         Projection: Orthographic
+                        OrthographicSize: 12.0
                         Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a
         -   Entity:
                 Id: cb952962-4f7c-4dd5-835e-779f366da48a

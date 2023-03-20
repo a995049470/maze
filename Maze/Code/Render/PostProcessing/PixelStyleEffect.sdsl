@@ -6,7 +6,7 @@ namespace Stride.Rendering.Images
         #define MainTex Texture0
         #define MainTexSampler PointSampler
         #define TexelSize Texture0TexelSize 
-        #define GridSize 4
+        #define GridSize 2
 
         stage override float4 Shading()
         {

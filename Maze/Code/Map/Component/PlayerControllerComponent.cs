@@ -6,6 +6,6 @@ namespace Maze.Code.Map
     [DefaultEntityComponentProcessor(typeof(PlayerControllerProcessor))]
     public class PlayerControllerComponent : EntityComponent
     {
-        
+        public int PlayerId = 0;
     }
 }
