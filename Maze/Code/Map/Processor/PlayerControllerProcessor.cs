@@ -39,10 +39,11 @@ namespace Maze.Code.Map
         public override void Update(GameTime time)
         {
             base.Update(time);
-            var dir = Vector2.Zero;
-            if (input.IsKeyDown(Keys.W)) dir.Y += 1;
-            if (input.IsKeyDown(Keys.S)) dir.Y += -1;
-            if (input.IsKeyDown(Keys.A)) dir.X += -1;
+            if (!game.IsRunning) return;
+            var dir = Vector3.Zero;
+            if (input.IsKeyDown(Keys.W)) dir.Z += 1;
+            if (input.IsKeyDown(Keys.S)) dir.Z -= 1;
+            if (input.IsKeyDown(Keys.A)) dir.X -= 1;
             if (input.IsKeyDown(Keys.D)) dir.X += 1;
 
 

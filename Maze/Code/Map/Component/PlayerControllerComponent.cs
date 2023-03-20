@@ -4,8 +4,9 @@ using Stride.Engine.Design;
 namespace Maze.Code.Map
 {
     [DefaultEntityComponentProcessor(typeof(PlayerControllerProcessor))]
-    public class PlayerControllerComponent : EntityComponent
+    public class PlayerControllerComponent : ScriptComponent
     {
-        public int PlayerId = 0;
+       
+
     }
 }

@@ -10,14 +10,13 @@ namespace Maze.Code.Map
     public class AutoMoveData
     {
         public AutoMoveControllerComponent Controller;
-        public MapElementComponent MapElement;
         public TransformComponent Transform;
     }
 
     public class AutoMoveProcessor : GameEntityProcessor<AutoMoveControllerComponent, AutoMoveData>
     {
         
-        public AutoMoveProcessor() : base(typeof(MapElementComponent), typeof(TransformComponent))
+        public AutoMoveProcessor() : base( typeof(TransformComponent))
         {
             
         }
@@ -37,23 +36,7 @@ namespace Maze.Code.Map
             bool isCanMove = data.Controller.MoveTimer.Run((float)time.Elapsed.TotalSeconds, game.UpdateTime.FrameCount);
             if(isCanMove)
             {
-                var targetPos = data.Controller.GetNextMovePoint(data.MapElement.Pos);
-                var isCurrentPoint = targetPos == data.MapElement.Pos;
-                var isWalkable = levelManager.CurrentLevel.IsWalkable(targetPos);
-                if(isWalkable)
-                {
-                    levelManager.CurrentLevel.ElementMove(data.MapElement.Pos, targetPos, data.MapElement);
-                    data.MapElement.Pos = targetPos;
-
-                    var entityPos = data.Transform.Position;
-                    entityPos.X = targetPos.X;
-                    entityPos.Y = targetPos.Y;
-                    data.Transform.Position = entityPos;
-                }
-                else if (!isCurrentPoint && !isWalkable)
-                {
-                    data.Controller.ChangeMoveDir();
-                }
+                
             }
         }
 
@@ -61,7 +44,6 @@ namespace Maze.Code.Map
         {
             var data = new AutoMoveData();
             data.Controller = component;
-            data.MapElement = entity.Get<MapElementComponent>();
             data.Transform = entity.Get<TransformComponent>();
             return data;
         }

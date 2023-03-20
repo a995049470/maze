@@ -10,24 +10,62 @@ Hierarchy:
         - ref!! b076566c-a2a6-4e2d-b674-d5215bfd9379
         - ref!! 3e147813-7f5b-4b70-9ee8-451ded55acab
         - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
+        - ref!! 10e1a68e-aeac-44f5-8667-a8cbc9a87778
     Parts:
+        -   Entity:
+                Id: 10e1a68e-aeac-44f5-8667-a8cbc9a87778
+                Name: Cube
+                Components:
+                    f809d840af618e2a09b3459c51fa02e8: !TransformComponent
+                        Id: 6e2bfc1d-5a8d-47c5-99d2-23f1476abf9d
+                        Position: {X: -37.97952, Y: 0.0, Z: -0.22729254}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.5912557, Y: 1.5912557, Z: 1.5912557}
+                        Children: {}
+                    2703182cc0f175f6858f2ae192e960a5: !ModelComponent
+                        Id: 544eb15e-781d-423b-b55d-803cb62b7914
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        Materials: {}
+                    789703f989aafc7cf8bc022015c414b7: !StaticColliderComponent
+                        Id: 4360102a-0b33-4813-a129-ad7a4d0a2dfd
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
+                        ColliderShapes:
+                            247c75a6305485bd98dc85c88fbe8a60: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: 3e147813-7f5b-4b70-9ee8-451ded55acab
                 Name: fox
                 Components:
                     d9ae5c110866e91c468ca3f0d26ea96b: !TransformComponent
                         Id: 157ed5f2-f709-4a8d-b2f5-05233f3314b7
-                        Position: {X: -12.936689, Y: 0.0, Z: 0.10026801}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Position: {X: -12.936689, Y: 0.0, Z: -0.18916893}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: 0.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     9c1e3f0e1422b068348bf22cf193eb90: !ModelComponent
                         Id: aa45af69-0eba-4a59-a462-e3eb1088f00a
                         Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
                         Materials: {}
-                    a394d83015ff611e725bf228d92f7700: !AnimationComponent
-                        Id: 6f018fa7-4302-466d-b051-54611fde1c69
-                        Animations: {}
+                    49c354b8d6e7c3cc9a9b3974a7440b42: !Maze.Code.Map.PlayerControllerComponent,Maze
+                        Id: d68cb446-da0e-4071-9ea1-bd25b01acaeb
+                    207ac32b175c324332be656ffe993c5c: !Maze.Code.Map.VelocityComponent,Maze
+                        Id: 1d169b3e-58f2-415e-8bc9-043d07e29de4
+                        Speed: 5.0
+                    2270f6218caf3e1b8c920e14be3db182: !AnimationComponent
+                        Id: ef6bf4ba-fa2e-422e-85c8-9208762984e2
+                        Animations:
+                            faf4c5b97b61289cacd6b32dd9dc87a0~Idle: 53224868-c2ad-4828-ab97-cb54bd91ca88:Model/Fox/animation_Idle_AnimalArmature
+                            35da53e5758a5a246db5082af6c1f6aa~Walk: a487ba3b-64a6-4346-92d4-9eff3431a75d:Model/Fox/animation_Walk_AnimalArmature
         -   Entity:
                 Id: ad365e73-5f2d-4864-a539-6efd0523281b
                 Name: Ambient light

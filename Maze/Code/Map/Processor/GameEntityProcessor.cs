@@ -1,5 +1,6 @@
 ﻿using Stride.Core;
 using Stride.Core.Annotations;
+using Stride.Core.Diagnostics;
 using Stride.Core.Mathematics;
 using Stride.Core.Serialization.Contents;
 using Stride.Engine;
@@ -19,8 +20,9 @@ namespace Maze.Code.Map
         protected IGame game;
         protected InputManager input;
         protected SceneSystem sceneSystem;
-        protected LevelManager levelManager;
         protected ContentManager content;
+        protected Logger log;
+       
 
 
         protected static Vector3 defaultScale = Vector3.One;
@@ -34,10 +36,11 @@ namespace Maze.Code.Map
         protected override void OnSystemAdd()
         {
             game = Services.GetSafeServiceAs<IGame>();
-            input = Services.GetSafeServiceAs<InputManager>();
-            levelManager = Services.GetSafeServiceAs<LevelManager>();
+            input = Services.GetSafeServiceAs<InputManager>();       
             sceneSystem = Services.GetSafeServiceAs<SceneSystem>();
             content = Services.GetSafeServiceAs<ContentManager>();
+            var className = GetType().FullName;
+            log = GlobalLogger.GetLogger(className);
         }
 
       

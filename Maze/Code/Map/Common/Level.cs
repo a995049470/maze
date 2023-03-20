@@ -24,8 +24,6 @@ namespace Maze.Code.Map
     {
         private string jsonAssetUrl;
         private string levelId;
-
-        private Grid[,] grids;
         private int mapNumX;
         private int mapNumY;
         private int mapGridSize;
@@ -36,33 +34,7 @@ namespace Maze.Code.Map
         {
         }
 
-        public void AddElement(int x, int y, MapElementComponent element)
-        {
-            //TODO:可能需要越界检查
-            var grid = grids[x, y];
-            if (grid == null)
-            {
-                grid = new Grid();
-                grids[x, y] = grid;
-            }
-            grid.Add(element);
-        }
-
-        public void RemoveElement(int x, int y, MapElementComponent element)
-        {
-            var grid = grids[x, y];
-            if (grid != null)
-            {
-                grid.Remove(element);
-            }
-        }
-
-        public void ElementMove(Int2 originPos, Int2 targetPos, MapElementComponent element)
-        {
-            RemoveElement(originPos.X, originPos.Y, element);
-            AddElement(targetPos.X, targetPos.Y, element);
-        }
-
+        
 
 
         private Entity CreateEntity(string assetUrl, int layer, int frameIndex, Int2 pos, float z, bool isWalkable)
@@ -72,13 +44,9 @@ namespace Maze.Code.Map
 
             entity.Transform.Position = new Vector3(pos.X, pos.Y, z);
 
-            var mapElement = new MapElementComponent();
-            mapElement.Pos = pos;
-            mapElement.IsWalkable = isWalkable;
-            mapElement.Layer = layer;
-            entity.Add(mapElement);
+           
             //增加碰撞体
-            if(!mapElement.IsWalkable)
+            if(!isWalkable)
             {
                 var collider = new StaticColliderComponent();
                 var shapeDesc = new BoxColliderShapeDesc()
@@ -155,15 +123,7 @@ namespace Maze.Code.Map
         }
 
 
-        public Grid GetGrid(int x, int y)
-        {
-            if (x < 0 || x >= mapNumX || y < 0 || y >= mapNumY)
-            {
-                return null;
-            }
-            //TODO:可能会有越界
-            return grids[x, y];
-        }
+       
 
         //TODO:考虑一个单位占多格的情况
         public void ConvertJsonToLevel(string json, int id)
@@ -221,8 +181,6 @@ namespace Maze.Code.Map
                 var hieght = (int)level[MapUtils.pxHei];
                 mapNumX = width / mapGridSize;
                 mapNumY = hieght / mapGridSize;
-
-                grids = new Grid[mapNumX, mapNumY];
 
                 var layerInstances = level[MapUtils.layerInstances];
                 var layerNum = layerInstances.Count;
@@ -345,16 +303,6 @@ namespace Maze.Code.Map
                 ConvertJsonToLevel(json, 0);
             }
         }
-
-        public bool IsWalkable(Int2 pos)
-        {
-            var gridId = PosToGridId(pos);
-            var grid = GetGrid(gridId.X, gridId.Y);
-            return grid?.IsWalkable() ?? false;
-        }
-
-        
-
 
     }
 }

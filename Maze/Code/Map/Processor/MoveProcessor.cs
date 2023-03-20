@@ -25,17 +25,20 @@ namespace Maze.Code.Map
         public override void Update(GameTime time)
         {
             base.Update(time);
+            if (!game.IsRunning) return;
 
-            simulation = simulation ?? GetSimulation();
+            simulation = GetSimulation();
+            if (simulation == null) return;
+           
             foreach (var data in ComponentDatas.Values)
             {
-                if(data.Velocity.Direction != Vector2.Zero)
+                if(data.Velocity.Direction != Vector3.Zero)
                 {
                     //for (int i = 0; i < 2; i++)
                     {
                         //var dir = Vector3.Zero;
                         //dir[i] = data.Velocity.Direction[i
-                        var dir = new Vector3(data.Velocity.Direction.X, 0, data.Velocity.Direction.Y);
+                        var dir = data.Velocity.Direction;
                         var originPos = data.Transform.Position;
                         var targetPos = originPos + data.Velocity.Speed * (float)time.Elapsed.TotalSeconds * dir;
                         var scale = Vector3.One;
