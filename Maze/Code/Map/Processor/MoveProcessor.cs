@@ -25,14 +25,17 @@ namespace Maze.Code.Map
         public override void Update(GameTime time)
         {
             base.Update(time);
-            if (!game.IsRunning) return;
+            log.Info($"IsActive:{game.IsActive}");
+            log.Info($"IsRunning:{game.IsRunning}");
+            if (!game.IsActive) return;
 
             simulation = GetSimulation();
             if (simulation == null) return;
-           
+            
             foreach (var data in ComponentDatas.Values)
             {
-                if(data.Velocity.Direction != Vector3.Zero)
+                if (!data.Velocity.IsActive) continue;
+                if (data.Velocity.Direction != Vector3.Zero)
                 {
                     //for (int i = 0; i < 2; i++)
                     {

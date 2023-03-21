@@ -46,7 +46,6 @@ namespace Maze.Code.Map
             if (input.IsKeyDown(Keys.A)) dir.X -= 1;
             if (input.IsKeyDown(Keys.D)) dir.X += 1;
 
-
             dir.Normalize();
             foreach (var data in ComponentDatas.Values)
             {

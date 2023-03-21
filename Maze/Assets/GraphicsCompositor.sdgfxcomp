@@ -110,7 +110,7 @@ RenderFeatures:
                 TransparentRenderStage: ref!! d7570d20-4d84-4b50-91ba-6604c9dfe958
                 EffectName: null
         PipelineProcessors: {}
-    33d74acc4442d0f48164c4a79b20af5e*: !Maze.Code.Render.CellSpriteRenderFeature,Maze
+    3e4f6b840809396668869449e83c66a5*: !Maze.Code.Render.CellSpriteRenderFeature,Maze
         RenderStageSelectors:
             c319b93c692da3d8c6f58d879f0c6740: !Maze.Code.Render.VisionStageSelector,Maze
                 EffectName: Test
@@ -212,12 +212,12 @@ SharedRenderers:
                     Enabled: false
                     Color: {R: 0.0, G: 0.0, B: 0.0}
         CustomEffects:
-            ba2644fba61251c8775ae22f08d20325*: !Maze.Code.Render.PixelStyle,Maze {}
+            c3fb603db12befe95db3d55963df3c90*: !Maze.Code.Render.PixelStyle,Maze {}
         Antialiasing: !FXAAEffect {}
     ee80a20a9bd99f2d70711114e15fe7ca: !Stride.Rendering.Compositing.DebugRenderer,Stride.Rendering
         Id: 1115f190-0dfd-40b8-9da7-9502cfd1f71e
         DebugRenderStages: {}
-    b4bcede7497aedcef5ae0e1d8da0dad7*: !Maze.Code.Render.LForwardRenderer,Maze
+    9d3a8676f6f0642b73919747e6e4e95f*: !Maze.Code.Render.LForwardRenderer,Maze
         Id: 176c8cc8-e891-4982-9ddf-127037fb6f1b
         Clear:
             Id: 1350d4d9-4ac0-40a6-8cff-61239cc2589f
@@ -254,8 +254,9 @@ Game: !Stride.Rendering.Compositing.SceneCameraRenderer,Stride.Engine
     Child: !Stride.Rendering.Compositing.SceneRendererCollection,Stride.Rendering
         Id: 82568e46-92e7-421a-8dca-114a74e0cd69
         Children:
-            d39c5ddbf8b7d5ca02bafb6496b1cc3c*: !Maze.Code.Render.LForwardRenderer,Maze ref!! 176c8cc8-e891-4982-9ddf-127037fb6f1b
+            8a9cbf882652456fe020ab5b8078ebcc*: !Maze.Code.Render.LForwardRenderer,Maze ref!! 176c8cc8-e891-4982-9ddf-127037fb6f1b
             01d338078e9b21121ead0868932613dd: !Stride.Rendering.Compositing.DebugRenderer,Stride.Rendering ref!! 1115f190-0dfd-40b8-9da7-9502cfd1f71e
+            d39c5ddbf8b7d5ca02bafb6496b1cc3c: ~(Deleted)
     RenderMask: All
 SingleView: !Stride.Rendering.Compositing.ForwardRenderer,Stride.Engine ref!! d13ca1cb-f301-4a89-9145-94bb55288f9f
 Editor*: !Maze.Code.Render.LForwardRenderer,Maze ref!! 176c8cc8-e891-4982-9ddf-127037fb6f1b

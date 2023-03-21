@@ -48,7 +48,7 @@ namespace Maze.Code.Map
             return data;
         }
 
-       
+        
 
         protected override bool IsAssociatedDataValid([NotNull] Entity entity, [NotNull] AutoMoveControllerComponent component, [NotNull] AutoMoveData associatedData)
         {

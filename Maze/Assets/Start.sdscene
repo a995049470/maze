@@ -48,19 +48,20 @@ Hierarchy:
                 Components:
                     d9ae5c110866e91c468ca3f0d26ea96b: !TransformComponent
                         Id: 157ed5f2-f709-4a8d-b2f5-05233f3314b7
-                        Position: {X: -12.936689, Y: 0.0, Z: -0.18916893}
-                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: 0.0}
+                        Position: {X: -12.937, Y: 0.0, Z: -0.18916893}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     9c1e3f0e1422b068348bf22cf193eb90: !ModelComponent
                         Id: aa45af69-0eba-4a59-a462-e3eb1088f00a
                         Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
                         Materials: {}
-                    49c354b8d6e7c3cc9a9b3974a7440b42: !Maze.Code.Map.PlayerControllerComponent,Maze
+                    4a15489c205961e79c1ff1ad08d74927: !Maze.Code.Map.PlayerControllerComponent,Maze
                         Id: d68cb446-da0e-4071-9ea1-bd25b01acaeb
-                    207ac32b175c324332be656ffe993c5c: !Maze.Code.Map.VelocityComponent,Maze
+                    66ed16b2e545a138c74222ef1c1bafb0: !Maze.Code.Map.VelocityComponent,Maze
                         Id: 1d169b3e-58f2-415e-8bc9-043d07e29de4
                         Speed: 5.0
+                        IsActive: true
                     2270f6218caf3e1b8c920e14be3db182: !AnimationComponent
                         Id: ef6bf4ba-fa2e-422e-85c8-9208762984e2
                         Animations:
@@ -81,14 +82,15 @@ Hierarchy:
                         Type: !LightAmbient
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
+                        Intensity: 2.0
         -   Entity:
                 Id: b076566c-a2a6-4e2d-b674-d5215bfd9379
                 Name: Camera
                 Components:
                     3be41925fd0606b4deecf7d324c7546c: !TransformComponent
                         Id: 08f46030-22af-4e19-9dbb-37e89e41c827
-                        Position: {X: -13.470679, Y: 7.4753447, Z: 6.8135586}
-                        Rotation: {X: -0.38268346, Y: 0.0, Z: 0.0, W: 0.9238795}
+                        Position: {X: -13.471, Y: 7.4753447, Z: -3.840742}
+                        Rotation: {X: -0.9238795, Y: 0.0, Z: 0.0, W: 0.38268343}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     e8cf92a5c3152c88edf51bd15475e7c9: !CameraComponent
