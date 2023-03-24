@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace Maze.Code.Map
 {
 
-    [DefaultEntityComponentProcessor(typeof(MoveProcessor))]
+    [DefaultEntityComponentProcessor(typeof(MoveProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class VelocityComponent : ScriptComponent
     {
         [DataMemberIgnore]

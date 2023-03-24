@@ -15,13 +15,24 @@
         /// </summary>
         private float currentTime;
 
-        public UnitAction CurrentAcction;
+        public StateFlag CurrentFlag;
         
-        public UnitState(UnitAction _action, float _protectTime, float _stateTime)
+        public UnitState(StateFlag _flag, float _protectTime, float _stateTime)
         {
-            CurrentAcction = _action;
+            CurrentFlag = _flag;
             protectTime = _protectTime;
             stateTime = _stateTime;
+            currentTime = 0;
+        }
+
+        public bool IsCanSwtich()
+        {
+            return currentTime >= protectTime;
+        }
+
+        public bool IsFinsh()
+        {
+            return stateTime > 0 && currentTime > stateTime;
         }
     }
 

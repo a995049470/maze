@@ -8,7 +8,7 @@ Hierarchy:
     RootParts:
         - ref!! cb952962-4f7c-4dd5-835e-779f366da48a
         - ref!! b076566c-a2a6-4e2d-b674-d5215bfd9379
-        - ref!! 3e147813-7f5b-4b70-9ee8-451ded55acab
+        - ref!! 5de18932-b9d2-49d3-8580-d8d2d07b7508
         - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
         - ref!! 10e1a68e-aeac-44f5-8667-a8cbc9a87778
     Parts:
@@ -43,27 +43,27 @@ Hierarchy:
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
-                Id: 3e147813-7f5b-4b70-9ee8-451ded55acab
+                Id: 5de18932-b9d2-49d3-8580-d8d2d07b7508
                 Name: fox
                 Components:
                     d9ae5c110866e91c468ca3f0d26ea96b: !TransformComponent
-                        Id: 157ed5f2-f709-4a8d-b2f5-05233f3314b7
-                        Position: {X: -12.937, Y: 0.0, Z: -0.18916893}
+                        Id: 636b12a0-8cff-4dab-90f9-cf3491cdcc07
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     9c1e3f0e1422b068348bf22cf193eb90: !ModelComponent
-                        Id: aa45af69-0eba-4a59-a462-e3eb1088f00a
+                        Id: c2bfaedb-efcf-44e2-9567-b4c576b502a4
                         Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
                         Materials: {}
                     4a15489c205961e79c1ff1ad08d74927: !Maze.Code.Map.PlayerControllerComponent,Maze
-                        Id: d68cb446-da0e-4071-9ea1-bd25b01acaeb
+                        Id: 3be79a59-1df4-481f-9788-b40ae829173d
                     66ed16b2e545a138c74222ef1c1bafb0: !Maze.Code.Map.VelocityComponent,Maze
-                        Id: 1d169b3e-58f2-415e-8bc9-043d07e29de4
+                        Id: b484d417-f537-48dd-8bc3-4f9412aa83d9
                         Speed: 5.0
                         IsActive: true
                     2270f6218caf3e1b8c920e14be3db182: !AnimationComponent
-                        Id: ef6bf4ba-fa2e-422e-85c8-9208762984e2
+                        Id: fae118bc-429e-4827-9719-340a571492bc
                         Animations:
                             faf4c5b97b61289cacd6b32dd9dc87a0~Idle: 53224868-c2ad-4828-ab97-cb54bd91ca88:Model/Fox/animation_Idle_AnimalArmature
                             35da53e5758a5a246db5082af6c1f6aa~Walk: a487ba3b-64a6-4346-92d4-9eff3431a75d:Model/Fox/animation_Walk_AnimalArmature
@@ -89,8 +89,8 @@ Hierarchy:
                 Components:
                     3be41925fd0606b4deecf7d324c7546c: !TransformComponent
                         Id: 08f46030-22af-4e19-9dbb-37e89e41c827
-                        Position: {X: -13.471, Y: 7.4753447, Z: -3.840742}
-                        Rotation: {X: -0.9238795, Y: 0.0, Z: 0.0, W: 0.38268343}
+                        Position: {X: 5.7317436E-07, Y: 10.7259245, Z: -0.9197502}
+                        Rotation: {X: 3.090862E-08, Y: 0.70710677, Z: 0.70710677, W: -3.090862E-08}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     e8cf92a5c3152c88edf51bd15475e7c9: !CameraComponent

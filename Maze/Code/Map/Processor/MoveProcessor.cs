@@ -27,8 +27,7 @@ namespace Maze.Code.Map
             base.Update(time);
             log.Info($"IsActive:{game.IsActive}");
             log.Info($"IsRunning:{game.IsRunning}");
-            if (!game.IsActive) return;
-
+            
             simulation = GetSimulation();
             if (simulation == null) return;
             

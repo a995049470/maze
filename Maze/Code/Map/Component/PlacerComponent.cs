@@ -6,8 +6,8 @@ using Stride.Physics;
 
 namespace Maze.Code.Map
 {
-    [DefaultEntityComponentProcessor(typeof(PlayerPlaceProcessor))]
-    [DefaultEntityComponentProcessor(typeof(PlacerProcessor))]
+    [DefaultEntityComponentProcessor(typeof(PlayerPlaceProcessor), ExecutionMode = ExecutionMode.Runtime)]
+    [DefaultEntityComponentProcessor(typeof(PlacerProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class PlacerComponent : EntityComponent
     {
         public bool IsReadyPlace = false;

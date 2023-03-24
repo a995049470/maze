@@ -7,6 +7,20 @@ namespace Maze.Code.Map
     {
         [DataMemberIgnore]
         public UnitState CurrentState;
+
+        public StateMachineComponent()
+        {
+            CurrentState = new UnitState(StateFlag.Idle, 0, -1);
+        }
+
+        public void TrySwitchState(StateFlag flag, float protecteTime, float stataTime)
+        {
+            if(CurrentState.IsCanSwtich() &&
+               CurrentState.CurrentFlag != flag)
+            {
+                CurrentState = new UnitState(flag, protecteTime, stataTime);
+            }
+        }
     }
 
 }

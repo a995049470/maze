@@ -8,7 +8,7 @@ using System;
 
 namespace Maze.Code.Map
 {
-    [DefaultEntityComponentProcessor(typeof(AutoMoveProcessor))]
+    [DefaultEntityComponentProcessor(typeof(AutoMoveProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class AutoMoveControllerComponent : EntityComponent
     {
         public Int2[] WayPoints;

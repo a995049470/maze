@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Maze.Code.Map
 {
-    
+
     public class StateData<T> where T : EntityComponent
     {
         public StateMachineComponent StateMachine;
@@ -35,6 +35,11 @@ namespace Maze.Code.Map
             return data;
         }
 
-        
+        protected override bool IsAssociatedDataValid([NotNull] Entity entity, [NotNull] StateMachineComponent component, [NotNull] StateData<T> associatedData)
+        {
+            return associatedData.StateMachine == component && associatedData.Componet == entity.Get<T>();
+        }
+
+
     }
 }
