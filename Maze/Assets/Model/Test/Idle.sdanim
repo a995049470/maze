@@ -1,0 +1,19 @@
+!Animation
+Id: 5cb9d43a-6890-4a3f-8835-ae8630c24073
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../../ThirdPersonPlatformer/Resources/Animation/Idle.fbx
+ClipDuration:
+    Enabled: false
+    StartAnimationTime: 0:00:00:00.0000000
+    EndAnimationTime: 0:00:30:00.0000000
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+RepeatMode: LoopInfinite
+Type: !StandardAnimationAssetType {}
+Skeleton: 300b1496-ad61-478f-8219-2692a826d203:Model/Test/mannequinModel Skeleton
+RootMotion: false
+PreviewModel: b808b0c6-3e3a-4958-a73d-8748864242b4:Model/Test/mannequinModel
+AnimationTimeMinimum: 0:00:00:00.0000000
+AnimationTimeMaximum: 0:00:00:02.6333300
+~SourceHashes:
+    560144c9ef3b07522b26d3c2c0dfe90b~../../../../../ThirdPersonPlatformer/Resources/Animation/Idle.fbx: 425da9e0d3fa578a8427ead97d6200b6

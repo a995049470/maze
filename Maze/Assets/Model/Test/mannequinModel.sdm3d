@@ -1,0 +1,35 @@
+!Model
+Id: b808b0c6-3e3a-4958-a73d-8748864242b4
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../../ThirdPersonPlatformer/Resources/Models/mannequinModel.fbx
+Skeleton: 300b1496-ad61-478f-8219-2692a826d203:Model/Test/mannequinModel Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    58ddfa41f8cfbd6796572d08330be5b0:
+        Name: glossMT
+        MaterialInstance:
+            Material: null
+    752be761f2903e030ed326c510190866:
+        Name: glowMT
+        MaterialInstance:
+            Material: null
+    c58392f2d22662cd524f6a2108bc91ab:
+        Name: semiGlossMT
+        MaterialInstance:
+            Material: null
+    c177be5cd3a7f3cb88074b71698c2f9b:
+        Name: upperMatteMT
+        MaterialInstance:
+            Material: null
+    1d4a535c06598b22158ae76a93cf15f2:
+        Name: lowerMatteMT
+        MaterialInstance:
+            Material: null
+    ed96006e6044526a8f472da0e510213b:
+        Name: lambert1
+        MaterialInstance:
+            Material: null
+Modifiers: {}
+~SourceHashes:
+    14faddeb3223a41f83ed3004b70a760f~../../../../../ThirdPersonPlatformer/Resources/Models/mannequinModel.fbx: 41531d1299044bd0f0b265374610fb1d

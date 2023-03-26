@@ -11,6 +11,7 @@ Hierarchy:
         - ref!! 5de18932-b9d2-49d3-8580-d8d2d07b7508
         - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
         - ref!! 10e1a68e-aeac-44f5-8667-a8cbc9a87778
+        - ref!! b62adf25-56bb-498f-bd28-35b00c779576
     Parts:
         -   Entity:
                 Id: 10e1a68e-aeac-44f5-8667-a8cbc9a87778
@@ -18,7 +19,7 @@ Hierarchy:
                 Components:
                     f809d840af618e2a09b3459c51fa02e8: !TransformComponent
                         Id: 6e2bfc1d-5a8d-47c5-99d2-23f1476abf9d
-                        Position: {X: -37.97952, Y: 0.0, Z: -0.22729254}
+                        Position: {X: -37.97952, Y: 0.0, Z: 33.72954}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.5912557, Y: 1.5912557, Z: 1.5912557}
                         Children: {}
@@ -56,17 +57,12 @@ Hierarchy:
                         Id: c2bfaedb-efcf-44e2-9567-b4c576b502a4
                         Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
                         Materials: {}
-                    4a15489c205961e79c1ff1ad08d74927: !Maze.Code.Map.PlayerControllerComponent,Maze
-                        Id: 3be79a59-1df4-481f-9788-b40ae829173d
-                    66ed16b2e545a138c74222ef1c1bafb0: !Maze.Code.Map.VelocityComponent,Maze
-                        Id: b484d417-f537-48dd-8bc3-4f9412aa83d9
-                        Speed: 5.0
-                        IsActive: true
-                    2270f6218caf3e1b8c920e14be3db182: !AnimationComponent
-                        Id: fae118bc-429e-4827-9719-340a571492bc
+                    6d503e159a6bf3e7c61d70641a54d480: !AnimationComponent
+                        Id: b9edb786-98af-48bb-8304-696ee36aeb51
                         Animations:
-                            faf4c5b97b61289cacd6b32dd9dc87a0~Idle: 53224868-c2ad-4828-ab97-cb54bd91ca88:Model/Fox/animation_Idle_AnimalArmature
-                            35da53e5758a5a246db5082af6c1f6aa~Walk: a487ba3b-64a6-4346-92d4-9eff3431a75d:Model/Fox/animation_Walk_AnimalArmature
+                            79db352d583f2c88d216da31c87220c8~Idle: 53224868-c2ad-4828-ab97-cb54bd91ca88:Model/Fox/animation_Idle_AnimalArmature
+                    04ba8126c2f5a12bf10b155f30537e5b: !Maze.Code.Profiling.AnimationTest,Maze
+                        Id: 46106cc1-34ac-4ecd-939b-716498caeef5
         -   Entity:
                 Id: ad365e73-5f2d-4864-a539-6efd0523281b
                 Name: Ambient light
@@ -89,8 +85,8 @@ Hierarchy:
                 Components:
                     3be41925fd0606b4deecf7d324c7546c: !TransformComponent
                         Id: 08f46030-22af-4e19-9dbb-37e89e41c827
-                        Position: {X: 5.7317436E-07, Y: 10.7259245, Z: -0.9197502}
-                        Rotation: {X: 3.090862E-08, Y: 0.70710677, Z: 0.70710677, W: -3.090862E-08}
+                        Position: {X: 11.653012, Y: 3.3159876, Z: -0.21669197}
+                        Rotation: {X: 0.0, Y: 0.70090926, Z: 0.0, W: 0.71325046}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     e8cf92a5c3152c88edf51bd15475e7c9: !CameraComponent
@@ -99,6 +95,26 @@ Hierarchy:
                         Projection: Orthographic
                         OrthographicSize: 12.0
                         Slot: 7d54ab15-a371-4bb5-b3ae-b354e9c2717a
+        -   Entity:
+                Id: b62adf25-56bb-498f-bd28-35b00c779576
+                Name: mannequinModel
+                Components:
+                    501639308bcf71c9239ef647a465d809: !TransformComponent
+                        Id: 005c2687-1f7c-4690-8ac7-f839ea3a148a
+                        Position: {X: -0.122709036, Y: 0.0, Z: 5.70252}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.761203, Y: 1.761203, Z: 1.761203}
+                        Children: {}
+                    5cfd17ee73b7bbaddf08af35e6ab9a9b: !ModelComponent
+                        Id: 999abfd5-00eb-4003-8c3a-80edfe25f78c
+                        Model: b808b0c6-3e3a-4958-a73d-8748864242b4:Model/Test/mannequinModel
+                        Materials: {}
+                    4fd0fc62555e07b721ea77fe021aa41d: !AnimationComponent
+                        Id: 0b0a8a0d-edb5-4137-be20-8e229a066736
+                        Animations:
+                            e49bec7eb798afca732b93f9416e357a~Idle: 5cb9d43a-6890-4a3f-8835-ae8630c24073:Model/Test/Idle
+                    b533479ca27d54454f82862e4a0a581b: !Maze.Code.Profiling.AnimationTest,Maze
+                        Id: 595c4ee7-0c7b-4f08-a9ef-d6db539d49b7
         -   Entity:
                 Id: cb952962-4f7c-4dd5-835e-779f366da48a
                 Name: Entity

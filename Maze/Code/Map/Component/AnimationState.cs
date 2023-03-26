@@ -13,26 +13,31 @@
         /// <summary>
         /// 当前时间
         /// </summary>
-        private float currentTime;
+        public float CurrentTime { get; private set; }
 
-        public StateFlag CurrentFlag;
+        public StateFlag Flag;
         
         public UnitState(StateFlag _flag, float _protectTime, float _stateTime)
         {
-            CurrentFlag = _flag;
+            Flag = _flag;
             protectTime = _protectTime;
             stateTime = _stateTime;
-            currentTime = 0;
+            CurrentTime = 0;
+        }
+
+        public void Run(float time)
+        {
+            CurrentTime += time;
         }
 
         public bool IsCanSwtich()
         {
-            return currentTime >= protectTime;
+            return CurrentTime >= protectTime;
         }
 
         public bool IsFinsh()
         {
-            return stateTime > 0 && currentTime > stateTime;
+            return stateTime > 0 && CurrentTime > stateTime;
         }
     }
 

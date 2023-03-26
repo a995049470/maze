@@ -9,7 +9,7 @@ namespace Maze.Code.Map
             base.Update(time);
             foreach (var data in ComponentDatas.Values)
             {
-                var flag = (data.Componet.Direction * data.Componet.Speed).Length() > 0 ? StateFlag.Run : StateFlag.Idle;
+                var flag = (data.Componet.Direction * data.Componet.Speed).Length() > 0 ? StateFlag.Walk : StateFlag.Idle;
                 data.StateMachine.TrySwitchState(flag, 0, -1);
             }
         }

@@ -25,8 +25,6 @@ namespace Maze.Code.Map
         public override void Update(GameTime time)
         {
             base.Update(time);
-            log.Info($"IsActive:{game.IsActive}");
-            log.Info($"IsRunning:{game.IsRunning}");
             
             simulation = GetSimulation();
             if (simulation == null) return;

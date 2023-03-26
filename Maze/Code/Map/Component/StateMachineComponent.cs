@@ -1,8 +1,11 @@
 ﻿using Stride.Core;
 using Stride.Engine;
+using Stride.Engine.Design;
 
 namespace Maze.Code.Map
 {
+    [DefaultEntityComponentProcessor(typeof(PoseStateProcessor), ExecutionMode = ExecutionMode.Runtime)]
+    [DefaultEntityComponentProcessor(typeof(VelocityStateProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class StateMachineComponent : ScriptComponent
     {
         [DataMemberIgnore]
@@ -16,10 +19,15 @@ namespace Maze.Code.Map
         public void TrySwitchState(StateFlag flag, float protecteTime, float stataTime)
         {
             if(CurrentState.IsCanSwtich() &&
-               CurrentState.CurrentFlag != flag)
+               CurrentState.Flag != flag)
             {
                 CurrentState = new UnitState(flag, protecteTime, stataTime);
             }
+        }
+        
+        public void Run(float time)
+        {
+            CurrentState.Run(time);
         }
     }
 

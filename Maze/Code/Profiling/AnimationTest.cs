@@ -14,8 +14,7 @@ namespace Maze.Code.Profiling
         
         public override void Start()
         {
-
-            var model = Entity.Get<ModelComponent>();
+            Entity.Get<AnimationComponent>().Play("Idle");
             
         }
 
