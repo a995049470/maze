@@ -43,8 +43,8 @@ namespace Maze.Code.Map
             var dir = Vector3.Zero;
             if (input.IsKeyDown(Keys.W)) dir.Z += 1;
             if (input.IsKeyDown(Keys.S)) dir.Z -= 1;
-            if (input.IsKeyDown(Keys.A)) dir.X -= 1;
-            if (input.IsKeyDown(Keys.D)) dir.X += 1;
+            if (input.IsKeyDown(Keys.A)) dir.X += 1;
+            if (input.IsKeyDown(Keys.D)) dir.X -= 1;
 
             dir.Normalize();
             foreach (var data in ComponentDatas.Values)

@@ -21,6 +21,10 @@ namespace Maze.Code.Map
         public PlayingAnimation PlayingAnimation { get; private set; }
         [DataMemberIgnore]
         public AnimationBlender Blender { get; internal set; } = new AnimationBlender();
+        public int FrameScale = 1;
+        public float PlaySpeed = 1;
+        private const int animationFPS = 30;
+        
 
         private AnimationClip GetAnimationClip(string name)
         {
@@ -34,8 +38,13 @@ namespace Maze.Code.Map
         public TimeSpan CalculateAnimationCurrentTime(string name, float time)
         {
             var clip = GetAnimationClip(name);
-            var currentTime = time - (int)(time / clip.Duration.TotalSeconds) * clip.Duration.TotalSeconds;
-            return TimeSpan.FromSeconds(currentTime);
+            float speed = MathF.Max(PlaySpeed, 0);
+            int scale = (int)MathF.Max(FrameScale, 1);
+            time *= speed;
+            int frameCount = (int)(clip.Duration.TotalSeconds * animationFPS);
+            int currentFrame = (int)(time * animationFPS);
+            currentFrame = (currentFrame - currentFrame / frameCount * frameCount) / scale * scale;
+            return TimeSpan.FromSeconds(currentFrame / (float)animationFPS);
         }
 
         public void Play(string name, TimeSpan time)
