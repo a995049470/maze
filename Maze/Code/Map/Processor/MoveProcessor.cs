@@ -4,6 +4,7 @@ using Stride.Core.Mathematics;
 using Stride.Engine;
 using Stride.Games;
 using Stride.Physics;
+using System;
 
 namespace Maze.Code.Map
 {
@@ -17,6 +18,7 @@ namespace Maze.Code.Map
     public class MoveProcessor : GameEntityProcessor<VelocityComponent, MoveData>
     {
         private Simulation simulation;
+        private float rotateSpeed = 4 * MathF.PI;
         public MoveProcessor() :base(typeof(TransformComponent))
         {
 
@@ -54,7 +56,14 @@ namespace Maze.Code.Map
                         }
                         if(dir.Length() > 0)
                         {
-                            data.Transform.Rotation = Quaternion.LookRotation(dir, Vector3.UnitY);
+                            //?????? 为啥forward是反的........
+                            var forward = -data.Transform.LocalMatrix.Forward;
+                            var fDotD = MathUtil.Clamp(Vector3.Dot(forward, dir), -1, 1);
+                            var angle = MathF.Acos(fDotD);
+                            var rotateAngle = MathF.Min(angle, rotateSpeed * (float)time.Elapsed.TotalSeconds);
+                            var rotateDir = Vector3.Cross(forward, dir).Y > 0 ? 1 : -1;
+                            data.Transform.Rotation = Quaternion.RotationY(rotateAngle * rotateDir) * data.Transform.Rotation;
+                            
                         }
                     }
 
