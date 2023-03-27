@@ -50,6 +50,7 @@ namespace Maze.Code.Map
             foreach (var data in ComponentDatas.Values)
             {
                 data.VelocityComponent.Direction = dir;
+                if (dir != Vector3.Zero) data.VelocityComponent.FaceDirection = dir;
             }
         }
 

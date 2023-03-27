@@ -13,6 +13,8 @@ namespace Maze.Code.Map
     {
         [DataMemberIgnore]
         public Vector3 Direction;
+        [DataMemberIgnore]
+        public Vector3 FaceDirection = Vector3.UnitZ;
         public float Speed;
         public bool IsActive = true;
     }
