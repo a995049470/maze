@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Maze.Code.Game
 {
-    public class MapCreator
+    public class MapCreator 
     {
         private static Dictionary<int, int> blockWeightDic;
         public static Dictionary<int, int> BlockWeightDic
@@ -49,51 +49,19 @@ namespace Maze.Code.Game
         }
 
         //0:墙 1:路 3:墙或路
-        public static bool TryCreateSimpleMap(int[] grids, int start, int width, int height, int seed, out int[] disArray)
+        public static bool TryCreateSimpleMap(int[] grids, int start, int width, int height, int seed)
         {
             bool IsOutSide(int id)
             {
                 return id < 0 || id >= width * height;
             }
-
-            var random = new Random(seed);
-            disArray = new int[width * height];
-            var temp = new int[width * height];
-            for (int i = 0; i < disArray.Length; i++)
-            {
-                disArray[i] = -1;
-            }
-
-   
-            disArray[start] = 0;
-            var checkList = new List<int>();
-            checkList.Add(start);
-            while (checkList.Count > 0)
-            {
-                var checkArray = checkList.ToArray();
-                checkList.Clear();
-                foreach(var id in checkArray)
-                {
-                    var currentDis = disArray[id];
-                    var neighbors = new int[] { id - 1, id + 1, id - width, id + width };
-
-                    for (int i = 0; i < neighbors.Length; i++)
-                    {
-                        var n = neighbors[i];
-                        if (IsOutSide(n)) continue;
-                        var dis = disArray[n];
-                        var grid = grids[n];
-                        if (dis < 0 && grid > 0)
-                        {
-                            disArray[n] = currentDis + 1;
-                            checkList.Add(n);
-                        }
-                    }
-                }
-
-            }
-
+            var random = new Random(seed);           
+            //var temp = new int[width * height];
+            
             var isSuccsss = true;
+
+            
+
             for (int y = 0; y < height - 1; y++)
             {
                 if (!isSuccsss) break;
@@ -136,138 +104,20 @@ namespace Maze.Code.Game
                             if (r < 0) break;
                         }
                         var targetBlock = blockList[targetId].X;
-                        Array.Copy(disArray, temp, width * height);
-                        var checkStack = new Stack<int>();
-                        var waitSet = new HashSet<int>();
+                        var temp = new int[width * height];
+                        Array.Copy(grids, temp, width * height);
+                        
                         var isLegalBlock = true;
-
-                        for (int i = 0; i < 4; i++)
+                        for (int i = 0; i < neighbors.Length; i++)
                         {
-                             var gridId = neighbors[i];
-                            if((targetBlock & (1 << i)) == 0)
-                            {
-                                var dis = temp[gridId];
-                                if(dis > 0)
-                                {
-                                    temp[gridId] = -1;
-                                    var gridNeighbors = new int[]
-                                    {
-                                        gridId - 1, gridId + 1, gridId - width, gridId + width
-                                    };
-                                    Array.ForEach(gridNeighbors, id =>
-                                    {
-                                        if (!IsOutSide(id)) checkStack.Push(id);
-                                    }); 
-                                }                               
-                            }
-                            
+                            var neighborId = neighbors[i];
+                            var value = (targetBlock & (1 << i)) >> i;
+                            temp[neighborId] = value;
                         }
-                        int max = width * height;
-                        
-                        {
-                            while (checkStack.Count > 0 && isLegalBlock)
-                            {
-                                var checkId = checkStack.Pop();
-                                var midDis = temp[checkId];
-                                if (midDis <= 0 || midDis == max) continue;
-                                var checkNeighbors = new int[]
-                                {
-                                    checkId - 1, checkId + 1, checkId - width, checkId + width 
-                                };
-                                var hasLessNeighbor = false;
-                                for (int i = 0; i < checkNeighbors.Length; i++)
-                                {
-                                    var checkNeighborId = checkNeighbors[i];
-                                    if(IsOutSide(checkNeighborId)) continue;
-                                    var checkDis = temp[checkNeighborId];
-                                    if(checkDis >= 0 && checkDis < midDis)
-                                    {
-                                        hasLessNeighbor = true;
-                                        break;
-                                    }
-                                }
-                                if(hasLessNeighbor) continue;
-                                temp[checkId] = max;
-                                waitSet.Add(checkId);
-                                bool hasNeighborNeedCheck = false;
-                                for (int i = 0; i < checkNeighbors.Length; i++)
-                                {
-                                    var checkNeighborId = checkNeighbors[i];
-                                    if(IsOutSide(checkNeighborId)) continue;
-                                    var checkDis = temp[checkNeighborId];
-                                    if(checkDis >= 0 && checkDis < max)
-                                    {
-                                        checkStack.Push(checkNeighborId);
-                                        hasNeighborNeedCheck = true;
-                                    }
-                                    else if(checkDis == max)
-                                    {
-                                        hasNeighborNeedCheck = true;
-                                    }
-                                }
-                                if(!hasNeighborNeedCheck)
-                                {
-                                    isLegalBlock = false;
-                                }
-                            }
+                        isLegalBlock = Test(temp, start, width, height);
 
 
-                            int sideGridId = -1; 
-                            foreach (var waitId in waitSet)
-                            {
-                                var waitsNeighbors = new int[]
-                                {
-                                    waitId - 1, waitId + 1, waitId - width, waitId + width
-                                };
-                                foreach (var nid in waitsNeighbors)
-                                {
-                                    if (IsOutSide(nid)) continue;
-                                    if (temp[nid] >= 0 && temp[nid] < max)
-                                    {
-                                        sideGridId = waitId;
-                                    }
-                                }
-                                if (sideGridId >= 0) break;
-                            }
-                            if(sideGridId == -1)
-                            {
-                                isLegalBlock = false;
-                            }
-                            else
-                            {
-                                var list = new List<int>(waitSet);
-                                while (list.Count > 0 && isLegalBlock)
-                                {
-                                    isLegalBlock = false;
-                                    for (int i = list.Count - 1; i >= 0 ; i--)
-                                    {
-                                        var sid = list[i];
-                                        var sneighbors = new int[]
-                                        {
-                                            sid - 1, sid + 1, sid - width, sid + width
-                                        };
-                                        var min = max;
-                                        foreach (var snid in sneighbors)
-                                        {
-                                            if(IsOutSide(snid)) continue;
-                                            var v = temp[snid];
-                                            if(v >= 0)
-                                            {
-                                                min = v < min ? v : min;
-                                            }
-                                        }
-                                        if(min < max)
-                                        {
-                                            list.RemoveAt(i);
-                                            temp[sid] = min + 1;
-                                            isLegalBlock = true;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        
-                        if(isLegalBlock)
+                        if (isLegalBlock)
                         {
                             for (int i = 0; i < neighbors.Length; i++)
                             {
@@ -275,7 +125,6 @@ namespace Maze.Code.Game
                                 var value = (targetBlock & (1 << i)) >> i;
                                 grids[neighborId] = value;
                             }
-                            Array.Copy(temp, disArray, temp.Length);
                             blockList.Clear();
                         }
                         else
@@ -290,7 +139,46 @@ namespace Maze.Code.Game
             return isSuccsss;
         }
 
-        
+
+        static bool Test(int[] nums, int start, int width, int height)
+        {
+            int max = 4;
+            var temp = nums;
+
+            temp[start] = max;
+            var stack = new Stack<int>();
+            stack.Push(start);
+            while (stack.Count > 0)
+            {
+                var sid = stack.Pop();
+                var sneighbors = new int[4]
+                {
+                     sid + 1, sid - 1, sid + width, sid - width
+                };
+                foreach (var nid in sneighbors)
+                {
+                    if (nid < 0 || nid >= width * height) continue;
+                    var v = temp[nid];
+                    if (v > 0 && v < max)
+                    {
+                        temp[nid] = max;
+                        stack.Push(nid);
+                    }
+                }
+            }
+
+            var isLegalBlock = true;
+            foreach (var tempGrid in temp)
+            {
+                if (tempGrid > 0 && tempGrid < max)
+                {
+                    isLegalBlock = false;
+                    break;
+                }
+            }
+            return isLegalBlock;
+        }
+
 
 
         private static Int2[] GetPossibleBlocks(int[] inputBlock)
