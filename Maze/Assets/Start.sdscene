@@ -10,38 +10,8 @@ Hierarchy:
         - ref!! b076566c-a2a6-4e2d-b674-d5215bfd9379
         - ref!! 5de18932-b9d2-49d3-8580-d8d2d07b7508
         - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
-        - ref!! 10e1a68e-aeac-44f5-8667-a8cbc9a87778
+        - ref!! e3b61ce0-f37b-482b-9eb0-a3d3ded27e02
     Parts:
-        -   Entity:
-                Id: 10e1a68e-aeac-44f5-8667-a8cbc9a87778
-                Name: Cube
-                Components:
-                    f809d840af618e2a09b3459c51fa02e8: !TransformComponent
-                        Id: 6e2bfc1d-5a8d-47c5-99d2-23f1476abf9d
-                        Position: {X: -37.97952, Y: 0.0, Z: 33.72954}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.5912557, Y: 1.5912557, Z: 1.5912557}
-                        Children: {}
-                    2703182cc0f175f6858f2ae192e960a5: !ModelComponent
-                        Id: 544eb15e-781d-423b-b55d-803cb62b7914
-                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
-                        Materials: {}
-                    789703f989aafc7cf8bc022015c414b7: !StaticColliderComponent
-                        Id: 4360102a-0b33-4813-a129-ad7a4d0a2dfd
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: false
-                        AlwaysUpdateNaviMeshCache: false
-                        ColliderShapes:
-                            247c75a6305485bd98dc85c88fbe8a60: !BoxColliderShapeDesc
-                                Is2D: false
-                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: 5de18932-b9d2-49d3-8580-d8d2d07b7508
                 Name: fox
@@ -56,21 +26,6 @@ Hierarchy:
                         Id: c2bfaedb-efcf-44e2-9567-b4c576b502a4
                         Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
                         Materials: {}
-                    c8f8f73269c3a49ad4a540ae45dc0e10: !Maze.Code.Map.VelocityComponent,Maze
-                        Id: bf62634f-e426-47c7-a913-452d9cb2352e
-                        Speed: 5.0
-                        IsActive: true
-                    76b04e9e87203537955986fe13cb8fec: !Maze.Code.Map.PlayerControllerComponent,Maze
-                        Id: 09db13fd-3592-454b-8b57-d8471173a159
-                    1d2fc09b3cc8772cbb24634b58057355: !Maze.Code.Map.PoseComponent,Maze
-                        Id: e76e5aec-52df-4711-8011-fa64bcbe1fc9
-                        FrameScale: 5
-                        PlaySpeed: 1.0
-                        Animations:
-                            8bae4c8c356094e02fcd1b5160e5b66d~Idle: 53224868-c2ad-4828-ab97-cb54bd91ca88:Model/Fox/animation_Idle_AnimalArmature
-                            f9bd2e118bbb618f4066c23e52df2f66~Walk: a487ba3b-64a6-4346-92d4-9eff3431a75d:Model/Fox/animation_Walk_AnimalArmature
-                    c216c241a88f93d838e1f5b1761129fb: !Maze.Code.Map.StateMachineComponent,Maze
-                        Id: 76171de2-4c10-44ac-8186-562cce257376
         -   Entity:
                 Id: ad365e73-5f2d-4864-a539-6efd0523281b
                 Name: Ambient light
@@ -113,3 +68,19 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
+        -   Entity:
+                Id: e3b61ce0-f37b-482b-9eb0-a3d3ded27e02
+                Name: Entity
+                Components:
+                    d8a9ef63ea8285d9af515f39e21945e1: !TransformComponent
+                        Id: 8a581544-e5d6-46e8-bf16-bedfdba5967b
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    5da76c3cf5f58d6d89300adbc8beb302: !Maze.Code.Profiling.MapCreatorTest,Maze
+                        Id: 482b0582-7945-4cd5-a1ea-a0d9fb60af6a
+                        Width: 5
+                        Height: 5
+                        StartId: 2
+                        Seed: 555
