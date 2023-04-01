@@ -59,9 +59,7 @@ namespace Maze.Code.Game
             //var temp = new int[width * height];
             
             var isSuccsss = true;
-
-            
-
+            var temp = new int[width * height];
             for (int y = 0; y < height - 1; y++)
             {
                 if (!isSuccsss) break;
@@ -91,7 +89,7 @@ namespace Maze.Code.Game
                     {
                         var sum = 0;
                         blockList.ForEach(b => sum += b.Y);
-                        if(sum == 0)
+                        if (sum == 0)
                         {
                             isSuccsss = false;
                             break;
@@ -104,9 +102,9 @@ namespace Maze.Code.Game
                             if (r < 0) break;
                         }
                         var targetBlock = blockList[targetId].X;
-                        var temp = new int[width * height];
-                        Array.Copy(grids, temp, width * height);
+
                         
+                        Array.Copy(grids, temp, width * height);
                         var isLegalBlock = true;
                         for (int i = 0; i < neighbors.Length; i++)
                         {
@@ -114,8 +112,8 @@ namespace Maze.Code.Game
                             var value = (targetBlock & (1 << i)) >> i;
                             temp[neighborId] = value;
                         }
-                        isLegalBlock = Test(temp, start, width, height);
 
+                        isLegalBlock = PassTest(start, width, height, temp);
 
                         if (isLegalBlock)
                         {
@@ -130,53 +128,64 @@ namespace Maze.Code.Game
                         else
                         {
                             blockList.RemoveAt(targetId);
-                            if(blockList.Count == 0) isSuccsss = false;                         
+                            if (blockList.Count == 0) isSuccsss = false;
                         }
                     }
                     if (!isSuccsss) break;
                 }
             }
             return isSuccsss;
+
+
+            bool PassTest(int start, int width, int height, int[] temp)
+            {
+                var max = 8;
+                var stack = new Stack<int>();
+                stack.Push(start);
+                temp[start] = max;
+                while (stack.Count > 0)
+                {
+                    var sid = stack.Pop();
+                    var sneighbors = GetNeighbors(sid, width, height);
+                    foreach (var nid in sneighbors)
+                    {
+                        if (IsOutSide(nid)) continue;
+                        var v = temp[nid];
+                        if (v > 0 && v < max)
+                        {
+                            temp[nid] = max;
+                            stack.Push(nid);
+                        }
+                    }
+                }
+
+                bool isPass = true;
+
+                foreach (var tempGrid in temp)
+                {
+                    if (tempGrid > 0 && tempGrid < max)
+                    {
+                        isPass = false;
+                        break;
+                    }
+                }
+
+                return isPass;
+            }
         }
 
 
-        static bool Test(int[] nums, int start, int width, int height)
+
+        private static int[] GetNeighbors(int id, int width, int height)
         {
-            int max = 4;
-            var temp = nums;
-
-            temp[start] = max;
-            var stack = new Stack<int>();
-            stack.Push(start);
-            while (stack.Count > 0)
-            {
-                var sid = stack.Pop();
-                var sneighbors = new int[4]
-                {
-                     sid + 1, sid - 1, sid + width, sid - width
-                };
-                foreach (var nid in sneighbors)
-                {
-                    if (nid < 0 || nid >= width * height) continue;
-                    var v = temp[nid];
-                    if (v > 0 && v < max)
-                    {
-                        temp[nid] = max;
-                        stack.Push(nid);
-                    }
-                }
-            }
-
-            var isLegalBlock = true;
-            foreach (var tempGrid in temp)
-            {
-                if (tempGrid > 0 && tempGrid < max)
-                {
-                    isLegalBlock = false;
-                    break;
-                }
-            }
-            return isLegalBlock;
+            var x = id % width;
+            var y = id / width;
+            var res = new List<int>();
+            if (x > 0) res.Add(id - 1);
+            if (x < width - 1) res.Add(id + 1);
+            if (y > 0) res.Add(id - width);
+            if (y < height - 1) res.Add(id + width);
+            return res.ToArray();
         }
 
 

@@ -80,7 +80,7 @@ Hierarchy:
                         Children: {}
                     5da76c3cf5f58d6d89300adbc8beb302: !Maze.Code.Profiling.MapCreatorTest,Maze
                         Id: 482b0582-7945-4cd5-a1ea-a0d9fb60af6a
-                        Width: 5
-                        Height: 5
-                        StartId: 2
-                        Seed: 222
+                        Width: 15
+                        Height: 7
+                        StartId: 7
+                        Seed: 333

@@ -27,52 +27,12 @@ namespace Maze.Code.Profiling
             nums[StartId] = 1;
             
             var isSuccess =  MapCreator.TryCreateSimpleMap(nums, StartId, Width, Height, Seed);
+            nums[StartId] = 6;
             LogNums(nums, isSuccess);
-            Log.Info(Test(nums).ToString());
+     
         }
 
-        bool Test(int[] nums)
-        {
-            int max = 4;
-            var temp = nums;
-            var start = StartId;
-            temp[start] = max;
-            var stack = new Stack<int>();
-            var width = Width;
-            var height = Height;
-            stack.Push(start);
-            while (stack.Count > 0)
-            {
-                var sid = stack.Pop();
-                var sneighbors = new int[4]
-                {
-                     sid + 1, sid - 1, sid + width, sid - width
-                };
-                foreach (var nid in sneighbors)
-                {
-                    if (nid < 0 || nid >= width * height) continue;
-                    var v = temp[nid];
-                    if (v > 0 && v < max)
-                    {
-                        temp[nid] = max;
-                        LogNums(nums, false);
-                        stack.Push(nid);
-                    }
-                }
-            }
-
-            var isLegalBlock = true;
-            foreach (var tempGrid in temp)
-            {
-                if (tempGrid > 0 && tempGrid < max)
-                {
-                    isLegalBlock = false;
-                    break;
-                }
-            }
-            return isLegalBlock;
-        }
-
+        
         void LogNums(int[] nums, bool isSuccess)
         {
             string log = $"isSuccess:{isSuccess}\n";
