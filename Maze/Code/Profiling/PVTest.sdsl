@@ -1,0 +1,13 @@
+﻿shader PVTest
+{
+    cbuffer PerView.PVTest
+    {
+        [Color]
+        stage float4 PVTestColor;
+    }
+
+    rgroup PerView.PVTest
+    {
+        stage Texture2D PVTestTexture;
+    }
+};

@@ -7,8 +7,10 @@ Attributes:
         GlossinessMap: !ComputeFloat
             Value: 0.1
     Diffuse: !MaterialDiffuseMapFeature
-        DiffuseMap: !ComputeColor
-            Value: {R: 0.14117648, G: 0.14117648, B: 0.14117648, A: 1.0}
+        DiffuseMap: !ComputeShaderClassColor
+            MixinReference: TestShader
+            Generics: {}
+            CompositionNodes: {}
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
     Specular: !MaterialMetalnessMapFeature
         MetalnessMap: !ComputeFloat

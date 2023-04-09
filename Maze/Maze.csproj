@@ -24,6 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Code\Profiling\PVTest.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Code\Render\CellSpriteEffect.sdfx.cs">
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -75,6 +80,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Code\Profiling\PVTest.sdsl">
+      <LastGenOutput>PVTest.sdsl.cs</LastGenOutput>
+    </None>
     <None Update="Code\Render\Cell\CellSprite.sdsl">
       <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
     </None>

@@ -11,7 +11,46 @@ Hierarchy:
         - ref!! 5de18932-b9d2-49d3-8580-d8d2d07b7508
         - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
         - ref!! e3b61ce0-f37b-482b-9eb0-a3d3ded27e02
+        - ref!! 03c09a18-c9ea-4821-89b4-61b60de5c0de
+        - ref!! 5835e2dc-1d30-4c70-a8e1-4a058b2c5d5b
     Parts:
+        -   Entity:
+                Id: 03c09a18-c9ea-4821-89b4-61b60de5c0de
+                Name: Ground
+                Components:
+                    ee631b686dc8f32a7afb844f662c51ee: !TransformComponent
+                        Id: d0b20384-1cb9-4c3d-937e-854933e6a0f5
+                        Position: {X: -0.031723022, Y: 0.0, Z: 0.42662632}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4edf9d32b9d8fa6fded74715b180f94b: !ModelComponent
+                        Id: d50aa7b8-1ad1-4bef-88f0-77dade99f592
+                        Model: e11654ce-effe-44f1-a983-a43169dcd75e:Ground
+                        IsShadowCaster: false
+                        Materials: {}
+        -   Entity:
+                Id: 5835e2dc-1d30-4c70-a8e1-4a058b2c5d5b
+                Name: Directional light
+                Components:
+                    23778738f4f153f605c85d361ffe35f6: !TransformComponent
+                        Id: 6dc264bb-21f0-4559-93f5-2f54c69b372a
+                        Position: {X: 0.0, Y: 2.6721232, Z: 0.0}
+                        Rotation: {X: -0.54970807, Y: -0.16374065, Z: 0.23384589, W: 0.78506446}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    45c43f24eed2b9b0dade50efb0620318: !LightComponent
+                        Id: 9dc7ff80-350b-4ee5-924a-18bd3f56873a
+                        Type: !LightDirectional
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Shadow:
+                                Enabled: true
+                                Size: Large
+                                DepthRange: {}
+                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
+                                ComputeTransmittance: false
+                                BiasParameters: {}
         -   Entity:
                 Id: 5de18932-b9d2-49d3-8580-d8d2d07b7508
                 Name: fox
@@ -25,7 +64,8 @@ Hierarchy:
                     9c1e3f0e1422b068348bf22cf193eb90: !ModelComponent
                         Id: c2bfaedb-efcf-44e2-9567-b4c576b502a4
                         Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
-                        Materials: {}
+                        Materials:
+                            bae852667c74fa7207d18d29abf2991e~0: 62681361-9cb9-4f71-8d37-47b5dbfcd7dc:Model/Fox/Main
         -   Entity:
                 Id: ad365e73-5f2d-4864-a539-6efd0523281b
                 Name: Ambient light

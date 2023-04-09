@@ -1,0 +1,7 @@
+!Texture
+Id: 8184628b-0e2e-4cfc-bb7a-aea26977424e
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/2D Pixel Dungeon Asset Pack v2.0/interface/arrow_1.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
