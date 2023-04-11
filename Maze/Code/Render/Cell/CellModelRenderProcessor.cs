@@ -1,6 +1,8 @@
-﻿namespace Maze.Code.Render
+﻿
+namespace Maze.Code.Render
 {
-    public class CellModelRenderProcessor
+
+    public class CellModelRenderProcessor 
     {
 
     }
