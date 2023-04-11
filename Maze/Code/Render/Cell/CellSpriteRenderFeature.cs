@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Maze.Code.Render
 {
+
     public class CellSpriteRenderFeature : BaseSpriteRenderFeature<RenderCellSprite, Sprite3DBatch>
     {
         protected override string effectName => "CellSpriteEffect";
