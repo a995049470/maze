@@ -119,7 +119,7 @@ namespace Maze.Code.Render
             }
         }
 
-        protected virtual void UpdateMaterial(URenderMesh renderMesh, MaterialPass materialPass, MaterialInstance modelMaterialInstance, ModelComponent modelComponent)
+        protected virtual void UpdateMaterial(URenderMesh renderMesh, MaterialPass materialPass, MaterialInstance modelMaterialInstance, TModelComponent modelComponent)
         {
             var isShadowCaster = modelComponent.IsShadowCaster;
             if (modelMaterialInstance != null)

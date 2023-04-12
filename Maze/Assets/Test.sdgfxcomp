@@ -6,7 +6,7 @@ Archetype: 823a81bf-bac0-4552-9267-aeed499c40df:DefaultGraphicsCompositorLevel10
 Cameras:
     de2e75c3b2b23e54162686363f3f138e:
         Id: 9aeac611-d1f6-46da-a235-e20cc154e170
-        Name: Main
+        Name*: Main
 RenderStages:
     47116750c1a5d449b4ad3625f71439b3:
         Id: 50671147-a5c1-49d4-b4ad-3625f71439b3
