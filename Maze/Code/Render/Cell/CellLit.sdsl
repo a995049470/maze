@@ -1,0 +1,12 @@
+﻿shader CellLit
+{
+    cbuffer PerView.CellLighting
+    {
+        stage float4x4 CellViewProjectionMatrix;
+    }
+
+    rgroup PerView.CellLighting
+    {
+        stage Texture2D CellLightTex;
+    }
+};

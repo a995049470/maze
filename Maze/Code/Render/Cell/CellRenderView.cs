@@ -1,6 +1,7 @@
 ﻿using Stride.Core.Mathematics;
 using Stride.Engine;
 using Stride.Engine.Processors;
+using Stride.Graphics;
 using Stride.Rendering;
 using Quaternion = Stride.Core.Mathematics.Quaternion;
 
@@ -8,6 +9,8 @@ namespace Maze.Code.Render
 {
     public class CellRenderView : RenderView
     {
+        public Texture CellTexture;
+
         private static CameraComponent camera;
         public static CameraComponent Camera
         {
