@@ -96,7 +96,7 @@ namespace Maze.Code.Render
             if (!updateCell) return;
             //todo:计算摄像机视口y=0平面投影的正交包围盒
             var cameraPos = camera.Entity.Transform.Position;
-            var center = cameraPos - cameraPos.Z / viewDir.Z * viewDir;
+            //var center = cameraPos - cameraPos.Z / viewDir.Z * viewDir;
             if(isDitry || !(safeRect.Contains(cameraPos.X, cameraPos.Z)))
             {
                 isDitry = false;

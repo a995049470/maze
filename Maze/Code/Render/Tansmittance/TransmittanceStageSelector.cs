@@ -1,5 +1,4 @@
 ﻿using Stride.Rendering;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Maze.Code.Render
 {
+
     public class TransmittanceStageSelector : RenderStageSelector
     {
         [DefaultValue(RenderGroupMask.All)]
@@ -18,7 +18,7 @@ namespace Maze.Code.Render
 
         public string EffectName { get; set; }
         public override void Process(RenderObject renderObject)
-        {
+        {           
             if (((RenderGroupMask)(1U << (int)renderObject.RenderGroup) & RenderGroup) != 0 && TransmittanceRenderStage != null)
             {
                 renderObject.ActiveRenderStages[TransmittanceRenderStage.Index] = new ActiveRenderStage(EffectName);

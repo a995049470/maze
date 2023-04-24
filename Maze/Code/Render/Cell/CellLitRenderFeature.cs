@@ -26,8 +26,10 @@ namespace Maze.Code.Render
                     break;
                 }
             }
+            if (targetView == null) return;
             foreach (var view in RenderSystem.Views)
             {
+                if (view is CellRenderView) continue;
                 var viewFeature = view.Features[RootRenderFeature.Index];
                 ViewResourceGroupLayout firstViewLayout = null;
                 if (viewFeature.Layouts.Count == 0) continue;
@@ -52,10 +54,10 @@ namespace Maze.Code.Render
                 viewParameterLayout.ProcessLogicalGroup(firstViewLayout, ref pvTestLayout);
                 viewParameters.UpdateLayout(viewParameterLayout);
 
-                //viewParameters.Set(PVTestKeys.PVTestColor, TestColor);
+                viewParameters.Set(CellLitKeys.CellViewProjectionMatrix, targetView.ViewProjection);
 
                 foreach (var viewLayout in viewFeature.Layouts)
-                {
+                {              
                     // Only process view layouts in normal state
                     if (viewLayout.State != RenderEffectState.Normal)
                         continue;
@@ -71,8 +73,8 @@ namespace Maze.Code.Render
 
                     // Update resources
                     resourceGroup.UpdateLogicalGroup(ref viewLighting, viewParameters);
-                    //if (TestTexture != null)
-                    //    resourceGroup.DescriptorSet.SetShaderResourceView(viewLighting.DescriptorSlotStart, TestTexture);
+                    if(targetView.CellTexture != null)
+                        resourceGroup.DescriptorSet.SetShaderResourceView(viewLighting.DescriptorSlotStart, targetView.CellTexture);
                 }
             }
         }
