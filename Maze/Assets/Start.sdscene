@@ -80,7 +80,6 @@ Hierarchy:
                         Children: {}
                     a1b76a40882274ad1e00e78c3c1bf25c: !LightComponent
                         Id: 3c8cf025-dcab-4a07-a219-097cb62b3202
-                        Enabled: false
                         Type: !LightAmbient
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
@@ -121,12 +120,6 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    5da76c3cf5f58d6d89300adbc8beb302: !Maze.Code.Profiling.MapCreatorTest,Maze
-                        Id: 482b0582-7945-4cd5-a1ea-a0d9fb60af6a
-                        Width: 15
-                        Height: 7
-                        StartId: 7
-                        Seed: 333
         -   Entity:
                 Id: f495c83f-e289-40c3-bdae-df4f7541e679
                 Name: Sphere

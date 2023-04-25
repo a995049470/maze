@@ -1,0 +1,47 @@
+// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ & https://stride3d.net) and Silicon Studio Corp. (https://www.siliconstudio.co.jp)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using Stride.Rendering.Data;
+using Stride.Rendering.Materials;
+
+namespace Stride.Rendering
+{
+
+    /// <summary>
+    /// Forward shading effect
+    /// </summary>
+    effect StrideForwardShadingEffectUnlit
+    {
+        using params MaterialKeys;
+
+        // Derive from StrideEffectBase
+        mixin StrideEffectBase;
+
+        // -----------------------------------------------
+        // Mix material and lighting shading for Pixel Shader
+        // -----------------------------------------------
+        ShaderSource extensionPixelStageSurfaceShaders = MaterialKeys.PixelStageSurfaceShaders;
+        if (extensionPixelStageSurfaceShaders != null)
+        {
+            mixin MaterialSurfacePixelStageCompositor;
+            mixin compose materialPixelStage = (extensionPixelStageSurfaceShaders);
+            mixin compose streamInitializerPixelStage = MaterialKeys.PixelStageStreamInitializer;
+
+            ShaderSource extensionPixelStageSurfaceFilter = MaterialKeys.PixelStageSurfaceFilter;
+            if (extensionPixelStageSurfaceFilter != null)
+            {
+                mixin (extensionPixelStageSurfaceFilter);
+            }
+
+            mixin child GBuffer;
+        }
+
+        // -----------------------------------------------
+        // Add direct and environment light groups
+        // -----------------------------------------------
+        mixin StrideLighting;
+
+        mixin child ShadowMapCaster;
+        mixin child ShadowMapCasterParaboloid;
+        mixin child ShadowMapCasterCubeMap;
+    };
+}

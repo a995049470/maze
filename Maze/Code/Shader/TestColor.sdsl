@@ -1,0 +1,7 @@
+﻿shader TestColor : ComputeColor
+{
+    override float4 Compute()
+    {
+        return 0;
+    }
+};
