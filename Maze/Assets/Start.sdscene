@@ -9,10 +9,11 @@ Hierarchy:
         - ref!! cb952962-4f7c-4dd5-835e-779f366da48a
         - ref!! b076566c-a2a6-4e2d-b674-d5215bfd9379
         - ref!! 5de18932-b9d2-49d3-8580-d8d2d07b7508
-        - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
         - ref!! e3b61ce0-f37b-482b-9eb0-a3d3ded27e02
         - ref!! 03c09a18-c9ea-4821-89b4-61b60de5c0de
         - ref!! 5835e2dc-1d30-4c70-a8e1-4a058b2c5d5b
+        - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
+        - ref!! f495c83f-e289-40c3-bdae-df4f7541e679
     Parts:
         -   Entity:
                 Id: 03c09a18-c9ea-4821-89b4-61b60de5c0de
@@ -41,6 +42,7 @@ Hierarchy:
                         Children: {}
                     45c43f24eed2b9b0dade50efb0620318: !LightComponent
                         Id: 9dc7ff80-350b-4ee5-924a-18bd3f56873a
+                        Enabled: false
                         Type: !LightDirectional
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
@@ -78,6 +80,7 @@ Hierarchy:
                         Children: {}
                     a1b76a40882274ad1e00e78c3c1bf25c: !LightComponent
                         Id: 3c8cf025-dcab-4a07-a219-097cb62b3202
+                        Enabled: false
                         Type: !LightAmbient
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
@@ -124,3 +127,18 @@ Hierarchy:
                         Height: 7
                         StartId: 7
                         Seed: 333
+        -   Entity:
+                Id: f495c83f-e289-40c3-bdae-df4f7541e679
+                Name: Sphere
+                Components:
+                    253d325fce89037b826405aa10d6036a: !TransformComponent
+                        Id: ad90a1aa-6e7c-4b5c-ad0b-ee98c91cbfff
+                        Position: {X: 5.589428, Y: 0.0, Z: 0.12170863}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    34f3b8919e1362940e59c032cf712002: !ModelComponent
+                        Id: 996edb75-293b-4e12-854a-50dd564bdbc6
+                        Model: 6e55eecb-a97b-42b9-8c94-a8236e0bba5a:Sphere
+                        Materials:
+                            2ef94e4a226163a6c8ce65573284b834~0: 0f55cf43-96b8-44df-bce1-8807844c175f:Unlit

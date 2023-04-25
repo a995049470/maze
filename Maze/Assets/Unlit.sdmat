@@ -1,0 +1,11 @@
+!MaterialAsset
+Id: 0f55cf43-96b8-44df-bce1-8807844c175f
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Attributes:
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeColor
+            Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}
