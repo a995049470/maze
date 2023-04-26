@@ -1,5 +1,5 @@
 !MaterialAsset
-Id: 0f55cf43-96b8-44df-bce1-8807844c175f
+Id: 7318ccd1-7f8d-495d-b481-948f5df1d5ff
 SerializedVersion: {Stride: 2.0.0.0}
 Tags: []
 Attributes:
@@ -7,9 +7,16 @@ Attributes:
         DiffuseMap: !ComputeShaderClassColor
             MixinReference: TestXXX
             Generics: {}
-            CompositionNodes: {}
-    DiffuseModel: !MaterialDiffuseLambertModelFeature
-        Enabled: false
+            CompositionNodes:
+                f1c1770b414aee1e81e959b5996877ed~TestColor: !ComputeColor
+                    PremultiplyAlpha: false
+                    Value: {R: 0.4250002, G: 0.0, B: 1.0, A: 1.0}
+                20151b5c172c67268592f43b366a6eaf~TestColor2: !ComputeColor
+                    Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
+                764b5db555a3679bac0f90d0833bbb4c~TestColor3: !ComputeColor
+                    Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
+                534a44a00b3be68d9defd467a237e14f~TestColor4: !ComputeColor
+                    Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

@@ -1,8 +1,12 @@
 ﻿shader TestXXX : ComputeColor, MaterialPixelShadingStream
 {
+    compose ComputeColor TestColor;
+    compose ComputeColor TestColor2;
+    compose ComputeColor TestColor3;
+    compose ComputeColor TestColor4;
     override float4 Compute()
     {
-        streams.shadingColor = float3(0, 1, 0);
+        streams.shadingColor = TestColor.Compute().rgb;
         streams.shadingColorAlpha = 1;
         return 0;  
     };
