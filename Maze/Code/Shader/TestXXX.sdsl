@@ -1,0 +1,10 @@
+﻿shader TestXXX : ComputeColor, MaterialPixelShadingStream
+{
+    override float4 Compute()
+    {
+        streams.shadingColor = float3(0, 1, 0);
+        streams.shadingColorAlpha = 1;
+        return 0;  
+    };
+      
+};

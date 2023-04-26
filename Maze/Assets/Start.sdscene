@@ -36,13 +36,12 @@ Hierarchy:
                 Components:
                     23778738f4f153f605c85d361ffe35f6: !TransformComponent
                         Id: 6dc264bb-21f0-4559-93f5-2f54c69b372a
-                        Position: {X: 0.0, Y: 2.6721232, Z: 0.0}
+                        Position: {X: 1.4708265, Y: 2.6721232, Z: 0.0}
                         Rotation: {X: -0.54970807, Y: -0.16374065, Z: 0.23384589, W: 0.78506446}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     45c43f24eed2b9b0dade50efb0620318: !LightComponent
                         Id: 9dc7ff80-350b-4ee5-924a-18bd3f56873a
-                        Enabled: false
                         Type: !LightDirectional
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}

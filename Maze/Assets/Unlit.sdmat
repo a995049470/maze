@@ -5,10 +5,11 @@ Tags: []
 Attributes:
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeShaderClassColor
-            MixinReference: TestColor
+            MixinReference: TestXXX
             Generics: {}
             CompositionNodes: {}
-    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    DiffuseModel: !MaterialDiffuseLambertModelFeature
+        Enabled: false
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

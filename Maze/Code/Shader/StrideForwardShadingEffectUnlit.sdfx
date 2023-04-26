@@ -38,7 +38,7 @@ namespace Stride.Rendering
         // -----------------------------------------------
         // Add direct and environment light groups
         // -----------------------------------------------
-        mixin StrideLighting;
+        //mixin StrideLighting;
 
         mixin child ShadowMapCaster;
         mixin child ShadowMapCasterParaboloid;

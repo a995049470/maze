@@ -56,7 +56,6 @@ namespace Stride.Rendering
                         return;
                     }
                 }
-                context.Mixin(mixin, "StrideLighting");
                 if (context.ChildEffectName == "ShadowMapCaster")
                 {
                     context.Mixin(mixin, "ShadowMapCaster");

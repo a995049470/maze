@@ -1,0 +1,14 @@
+﻿shader MaterialUnlitSurfacePixelStageCompositor : ShadingBase, Transformation, PositionStream, MaterialPixelShadingStream, DirectLightGroupArray, EnvironmentLightArray
+{
+    compose IMaterialSurface materialPixelStage;
+    compose IStreamInitializer streamInitializerPixelStage;
+    stage override float4 Shading()
+    {
+        streamInitializerPixelStage.ResetStream();
+        materialPixelStage.Compute();
+        return float4(1, 1, 0, 1);
+        //return streams.matColorBase;
+        //return float4(streams.shadingColor, streams.shadingColorAlpha);
+    }
+
+};
