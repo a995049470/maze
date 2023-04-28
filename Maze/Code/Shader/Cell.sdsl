@@ -1,0 +1,12 @@
+﻿shader Cell : ComputeColor, MaterialPixelShadingStream
+{
+    compose ComputeColor CellColor;
+    compose ComputeColor Strength;
+    override float4 Compute()
+    {
+        streams.shadingColor = CellColor.Compute().rgb * Strength.Compute().r;
+        streams.shadingColorAlpha = 1;
+        return 0;  
+    };
+      
+};

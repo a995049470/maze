@@ -5,18 +5,13 @@ Tags: []
 Attributes:
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeShaderClassColor
-            MixinReference: TestXXX
+            MixinReference: Cell
             Generics: {}
             CompositionNodes:
-                f1c1770b414aee1e81e959b5996877ed~TestColor: !ComputeColor
-                    PremultiplyAlpha: false
-                    Value: {R: 0.4250002, G: 0.0, B: 1.0, A: 1.0}
-                20151b5c172c67268592f43b366a6eaf~TestColor2: !ComputeColor
-                    Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
-                764b5db555a3679bac0f90d0833bbb4c~TestColor3: !ComputeColor
-                    Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
-                534a44a00b3be68d9defd467a237e14f~TestColor4: !ComputeColor
-                    Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
+                9d8f07d213c09e532767e68876858a33~CellColor: !ComputeColor
+                    Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                cb268abde97b0b5282715893a82e1913~Strength: !ComputeFloat4
+                    Value: {X: 1.0, Y: 0.0, Z: 0.0, W: 0.0}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}
