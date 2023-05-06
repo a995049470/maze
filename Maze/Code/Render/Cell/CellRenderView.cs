@@ -33,21 +33,21 @@ namespace Maze.Code.Render
 
         public static void UpdateRenderRectToRenderView(RectangleF drawRect, RenderView renderView)
         {
-            var pos = camera.Entity.Transform.Position;
+            var pos = Camera.Entity.Transform.Position;
             pos.X = drawRect.Center.X;
             pos.Z = drawRect.Center.Y;
-            camera.Entity.Transform.Position = pos;
-            camera.Entity.Transform.UpdateWorldMatrix();
+            Camera.Entity.Transform.Position = pos;
+            Camera.Entity.Transform.UpdateWorldMatrix();
 
-            camera.AspectRatio = drawRect.Height / drawRect.Width;
-            camera.OrthographicSize = drawRect.Height;
-            camera.Update(null);
+            Camera.AspectRatio = drawRect.Height / drawRect.Width;
+            Camera.OrthographicSize = drawRect.Height;
+            Camera.Update(null);
 
-            renderView.View = camera.ViewMatrix;
-            renderView.Projection = camera.ProjectionMatrix;
-            renderView.NearClipPlane = camera.NearClipPlane;
-            renderView.FarClipPlane = camera.FarClipPlane;
-            renderView.Frustum = camera.Frustum;
+            renderView.View = Camera.ViewMatrix;
+            renderView.Projection = Camera.ProjectionMatrix;
+            renderView.NearClipPlane = Camera.NearClipPlane;
+            renderView.FarClipPlane = Camera.FarClipPlane;
+            renderView.Frustum = Camera.Frustum;
 
             // Enable frustum culling
             renderView.CullingMode = CameraCullingMode.Frustum;

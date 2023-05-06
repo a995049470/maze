@@ -1,0 +1,135 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Stride.Engine" Version="4.1.0.1734" />
+
+    <PackageReference Include="Stride.Video" Version="4.1.0.1734" />
+    <PackageReference Include="Stride.Physics" Version="4.1.0.1734" />
+    <PackageReference Include="Stride.Navigation" Version="4.1.0.1734" />
+    <PackageReference Include="Stride.Particles" Version="4.1.0.1734" />
+    <PackageReference Include="Stride.UI" Version="4.1.0.1734" />
+
+    <PackageReference Include="Stride.Core.Assets.CompilerApp" Version="4.1.0.1734" IncludeAssets="build;buildTransitive" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Plugins\Newtonsoft.Json\Bin\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Code\Profiling\PVTest.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Render\CellSpriteEffect.sdfx.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Render\Cell\CellSprite.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CellSprite.sdsl</DependentUpon>
+    </Compile>
+    <Compile Update="Code\Render\LightDiffusionEffect.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Render\LightUpdateEffect.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Render\LitSprite\LitSprite.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Render\LitSprite\SpriteLight.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SpriteLight.sdsl</DependentUpon>
+    </Compile>
+    <Compile Update="Code\Render\PostProcessing\PixelStyleEffect.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Render\Tansmittance\TransmittanceSprite.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TransmittanceSprite.sdsl</DependentUpon>
+    </Compile>
+    <Compile Update="Code\Render\TestImageEffect.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Shader\Cell.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Shader\ComputeColorWave.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Shader\StrideForwardShadingEffectUnlit.sdfx.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Code\Profiling\PVTest.sdsl">
+      <LastGenOutput>PVTest.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\Cell\CellSprite.sdsl">
+      <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\LightDiffusionEffect.sdsl">
+      <LastGenOutput>LightDiffusionEffect.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\LightUpdateEffect.sdsl">
+      <LastGenOutput>LightUpdateEffect.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\LitSprite\LitSprite.sdsl">
+      <LastGenOutput>LitSprite.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\LitSprite\SpriteLight.sdsl">
+      <LastGenOutput>SpriteLight.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\PostProcessing\PixelStyleEffect.sdsl">
+      <LastGenOutput>PixelStyleEffect.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\Tansmittance\TransmittanceSprite.sdsl">
+      <LastGenOutput>TransmittanceSprite.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\TestImageEffect.sdsl">
+      <LastGenOutput>TestImageEffect.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Shader\Cell.sdsl">
+      <LastGenOutput>CEll.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Shader\ComputeColorWave.sdsl">
+      <LastGenOutput>ComputeColorWave.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Shader\StrideForwardShadingEffectUnlit.sdfx">
+      <LastGenOutput>StrideForwardShadingEffectUnlit.sdfx.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+</Project>

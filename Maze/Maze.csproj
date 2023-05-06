@@ -77,6 +77,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="Code\Shader\Cell.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -106,6 +111,9 @@
     </None>
     <None Update="Code\Render\TestImageEffect.sdsl">
       <LastGenOutput>TestImageEffect.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Shader\Cell.sdsl">
+      <LastGenOutput>Cell.sdsl.cs</LastGenOutput>
     </None>
   </ItemGroup>
 </Project>

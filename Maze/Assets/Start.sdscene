@@ -30,6 +30,12 @@ Hierarchy:
                         Model: e11654ce-effe-44f1-a983-a43169dcd75e:Ground
                         IsShadowCaster: false
                         Materials: {}
+                    1817fdb1cfd438ab08f55fcaaeca0924: !CellModelComponent
+                        Id: 506a4aed-204e-441a-94e6-5269da3c0831
+                        Model: e11654ce-effe-44f1-a983-a43169dcd75e:Ground
+                        Materials:
+                            001f0af974fbd891a0cf3afb75eb7145~0: 7318ccd1-7f8d-495d-b481-948f5df1d5ff:CellTest
+                        Flag: Barrier
         -   Entity:
                 Id: 5835e2dc-1d30-4c70-a8e1-4a058b2c5d5b
                 Name: Directional light
@@ -133,4 +139,4 @@ Hierarchy:
                         Id: 996edb75-293b-4e12-854a-50dd564bdbc6
                         Model: 6e55eecb-a97b-42b9-8c94-a8236e0bba5a:Sphere
                         Materials:
-                            e58952f11495191b67797cb37d4bac0e~0: 7318ccd1-7f8d-495d-b481-948f5df1d5ff:Unlit
+                            e58952f11495191b67797cb37d4bac0e~0: 7318ccd1-7f8d-495d-b481-948f5df1d5ff:CellTest

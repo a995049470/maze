@@ -2,18 +2,15 @@
 using Stride.Graphics;
 using Stride.Rendering.Images;
 using Stride.Rendering;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Stride.Core.Mathematics;
 using Stride.Core;
 using System.ComponentModel;
 
+
 namespace Maze.Code.Render
 {
-
+    [DataContract]
     public class CellRenderer
     {
 
@@ -75,6 +72,7 @@ namespace Maze.Code.Render
         private ImageEffectShader lightUpdateEffect;
         private ImageEffectShader lightDiffusionEffect;
         private bool updateCell = false;
+        [DataMemberIgnore]
         public CellRenderView RenderView { get; private set; } = new CellRenderView();
         
 
@@ -91,7 +89,7 @@ namespace Maze.Code.Render
         {
             var camera = context.GetCurrentCamera();
             var viewDir = camera.Entity.Transform.LocalMatrix.Forward;
-            updateCell = viewDir.Z * camera.Entity.Transform.Position.Z > 0;
+            updateCell = viewDir.Z * camera.Entity.Transform.Position.Z < 0;
             updateCell &= VisionStage != null && TransmittanceStage != null;
             if (!updateCell) return;
             //todo:计算摄像机视口y=0平面投影的正交包围盒
@@ -116,7 +114,7 @@ namespace Maze.Code.Render
                     );
                 var width = 2 * ViewportWidthWS * DPM;
                 var height = 2 * viewportHeightWS * DPM;
-                if(width != curTexSize.X || height != curTexSize.Y)
+                //if(width != curTexSize.X || height != curTexSize.Y)
                 {
                     curTexSize = new Int2(width, height);
                     //TODO:需要迁移数据...
@@ -174,67 +172,68 @@ namespace Maze.Code.Render
 
         public void DrawView(RenderContext context, RenderDrawContext drawContext)
         {
+            if (!updateCell) return;
             var renderSystem = context.RenderSystem;
 
             using (drawContext.QueryManager.BeginProfile(Color.Yellow, Cell))
-
-            //渲染透光率
-            using (drawContext.PushRenderTargetsAndRestore())
             {
-                drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.RenderTarget);
-                drawContext.CommandList.Clear(transmittanceTex, Color4.White * AirTransmittance);
-                drawContext.CommandList.SetRenderTarget(null, transmittanceTex);
-                var viewPort = new Viewport(0, 0, transmittanceTex.Width, transmittanceTex.Height);
-                drawContext.CommandList.SetViewport(viewPort);
-                renderSystem.Draw(drawContext, RenderView, TransmittanceStage);
-
-                //渲染格子亮度       
-                drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.RenderTarget);
-                drawContext.CommandList.Clear(pixelLightBuffer.CurrentTexture, Color4.Black);
-                drawContext.CommandList.SetRenderTarget(null, pixelLightBuffer.CurrentTexture);
-                var viewport = new Viewport(0, 0, pixelLightBuffer.CurrentTexture.Width, pixelLightBuffer.CurrentTexture.Height);
-                drawContext.CommandList.SetViewport(viewport);
-                renderSystem.Draw(drawContext, RenderView, VisionStage);
-
-
-                //先重新计算一下灯光
-                drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
-                drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.BackTexture, GraphicsResourceState.PixelShaderResource);
-
-                drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
-                drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.BackTexture, GraphicsResourceState.RenderTarget);
-
-
-                lightUpdateEffect.SetInput(0, brightnessBuffer.CurrentTexture);
-                lightUpdateEffect.SetInput(1, pixelLightBuffer.BackTexture);
-                lightUpdateEffect.SetInput(2, pixelLightBuffer.CurrentTexture);
-                lightUpdateEffect.SetOutput(brightnessBuffer.BackTexture);
-                lightUpdateEffect.SetViewport(new Viewport(0, 0, brightnessBuffer.BackTexture.Width, brightnessBuffer.BackTexture.Height));
-                lightUpdateEffect.Draw(drawContext);
-                brightnessBuffer.Swap();
-
-                //然后灯光扩散
-                int diffusionCount = MathUtil.Clamp(DiffusionCount, 0, maxDiffusionCount);
-
-                for (int i = 0; i < diffusionCount; i++)
+                //渲染透光率
+                using (drawContext.PushRenderTargetsAndRestore())
                 {
+                    drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.RenderTarget);
+                    drawContext.CommandList.Clear(transmittanceTex, Color4.White * AirTransmittance);
+                    drawContext.CommandList.SetRenderTarget(null, transmittanceTex);
+                    var viewPort = new Viewport(0, 0, transmittanceTex.Width, transmittanceTex.Height);
+                    drawContext.CommandList.SetViewport(viewPort);
+                    renderSystem.Draw(drawContext, RenderView, TransmittanceStage);
+
+                    //渲染格子亮度       
+                    drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.RenderTarget);
+                    drawContext.CommandList.Clear(pixelLightBuffer.CurrentTexture, Color4.Black);
+                    drawContext.CommandList.SetRenderTarget(null, pixelLightBuffer.CurrentTexture);
+                    var viewport = new Viewport(0, 0, pixelLightBuffer.CurrentTexture.Width, pixelLightBuffer.CurrentTexture.Height);
+                    drawContext.CommandList.SetViewport(viewport);
+                    renderSystem.Draw(drawContext, RenderView, VisionStage);
+
+
+                    //先重新计算一下灯光
                     drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
-                    drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.PixelShaderResource);
+                    drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.BackTexture, GraphicsResourceState.PixelShaderResource);
 
                     drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
                     drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.BackTexture, GraphicsResourceState.RenderTarget);
 
-                    lightDiffusionEffect.SetInput(0, brightnessBuffer.CurrentTexture);
-                    lightDiffusionEffect.SetInput(1, pixelLightBuffer.CurrentTexture);
-                    lightDiffusionEffect.SetInput(2, transmittanceTex);
-                    lightDiffusionEffect.SetOutput(brightnessBuffer.BackTexture);
-                    lightDiffusionEffect.SetViewport(new Viewport(0, 0, brightnessBuffer.BackTexture.Width, brightnessBuffer.BackTexture.Height));
-                    lightDiffusionEffect.Draw(drawContext);
+
+                    lightUpdateEffect.SetInput(0, brightnessBuffer.CurrentTexture);
+                    lightUpdateEffect.SetInput(1, pixelLightBuffer.BackTexture);
+                    lightUpdateEffect.SetInput(2, pixelLightBuffer.CurrentTexture);
+                    lightUpdateEffect.SetOutput(brightnessBuffer.BackTexture);
+                    lightUpdateEffect.SetViewport(new Viewport(0, 0, brightnessBuffer.BackTexture.Width, brightnessBuffer.BackTexture.Height));
+                    lightUpdateEffect.Draw(drawContext);
                     brightnessBuffer.Swap();
-                }
 
-                pixelLightBuffer.Swap();
+                    //然后灯光扩散
+                    int diffusionCount = MathUtil.Clamp(DiffusionCount, 0, maxDiffusionCount);
 
+                    for (int i = 0; i < diffusionCount; i++)
+                    {
+                        drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
+                        drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.PixelShaderResource);
+
+                        drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
+                        drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.BackTexture, GraphicsResourceState.RenderTarget);
+
+                        lightDiffusionEffect.SetInput(0, brightnessBuffer.CurrentTexture);
+                        lightDiffusionEffect.SetInput(1, pixelLightBuffer.CurrentTexture);
+                        lightDiffusionEffect.SetInput(2, transmittanceTex);
+                        lightDiffusionEffect.SetOutput(brightnessBuffer.BackTexture);
+                        lightDiffusionEffect.SetViewport(new Viewport(0, 0, brightnessBuffer.BackTexture.Width, brightnessBuffer.BackTexture.Height));
+                        lightDiffusionEffect.Draw(drawContext);
+                        brightnessBuffer.Swap();
+                    }
+
+                    pixelLightBuffer.Swap();
+                }         
 
             }
 

@@ -13,10 +13,10 @@ namespace Maze.Code.Render
 
     [DataContract("CellModelComponent")]
     [Display("CellModel", Expand = ExpandRule.Once)]
-    [DefaultEntityComponentProcessor(typeof(CellModelRenderProcessor))]
+    [DefaultEntityComponentRenderer(typeof(CellModelRenderProcessor))]
     [DisableSuperClassRenderProcessor]
     [ComponentOrder(11001)]
-    [ComponentCategory("Model")]
+    [ComponentCategory("CellModel")]
     public class CellModelComponent : ModelComponent
     {
         [DataMember(50)]
