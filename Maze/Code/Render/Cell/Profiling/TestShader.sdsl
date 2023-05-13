@@ -1,0 +1,17 @@
+﻿shader TestShader : ComputeColor, Texturing, CellLighting
+{
+    override float4 Compute()
+    {
+        return CellLightTex.Sample(PointSampler, streams.TexCoord);
+
+    }
+};
+
+//shader TestShader : ComputeColor, PVTest, Texturing
+//{
+//    override float4 Compute()
+//    {
+//        return PVTestTexture.Sample(PointSampler, streams.TexCoord);
+
+//    }
+//};
