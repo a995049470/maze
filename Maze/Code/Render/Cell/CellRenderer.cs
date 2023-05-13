@@ -74,7 +74,9 @@ namespace Maze.Code.Render
         private bool updateCell = false;
         [DataMemberIgnore]
         public CellRenderView RenderView { get; private set; } = new CellRenderView();
-        
+
+        [DataMember(50)]
+        public Texture testTexture;
 
 
         public CellRenderer()
@@ -88,8 +90,9 @@ namespace Maze.Code.Render
         public void Collect(RenderContext context)
         {
             var camera = context.GetCurrentCamera();
-            var viewDir = camera.Entity.Transform.LocalMatrix.Forward;
-            updateCell = viewDir.Z * camera.Entity.Transform.Position.Z < 0;
+            //var viewDir = camera.Entity.Transform.LocalMatrix.Forward;
+            //updateCell = viewDir.Z * camera.Entity.Transform.Position.Z < 0;
+            updateCell = true;
             updateCell &= VisionStage != null && TransmittanceStage != null;
             if (!updateCell) return;
             //todo:计算摄像机视口y=0平面投影的正交包围盒
@@ -121,12 +124,12 @@ namespace Maze.Code.Render
                     CreateTextures(context.RenderSystem, width, height);
                 }
             }
-            
+
             CellRenderView.UpdateRenderRectToRenderView(drawRect, RenderView);
             RenderView.RenderStages.Add(VisionStage);
             RenderView.RenderStages.Add(TransmittanceStage);
-            RenderView.CellTexture = finalCellTexture;
-            context.RenderSystem.Views.Add(RenderView);          
+            RenderView.CellTexture = testTexture;
+            context.RenderSystem.Views.Add(RenderView);
         }
 
         public void CreateTexture(RenderSystem renderSystem, ref Texture tex, int width, int height, PixelFormat pixelFormat, TextureFlags flags)
@@ -168,10 +171,12 @@ namespace Maze.Code.Render
             return brightnessBuffer.CurrentTexture;
         }
 
-        
+
 
         public void DrawView(RenderContext context, RenderDrawContext drawContext)
         {
+            drawContext.CommandList.ResourceBarrierTransition(finalCellTexture, GraphicsResourceState.RenderTarget);
+            drawContext.CommandList.Clear(finalCellTexture, new Color4(1, 1, 0, 1));
             if (!updateCell) return;
             var renderSystem = context.RenderSystem;
 
@@ -233,10 +238,9 @@ namespace Maze.Code.Render
                     }
 
                     pixelLightBuffer.Swap();
-                }         
+                }
 
             }
-
 
         }
     }

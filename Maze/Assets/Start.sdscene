@@ -35,7 +35,7 @@ Hierarchy:
                         Model: e11654ce-effe-44f1-a983-a43169dcd75e:Ground
                         Materials:
                             001f0af974fbd891a0cf3afb75eb7145~0: 7318ccd1-7f8d-495d-b481-948f5df1d5ff:CellTest
-                        Flag: Barrier
+                        Flag: Light
         -   Entity:
                 Id: 5835e2dc-1d30-4c70-a8e1-4a058b2c5d5b
                 Name: Directional light

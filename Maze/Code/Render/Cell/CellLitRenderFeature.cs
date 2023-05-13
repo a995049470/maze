@@ -1,12 +1,16 @@
-﻿using Stride.Core.Storage;
+﻿using Stride.Core;
+using Stride.Core.Storage;
 using Stride.Rendering;
 using System;
+using Stride.Graphics;
 
 namespace Maze.Code.Render
 {
     public class CellLitRenderFeature : SubRenderFeature
     {
         private LogicalGroupReference cellLitKey;
+        [DataMember]
+        public Texture TestTexture;
 
         protected override void InitializeCore()
         {
@@ -73,8 +77,9 @@ namespace Maze.Code.Render
 
                     // Update resources
                     resourceGroup.UpdateLogicalGroup(ref viewLighting, viewParameters);
-                    if(targetView.CellTexture != null)
-                        resourceGroup.DescriptorSet.SetShaderResourceView(viewLighting.DescriptorSlotStart, targetView.CellTexture);
+                    //if(targetView.CellTexture != null)
+                    if(TestTexture != null)
+                        resourceGroup.DescriptorSet.SetShaderResourceView(viewLighting.DescriptorSlotStart, TestTexture);
                 }
             }
         }

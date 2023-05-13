@@ -1,8 +1,0 @@
-﻿shader TestShader : ComputeColor, PVTest, Texturing
-{
-    override float4 Compute()
-    {
-        return PVTestColor * PVTestTexture.Sample(PointSampler, streams.TexCoord);
-
-    }
-};
