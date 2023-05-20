@@ -22,7 +22,7 @@ namespace Maze.Code.Render
                     camera = new CameraComponent(0, 100);
                     entity.Add(camera);
                     entity.Transform.Position = new Vector3(0, 50, 0);
-                    entity.Transform.Rotation = Quaternion.LookRotation(-Vector3.UnitY, Vector3.UnitX);
+                    entity.Transform.Rotation = Quaternion.LookRotation(Vector3.UnitY, Vector3.UnitZ);
                     entity.Transform.UpdateLocalMatrix();
                     camera.UseCustomAspectRatio = true;
                     camera.Projection = CameraProjectionMode.Orthographic;              

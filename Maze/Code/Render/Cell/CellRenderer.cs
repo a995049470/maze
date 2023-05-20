@@ -98,7 +98,9 @@ namespace Maze.Code.Render
             //todo:计算摄像机视口y=0平面投影的正交包围盒
             var cameraPos = camera.Entity.Transform.Position;
             //var center = cameraPos - cameraPos.Z / viewDir.Z * viewDir;
-            if(isDitry || !(safeRect.Contains(cameraPos.X, cameraPos.Z)))
+            var width = 2 * ViewportWidthWS * DPM;
+            var height = 2 * viewportHeightWS * DPM;
+            if (isDitry || !(safeRect.Contains(cameraPos.X, cameraPos.Z)))
             {
                 isDitry = false;
                 drawRect = new RectangleF
@@ -115,8 +117,6 @@ namespace Maze.Code.Render
                         ViewportWidthWS,
                         viewportHeightWS
                     );
-                var width = 2 * ViewportWidthWS * DPM;
-                var height = 2 * viewportHeightWS * DPM;
                 //if(width != curTexSize.X || height != curTexSize.Y)
                 {
                     curTexSize = new Int2(width, height);
@@ -124,12 +124,14 @@ namespace Maze.Code.Render
                     CreateTextures(context.RenderSystem, width, height);
                 }
             }
-
+            
+            RenderView.ViewSize = new Vector2(width, height);
             CellRenderView.UpdateRenderRectToRenderView(drawRect, RenderView);
             RenderView.RenderStages.Add(VisionStage);
             RenderView.RenderStages.Add(TransmittanceStage);
-            RenderView.CellTexture = testTexture;
+            RenderView.CellTexture = finalCellTexture;
             context.RenderSystem.Views.Add(RenderView);
+            context.RenderView.RenderStages.Add(VisionStage);
         }
 
         public void CreateTexture(RenderSystem renderSystem, ref Texture tex, int width, int height, PixelFormat pixelFormat, TextureFlags flags)
@@ -177,7 +179,8 @@ namespace Maze.Code.Render
         {
             drawContext.CommandList.ResourceBarrierTransition(finalCellTexture, GraphicsResourceState.RenderTarget);
             drawContext.CommandList.Clear(finalCellTexture, new Color4(1, 1, 0, 1));
-            if (!updateCell) return;
+            //if (!updateCell) return;
+            
             var renderSystem = context.RenderSystem;
 
             using (drawContext.QueryManager.BeginProfile(Color.Yellow, Cell))
@@ -185,12 +188,12 @@ namespace Maze.Code.Render
                 //渲染透光率
                 using (drawContext.PushRenderTargetsAndRestore())
                 {
-                    drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.RenderTarget);
-                    drawContext.CommandList.Clear(transmittanceTex, Color4.White * AirTransmittance);
-                    drawContext.CommandList.SetRenderTarget(null, transmittanceTex);
-                    var viewPort = new Viewport(0, 0, transmittanceTex.Width, transmittanceTex.Height);
-                    drawContext.CommandList.SetViewport(viewPort);
-                    renderSystem.Draw(drawContext, RenderView, TransmittanceStage);
+                    //drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.RenderTarget);
+                    //drawContext.CommandList.Clear(transmittanceTex, Color4.White * AirTransmittance);
+                    //drawContext.CommandList.SetRenderTarget(null, transmittanceTex);
+                    //var viewPort = new Viewport(0, 0, transmittanceTex.Width, transmittanceTex.Height);
+                    //drawContext.CommandList.SetViewport(viewPort);
+                    //renderSystem.Draw(drawContext, RenderView, TransmittanceStage);
 
                     //渲染格子亮度       
                     drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.RenderTarget);

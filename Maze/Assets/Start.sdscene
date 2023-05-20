@@ -115,6 +115,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
+                    7927418b32a9323ee3c1b38e19871898: !Maze.Code.Profiling.RenderDoc,Maze
+                        Id: cd9a0da3-20f2-43de-975e-f70970c409ad
         -   Entity:
                 Id: e3b61ce0-f37b-482b-9eb0-a3d3ded27e02
                 Name: Entity
