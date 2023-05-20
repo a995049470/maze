@@ -16,13 +16,13 @@ namespace Maze.Code.Render
 
         public override void Process(RenderObject renderObject)
         {
-            if (((RenderGroupMask)(1U << (int)renderObject.RenderGroup) & RenderGroup) != 0 && renderObject is CellRenderMesh cellRenderMesh)
+            if (((RenderGroupMask)(1U << (int)renderObject.RenderGroup) & RenderGroup) != 0 && renderObject is RenderMesh renderMesh)
             {
-                if(TransmittanceStage != null && cellRenderMesh.Flag == CellFlag.Barrier)
+                if(TransmittanceStage != null && (renderMesh.ModelFlag & ModelFlag.CellBarrier) != 0)
                 {
                     renderObject.ActiveRenderStages[TransmittanceStage.Index] = new ActiveRenderStage(EffectName);
                 }
-                else if(VisionStage != null && cellRenderMesh.Flag == CellFlag.Light)
+                else if(VisionStage != null && (renderMesh.ModelFlag & ModelFlag.CellLight) != 0)
                 {
                     renderObject.ActiveRenderStages[VisionStage.Index] = new ActiveRenderStage(EffectName);
                 }

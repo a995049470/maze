@@ -1,14 +1,17 @@
 ﻿using Stride.Engine;
 using Stride.Core;
 using Stride.Engine.Design;
+using System;
 
 namespace Maze.Code.Render
 {
 
+    [Flags]
     public enum CellFlag
     {
-        Barrier,
-        Light
+        None = 0,
+        Barrier = 1,
+        Light = 2,
     }
 
     [DataContract("CellModelComponent")]

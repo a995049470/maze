@@ -9,7 +9,7 @@ Attributes:
             Generics: {}
             CompositionNodes:
                 9d8f07d213c09e532767e68876858a33~CellColor: !ComputeColor
-                    Value: {R: 0.087499976, G: 1.0, B: 0.0, A: 1.0}
+                    Value: {R: 1.0, G: 0.9, B: 0.0, A: 1.0}
                 cb268abde97b0b5282715893a82e1913~Strength: !ComputeFloat4
                     Value: {X: 1.0, Y: 0.0, Z: 0.0, W: 0.0}
     Overrides:

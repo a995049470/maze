@@ -67,8 +67,9 @@ RenderFeatures:
             106341b76db9fcda6a033dad16aa708b: !Stride.Rendering.MeshTransparentRenderStageSelector,Stride.Rendering
                 OpaqueRenderStage: ref!! 2230593d-d4a3-4a72-be17-359d0aead755
                 EffectName: StrideForwardShadingEffect.ShadowMapCaster
-            9e106963749c2da094785a207a0f9977*: !Maze.Code.Render.VisionStageSelector,Maze
-                VisionRenderStage: ref!! 4fbf1655-6eba-4755-8a7d-7802c0c3b6c7
+            d3a85898ae2fb16330eece70b2dce837*: !Maze.Code.Render.CellStageSelector,Maze
+                TransmittanceStage: ref!! c60a030f-f6d6-4da4-b0fb-6147fd16a2c7
+                VisionStage: ref!! 4fbf1655-6eba-4755-8a7d-7802c0c3b6c7
                 EffectName: StrideForwardShadingEffect
         PipelineProcessors:
             d70f5aee0616e4ab25081ceaf643290c: !Stride.Rendering.MeshPipelineProcessor,Stride.Rendering
@@ -219,7 +220,7 @@ SharedRenderers:
         OpaqueRenderStage: ref!! 50671147-a5c1-49d4-b4ad-3625f71439b3
         TransparentRenderStage: ref!! 0fa30591-02ee-486d-9347-2b6aee83d035
         ShadowMapRenderStages: {}
-        GBufferRenderStage: null
+        GBufferRenderStage: ref!! 2230593d-d4a3-4a72-be17-359d0aead755
         PostEffects*: !PostProcessingEffects ref!! 608bf04d-8640-469d-b710-1ecf6a46f794
         LightShafts: null
         VRSettings:

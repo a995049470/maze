@@ -42,19 +42,7 @@ namespace Maze.Code.Rendering
 
 
 
-            var cullMode = pipelineState.RasterizerState.CullMode;
-
-            cullMode = CullMode.Back;
-
-            pipelineState.RasterizerState.CullMode = cullMode;
-
-            if (isMultisample)
-            {
-                pipelineState.RasterizerState.MultisampleCount = output.MultisampleCount;
-                pipelineState.RasterizerState.MultisampleAntiAliasLine = true;
-            }
-
-            pipelineState.RasterizerState.ScissorTestEnable = output.ScissorTestEnable;
+            
         }
     }
 }
