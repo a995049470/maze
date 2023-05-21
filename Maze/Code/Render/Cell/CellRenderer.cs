@@ -177,9 +177,9 @@ namespace Maze.Code.Render
 
         public void DrawView(RenderContext context, RenderDrawContext drawContext)
         {
-            drawContext.CommandList.ResourceBarrierTransition(finalCellTexture, GraphicsResourceState.RenderTarget);
-            drawContext.CommandList.Clear(finalCellTexture, new Color4(1, 1, 0, 1));
-            //if (!updateCell) return;
+            // drawContext.CommandList.ResourceBarrierTransition(finalCellTexture, GraphicsResourceState.RenderTarget);
+            // drawContext.CommandList.Clear(finalCellTexture, new Color4(1, 1, 0, 1));
+            if (!updateCell) return;
             
             var renderSystem = context.RenderSystem;
 
@@ -188,12 +188,12 @@ namespace Maze.Code.Render
                 //渲染透光率
                 using (drawContext.PushRenderTargetsAndRestore())
                 {
-                    //drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.RenderTarget);
-                    //drawContext.CommandList.Clear(transmittanceTex, Color4.White * AirTransmittance);
-                    //drawContext.CommandList.SetRenderTarget(null, transmittanceTex);
-                    //var viewPort = new Viewport(0, 0, transmittanceTex.Width, transmittanceTex.Height);
-                    //drawContext.CommandList.SetViewport(viewPort);
-                    //renderSystem.Draw(drawContext, RenderView, TransmittanceStage);
+                    drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.RenderTarget);
+                    drawContext.CommandList.Clear(transmittanceTex, Color4.White * AirTransmittance);
+                    drawContext.CommandList.SetRenderTarget(null, transmittanceTex);
+                    var viewPort = new Viewport(0, 0, transmittanceTex.Width, transmittanceTex.Height);
+                    drawContext.CommandList.SetViewport(viewPort);
+                    renderSystem.Draw(drawContext, RenderView, TransmittanceStage);
 
                     //渲染格子亮度       
                     drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.RenderTarget);
@@ -223,10 +223,10 @@ namespace Maze.Code.Render
                     //然后灯光扩散
                     int diffusionCount = MathUtil.Clamp(DiffusionCount, 0, maxDiffusionCount);
 
+                    drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.PixelShaderResource);
+                    drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
                     for (int i = 0; i < diffusionCount; i++)
                     {
-                        drawContext.CommandList.ResourceBarrierTransition(pixelLightBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
-                        drawContext.CommandList.ResourceBarrierTransition(transmittanceTex, GraphicsResourceState.PixelShaderResource);
 
                         drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.CurrentTexture, GraphicsResourceState.PixelShaderResource);
                         drawContext.CommandList.ResourceBarrierTransition(brightnessBuffer.BackTexture, GraphicsResourceState.RenderTarget);
@@ -238,9 +238,14 @@ namespace Maze.Code.Render
                         lightDiffusionEffect.SetViewport(new Viewport(0, 0, brightnessBuffer.BackTexture.Width, brightnessBuffer.BackTexture.Height));
                         lightDiffusionEffect.Draw(drawContext);
                         brightnessBuffer.Swap();
+                        
                     }
-
+                    
+                    drawContext.CommandList.Copy(brightnessBuffer.CurrentTexture, finalCellTexture);
+                    
                     pixelLightBuffer.Swap();
+
+
                 }
 
             }

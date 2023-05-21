@@ -70,7 +70,7 @@ RenderFeatures:
             d3a85898ae2fb16330eece70b2dce837*: !Maze.Code.Render.CellStageSelector,Maze
                 TransmittanceStage: ref!! c60a030f-f6d6-4da4-b0fb-6147fd16a2c7
                 VisionStage: ref!! 4fbf1655-6eba-4755-8a7d-7802c0c3b6c7
-                EffectName: StrideForwardShadingEffect
+                EffectName*: StrideForwardShadingEffect
         PipelineProcessors:
             d70f5aee0616e4ab25081ceaf643290c: !Stride.Rendering.MeshPipelineProcessor,Stride.Rendering
                 TransparentRenderStage: ref!! 0fa30591-02ee-486d-9347-2b6aee83d035
@@ -110,11 +110,7 @@ RenderFeatures:
                         d59ef45dd99e49d3af3887763d153aa7: !Stride.Rendering.Shadows.LightPointShadowMapRendererCubeMap,Stride.Rendering
                             ShadowCasterRenderStage: ref!! 4316c937-6f9a-4961-a899-6394ffcc1cfe
             42be209952db58294c9f06c58809b8ca: !Stride.Rendering.InstancingRenderFeature,Stride.Rendering {}
-            5b35b5ff1c5b2a557be8a0d97308846d*: !Maze.Code.Profiling.PVTestRenderFeature,Maze
-                TestColor: {R: 0.033984378, G: 0.31322265, B: 0.3625, A: 1.0}
-                TestTexture: 8184628b-0e2e-4cfc-bb7a-aea26977424e:Texture/arrow_1
-            2c10bced4e6e24258a71b61b09ce9864*: !Maze.Code.Render.CellLitRenderFeature,Maze
-                TestTexture: 8184628b-0e2e-4cfc-bb7a-aea26977424e:Texture/arrow_1
+            2c10bced4e6e24258a71b61b09ce9864*: !Maze.Code.Render.CellLitRenderFeature,Maze {}
     28e9bf54a5adbe063f59fb17acb2723e: !Stride.Rendering.Sprites.SpriteRenderFeature,Stride.Rendering
         RenderStageSelectors:
             d74665cff080638a2439c4422e542d85: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering
@@ -238,7 +234,7 @@ SharedRenderers:
             VisionStage: ref!! 4fbf1655-6eba-4755-8a7d-7802c0c3b6c7
             testTexture: null
             AirTransmittance: 0.99
-            DiffusionCount: 8
+            DiffusionCount: 16
             MyColor: {R: 0.0, G: 1.0, B: 1.0}
     60459475d3a3adaf2d1ba5d99913ca75: ~(Deleted)
 Game: !Stride.Rendering.Compositing.SceneCameraRenderer,Stride.Engine

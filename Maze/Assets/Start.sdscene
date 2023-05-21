@@ -14,6 +14,42 @@ Hierarchy:
         - ref!! 5835e2dc-1d30-4c70-a8e1-4a058b2c5d5b
         - ref!! ad365e73-5f2d-4864-a539-6efd0523281b
         - ref!! f495c83f-e289-40c3-bdae-df4f7541e679
+        - ref!! 816c2245-5175-4317-9c11-5c28b61ac1a2
+        - ref!! b5f30252-6c25-4f15-9cbb-1366e4c4fb6c
+        - ref!! 6a8a964e-87ea-490d-8335-d3cb6951b9c6
+        - ref!! 054588cf-567a-4811-920b-860de0ed57f8
+        - ref!! 86cea2a3-364b-4683-9cef-7508180ab294
+        - ref!! f147fd7a-15b1-4099-8f75-f5c69cb00dc0
+        - ref!! b7b989ca-dee5-48df-96ab-e161beefd58a
+        - ref!! 4ffe6402-0906-4daf-aa14-6613ac4e00c6
+        - ref!! 8b5738f3-cf10-4e0c-801e-0c8dc671cfe2
+        - ref!! dddfd768-d730-4a05-9748-9d70cdd57e8b
+        - ref!! 8c1999ff-9461-49dd-8f5d-20f6d91d879b
+        - ref!! 92d42a2c-7ad6-4f4e-8024-11816a0b96f7
+        - ref!! 2aa23bcb-88fb-412a-95dc-249d421f466e
+        - ref!! bff741eb-275c-48b0-abdd-308e62f4f158
+        - ref!! 738b22f8-0f11-4728-a2db-0ad67d71aa9d
+        - ref!! c4362d6e-f257-4bc6-a898-ed6ec1331a0c
+        - ref!! 38e98ce6-c937-4041-a051-c77042d02072
+        - ref!! 6f3b7687-7f1f-43b9-8809-8f62f4f6e754
+        - ref!! 98c274ed-ebf4-45dd-ae8c-c439047c1951
+        - ref!! 0ff52211-b364-4cb6-8df2-bcf52970ac9c
+        - ref!! c6170da3-1bbc-45fc-a078-20d00e4fb097
+        - ref!! c61a3b0b-44c1-4ebd-85e7-dd3e4bd43b04
+        - ref!! d5bc599e-7c98-4e99-b5a5-0cf794ce4d9d
+        - ref!! 0c4f6e8f-da82-46ac-a65e-f084f6de4a17
+        - ref!! 853d9663-d15a-408c-80b8-f8d33476553f
+        - ref!! a022f900-2bfd-48fc-8c30-bfca92ec57ec
+        - ref!! 4dad20bf-9875-4a37-a31f-311f22bb12d5
+        - ref!! 5d8ff6cd-cb94-4de7-ab5a-2ce0c70b0c58
+        - ref!! 7706e52a-23ae-4cea-b150-e1a84017a96a
+        - ref!! ea7204b3-fe0f-4d0b-8842-c24c24c6cf65
+        - ref!! 961af093-58ee-4152-b639-29c76067d69e
+        - ref!! 69399332-2851-412c-9a0d-ab97f6bc7dcc
+        - ref!! d808bf23-d10a-4bfe-a1d5-bb515a44a83a
+        - ref!! a646ca18-2267-496f-9a5d-e99db2de510a
+        - ref!! d38b669d-5378-478d-b7b4-4501986a274e
+        - ref!! 676740e9-2b41-4032-bd41-ae2a03f57bcf
     Parts:
         -   Entity:
                 Id: 03c09a18-c9ea-4821-89b4-61b60de5c0de
@@ -21,17 +57,134 @@ Hierarchy:
                 Components:
                     ee631b686dc8f32a7afb844f662c51ee: !TransformComponent
                         Id: d0b20384-1cb9-4c3d-937e-854933e6a0f5
-                        Position: {X: -0.031723022, Y: 0.0, Z: 0.42662632}
+                        Position: {X: -2.6794496, Y: 0.0, Z: 0.42662632}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Scale: {X: 0.5841435, Y: 0.5841435, Z: 0.5841435}
                         Children: {}
                     4edf9d32b9d8fa6fded74715b180f94b: !ModelComponent
-                        Id: d50aa7b8-1ad1-4bef-88f0-77dade99f592
+                        Id: a17fb471-cdb3-4832-ab97-bb67ecc54f85
                         Model: e11654ce-effe-44f1-a983-a43169dcd75e:Ground
-                        IsShadowCaster: false
-                        ModelFlag: CellLight
+                        ModelFlag: None
+                        Materials: {}
+        -   Folder: Map
+            Entity:
+                Id: 054588cf-567a-4811-920b-860de0ed57f8
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: d415f662-92f9-40be-af4e-b6e84743620f
+                        Position: {X: 13.520395, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 227859e4-a1c2-4482-b579-f57e9db12578
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
                         Materials:
-                            7dffce42e0a6f5b460d7fd14465d8170~0: 7318ccd1-7f8d-495d-b481-948f5df1d5ff:CellTest
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 0c4f6e8f-da82-46ac-a65e-f084f6de4a17
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 8ad5ee21-3429-4d9c-84ad-ac209be61b14
+                        Position: {X: 2.086485, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: cc6b35d8-99d3-480b-a492-ce92b08772ca
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 0ff52211-b364-4cb6-8df2-bcf52970ac9c
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 511418d3-b219-4aca-ad62-4ccd92e5efd2
+                        Position: {X: 7.4339514, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 744f25cf-eae8-471e-a998-1fc5dba1d428
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 2aa23bcb-88fb-412a-95dc-249d421f466e
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 4cec8cb3-a287-47e1-b9fb-7d0079106b39
+                        Position: {X: 4.891438, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 44db4b49-85ce-4a85-a675-5d753fba7008
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 38e98ce6-c937-4041-a051-c77042d02072
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 110adcb9-7c83-4462-b3e4-3cb540ee0806
+                        Position: {X: 7.4339514, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 6e09652d-9541-48f7-9ecf-3309abe9eb7b
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 4dad20bf-9875-4a37-a31f-311f22bb12d5
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 9e76768a-162d-4ad5-ad84-b90699fff144
+                        Position: {X: 2.086485, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 35202cb8-f9ba-4812-8606-b61e70a19963
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 4ffe6402-0906-4daf-aa14-6613ac4e00c6
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 7ec48106-5f15-4587-b583-ee7d6e965d38
+                        Position: {X: 16.062908, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: d0038573-4ee6-4ed4-9dc9-f44c3073dc5c
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
         -   Entity:
                 Id: 5835e2dc-1d30-4c70-a8e1-4a058b2c5d5b
                 Name: Directional light
@@ -54,6 +207,23 @@ Hierarchy:
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
                                 ComputeTransmittance: false
                                 BiasParameters: {}
+        -   Folder: Map
+            Entity:
+                Id: 5d8ff6cd-cb94-4de7-ab5a-2ce0c70b0c58
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 140692f6-75d2-449c-9155-4605570ce8d3
+                        Position: {X: 4.891438, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 969ccc6a-df0f-4dc3-89f3-cbda8ca1f48c
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
         -   Entity:
                 Id: 5de18932-b9d2-49d3-8580-d8d2d07b7508
                 Name: fox
@@ -70,6 +240,278 @@ Hierarchy:
                         ModelFlag: None
                         Materials:
                             bae852667c74fa7207d18d29abf2991e~0: 62681361-9cb9-4f71-8d37-47b5dbfcd7dc:Model/Fox/Main
+        -   Folder: Map
+            Entity:
+                Id: 676740e9-2b41-4032-bd41-ae2a03f57bcf
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 72258096-e80b-4231-801e-31b751b8abdc
+                        Position: {X: 2.086485, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: f1b5766c-11fd-4c63-9e1c-c057b31a595e
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 69399332-2851-412c-9a0d-ab97f6bc7dcc
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 4d868e98-1e12-4c67-8e99-fec069454f24
+                        Position: {X: 7.4339514, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: b4593640-a49f-48b1-898e-28a95ce97813
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 6a8a964e-87ea-490d-8335-d3cb6951b9c6
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: e7a6ef10-2868-45ae-9316-e93b55e7721e
+                        Position: {X: 10.715442, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 2534e1ec-c7e3-4b71-93d5-9324ad70a4d6
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 6f3b7687-7f1f-43b9-8809-8f62f4f6e754
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 42bf8ff8-2e06-4e4c-8330-9aca5591a7e1
+                        Position: {X: 2.086485, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: d114af08-9eab-461f-86ff-dae992e38075
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 738b22f8-0f11-4728-a2db-0ad67d71aa9d
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: b5afe5cc-1cf4-4d90-bd42-9ab43632fbde
+                        Position: {X: 2.086485, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 933fc808-af67-4469-b4e5-918a723a6736
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 7706e52a-23ae-4cea-b150-e1a84017a96a
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 943c755f-9c1f-407d-b828-6557a3ece38c
+                        Position: {X: 7.4339514, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 31df4030-f802-413b-8a17-8451af4a69f2
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 816c2245-5175-4317-9c11-5c28b61ac1a2
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 99a15858-6825-4436-9c1c-4c1db32f0759
+                        Position: {X: 13.520395, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 398d1bd0-b0c0-4758-bca4-d90225235e68
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 853d9663-d15a-408c-80b8-f8d33476553f
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: a77932a4-1d66-4a3d-b149-1a48ae33e1fe
+                        Position: {X: 4.891438, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 7d4a1aa1-7277-403d-be37-a75c04ea23b1
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 86cea2a3-364b-4683-9cef-7508180ab294
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 00cc7530-44e9-46bc-9ed2-e419866a8b1e
+                        Position: {X: 16.062908, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 0e80f614-b41d-44db-8e5c-cf6cebb0a50b
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 8b5738f3-cf10-4e0c-801e-0c8dc671cfe2
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: f7655266-9bd6-4dfc-9437-40f0874390c7
+                        Position: {X: 10.715442, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: beeddda6-3970-4730-94be-d9def8632436
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 8c1999ff-9461-49dd-8f5d-20f6d91d879b
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 70d84452-d85e-402c-89d8-637d69c3cb3d
+                        Position: {X: 16.062908, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 79cd2860-255d-4816-91ea-f132a96031b3
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 92d42a2c-7ad6-4f4e-8024-11816a0b96f7
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 02448018-c096-4d3d-b4f2-8e37b62d3b13
+                        Position: {X: 10.715442, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 41fc5bd8-6c2d-4f71-80e8-1109387eeb73
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 961af093-58ee-4152-b639-29c76067d69e
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 2fe13327-e038-408c-813e-c378002ebbed
+                        Position: {X: 4.891438, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: cfac5e24-ea64-46bb-9c21-ffbbfea72a29
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: 98c274ed-ebf4-45dd-ae8c-c439047c1951
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 81a6b18d-0cb3-4db0-872b-bf9d3856ca64
+                        Position: {X: 4.891438, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 20fa579a-df4e-42cc-8366-f6408394a341
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: a022f900-2bfd-48fc-8c30-bfca92ec57ec
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 74e1c00e-c09b-49c7-99dd-993279e90e47
+                        Position: {X: 7.4339514, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 84bdbb41-bde8-4e96-b288-3dad0bfcf456
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: a646ca18-2267-496f-9a5d-e99db2de510a
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: c8e03635-c2d9-4e57-be9e-48182638c7c2
+                        Position: {X: 4.891438, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 5f1259bd-d36c-4a1d-a618-4eb19e8fe9e0
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
         -   Entity:
                 Id: ad365e73-5f2d-4864-a539-6efd0523281b
                 Name: Ambient light
@@ -102,6 +544,108 @@ Hierarchy:
                         Projection: Orthographic
                         OrthographicSize: 12.0
                         Slot: 9aeac611-d1f6-46da-a235-e20cc154e170
+        -   Folder: Map
+            Entity:
+                Id: b5f30252-6c25-4f15-9cbb-1366e4c4fb6c
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: adb5740e-c1b2-46cf-9874-9a4dc1f5e1be
+                        Position: {X: 16.062908, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: f0512b6c-dece-45f1-8e32-ee6aa84881f8
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: b7b989ca-dee5-48df-96ab-e161beefd58a
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 46bf20ad-4b0e-4268-a04f-c3c66dbbd7a3
+                        Position: {X: 13.520395, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 6799a292-4a5b-46ca-bb73-1e2347841e1b
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: bff741eb-275c-48b0-abdd-308e62f4f158
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 3b1c9b6d-d52c-401b-8853-8ee4d1724aec
+                        Position: {X: 7.4339514, Y: 0.0, Z: -6.085437}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 14bdfc82-efc1-4c97-9243-a48f46aaf5c5
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: c4362d6e-f257-4bc6-a898-ed6ec1331a0c
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 992a864b-f325-421a-b70d-c9789350c680
+                        Position: {X: 4.891438, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 7c82e19d-af7f-485a-9b7e-04bc03a8c057
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: c6170da3-1bbc-45fc-a078-20d00e4fb097
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 6f03c165-b2fa-4e67-b80c-6d66cc4e0cc1
+                        Position: {X: 2.086485, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: cb15985c-b475-4b3a-afa2-426f1e84c8b1
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: c61a3b0b-44c1-4ebd-85e7-dd3e4bd43b04
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: b92c6423-b48e-434f-bfa5-6abe7556efa0
+                        Position: {X: 4.891438, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: b94664d2-a8a7-4dd4-8f13-b210c21ce0bd
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
         -   Entity:
                 Id: cb952962-4f7c-4dd5-835e-779f366da48a
                 Name: Entity
@@ -114,6 +658,74 @@ Hierarchy:
                         Children: {}
                     7927418b32a9323ee3c1b38e19871898: !Maze.Code.Profiling.RenderDoc,Maze
                         Id: cd9a0da3-20f2-43de-975e-f70970c409ad
+        -   Folder: Map
+            Entity:
+                Id: d38b669d-5378-478d-b7b4-4501986a274e
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 9947daa8-cc0c-4492-822f-7728b9573cfd
+                        Position: {X: 7.4339514, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 4caa3c76-a700-4e0c-a514-bfe474372aec
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: d5bc599e-7c98-4e99-b5a5-0cf794ce4d9d
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: e3725f2c-4f25-41a1-adc0-e78fd4eff4bd
+                        Position: {X: 7.4339514, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: dea01538-dacc-4b8a-a744-c4226e6f363d
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: d808bf23-d10a-4bfe-a1d5-bb515a44a83a
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 5dda8174-c4bb-4941-98e1-4e135e2927e6
+                        Position: {X: 2.086485, Y: 0.0, Z: -1.1027167}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 523f6ce2-f6be-4876-843b-ea77d28b009d
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: dddfd768-d730-4a05-9748-9d70cdd57e8b
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 92cc69cb-c365-44c7-a8a2-d6d5c4aedcbc
+                        Position: {X: 13.520395, Y: 0.0, Z: 1.2160926}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: d1e06b01-1f38-4db1-80ec-c269de3ca478
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
         -   Entity:
                 Id: e3b61ce0-f37b-482b-9eb0-a3d3ded27e02
                 Name: Entity
@@ -124,19 +736,53 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
+        -   Folder: Map
+            Entity:
+                Id: ea7204b3-fe0f-4d0b-8842-c24c24c6cf65
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 0362df14-033d-4065-8e74-f40154859c47
+                        Position: {X: 2.086485, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 7339d2df-f78c-45e3-b474-230925a240b3
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
+        -   Folder: Map
+            Entity:
+                Id: f147fd7a-15b1-4099-8f75-f5c69cb00dc0
+                Name: Cube
+                Components:
+                    bd8cee7673ce80608d607bef51122a6d: !TransformComponent
+                        Id: 63fbc15a-d919-45bd-ad12-1173ad924565
+                        Position: {X: 10.715442, Y: 0.0, Z: -3.766627}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.1373868, Y: 1.0, Z: 1.1113838}
+                        Children: {}
+                    18a0b355edb8d93c06ea8086fbfd4b44: !ModelComponent
+                        Id: 3bd65b3a-9f6b-47c8-8f78-8c197434997e
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: CellBarrier
+                        Materials:
+                            51996a691adc9cbe8248c2948df0f8f3~0: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9:CellTest (2)
         -   Entity:
                 Id: f495c83f-e289-40c3-bdae-df4f7541e679
                 Name: Sphere
                 Components:
                     253d325fce89037b826405aa10d6036a: !TransformComponent
                         Id: ad90a1aa-6e7c-4b5c-ad0b-ee98c91cbfff
-                        Position: {X: 5.589428, Y: 0.0, Z: 0.12170863}
+                        Position: {X: 8.852703, Y: 0.0, Z: -2.3299541}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Scale: {X: 0.79975593, Y: 0.7503812, Z: 0.6952201}
                         Children: {}
                     34f3b8919e1362940e59c032cf712002: !ModelComponent
                         Id: 996edb75-293b-4e12-854a-50dd564bdbc6
                         Model: 6e55eecb-a97b-42b9-8c94-a8236e0bba5a:Sphere
-                        ModelFlag: None
+                        ModelFlag: CellLight
                         Materials:
                             e58952f11495191b67797cb37d4bac0e~0: 7318ccd1-7f8d-495d-b481-948f5df1d5ff:CellTest

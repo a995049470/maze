@@ -40,6 +40,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CellSprite.sdsl</DependentUpon>
     </Compile>
+    <Compile Update="Code\Render\Cell\Profiling\TestShader.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Code\Render\LightDiffusionEffect.sdsl.cs">
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -90,6 +95,9 @@
     </None>
     <None Update="Code\Render\Cell\CellSprite.sdsl">
       <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Render\Cell\Profiling\TestShader.sdsl">
+      <LastGenOutput>TestShader.sdsl.cs</LastGenOutput>
     </None>
     <None Update="Code\Render\LightDiffusionEffect.sdsl">
       <LastGenOutput>LightDiffusionEffect.sdsl.cs</LastGenOutput>

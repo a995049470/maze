@@ -9,13 +9,11 @@ namespace Maze.Code.Render
     public class CellLitRenderFeature : SubRenderFeature
     {
         private LogicalGroupReference cellLitKey;
-        [DataMember]
-        public Texture TestTexture;
 
         protected override void InitializeCore()
         {
             base.InitializeCore();
-            cellLitKey = ((RootEffectRenderFeature)RootRenderFeature).CreateViewLogicalGroup("CellLit");
+            cellLitKey = ((RootEffectRenderFeature)RootRenderFeature).CreateViewLogicalGroup("CellLitghing");
         }
 
         public override void Prepare(RenderDrawContext context)
@@ -77,9 +75,8 @@ namespace Maze.Code.Render
 
                     // Update resources
                     resourceGroup.UpdateLogicalGroup(ref viewLighting, viewParameters);
-                    //if(targetView.CellTexture != null)
-                    if(TestTexture != null)
-                        resourceGroup.DescriptorSet.SetShaderResourceView(viewLighting.DescriptorSlotStart, TestTexture);
+                    if(targetView.CellTexture != null)
+                        resourceGroup.DescriptorSet.SetShaderResourceView(viewLighting.DescriptorSlotStart, targetView.CellTexture);
                 }
             }
         }

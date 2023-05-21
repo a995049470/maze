@@ -1,8 +1,11 @@
-﻿shader TestShader : ComputeColor, Texturing, CellLighting
+﻿shader TestShader : ComputeColor, Texturing, PVTest, CellLitghing
 {
     override float4 Compute()
     {
-        return CellLightTex.Sample(PointSampler, streams.TexCoord);
+        float4 color = CellLightTex.Sample(LinearSampler, streams.TexCoord);
+        color.rgb = color.rgb / (1 + color.rgb);
+        return color;
+
 
     }
 };

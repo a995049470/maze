@@ -1,5 +1,5 @@
 !MaterialAsset
-Id: 7318ccd1-7f8d-495d-b481-948f5df1d5ff
+Id: 3aaeb23d-92c2-4390-b1de-bed2c68b1ad9
 SerializedVersion: {Stride: 2.0.0.0}
 Tags: []
 Attributes:
@@ -9,9 +9,9 @@ Attributes:
             Generics: {}
             CompositionNodes:
                 9d8f07d213c09e532767e68876858a33~CellColor: !ComputeColor
-                    Value: {R: 1.0, G: 0.9, B: 0.0, A: 1.0}
+                    Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                 cb268abde97b0b5282715893a82e1913~Strength: !ComputeFloat4
-                    Value: {X: 256.0, Y: 0.0, Z: 0.0, W: 0.0}
+                    Value: {X: 0.5, Y: 0.0, Z: 0.0, W: 0.0}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}
