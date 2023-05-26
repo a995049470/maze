@@ -16,7 +16,7 @@ using Buffer = Stride.Graphics.Buffer;
 
 namespace Stride.Rendering
 {
-    public static partial class CellLitghingKeys
+    public static partial class CellLightingKeys
     {
         public static readonly ValueParameterKey<Matrix> CellViewProjectionMatrix = ParameterKeys.NewValue<Matrix>();
         public static readonly ObjectParameterKey<Texture> CellLightTex = ParameterKeys.NewObject<Texture>();

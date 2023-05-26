@@ -13,7 +13,7 @@ namespace Maze.Code.Render
         protected override void InitializeCore()
         {
             base.InitializeCore();
-            cellLitKey = ((RootEffectRenderFeature)RootRenderFeature).CreateViewLogicalGroup("CellLitghing");
+            cellLitKey = ((RootEffectRenderFeature)RootRenderFeature).CreateViewLogicalGroup("CellLighting");
         }
 
         public override void Prepare(RenderDrawContext context)
@@ -56,7 +56,7 @@ namespace Maze.Code.Render
                 viewParameterLayout.ProcessLogicalGroup(firstViewLayout, ref pvTestLayout);
                 viewParameters.UpdateLayout(viewParameterLayout);
 
-                viewParameters.Set(CellLitKeys.CellViewProjectionMatrix, targetView.ViewProjection);
+                viewParameters.Set(CellLightingKeys.CellViewProjectionMatrix, targetView.ViewProjection);
 
                 foreach (var viewLayout in viewFeature.Layouts)
                 {              

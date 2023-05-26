@@ -110,7 +110,7 @@ RenderFeatures:
                         d59ef45dd99e49d3af3887763d153aa7: !Stride.Rendering.Shadows.LightPointShadowMapRendererCubeMap,Stride.Rendering
                             ShadowCasterRenderStage: ref!! 4316c937-6f9a-4961-a899-6394ffcc1cfe
             42be209952db58294c9f06c58809b8ca: !Stride.Rendering.InstancingRenderFeature,Stride.Rendering {}
-            2c10bced4e6e24258a71b61b09ce9864*: !Maze.Code.Render.CellLitRenderFeature,Maze {}
+            fcf30cdf09184f5b207bdc8a71dec861*: !Maze.Code.Render.CellLitRenderFeature,Maze {}
     28e9bf54a5adbe063f59fb17acb2723e: !Stride.Rendering.Sprites.SpriteRenderFeature,Stride.Rendering
         RenderStageSelectors:
             d74665cff080638a2439c4422e542d85: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering

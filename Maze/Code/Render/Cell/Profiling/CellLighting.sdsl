@@ -1,0 +1,26 @@
+﻿shader CellLighting : ShaderBase, Transformation, Texturing, TransformationBase
+{
+    stage stream float4 Position : POSITION;
+
+    cbuffer PerView.CellLighting
+    {
+        stage float4x4 CellViewProjectionMatrix;
+    }
+
+    rgroup PerView.CellLighting
+    {
+        stage Texture2D CellLightTex;
+    }
+
+    stage stream float2 CellUV : CELL_UV;
+
+    stage override void PostTransformPosition()
+    {
+        float4 positionWS = mul(streams.Position, World);
+        float4 positionCS = mul(positionWS, CellViewProjectionMatrix);
+        streams.CellUV = positionCS.xy * 0.5 + 0.5;
+        streams.CellUV.y = 1.0 - streams.CellUV.y;
+        base.PostTransformPosition();
+    }
+    
+};

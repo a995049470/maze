@@ -14,7 +14,7 @@ namespace Maze.Code.Render
     //透光组件
     [DataContract("TransmittanceSpriteComponent")]
     [Display("TransmittanceSprite", Expand = ExpandRule.Once)]
-    [DefaultEntityComponentRenderer(typeof(TransmittanceSpriteRenderProcessor))]
+    //[DefaultEntityComponentRenderer(typeof(TransmittanceSpriteRenderProcessor))]
     [DisableSuperClassRenderProcessor]
     [ComponentOrder(10002)]
     [ComponentCategory("Sprites")]
