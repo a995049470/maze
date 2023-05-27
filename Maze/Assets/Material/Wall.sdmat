@@ -1,5 +1,5 @@
 !MaterialAsset
-Id: 12382ba9-bb26-4dd5-810e-fc37c6fb9877
+Id: 7675152a-48b8-4b4d-baa1-c331b73be89f
 SerializedVersion: {Stride: 2.0.0.0}
 Tags: []
 Attributes:
@@ -7,8 +7,12 @@ Attributes:
         GlossinessMap: !ComputeFloat
             Value: 0.1
     Diffuse: !MaterialDiffuseMapFeature
-        DiffuseMap: !ComputeColor
-            Value: {R: 0.0, G: 1.0, B: 0.13750005, A: 1.0}
+        DiffuseMap: !ComputeShaderClassColor
+            MixinReference: ApplyCellLighting
+            Generics: {}
+            CompositionNodes:
+                af689a3b5c35c80a445fffa870ae1f84~OriginColor: !ComputeColor
+                    Value: {R: 0.07968749, G: 0.124843694, B: 0.53125, A: 1.0}
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
     Specular: !MaterialMetalnessMapFeature
         MetalnessMap: !ComputeFloat

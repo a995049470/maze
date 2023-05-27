@@ -22,4 +22,5 @@ RootAssets:
     - 43a08188-ad84-4679-9759-f1549bd4c100:CubeMat
     - 676bc869-3ef1-4dd0-bf6a-d21f1b89be6c:Level/dungeon
     - 7e117c72-46c1-471b-a062-0638080b6c8e:Test
+    - f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
     - f84f9dfb-7579-4013-bab3-2311f9817aab:Tile/dungeon

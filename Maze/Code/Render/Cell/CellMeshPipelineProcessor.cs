@@ -23,10 +23,11 @@ namespace Maze.Code.Rendering
             var output = renderNode.RenderStage.Output;
             var isMultisample = output.MultisampleCount != MultisampleCount.None;
             var renderMesh = (RenderMesh)renderObject;
-
+            
             // Make object in transparent stage use AlphaBlend and DepthRead
             if (renderNode.RenderStage == TransmittanceStage)
             {
+                pipelineState.DepthStencilState = new DepthStencilStateDescription(false, false);
                 pipelineState.BlendState = BlendStates.AlphaBlend;
                 pipelineState.DepthStencilState = DepthStencilStates.Default;
                 if (isMultisample)
@@ -34,6 +35,7 @@ namespace Maze.Code.Rendering
             }
             else if (renderNode.RenderStage == VisionStage)
             {
+                pipelineState.DepthStencilState = new DepthStencilStateDescription(false, false);
                 pipelineState.BlendState = BlendStates.Additive;
                 pipelineState.DepthStencilState = DepthStencilStates.Default;
                 if (isMultisample)

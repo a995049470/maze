@@ -1,0 +1,20 @@
+!MaterialAsset
+Id: f1210038-83ac-4451-93e0-e477384ed114
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Attributes:
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeFloat
+            Value: 0.1
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeShaderClassColor
+            MixinReference: Cell
+            Generics: {}
+            CompositionNodes:
+                264e057ff925bc28a60a5e27c1735435~CellColor: !ComputeColor
+                    Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                4a0b85831f5bbce3ad58e51e3c6c8487~Strength: !ComputeFloat4
+                    Value: {X: 8.0, Y: 0.0, Z: 0.0, W: 0.0}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

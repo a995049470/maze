@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,22 +27,22 @@ namespace Maze.Code.Game
         private static Dictionary<int, int> GetBlockWeightDic()
         {
             Dictionary<int, int> dic = new Dictionary<int, int>();
-            dic[Convert.ToInt32("1110", 2)] = 2;
-            dic[Convert.ToInt32("1101", 2)] = 2;
-            dic[Convert.ToInt32("1011", 2)] = 2;
-            dic[Convert.ToInt32("0111", 2)] = 2;
+            dic[Convert.ToInt32("1110", 2)] = 100;
+            dic[Convert.ToInt32("1101", 2)] = 100;
+            dic[Convert.ToInt32("1011", 2)] = 100;
+            dic[Convert.ToInt32("0111", 2)] = 100;
 
-            dic[Convert.ToInt32("1100", 2)] = 2;
-            dic[Convert.ToInt32("1010", 2)] = 2;
-            dic[Convert.ToInt32("1001", 2)] = 2;
-            dic[Convert.ToInt32("0110", 2)] = 2;
-            dic[Convert.ToInt32("0101", 2)] = 2;
-            dic[Convert.ToInt32("0011", 2)] = 2;
+            dic[Convert.ToInt32("1100", 2)] = 100;
+            dic[Convert.ToInt32("1010", 2)] = 100;
+            dic[Convert.ToInt32("1001", 2)] = 0;
+            dic[Convert.ToInt32("0110", 2)] = 0;
+            dic[Convert.ToInt32("0101", 2)] = 100;
+            dic[Convert.ToInt32("0011", 2)] = 100;
 
-            dic[Convert.ToInt32("1000", 2)] = 3;
-            dic[Convert.ToInt32("0100", 2)] = 3;
-            dic[Convert.ToInt32("0010", 2)] = 3;
-            dic[Convert.ToInt32("0001", 2)] = 3;
+            dic[Convert.ToInt32("1000", 2)] = 40;
+            dic[Convert.ToInt32("0100", 2)] = 40;
+            dic[Convert.ToInt32("0010", 2)] = 40;
+            dic[Convert.ToInt32("0001", 2)] = 40;
 
 
             //dic[Convert.ToInt32("1111", 2)] = 1;
@@ -60,10 +61,7 @@ namespace Maze.Code.Game
         /// <returns></returns>
         public static bool TryCreateSimpleMap(int[] grids, int start, int width, int height, int seed)
         {
-            bool IsOutSide(int id)
-            {
-                return id < 0 || id >= width * height;
-            }
+            
             var random = new Random(seed);           
             //var temp = new int[width * height];
             
@@ -86,14 +84,9 @@ namespace Maze.Code.Game
                         grids[neighbors[2]],
                         grids[neighbors[3]],
                     };
-                    var blocks = GetPossibleBlocks(block);               
-                    var blockList = new List<Int2>();
-                    Array.ForEach(blocks, b =>
-                    {
-                        if (b.Y > 0) blockList.Add(b);
-                    });
-                    isSuccsss &= blockList.Count > 0;
+                    isSuccsss = TryGetPossibleBlocks(block, out var blocks);               
                     if (!isSuccsss) break;
+                    var blockList = new List<Int2>(blocks);
                     while (blockList.Count > 0)
                     {
                         var sum = 0;
@@ -112,7 +105,7 @@ namespace Maze.Code.Game
                         }
                         var targetBlock = blockList[targetId].X;
 
-                        
+                   
                         Array.Copy(grids, temp, width * height);
                         var isLegalBlock = true;
                         for (int i = 0; i < neighbors.Length; i++)
@@ -122,7 +115,15 @@ namespace Maze.Code.Game
                             temp[neighborId] = value;
                         }
 
-                        isLegalBlock = PassTest(start, width, height, temp);
+                        var sx_test = Math.Max(0, x - 1);
+                        var sy_test = Math.Max(0, y - 1);
+                        var ex_test = Math.Min(width, x + 3);
+                        var ey_test = Math.Min(height, y + 3);
+                        isLegalBlock &= BlockTest(sx_test, sy_test, ex_test, ey_test, temp, width);
+                        
+                        if(isLegalBlock)
+                            isLegalBlock &= PassTest(start, width, height, temp);
+                           
 
                         if (isLegalBlock)
                         {
@@ -145,44 +146,79 @@ namespace Maze.Code.Game
             }
             return isSuccsss;
 
+            
+            
 
-            bool PassTest(int start, int width, int height, int[] temp)
+            
+        }
+        /// <summary>
+        /// 检查一篇区域的块是否合法
+        /// </summary>
+        static bool BlockTest(int sx, int sy, int ex, int ey, int[] temp, int width)
+        {
+            bool isSuccsss = true;
+            int numX = ex - sx - 1;
+            int numY = ey - sy - 1;
+            int num = numX * numY;
+            for (int i = 0; i < num; i++)
             {
-                var max = 8;
-                var stack = new Stack<int>();
-                stack.Push(start);
-                temp[start] = max;
-                while (stack.Count > 0)
+                var id = sx + sy * width + i % numX + i / numX * width;
+                var neighbors = new int[4]
                 {
-                    var sid = stack.Pop();
-                    var sneighbors = GetNeighbors(sid, width, height);
-                    foreach (var nid in sneighbors)
-                    {
-                        if (IsOutSide(nid)) continue;
-                        var v = temp[nid];
-                        if (v > 0 && v < max)
-                        {
-                            temp[nid] = max;
-                            stack.Push(nid);
-                        }
-                    }
-                }
-
-                bool isPass = true;
-
-                foreach (var tempGrid in temp)
+                    id, id + 1, id + width, id + width + 1
+                };
+                var block = new int[]
                 {
-                    if (tempGrid > 0 && tempGrid < max)
-                    {
-                        isPass = false;
-                        break;
-                    }
-                }
-
-                return isPass;
+                    temp[neighbors[0]],
+                    temp[neighbors[1]],
+                    temp[neighbors[2]],
+                    temp[neighbors[3]],
+                };
+                isSuccsss = TryGetPossibleBlocks(block, out var res);
+                if (!isSuccsss) break;
             }
+            return isSuccsss;
+        }
+        static bool IsOutSide(int id, int total)
+        {
+            return id < 0 || id >= total;
         }
 
+        static bool PassTest(int start, int width, int height, int[] temp)
+        {
+            var max = 8;
+            bool isPass = true;
+            var stack = new Stack<int>();
+            stack.Push(start);
+            temp[start] = max;
+            while (stack.Count > 0)
+            {
+                var sid = stack.Pop();
+                var sneighbors = GetNeighbors(sid, width, height);
+                foreach (var nid in sneighbors)
+                {
+                    if (IsOutSide(nid, width * height)) continue;
+                    var v = temp[nid];
+                    if (v > 0 && v < max)
+                    {
+                        temp[nid] = max;
+                        stack.Push(nid);
+                    }
+                }
+            }
+
+
+            foreach (var tempGrid in temp)
+            {
+                if (tempGrid > 0 && tempGrid < max)
+                {
+                    isPass = false;
+                    break;
+                }
+            }
+
+            return isPass;
+        }
 
 
         private static int[] GetNeighbors(int id, int width, int height)
@@ -199,7 +235,7 @@ namespace Maze.Code.Game
 
 
 
-        private static Int2[] GetPossibleBlocks(int[] inputBlock)
+        private static bool TryGetPossibleBlocks(int[] inputBlock, out Int2[] possibleBlocks)
         {
             List<int> blocks = new List<int>();
             blocks.Add(0);
@@ -223,7 +259,8 @@ namespace Maze.Code.Game
                 }
             }
             int blockCount = blocks.Count;
-            Int2[] possibleBlocks = new Int2[blockCount];
+            possibleBlocks = new Int2[blockCount];
+            int sumWeight = 0;
             for (int i = 0; i < blockCount; i++)
             {
                 int block = blocks[i];
@@ -231,9 +268,10 @@ namespace Maze.Code.Game
                 {
                     weight = 0;
                 }
+                sumWeight += weight;
                 possibleBlocks[i] = new Int2(block, weight);
             }
-            return possibleBlocks;   
+            return sumWeight >0;   
         }
 
 

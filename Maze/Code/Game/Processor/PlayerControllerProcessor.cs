@@ -7,6 +7,7 @@ using Stride.Core.Threading;
 using Stride.Engine;
 using Stride.Games;
 using Stride.Input;
+using Stride.Physics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +62,7 @@ namespace Maze.Code.Game
                     
                     if(simulation != null)
                     {
-                        var hit = simulation.Raycast(from, to);
+                        var hit = simulation.Raycast(from, to, CollisionFilterGroups.DefaultFilter, CollisionFilterGroupFlags.DefaultFilter, false);
                         if(!hit.Succeeded)
                         {
                             velocity.TargetPos = to;

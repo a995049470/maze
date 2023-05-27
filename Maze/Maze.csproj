@@ -34,12 +34,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Update="Code\Render\Cell\CellSprite.sdsl.cs">
-      <DesignTime>True</DesignTime>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CellSprite.sdsl</DependentUpon>
-    </Compile>
     <Compile Update="Code\Render\Cell\Profiling\TestShader.sdsl.cs">
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -82,7 +76,32 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="Code\Shader\ApplyCellLighting.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Code\Shader\Cell.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Shader\CellLighting.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Shader\CellLit.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Shader\CellSprite.sdsl.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Code\Shader\ComputeColorWave.sdsl.cs">
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -93,7 +112,16 @@
     <None Update="Code\Profiling\PVTest.sdsl">
       <LastGenOutput>PVTest.sdsl.cs</LastGenOutput>
     </None>
-    <None Update="Code\Render\Cell\CellSprite.sdsl">
+    <None Update="Code\Shader\ApplyCellLighting.sdsl">
+      <LastGenOutput>ApplyCellLighting.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Shader\CellLighting.sdsl">
+      <LastGenOutput>CellLighting.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Shader\CellLit.sdsl">
+      <LastGenOutput>CellLit.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Shader\CellSprite.sdsl">
       <LastGenOutput>CellSprite.sdsl.cs</LastGenOutput>
     </None>
     <None Update="Code\Render\Cell\Profiling\TestShader.sdsl">
@@ -122,6 +150,9 @@
     </None>
     <None Update="Code\Shader\Cell.sdsl">
       <LastGenOutput>Cell.sdsl.cs</LastGenOutput>
+    </None>
+    <None Update="Code\Shader\ComputeColorWave.sdsl">
+      <LastGenOutput>ComputeColorWave.sdsl.cs</LastGenOutput>
     </None>
   </ItemGroup>
 </Project>

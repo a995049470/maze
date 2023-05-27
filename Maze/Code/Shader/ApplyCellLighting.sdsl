@@ -1,0 +1,10 @@
+﻿shader ApplyCellLighting : ComputeColor, Texturing, CellLighting
+{
+    compose ComputeColor OriginColor;
+    override float4 Compute()
+    {
+        float4 color = OriginColor.Compute() * CellLightTex.Sample(LinearSampler, streams.CellUV);
+        color.rgb = color.rgb / (1 + color.rgb);
+        return color;
+    }
+};

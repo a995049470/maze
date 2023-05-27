@@ -739,9 +739,11 @@ Hierarchy:
                         Id: d090111b-b77c-422c-9c3f-8a14d82a1ff7
                         Width: 16
                         Height: 16
-                        Seed: -1
+                        StartSeed: 0
+                        TryCount: 1
                         Origin: {X: 0, Y: 0}
                         WallUrl: null
+                        Run: false
         -   Folder: Map
             Entity:
                 Id: ea7204b3-fe0f-4d0b-8842-c24c24c6cf65

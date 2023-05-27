@@ -7,6 +7,23 @@ Hierarchy:
         - ref!! 9ecada88-4a48-4842-93be-d8a8d283b41d
     Parts:
         -   Entity:
+                Id: 4f6d3b8c-1cb7-4575-a42a-62e836024c89
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: fc8f03c1-b98a-447f-a24a-38f4cb3389d6
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 69401d67-cad3-4bab-b2c6-13bd12c59928
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: CellLight
+                        Materials:
+                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
+        -   Entity:
                 Id: 9ecada88-4a48-4842-93be-d8a8d283b41d
                 Name: Cube
                 Components:
@@ -15,13 +32,14 @@ Hierarchy:
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
+                        Children:
+                            afc98dd9b97667c7117d53c3f1914c76: ref!! fc8f03c1-b98a-447f-a24a-38f4cb3389d6
                     e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
                         Id: 5adb94d0-ef56-434e-86bd-bf50cd89c1cb
                         Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
                         ModelFlag: None
                         Materials:
-                            7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Player
+                            7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
                     1350e172770f87606c27ed7ce8d53478: !Maze.Code.Game.PlayerControllerComponent,Maze
                         Id: e410a8b8-0f92-44cc-9025-b47ad5ddd89a
                     975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze

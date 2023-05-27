@@ -12,6 +12,11 @@ namespace Maze.Code.Render
         public RenderStage TransmittanceStage;
         [DefaultValue(null)]
         public RenderStage VisionStage;
+
+        [DefaultValue(null)]
+        public RenderStage OpaqueRenderStage;
+        [DefaultValue(null)]
+        public RenderStage TransparentRenderStage;
         public string EffectName;
 
         public override void Process(RenderObject renderObject)
@@ -25,6 +30,12 @@ namespace Maze.Code.Render
                 else if(VisionStage != null && (renderMesh.ModelFlag & ModelFlag.CellLight) != 0)
                 {
                     renderObject.ActiveRenderStages[VisionStage.Index] = new ActiveRenderStage(EffectName);
+                }
+                else
+                {
+                    var renderStage = renderMesh.MaterialPass.HasTransparency ? TransparentRenderStage : OpaqueRenderStage;
+                    if (renderStage != null)
+                        renderObject.ActiveRenderStages[renderStage.Index] = new ActiveRenderStage(EffectName);
                 }
             }
         }

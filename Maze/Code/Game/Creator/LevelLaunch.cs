@@ -5,7 +5,7 @@ using Stride.Core.Mathematics;
 using Stride.Core.Serialization;
 using Stride.Core.Threading;
 using Stride.Engine;
-using System;
+using System.Collections.Generic;
 
 namespace Maze.Code.Game
 {
@@ -17,26 +17,31 @@ namespace Maze.Code.Game
         [DataMemberRange(1, 64, 1, 16, 0)]
         [DataMember(20)]
         public int Height = 16;
+        [DataMember(21)]
+        public int StartSeed = 0;
         [DataMember(30)]
-        public int Seed = -1;
+        public int TryCount = 1;
         [DataMember(40)]
         public Int2 Origin = Int2.Zero;
         [DataMember(50)]
         public UrlReference<Prefab> WallUrl;
+        [DataMember(60)]
+        public bool Run;
 
         public override void Start()
         {
+            if (!Run) return;
             base.Start();
 
             bool isSuccess = false;
             int num = Width * Height;
             int[] grids = new int[num];
-            int tryCount = 5;
+            
             int wall = 0;
             int way = 1;
             int unknow = 3;
             
-            //while (isSuccess || tryCount <= 0)
+            for(int seed = StartSeed; seed < StartSeed + TryCount; seed++)
             {
                 //tryCount--;
                 int start = Width / 2;
@@ -44,12 +49,14 @@ namespace Maze.Code.Game
                 {
                     bool isSide = i % Width == 0 || i % Width == Width - 1 ||
                         i / Width == 0 || i / Width == Height - 1;
+                    
                     bool isStart = i == start;
                     grids[i] = isStart ? way : (isSide ? wall : unknow);
                 }
 
-                isSuccess = MapCreator.TryCreateSimpleMap(grids, start, Width, Height, Seed);
-                Log.Info($"Width:{Width} Height:{Height} Start:({start % Width}, {start / Width}) Seed:{Seed} Success:{isSuccess}");
+                isSuccess = MapCreator.TryCreateSimpleMap(grids, start, Width, Height, seed);
+                Log.Info($"Width:{Width} Height:{Height} Start:({start % Width}, {start / Width}) Seed:{seed} Success:{isSuccess}");
+                if (isSuccess) break;
             }
             
             //if(isSuccess)
