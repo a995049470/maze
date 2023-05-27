@@ -45,8 +45,9 @@ namespace Maze.Code.Game
             else if (input.IsKeyDown(Keys.S)) dir.Z -= 1;
             else if (input.IsKeyDown(Keys.A)) dir.X += 1;
             else if (input.IsKeyDown(Keys.D)) dir.X -= 1;
-
             if (dir == Vector3.Zero) return;
+
+            var simulation = GetSimulation();
             Dispatcher.ForEach(ComponentDatas, kvp =>
             {
                 
@@ -55,8 +56,18 @@ namespace Maze.Code.Game
             
                 if(isIdle)
                 {
-                    velocity.TargetPos += dir;
-                    velocity.FaceDirection = dir;
+                    var from = velocity.TargetPos;
+                    var to = velocity.TargetPos + dir;
+                    
+                    if(simulation != null)
+                    {
+                        var hit = simulation.Raycast(from, to);
+                        if(!hit.Succeeded)
+                        {
+                            velocity.TargetPos = to;
+                            velocity.FaceDirection = dir;
+                        }
+                    }
                 }
                 else
                 {

@@ -10,7 +10,7 @@ Hierarchy:
         - ref!! f51f8b46-60ef-4fca-be27-ab3f5e737dc6
         - ref!! 30c10d94-eb64-4320-8b9a-b733958d9582
         - ref!! 053d5c90-69d9-4c89-94af-c8b2c7260e66
-        - ref!! bee88233-295b-49cd-8b60-76e977eef3da
+        - ref!! 24ba1d2f-5d1c-494c-8c67-4546104b76c3
     Parts:
         -   Entity:
                 Id: 053d5c90-69d9-4c89-94af-c8b2c7260e66
@@ -30,41 +30,44 @@ Hierarchy:
                         Origin: {X: -8, Y: -8}
                         WallUrl: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
         -   Entity:
-                Id: 1fb46807-3cc3-4aa0-a381-f24cab8c08c4
-                Name: fox
+                Id: 1f904268-f8e4-4e25-893c-a919a58a3710
+                Name: Cube
                 Components:
-                    3289edba3902a4ef49a4951a20456867: !TransformComponent
-                        Id: 9de8aca9-6ba4-4b54-96c8-c60b3a53d95c
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: ef785336-7090-4243-b274-7579ba107d7b
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 0.25634855, Y: 0.25634855, Z: 0.25634855}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    4bfc6052d766780d1c8aaf3ca01281ff: !ModelComponent
-                        Id: 53238a4f-d38b-4198-98a6-b577fa976392
-                        Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 6750ba12-0e0c-42e9-9929-1344e6d0d54a
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
                         ModelFlag: None
-                        Materials: {}
-                    48960728ed6419a9d4b530ed8e6e37c4: !Maze.Code.Game.PlayerControllerComponent,Maze
-                        Id: b8c05cbd-b57f-4cd1-8331-f790de2afeab
-                    c1a52c6b597c69dc46b37131485ebc29: !Maze.Code.Game.VelocityComponent,Maze
-                        Id: 3c95e40c-9098-4b4b-9956-6793a7b21e01
+                        Materials:
+                            7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Player
+                    1350e172770f87606c27ed7ce8d53478: !Maze.Code.Game.PlayerControllerComponent,Maze
+                        Id: 5cae9dc9-aab9-4989-82c4-b02ae2e7159d
+                    975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
+                        Id: 75134a6f-882d-41c3-82f4-26c9328fc874
                         TargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
                         LastTargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
                         Speed: 7.0
                         IsActive: true
-                    572b81f646955d8ff945d18f3f5997bc: !Maze.Code.Game.StateMachineComponent,Maze
-                        Id: 831933a8-f676-469b-a2ff-c7af3d848b60
-                    754fc9ad93c7b2d47ff91d767a300e90: !Maze.Code.Game.PoseComponent,Maze
-                        Id: 837510f4-a439-48b1-ac82-54afdd4c5788
-                        FrameScale: 1
-                        PlaySpeed: 1.0
-                        Animations:
-                            cb5261938633e3823007ba55cebf802a~Idle: 53224868-c2ad-4828-ab97-cb54bd91ca88:Model/Fox/animation_Idle_AnimalArmature
-                            dba3ef3acc8fe87d63a967f8ee711c05~Walk: a487ba3b-64a6-4346-92d4-9eff3431a75d:Model/Fox/animation_Walk_AnimalArmature
             Base:
-                BasePartAsset: aeeb743c-c6cc-4194-b3e8-3a292d86aef0:Prefab/FoxPlayer
-                BasePartId: 704e803a-f727-44df-bb38-b81072ffaf38
-                InstanceId: d24f31e8-9d2c-45bb-96e2-1c84665cdf53
+                BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
+                BasePartId: 9ecada88-4a48-4842-93be-d8a8d283b41d
+                InstanceId: 8d248766-86e7-42f3-b831-4cdf5a9cf885
+        -   Entity:
+                Id: 24ba1d2f-5d1c-494c-8c67-4546104b76c3
+                Name: Player
+                Components:
+                    dec8cd0740a954e01cfca018e2789cdd: !TransformComponent
+                        Id: 98f33953-2e6d-4b2e-a8ea-d0b0b1d8a6d5
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            5303ec6aa6de18928c772f7d3cbbe85b: ref!! ef785336-7090-4243-b274-7579ba107d7b
         -   Entity:
                 Id: 30c10d94-eb64-4320-8b9a-b733958d9582
                 Name: Light
@@ -80,17 +83,6 @@ Hierarchy:
                         Type: !LightAmbient
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
-        -   Entity:
-                Id: bee88233-295b-49cd-8b60-76e977eef3da
-                Name: Player
-                Components:
-                    edd28a175e3efa8c374019c88b536ce1: !TransformComponent
-                        Id: 1e468a9f-3407-4e01-8a05-565585c49bc1
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            daac99c3963f38f5058adfeddab8b2f9: ref!! 9de8aca9-6ba4-4b54-96c8-c60b3a53d95c
         -   Entity:
                 Id: e5d9657a-3b43-4960-aec2-a9f323b0883d
                 Name: Camera

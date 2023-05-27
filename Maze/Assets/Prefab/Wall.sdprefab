@@ -22,3 +22,19 @@ Hierarchy:
                         ModelFlag: None
                         Materials:
                             7d9a78ed53b562a621b1fa3e1ec41113~0: 7675152a-48b8-4b4d-baa1-c331b73be89f:Wall
+                    8c0caf8f3ef3188fd56baf1c52fd174a: !StaticColliderComponent
+                        Id: 7575ef61-64f9-4bf0-848c-68b3b2360000
+                        CanCollideWith: DefaultFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
+                        ColliderShapes:
+                            57372b4e83a3e19ef1d34d914ec8e9a9: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
