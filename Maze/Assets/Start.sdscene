@@ -535,15 +535,15 @@ Hierarchy:
                 Components:
                     3be41925fd0606b4deecf7d324c7546c: !TransformComponent
                         Id: 08f46030-22af-4e19-9dbb-37e89e41c827
-                        Position: {X: 6.730902, Y: 9.752999, Z: -8.593226}
-                        Rotation: {X: 0.0038336727, Y: 0.9238716, Z: 0.38268018, W: -0.0015879928}
+                        Position: {X: 0.0, Y: 12.777983, Z: 0.0}
+                        Rotation: {X: 2.7027178E-07, Y: -0.70710677, Z: -0.70710677, W: -2.7027178E-07}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     e8cf92a5c3152c88edf51bd15475e7c9: !CameraComponent
                         Id: 55584d1a-c5c6-4b11-b94d-a16ea1480da6
                         Name: null
                         Projection: Orthographic
-                        OrthographicSize: 12.0
+                        OrthographicSize: 32.0
                         Slot: 9aeac611-d1f6-46da-a235-e20cc154e170
         -   Folder: Map
             Entity:
@@ -735,6 +735,13 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
+                    61e59b1a05d94b95fc1820d0e9b99027: !Maze.Code.Game.LevelLaunch,Maze
+                        Id: d090111b-b77c-422c-9c3f-8a14d82a1ff7
+                        Width: 16
+                        Height: 16
+                        Seed: -1
+                        Origin: {X: 0, Y: 0}
+                        WallUrl: null
         -   Folder: Map
             Entity:
                 Id: ea7204b3-fe0f-4d0b-8842-c24c24c6cf65

@@ -7,6 +7,7 @@ using System;
 
 namespace Maze.Code.Game
 {
+
     [DefaultEntityComponentProcessor(typeof(AutoMoveProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class AutoMoveControllerComponent : EntityComponent
     {

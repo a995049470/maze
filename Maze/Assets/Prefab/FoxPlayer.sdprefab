@@ -1,0 +1,40 @@
+!PrefabAsset
+Id: aeeb743c-c6cc-4194-b3e8-3a292d86aef0
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 704e803a-f727-44df-bb38-b81072ffaf38
+    Parts:
+        -   Entity:
+                Id: 704e803a-f727-44df-bb38-b81072ffaf38
+                Name: fox
+                Components:
+                    3289edba3902a4ef49a4951a20456867: !TransformComponent
+                        Id: 3e19594b-0ff9-4c47-adef-165567aad6a5
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.25634855, Y: 0.25634855, Z: 0.25634855}
+                        Children: {}
+                    4bfc6052d766780d1c8aaf3ca01281ff: !ModelComponent
+                        Id: 88badd7d-24e6-4ed7-946b-0d6f6a7375e4
+                        Model: 6641ecca-b4ad-4e03-aeb8-eea74f1eda77:Model/Fox/fox
+                        ModelFlag: None
+                        Materials: {}
+                    48960728ed6419a9d4b530ed8e6e37c4: !Maze.Code.Game.PlayerControllerComponent,Maze
+                        Id: e811bf35-9157-4759-a687-abdacb156a1a
+                    c1a52c6b597c69dc46b37131485ebc29: !Maze.Code.Game.VelocityComponent,Maze
+                        Id: f0ea2117-e26e-4d56-9a4a-c40c852007f9
+                        TargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
+                        LastTargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Speed: 7.0
+                        IsActive: true
+                    572b81f646955d8ff945d18f3f5997bc: !Maze.Code.Game.StateMachineComponent,Maze
+                        Id: 6608d1a8-fa5a-4179-b6a8-fa89933b87b5
+                    754fc9ad93c7b2d47ff91d767a300e90: !Maze.Code.Game.PoseComponent,Maze
+                        Id: 79e447b7-7cc2-49f0-bd7b-6ae147a7bbdb
+                        FrameScale: 1
+                        PlaySpeed: 1.0
+                        Animations:
+                            cb5261938633e3823007ba55cebf802a~Idle: 53224868-c2ad-4828-ab97-cb54bd91ca88:Model/Fox/animation_Idle_AnimalArmature
+                            dba3ef3acc8fe87d63a967f8ee711c05~Walk: a487ba3b-64a6-4346-92d4-9eff3431a75d:Model/Fox/animation_Walk_AnimalArmature

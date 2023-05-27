@@ -3,6 +3,7 @@ using Stride.Core;
 using Stride.Core.Annotations;
 using Stride.Core.Collections;
 using Stride.Core.Mathematics;
+using Stride.Core.Threading;
 using Stride.Engine;
 using Stride.Games;
 using Stride.Input;
@@ -16,7 +17,7 @@ namespace Maze.Code.Game
     public class PlayerControllerData
     {
         public PlayerControllerComponent Controller;
-        public VelocityComponent VelocityComponent;
+        public VelocityComponent Velocity;
     }
 
     public class PlayerControllerProcessor : GameEntityProcessor<PlayerControllerComponent, PlayerControllerData>
@@ -32,26 +33,45 @@ namespace Maze.Code.Game
         {
             var data = new PlayerControllerData();
             data.Controller = component;
-            data.VelocityComponent = entity.Get<VelocityComponent>();
+            data.Velocity = entity.Get<VelocityComponent>();
             return data;
         }
 
         public override void Update(GameTime time)
         {
             base.Update(time);
-            if (!game.IsRunning) return;
             var dir = Vector3.Zero;
             if (input.IsKeyDown(Keys.W)) dir.Z += 1;
-            if (input.IsKeyDown(Keys.S)) dir.Z -= 1;
-            if (input.IsKeyDown(Keys.A)) dir.X += 1;
-            if (input.IsKeyDown(Keys.D)) dir.X -= 1;
+            else if (input.IsKeyDown(Keys.S)) dir.Z -= 1;
+            else if (input.IsKeyDown(Keys.A)) dir.X += 1;
+            else if (input.IsKeyDown(Keys.D)) dir.X -= 1;
 
-            dir.Normalize();
-            foreach (var data in ComponentDatas.Values)
+            if (dir == Vector3.Zero) return;
+            Dispatcher.ForEach(ComponentDatas, kvp =>
             {
-                data.VelocityComponent.Direction = dir;
-                if (dir != Vector3.Zero) data.VelocityComponent.FaceDirection = dir;
-            }
+                
+                var velocity = kvp.Value.Velocity;
+                var isIdle = velocity.TargetPos == velocity.LastTargetPos;
+            
+                if(isIdle)
+                {
+                    velocity.TargetPos += dir;
+                    velocity.FaceDirection = dir;
+                }
+                else
+                {
+                    var isResetTarget = Vector3.Dot(velocity.TargetPos - velocity.LastTargetPos, dir) < -0.5f;
+                    if(isResetTarget)
+                    {
+                        var temp = velocity.LastTargetPos;
+                        velocity.LastTargetPos = velocity.TargetPos;
+                        velocity.TargetPos = temp;
+                        velocity.FaceDirection = dir;
+                    }
+                }
+            });
+
+            
         }
 
 
@@ -60,7 +80,7 @@ namespace Maze.Code.Game
         protected override bool IsAssociatedDataValid([NotNull] Entity entity, [NotNull] PlayerControllerComponent component, [NotNull] PlayerControllerData associatedData)
         {
             return associatedData.Controller == component &&               
-                   associatedData.VelocityComponent == entity.Get<VelocityComponent>();
+                   associatedData.Velocity == entity.Get<VelocityComponent>();
         }
 
 

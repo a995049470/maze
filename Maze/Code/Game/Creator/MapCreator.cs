@@ -48,7 +48,16 @@ namespace Maze.Code.Game
             return dic;
         }
 
-        //0:墙 1:路 3:墙或路
+        /// <summary>
+        /// 创建地图
+        /// 0:墙 1:路 3:墙或路
+        /// </summary>
+        /// <param name="grids"></param>
+        /// <param name="start"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="seed"></param>
+        /// <returns></returns>
         public static bool TryCreateSimpleMap(int[] grids, int start, int width, int height, int seed)
         {
             bool IsOutSide(int id)
