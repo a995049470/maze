@@ -14,7 +14,7 @@ Attributes:
                 16e6b2026fbf0b0526ecf6c01329ba90~CellColor: !ComputeColor
                     Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                 1f12ca192a5304386e0e850e2988bae1~Strength: !ComputeFloat4
-                    Value: {X: 0.8, Y: 0.0, Z: 0.0, W: 0.0}
+                    Value: {X: 0.85, Y: 0.0, Z: 0.0, W: 0.0}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

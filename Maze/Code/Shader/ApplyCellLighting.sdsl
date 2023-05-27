@@ -2,9 +2,11 @@
 {
     compose ComputeColor OriginColor;
     override float4 Compute()
-    {
-        float4 color = OriginColor.Compute() * CellLightTex.Sample(LinearSampler, streams.CellUV);
-        color.rgb = color.rgb / (1 + color.rgb);
+    {   
+        float3 cell = CellLightTex.Sample(LinearSampler, streams.CellUV).rgb;
+        cell = cell / (1 + cell);
+        float4 color = OriginColor.Compute();
+        color.rgb *= cell;
         return color;
     }
 };
