@@ -2,6 +2,7 @@
 using Stride.Core;
 using Stride.Core.Annotations;
 using Stride.Core.Collections;
+using Stride.Core.Threading;
 using Stride.Engine;
 using Stride.Games;
 
@@ -10,13 +11,13 @@ namespace Maze.Code.Game
     public class AutoMoveData
     {
         public AutoMoveControllerComponent Controller;
-        public TransformComponent Transform;
+        public VelocityComponent Velocity;
     }
 
     public class AutoMoveProcessor : GameEntityProcessor<AutoMoveControllerComponent, AutoMoveData>
     {
         
-        public AutoMoveProcessor() : base( typeof(TransformComponent))
+        public AutoMoveProcessor() : base( typeof(VelocityComponent))
         {
             
         }
@@ -25,26 +26,26 @@ namespace Maze.Code.Game
         public override void Update(GameTime time)
         {
             base.Update(time);
-            foreach (AutoMoveData data in ComponentDatas.Values)
+            Dispatcher.ForEach(ComponentDatas, kvp =>
             {
-                AutoMove(time, data);
-            }
+                var velocity = kvp.Value.Velocity;
+                bool isIdle = velocity.TargetPos == velocity.LastTargetPos;
+                if(isIdle)
+                {
+
+                }
+            });
         }
 
-        private void AutoMove(GameTime time, AutoMoveData data)
-        {
-            bool isCanMove = data.Controller.MoveTimer.Run((float)time.Elapsed.TotalSeconds, game.UpdateTime.FrameCount);
-            if(isCanMove)
-            {
-                
-            }
-        }
+        
 
         protected override AutoMoveData GenerateComponentData([NotNull] Entity entity, [NotNull] AutoMoveControllerComponent component)
         {
-            var data = new AutoMoveData();
-            data.Controller = component;
-            data.Transform = entity.Get<TransformComponent>();
+            var data = new AutoMoveData()
+            {
+                Controller = component,
+                Velocity = entity.Get<VelocityComponent>()
+            };
             return data;
         }
 
@@ -52,7 +53,7 @@ namespace Maze.Code.Game
 
         protected override bool IsAssociatedDataValid([NotNull] Entity entity, [NotNull] AutoMoveControllerComponent component, [NotNull] AutoMoveData associatedData)
         {
-            return associatedData.Controller == component;
+            return associatedData.Controller == component && associatedData.Velocity == entity.Get<VelocityComponent>() ;
         }
 
     }
