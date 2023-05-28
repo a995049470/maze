@@ -10,6 +10,7 @@ namespace Maze.Code.Game
 {
 
     [DefaultEntityComponentProcessor(typeof(AutoMoveProcessor), ExecutionMode = ExecutionMode.Runtime)]
+    [DataContract]
     public class AutoMoveControllerComponent : EntityComponent
     {
         [DataMember(10)]

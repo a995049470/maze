@@ -43,10 +43,10 @@ namespace Maze.Code.Game
                     var fDotD = MathUtil.Clamp(Vector3.Dot(forward, dir), -1, 1);
                     var angle = MathF.Acos(fDotD);
                     var rotateAngle = rotateSpeed * delatTime;
+    
                     if (angle < rotateAngle)
                     {
                         data.Transform.Rotation = Quaternion.LookRotation(dir, Vector3.UnitY);
-                        velocity.FaceDirection = Vector3.Zero;
                     }
                     else
                     {

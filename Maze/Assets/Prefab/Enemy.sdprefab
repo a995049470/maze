@@ -1,0 +1,51 @@
+!PrefabAsset
+Id: cdd14177-303c-476e-99b7-b861eb494698
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 87cf7869-86cf-4d8c-b13f-ee4b5ae63544
+    Parts:
+        -   Entity:
+                Id: 03188235-1c6c-4a0e-b42d-d27200d6991c
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: a775d53f-a134-46c2-921a-b66f350bf283
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: ad06b3e6-46eb-404b-8225-cd21c0f265f0
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: CellLight
+                        Materials:
+                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
+        -   Entity:
+                Id: 87cf7869-86cf-4d8c-b13f-ee4b5ae63544
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: 9e860679-76a7-4e73-86ce-e6a119a6178e
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            afc98dd9b97667c7117d53c3f1914c76: ref!! a775d53f-a134-46c2-921a-b66f350bf283
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: e24ef096-e3cc-4257-97ff-8f6566a4469f
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: None
+                        Materials:
+                            7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
+                    975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
+                        Id: fd20065d-9316-4f04-93e9-90431c65f40b
+                        TargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
+                        LastTargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Speed: 3.0
+                        IsActive: true
+                    6a2b409b0a05629338f8c0ce9f05bd49: !Maze.Code.Game.AutoMoveControllerComponent,Maze
+                        Id: f4ab4629-5c27-45f5-b6db-71760ed7b8f5
+                        MoveRect: {X: -4.0, Y: -4.0, Width: 8.0, Height: 8.0}

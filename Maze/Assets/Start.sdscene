@@ -735,15 +735,6 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    61e59b1a05d94b95fc1820d0e9b99027: !Maze.Code.Game.LevelLaunch,Maze
-                        Id: d090111b-b77c-422c-9c3f-8a14d82a1ff7
-                        Width: 16
-                        Height: 16
-                        StartSeed: 0
-                        TryCount: 1
-                        Origin: {X: 0, Y: 0}
-                        WallUrl: null
-                        Run: false
         -   Folder: Map
             Entity:
                 Id: ea7204b3-fe0f-4d0b-8842-c24c24c6cf65
