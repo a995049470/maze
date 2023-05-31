@@ -48,3 +48,7 @@ Hierarchy:
                         LastTargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
                         Speed: 7.0
                         IsActive: true
+                    5ccf7d52bbaac9678cfc4a460869f1bf: !Maze.Code.Game.PlacerComponent,Maze
+                        Id: f711db0a-8633-4525-ab65-59a57bfc0020
+                        MaxPlaceItemCount: 1
+                        ItemUrl: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall

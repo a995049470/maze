@@ -244,5 +244,5 @@ Game: !Stride.Rendering.Compositing.SceneCameraRenderer,Stride.Engine
             01d338078e9b21121ead0868932613dd: !Stride.Rendering.Compositing.DebugRenderer,Stride.Rendering ref!! 2f51782e-e23a-46fc-b1a4-6385a207d263
     RenderMask: All
 SingleView*: !Maze.Code.Render.CellForwardRenderer,Maze ref!! c63840c7-4ae1-43ef-8f4e-79fce566f636
-Editor*: !Stride.Rendering.Compositing.ForwardRenderer,Stride.Engine ref!! 04d863bd-4bbd-4dca-9a49-29e21171975a
+Editor*: !Maze.Code.Render.CellForwardRenderer,Maze ref!! c63840c7-4ae1-43ef-8f4e-79fce566f636
 BlockPositions: {}

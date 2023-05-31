@@ -14,7 +14,7 @@ Hierarchy:
         - ref!! fece4630-1143-4d5e-bd7e-395abe76ca94
         - ref!! 8a812567-7b6d-4dc7-9261-e59576a5f7b2
         - ref!! 48d102e9-02df-48d4-9878-b855aa7da0d9
-        - ref!! 77f20aaa-9f7b-4947-8ebb-192b5d5648f9
+        - ref!! ef875386-4301-47a9-b325-bdaca6623562
     Parts:
         -   Entity:
                 Id: 053d5c90-69d9-4c89-94af-c8b2c7260e66
@@ -87,27 +87,6 @@ Hierarchy:
                         Children:
                             5aaf12de7e89a7ec59a7d5d84acd0643: ref!! a6d8ff43-7641-4ace-8aad-915d0e4442ba
         -   Entity:
-                Id: 2745fcec-3e02-4165-a36f-da23223e0cf9
-                Name: Cube
-                Components:
-                    66ab698db0b29439aba14a775130249c: !TransformComponent
-                        Id: cccc2afe-4050-43d6-92e5-50717d5ddcdd
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
-                        Id: 0b3f6328-3062-4794-88b5-6753472d824a
-                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
-                        IsShadowCaster: false
-                        ModelFlag: CellLight
-                        Materials:
-                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
-            Base:
-                BasePartAsset: cdd14177-303c-476e-99b7-b861eb494698:Prefab/Enemy
-                BasePartId: 03188235-1c6c-4a0e-b42d-d27200d6991c
-                InstanceId: 4b58b2b4-2eaf-413c-b02a-ac2289f16af1
-        -   Entity:
                 Id: 30c10d94-eb64-4320-8b9a-b733958d9582
                 Name: Light
                 Components:
@@ -178,6 +157,39 @@ Hierarchy:
                 BasePartAsset: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
                 BasePartId: d10e7c12-990b-45cb-a418-e281491ef637
                 InstanceId: 485e915b-d736-49b2-b3f0-b2301e94c10f
+        -   Entity:
+                Id: 505ddefc-2ca2-41fc-8394-830b08011f22
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: e7649da4-f275-4bb5-aa33-2ffa5a53d429
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            afc98dd9b97667c7117d53c3f1914c76: ref!! 2ae0d9b1-6c03-4446-8fc4-8a540603eb58
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: ebe97aa5-7303-4c7d-a38d-7c900419eb27
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: None
+                        Materials:
+                            7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
+                    1350e172770f87606c27ed7ce8d53478: !Maze.Code.Game.PlayerControllerComponent,Maze
+                        Id: 41782966-16c4-4bc0-be6e-de7fb0488591
+                    975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
+                        Id: c6d2e122-72d4-43fe-b5dc-357da72edf50
+                        TargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
+                        LastTargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Speed: 7.0
+                        IsActive: true
+                    5ccf7d52bbaac9678cfc4a460869f1bf: !Maze.Code.Game.PlacerComponent,Maze
+                        Id: 6d624c94-ee84-47b9-a030-b0dba767d39b
+                        MaxPlaceItemCount: 1
+                        ItemUrl: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
+            Base:
+                BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
+                BasePartId: 9ecada88-4a48-4842-93be-d8a8d283b41d
+                InstanceId: d75382b8-8bdf-4f54-b83f-fe4943999e4f
         -   Folder: null
             Entity:
                 Id: 5f4b15fc-5758-46cd-a19f-c13e3f8cdaa4
@@ -200,47 +212,6 @@ Hierarchy:
                 BasePartAsset: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
                 BasePartId: d10e7c12-990b-45cb-a418-e281491ef637
                 InstanceId: a4ee8ff2-6d3b-42fc-baf1-a8bd5c985bf0
-        -   Entity:
-                Id: 77f20aaa-9f7b-4947-8ebb-192b5d5648f9
-                Name: Enemy
-                Components:
-                    80606d3e8b0dbea6a2fad27d2312892e: !TransformComponent
-                        Id: d494e4a9-5011-4b6a-bada-1989fd549812
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            9e2c7ba18673a6da6fe5b50806495379: ref!! 429f6f8b-a3d5-4b77-b3da-22ec63730bec
-        -   Entity:
-                Id: 7abe654b-2d45-4586-8656-2336b209ee5c
-                Name: Cube
-                Components:
-                    66ab698db0b29439aba14a775130249c: !TransformComponent
-                        Id: 429f6f8b-a3d5-4b77-b3da-22ec63730bec
-                        Position*: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            afc98dd9b97667c7117d53c3f1914c76: ref!! cccc2afe-4050-43d6-92e5-50717d5ddcdd
-                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
-                        Id: 1b37c0a2-5a1d-4378-8027-7565dc364d80
-                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
-                        ModelFlag: None
-                        Materials:
-                            7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
-                    975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
-                        Id: 93476938-d42c-4f2c-a5ad-580940d9a808
-                        TargetPos*: {X: 0.0, Y: 0.0, Z: 0.0}
-                        LastTargetPos*: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Speed*: 2.0
-                        IsActive: true
-                    6a2b409b0a05629338f8c0ce9f05bd49: !Maze.Code.Game.AutoMoveControllerComponent,Maze
-                        Id: 16046f4e-131e-4219-885c-cb6292bdd372
-                        MoveRect*: {X: -8.0, Y: -8.0, Width: 15.0, Height: 16.0}
-            Base:
-                BasePartAsset: cdd14177-303c-476e-99b7-b861eb494698:Prefab/Enemy
-                BasePartId: 87cf7869-86cf-4d8c-b13f-ee4b5ae63544
-                InstanceId: 4b58b2b4-2eaf-413c-b02a-ac2289f16af1
         -   Folder: Map
             Entity:
                 Id: 8a812567-7b6d-4dc7-9261-e59576a5f7b2
@@ -391,6 +362,27 @@ Hierarchy:
                 BasePartId: ceb082d0-00e0-4af5-b08a-b31f9ac55c20
                 InstanceId: 485e915b-d736-49b2-b3f0-b2301e94c10f
         -   Entity:
+                Id: d2f4008f-3372-481b-a120-b99f8307b27b
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: 2ae0d9b1-6c03-4446-8fc4-8a540603eb58
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 00d8a13f-0293-4b9e-8f2b-ff27b2978bca
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: CellLight
+                        Materials:
+                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
+            Base:
+                BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
+                BasePartId: 4f6d3b8c-1cb7-4575-a42a-62e836024c89
+                InstanceId: d75382b8-8bdf-4f54-b83f-fe4943999e4f
+        -   Entity:
                 Id: e5d9657a-3b43-4960-aec2-a9f323b0883d
                 Name: Camera
                 Components:
@@ -407,6 +399,17 @@ Hierarchy:
                         OrthographicSize: 16.0
                         FarClipPlane: 100.0
                         Slot: 9aeac611-d1f6-46da-a235-e20cc154e170
+        -   Entity:
+                Id: ef875386-4301-47a9-b325-bdaca6623562
+                Name: Player
+                Components:
+                    623b7848e2cf72b62e2d80255b035996: !TransformComponent
+                        Id: 3f55c561-8759-4a23-b66b-61aef0766622
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            7c549b4c81a1669dca424e1fc31598fe: ref!! e7649da4-f275-4bb5-aa33-2ffa5a53d429
         -   Entity:
                 Id: f51f8b46-60ef-4fca-be27-ab3f5e737dc6
                 Name: Ground

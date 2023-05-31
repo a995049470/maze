@@ -9,6 +9,7 @@ using System;
 
 namespace Maze.Code.Game
 {
+
     [DefaultEntityComponentProcessor(typeof(PlayerPlaceProcessor), ExecutionMode = ExecutionMode.Runtime)]
     [DefaultEntityComponentProcessor(typeof(PlacerProcessor), ExecutionMode = ExecutionMode.Runtime)]
     [DataContract]
@@ -28,9 +29,6 @@ namespace Maze.Code.Game
         }
         [DataMember(20)]
         public UrlReference<Prefab> ItemUrl;
-
-        [DataMemberIgnore]
-        public Entity PlaceItem;
     }
 
 }
