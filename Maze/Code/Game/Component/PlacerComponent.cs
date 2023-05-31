@@ -11,6 +11,7 @@ namespace Maze.Code.Game
 {
     [DefaultEntityComponentProcessor(typeof(PlayerPlaceProcessor), ExecutionMode = ExecutionMode.Runtime)]
     [DefaultEntityComponentProcessor(typeof(PlacerProcessor), ExecutionMode = ExecutionMode.Runtime)]
+    [DataContract]
     public class PlacerComponent : EntityComponent
     {
         [DataMemberIgnore]
