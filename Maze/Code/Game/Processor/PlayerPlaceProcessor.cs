@@ -32,7 +32,7 @@ namespace Maze.Code.Game
         protected override PlayerPlaceData GenerateComponentData([NotNull] Entity entity, [NotNull] PlacerComponent component)
         {
             var data = new PlayerPlaceData();
-            data.Controller = entity.Get<PlayerControllerComponent>(); ;
+            data.Controller = entity.Get<PlayerControllerComponent>();
             data.Placer = component;
             return data;
         }
