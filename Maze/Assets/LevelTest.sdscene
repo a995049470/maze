@@ -184,8 +184,9 @@ Hierarchy:
                         IsActive: true
                     5ccf7d52bbaac9678cfc4a460869f1bf: !Maze.Code.Game.PlacerComponent,Maze
                         Id: 6d624c94-ee84-47b9-a030-b0dba767d39b
-                        MaxPlaceItemCount: 1
-                        ItemUrl: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
+                        MaxPlaceItemCount: 3
+                        ItemUrl: 42c9010b-9271-4c97-b012-669fd92b875c:Prefab/Bomb
+                        LastPlacePos: {X: 65536.0, Y: 65536.0, Z: 65536.0}
             Base:
                 BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
                 BasePartId: 9ecada88-4a48-4842-93be-d8a8d283b41d

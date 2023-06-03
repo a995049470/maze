@@ -131,7 +131,6 @@ namespace Maze.Code.Render
             RenderView.RenderStages.Add(TransmittanceStage);
             RenderView.CellTexture = finalCellTexture;
             context.RenderSystem.Views.Add(RenderView);
-            context.RenderView.RenderStages.Add(VisionStage);
         }
 
         public void CreateTexture(RenderSystem renderSystem, ref Texture tex, int width, int height, PixelFormat pixelFormat, TextureFlags flags)

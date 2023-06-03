@@ -1,16 +1,26 @@
-﻿namespace Maze.Code.Game
+﻿using System.Windows.Controls;
+
+namespace Maze.Code.Game
 {
-    public struct Timer
+    public struct TimerF
     {
         private float currentTime;
         private float targetTime;
         private int lastUpdateFrame;
 
-        public Timer(float _currentTime, float _targetTime)
+        public TimerF(float _currentTime, float _targetTime)
         {
             currentTime = _currentTime;
             targetTime = _targetTime;
             lastUpdateFrame = -1;
+        }
+
+        public bool Run(float deltaTime)
+        {
+            currentTime += deltaTime;
+            var isArrive = currentTime >= targetTime;
+            if (isArrive) currentTime -= targetTime;
+            return isArrive;
         }
 
         public bool Run(System.Single deltaTime, int frame)
@@ -25,5 +35,6 @@
             }
             return isArrive;
         }
+
     }
 }

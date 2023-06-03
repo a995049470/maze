@@ -29,6 +29,8 @@ namespace Maze.Code.Game
         }
         [DataMember(20)]
         public UrlReference<Prefab> ItemUrl;
+        [DataMember(20)]
+        public Vector3 LastPlacePos = Vector3.One * 65536;
     }
 
 }
