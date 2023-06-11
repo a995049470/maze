@@ -9,6 +9,7 @@ using Stride.Input;
 using Stride.Physics;
 using System;
 using System.Collections.Concurrent;
+using System.Net.Sockets;
 
 namespace Maze.Code.Game
 {
@@ -22,6 +23,7 @@ namespace Maze.Code.Game
         protected Logger log;
         protected ConcurrentBag<Entity> cacheEntities = new ConcurrentBag<Entity>();
         protected ConcurrentBag<Action> cacheActions = new ConcurrentBag<Action>();
+        
 
 
 
@@ -80,6 +82,15 @@ namespace Maze.Code.Game
             return sceneSystem.SceneInstance.GetProcessor<T>();
         }
 
+        protected void AddEntity(Entity entity)
+        {
+            sceneSystem.SceneInstance.RootScene.Entities.Add(entity);
+        }
+
+        protected void RemoveEntity(Entity entity)
+        {
+            sceneSystem.SceneInstance.RootScene.Entities.Remove(entity);
+        }
       
     }
 }

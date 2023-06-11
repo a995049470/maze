@@ -1,10 +1,13 @@
 ﻿using Stride.Core.Annotations;
+using Stride.Core.Collections;
 using Stride.Core.Mathematics;
 using Stride.Core.Threading;
 using Stride.Engine;
 using Stride.Games;
+using Stride.Physics;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Maze.Code.Game
 {
@@ -19,16 +22,20 @@ namespace Maze.Code.Game
     {
         private readonly static Vector3 farPos = Vector3.One * 65536;
         public Dictionary<Guid, int> OwnerBombCountDic = new Dictionary<Guid, int>();
+        private ThreadSafePool<FastCollection<HitResult>> hitResutlListPool = new ThreadSafePool<FastCollection<HitResult>>();
         private PlacerProcessor placerProcessor;
+        private Simulation simulation;
+         
         public BombProcessor() : base(typeof(TransformComponent), typeof(PlaceItemOwnerComponent))
-        {
-
+        {      
+            Order = ProcessorOrder.Attack;
         }
 
         public override void Update(GameTime time)
         {
             base.Update(time);
             float delatTime = (float)time.Elapsed.TotalSeconds;
+            simulation = GetSimulation();
             placerProcessor = placerProcessor ?? GetProcessor<PlacerProcessor>();
             Dispatcher.ForEach(ComponentDatas, kvp =>
             {
@@ -51,10 +58,42 @@ namespace Maze.Code.Game
                     if(data.Bomb.SetUpTimer.Run(delatTime))
                     {
                         data.Bomb.State = BombState.AfterBoom;
+                        //爆炸造成伤害
+
+                        var attackRange = data.Bomb.AttackRange;
+                        var pos = data.Transform.Position;
+                        
+                        var list = hitResutlListPool.Take();
+                        //纵向检测
+                        {
+                            var from = pos + (attackRange + 1.0f) * Vector3.UnitX;
+                            var to = pos - (attackRange + 0.5f) * Vector3.UnitX;
+                            simulation.RaycastPenetrating(from, to, list);                           
+                        }
+                        {
+                            var from = pos + (attackRange + 1.0f) * Vector3.UnitZ;
+                            var to = pos - (attackRange + 0.5f) * Vector3.UnitZ;
+                            simulation.RaycastPenetrating(from, to, list);
+                        }
+                        //可能重复给予伤害的问题
+                        foreach (var hitResult in list)
+                        {
+                            if (!hitResult.Succeeded) continue;
+                            var entity = hitResult.Collider.Entity;
+                            var hurt = entity.Get<HurtComponet>();
+                            if (hurt == null) continue;
+                            Interlocked.Add(ref hurt.HurtValue, 1);
+                        }
                         //爆炸表现
+                        //直接销毁
+                        cacheActions.Add(() =>
+                        {
+                            RemoveEntity(data.Bomb.Entity);
+                        });
                     }
                 }
             });
+            InvokeCacheActions();
         }
 
         private Vector3 GetOwnerGridPosition(BombData data)

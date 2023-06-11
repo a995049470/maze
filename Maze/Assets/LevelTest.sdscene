@@ -187,6 +187,11 @@ Hierarchy:
                         MaxPlaceItemCount: 3
                         ItemUrl: 42c9010b-9271-4c97-b012-669fd92b875c:Prefab/Bomb
                         LastPlacePos: {X: 65536.0, Y: 65536.0, Z: 65536.0}
+                    717f66d9a9208f62b3ea0133d1d20f09: !Maze.Code.Game.HurtComponet,Maze
+                        Id: cd4b4af9-335a-4d44-95da-8dd17f857cd3
+                    cfab4c9cf549776bed87c13f9b34ba5b: !Maze.Code.Game.HitPointComponet,Maze
+                        Id: a89e98b5-dc36-4565-acb7-dd4062557d5d
+                        MaxHp: 5
             Base:
                 BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
                 BasePartId: 9ecada88-4a48-4842-93be-d8a8d283b41d

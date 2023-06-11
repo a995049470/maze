@@ -18,7 +18,6 @@ using Stride.Physics;
 namespace Maze.Code.Game
 {
 
-
     public class Level : ScriptComponent
     {
         private string jsonAssetUrl;

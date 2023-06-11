@@ -63,11 +63,13 @@ namespace Maze.Code.Game
                     if(simulation != null)
                     {
                         var hit = simulation.Raycast(from, to, CollisionFilterGroups.DefaultFilter, CollisionFilterGroupFlags.DefaultFilter, false);
+                        
                         if(!hit.Succeeded)
                         {
                             velocity.TargetPos = to;
-                            velocity.FaceDirection = dir;
+                            velocity.FaceDirection = dir;                         
                         }
+                        
                     }
                 }
                 else

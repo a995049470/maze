@@ -15,11 +15,11 @@ namespace Maze.Code.Game
             lastUpdateFrame = -1;
         }
 
-        public bool Run(float deltaTime)
+        public bool Run(float deltaTime, bool isLoop = true)
         {
             currentTime += deltaTime;
             var isArrive = currentTime >= targetTime;
-            if (isArrive) currentTime -= targetTime;
+            if (isArrive && isLoop) currentTime -= targetTime;
             return isArrive;
         }
 
