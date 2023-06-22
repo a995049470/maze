@@ -23,8 +23,8 @@ namespace Maze.Code.Game
 
     public class PlayerControllerProcessor : GameEntityProcessor<PlayerControllerComponent, PlayerControllerData>
     {
-        
 
+        public TransformComponent Player { get; private set; } 
         public PlayerControllerProcessor() : base(typeof(VelocityComponent))
         {
 
@@ -88,7 +88,17 @@ namespace Maze.Code.Game
             
         }
 
+        protected override void OnEntityComponentAdding(Entity entity, [NotNull] PlayerControllerComponent component, [NotNull] PlayerControllerData data)
+        {
+            base.OnEntityComponentAdding(entity, component, data);
+            Player = entity.Transform;
+        }
 
+        protected override void OnEntityComponentRemoved(Entity entity, [NotNull] PlayerControllerComponent component, [NotNull] PlayerControllerData data)
+        {
+            base.OnEntityComponentRemoved(entity, component, data);
+            if (Player == entity.Transform) Player = null;
+        }
 
 
         protected override bool IsAssociatedDataValid([NotNull] Entity entity, [NotNull] PlayerControllerComponent component, [NotNull] PlayerControllerData associatedData)

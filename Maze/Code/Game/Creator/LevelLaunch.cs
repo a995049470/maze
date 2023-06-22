@@ -5,22 +5,22 @@ using Stride.Core.Mathematics;
 using Stride.Core.Serialization;
 using Stride.Core.Threading;
 using Stride.Engine;
-
+using System;
 
 namespace Maze.Code.Game
 {
+    public class MapInfo
+    {
+        public int Width;
+        public int Height;
+        public int Seed;
+    }
+
     public class LevelLaunch : StartupScript
     {
-        [DataMember(10)]
-        [DataMemberRange(1, 64, 1, 16, 0)]
-        public int Width = 16;
-        [DataMemberRange(1, 64, 1, 16, 0)]
-        [DataMember(20)]
-        public int Height = 16;
-        [DataMember(21)]
-        public int StartSeed = 0;
+
         [DataMember(30)]
-        public int TryCount = 1;
+        public UrlReference<Prefab> MapUrl;
         [DataMember(40)]
         public Int2 Origin = Int2.Zero;
         [DataMember(50)]
@@ -32,64 +32,80 @@ namespace Maze.Code.Game
         [DataMember(60)]
         public bool Run;
         
+        private MapInfo GetMapInfoFormUrl(string url)
+        {
+            var mapInfo = new MapInfo();
+            try
+            {
+                var info = url.Split('_');
+                var len = info.Length;
+                mapInfo.Width = int.Parse(info[len - 3]);
+                mapInfo.Height = int.Parse(info[len - 2]);
+                mapInfo.Seed = int.Parse(info[len - 1]);
+            }
+            catch (System.Exception)
+            {
+                Log.Error("format error!");
+                throw;
+            }
+
+            return mapInfo;
+        }
 
         public override void Start()
         {
+            
             if (!Run) return;
             base.Start();
-
+            var mapInfo = GetMapInfoFormUrl(MapUrl?.Url);
+            int width = mapInfo.Width;
+            int height = mapInfo.Height;
+            int seed = mapInfo.Seed;
             bool isSuccess = false;
-            int num = Width * Height;
-            int[] grids = new int[num];
-            
-            int wall = 0;
-            int way = 1;
-            int unknow = 3;
-            
-            for(int seed = StartSeed; seed < StartSeed + TryCount; seed++)
+            int num = width * height;
+            int[] grids = MapCreator.GetOriginGrids(width, height, out var start);
+            isSuccess = MapCreator.TryCreateSimpleMap(grids, start, width, height, seed);
+            if (isSuccess)
             {
-                //tryCount--;
-                int start = Width / 2;
-                for (int i = 0; i < num; i++)
-                {
-                    bool isSide = i % Width == 0 || i % Width == Width - 1 ||
-                        i / Width == 0 || i / Width == Height - 1;
-                    
-                    bool isStart = i == start;
-                    grids[i] = isStart ? way : (isSide ? wall : unknow);
-                }
+                //创建地图预制体
+                var mapPrefab = Content.Load(MapUrl);
+                var map = mapPrefab.Instantiate()[0];
+                var s = MathF.Max(width, height) * Vector3.One;
+                var center = new Vector3(Origin.X, 0, Origin.Y);
+                center.X += width * 0.5f;
+                center.Z += height * 0.5f;
+                map.Transform.Scale = s;
+                map.Transform.Position = center;
+                SceneSystem.SceneInstance.RootScene.Entities.Add(map);
 
-                isSuccess = MapCreator.TryCreateSimpleMap(grids, start, Width, Height, seed);
-                Log.Info($"Width:{Width} Height:{Height} Start:({start % Width}, {start / Width}) Seed:{seed} Success:{isSuccess}");
-                if (isSuccess) break;
-            }
-            
-            //if(isSuccess)
-            {
-                var wallPrefab = Content.Load(WallUrl);
-                if(CreatePlayer)
+                //创建玩家
+                if (CreatePlayer)
                 {
                     var playerPrefab = Content.Load(PlayerUrl);
                     var player = playerPrefab.Instantiate()[0];
                     player.Transform.Position = Vector3.Zero;
                     SceneSystem.SceneInstance.RootScene.Entities.Add(player);
-
                 }
-                Dispatcher.For(0, num, i =>
-                {
-                    var grid = grids[i];
-                    if(grid == wall)
-                    {
-                        float x = Origin.X + i % Width;
-                        float y = 0;
-                        float z = Origin.Y + i / Width;
-                        Vector3 pos = new Vector3(x, y, z);
-                        var wall = wallPrefab.Instantiate()[0];
-                        wall.Transform.Position = pos;
-                        SceneSystem.SceneInstance.RootScene.Entities.Add(wall);
-                    }
+                   
+                //创建墙
+                //{
+                //    var wallPrefab = Content.Load(WallUrl);          
+                //    Dispatcher.For(0, num, i =>
+                //    {
+                //        var grid = grids[i];
+                //        if(grid == MapCreator.Wall)
+                //        {
+                //            float x = Origin.X + i % width;
+                //            float y = 0;
+                //            float z = Origin.Y + i / width;
+                //            Vector3 pos = new Vector3(x, y, z);
+                //            var wall = wallPrefab.Instantiate()[0];
+                //            wall.Transform.Position = pos;
+                //            SceneSystem.SceneInstance.RootScene.Entities.Add(wall);
+                //        }
                     
-                });
+                //    });
+                //}
 
                 
             }

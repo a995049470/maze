@@ -6,7 +6,7 @@ using System;
 
 namespace Maze.Code.Game
 {
-
+    
     public class AnimationStateProcessor : StateMachineProcessor<AnimationComponent>
     {
         public override void Update(GameTime time)

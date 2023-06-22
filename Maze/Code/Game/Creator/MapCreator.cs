@@ -1,16 +1,15 @@
 ﻿using Stride.Core.Mathematics;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Maze.Code.Game
 {
     public class MapCreator 
     {
+        public const int Wall = 0;
+        public const int Way = 1;
+        public const int Unknow = 3;
         private static Dictionary<int, int> blockWeightDic;
         public static Dictionary<int, int> BlockWeightDic
         {
@@ -47,6 +46,22 @@ namespace Maze.Code.Game
 
             //dic[Convert.ToInt32("1111", 2)] = 1;
             return dic;
+        }
+
+        public static int[] GetOriginGrids(int widht, int height, out int start)
+        {
+            int num = widht * height;
+            int[] grids = new int[num];
+            start = widht / 2;
+            for (int i = 0; i < num; i++)
+            {
+                bool isSide = i % widht == 0 || i % widht == widht - 1 ||
+                    i / widht == 0 || i / widht == height - 1;
+
+                bool isStart = i == start;
+                grids[i] = isStart ? Way : (isSide ? Wall : Unknow);
+            }
+            return grids;
         }
 
         /// <summary>
@@ -115,10 +130,10 @@ namespace Maze.Code.Game
                             temp[neighborId] = value;
                         }
 
-                        var sx_test = Math.Max(0, x - 1);
-                        var sy_test = Math.Max(0, y - 1);
-                        var ex_test = Math.Min(width, x + 3);
-                        var ey_test = Math.Min(height, y + 3);
+                        var sx_test = System.Math.Max(0, x - 1);
+                        var sy_test = System.Math.Max(0, y - 1);
+                        var ex_test = System.Math.Min(width, x + 3);
+                        var ey_test = System.Math.Min(height, y + 3);
                         isLegalBlock &= BlockTest(sx_test, sy_test, ex_test, ey_test, temp, width);
                         
                         if(isLegalBlock)
