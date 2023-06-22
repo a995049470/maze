@@ -1,5 +1,5 @@
 !MaterialAsset
-Id: ad4401a1-4e35-461b-a794-466695d74bbb
+Id: 6ac5d564-ad49-49fc-9eb7-334ed06cc20d
 SerializedVersion: {Stride: 2.0.0.0}
 Tags: []
 Attributes:
@@ -9,16 +9,6 @@ Attributes:
             Generics: {}
             CompositionNodes: {}
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
-    Specular: !MaterialSpecularMapFeature
-        SpecularMap: !ComputeColor
-            Value: {R: 0.088644855, G: 0.08379795, B: 0.087418206, A: 1.0}
-        Intensity: !ComputeFloat
-            Value: 1.0
-    SpecularModel: !MaterialSpecularMicrofacetModelFeature
-        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
-        Visibility: !MaterialSpecularMicrofacetVisibilityImplicit {}
-        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionBlinnPhong {}
-        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

@@ -9,13 +9,14 @@ namespace MazeMapTool
     {
         static void Main(string[] args)
         {
-            int width, height, seed, tryCount;
+            int width, height, seed, tryCount, subCount;
             try
             {
                 width = int.Parse(args[0]);
                 height = int.Parse(args[1]);
                 seed = int.Parse(args[2]);
                 tryCount = int.Parse(args[3]);
+                subCount = int.Parse(args[4]);
             }
             catch (Exception)
             {
@@ -23,7 +24,7 @@ namespace MazeMapTool
             }
 
             var creator = new LevelMapCreator(width, height);
-            bool isSuccess = creator.TryCraeteMapPicture(seed, tryCount);
+            bool isSuccess = creator.TryCraeteMapPicture(seed, tryCount, subCount);
             if (isSuccess) Console.WriteLine($"Success!");
             else Console.WriteLine("Fail!");
 

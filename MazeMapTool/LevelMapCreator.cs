@@ -19,17 +19,17 @@ namespace MazeMapTool
             grids = new int[num];
         }
 
-        public bool TryCraeteMapPicture(int startSeed, int tryCount)
+        public bool TryCraeteMapPicture(int startSeed, int tryCount, int subCount)
         {
             var result = CreateMap(startSeed, tryCount);
             if (result.Item1)
             {
-                SavePNG(result.Item2);
+                SavePNG(result.Item2, subCount);
             }
             return result.Item1;
         }
 
-        public void SavePNG(int seed)
+        public void SavePNG(int seed, int subCount)
         {
             if(!Directory.Exists(floder))
             {
@@ -37,13 +37,14 @@ namespace MazeMapTool
             }
             string path = $"{floder}/map_{width}x{height}_{seed}.png";
             Console.WriteLine(path);
-            var bitmap = new Bitmap(width, height);
-            var num = width * height;
+            var bitmap = new Bitmap(width * subCount, height * subCount);
+            var num = width * subCount * height * subCount;
+           
             for (int i = 0; i < num; i++)
             {
-                var x = i % width;
-                var y = i / width;
-                var v = (1 - grids[i]) * 255;
+                var x = i % (width * subCount);
+                var y = i / (width * subCount);
+                var v = (1 - grids[x / subCount + y / subCount * width]) * 255;
                 var color = Color.FromArgb((255 << 24) + (v) + (v << 8) + (v << 16));
                 bitmap.SetPixel(x, y, color);
             }

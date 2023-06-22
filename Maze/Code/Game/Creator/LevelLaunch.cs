@@ -70,10 +70,11 @@ namespace Maze.Code.Game
                 //创建地图预制体
                 var mapPrefab = Content.Load(MapUrl);
                 var map = mapPrefab.Instantiate()[0];
-                var s = MathF.Max(width, height) * Vector3.One;
+                var s = (MathF.Max(width, height) - 1) * Vector3.One;
+                //起点还得偏移半格才是左下角的位置
                 var center = new Vector3(Origin.X, 0, Origin.Y);
-                center.X += width * 0.5f;
-                center.Z += height * 0.5f;
+                center.X += (width - 1) * 0.5f;
+                center.Z += (height - 1) * 0.5f;
                 map.Transform.Scale = s;
                 map.Transform.Position = center;
                 SceneSystem.SceneInstance.RootScene.Entities.Add(map);
