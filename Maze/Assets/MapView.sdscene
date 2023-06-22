@@ -13,7 +13,6 @@ Hierarchy:
         - ref!! c4c23eea-516e-4de4-a680-ffa951af68ca
         - ref!! c854b6aa-4a82-418d-87b2-e43a93f60fcc
         - ref!! 75d92c67-492d-44ae-82dc-e65d28548288
-        - ref!! e747cca4-08db-406f-8985-15944622a77f
     Parts:
         -   Entity:
                 Id: 4161bd04-66b7-4fa5-93f6-b9f69756482f
@@ -78,7 +77,7 @@ Hierarchy:
                 Components:
                     18a14a9e423198ee187f376a5d9de2fc: !TransformComponent
                         Id: 461d7bba-9d1d-4b8c-9f72-05ac8b684b62
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Position: {X: -1.440473, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.9354705}
                         Children: {}
@@ -104,22 +103,6 @@ Hierarchy:
                         ModelFlag: None
                         Materials:
                             bae852667c74fa7207d18d29abf2991e~0: 62681361-9cb9-4f71-8d37-47b5dbfcd7dc:Model/Fox/Main
-        -   Entity:
-                Id: e747cca4-08db-406f-8985-15944622a77f
-                Name: Map_21x21
-                Components:
-                    1a5404166a3d4d6f84d37b1770ff7a2d: !TransformComponent
-                        Id: 7a12d1a8-f4de-4525-beb1-7ec6c4b2ecea
-                        Position: {X: 3.4288979, Y: 0.0, Z: 13.821382}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 31.044664, Y: 31.044664, Z: 31.044664}
-                        Children: {}
-                    764e477bc3987fc4662d69339be8afff: !ModelComponent
-                        Id: cb95142e-8eb2-4b00-a199-95f10730915f
-                        Model: 060f5349-3fd2-420c-b974-d1ed8a548b88:Model/Map/Map_21x21
-                        ModelFlag: None
-                        Materials:
-                            00221c1458a8fdfc1bb38ef1a25f192d~0: b40e12de-02f2-409f-87b4-355436215dfa:Model/Map/Material
         -   Entity:
                 Id: fabca4e8-c1a3-4db0-92f5-4d20b921bd12
                 Name: Camera

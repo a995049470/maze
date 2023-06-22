@@ -1,0 +1,15 @@
+!Model
+Id: b0edfbfa-5d81-4c8f-9e3a-53b2bdba9bb7
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Map/map_21_21_4.fbx
+Skeleton: null
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    6cd1fbc4e537a3375d851fa60bea4ba5:
+        Name: Material
+        MaterialInstance:
+            Material: ad4401a1-4e35-461b-a794-466695d74bbb:Model/Map/Material
+Modifiers: {}
+~SourceHashes:
+    c329cc65bdc579271f348618c39303e3~../../../../Resources/Map/map_21_21_4.fbx: e511db70afa6ebc4c559ab847f2aca35

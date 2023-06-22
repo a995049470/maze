@@ -1,5 +1,6 @@
 ﻿using Stride.Core;
 using Stride.Graphics;
+using Stride.Rendering;
 using Stride.Rendering.Rendering.Images;
 using System;
 using System.Collections.Generic;
