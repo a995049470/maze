@@ -5,7 +5,7 @@ using Stride.Core.Mathematics;
 using Stride.Core.Serialization;
 using Stride.Core.Threading;
 using Stride.Engine;
-using System.Collections.Generic;
+
 
 namespace Maze.Code.Game
 {
@@ -25,8 +25,13 @@ namespace Maze.Code.Game
         public Int2 Origin = Int2.Zero;
         [DataMember(50)]
         public UrlReference<Prefab> WallUrl;
+        [DataMember(51)]
+        public bool CreatePlayer;
+        [DataMember(52)]
+        public UrlReference<Prefab> PlayerUrl;
         [DataMember(60)]
         public bool Run;
+        
 
         public override void Start()
         {
@@ -62,7 +67,14 @@ namespace Maze.Code.Game
             //if(isSuccess)
             {
                 var wallPrefab = Content.Load(WallUrl);
+                if(CreatePlayer)
+                {
+                    var playerPrefab = Content.Load(PlayerUrl);
+                    var player = playerPrefab.Instantiate()[0];
+                    player.Transform.Position = Vector3.Zero;
+                    SceneSystem.SceneInstance.RootScene.Entities.Add(player);
 
+                }
                 Dispatcher.For(0, num, i =>
                 {
                     var grid = grids[i];
@@ -76,7 +88,10 @@ namespace Maze.Code.Game
                         wall.Transform.Position = pos;
                         SceneSystem.SceneInstance.RootScene.Entities.Add(wall);
                     }
+                    
                 });
+
+                
             }
         }
 

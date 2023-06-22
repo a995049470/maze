@@ -14,7 +14,7 @@ Hierarchy:
         - ref!! fece4630-1143-4d5e-bd7e-395abe76ca94
         - ref!! 8a812567-7b6d-4dc7-9261-e59576a5f7b2
         - ref!! 48d102e9-02df-48d4-9878-b855aa7da0d9
-        - ref!! ef875386-4301-47a9-b325-bdaca6623562
+        - ref!! 12d2384e-03ce-40d9-b3cb-97a406b56176
     Parts:
         -   Entity:
                 Id: 053d5c90-69d9-4c89-94af-c8b2c7260e66
@@ -34,6 +34,8 @@ Hierarchy:
                         TryCount: 500
                         Origin: {X: -8, Y: -8}
                         WallUrl: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
+                        CreatePlayer: false
+                        PlayerUrl: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
                         Run: true
         -   Folder: null
             Entity:
@@ -74,6 +76,17 @@ Hierarchy:
                 BasePartAsset: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
                 BasePartId: ceb082d0-00e0-4af5-b08a-b31f9ac55c20
                 InstanceId: a4ee8ff2-6d3b-42fc-baf1-a8bd5c985bf0
+        -   Entity:
+                Id: 12d2384e-03ce-40d9-b3cb-97a406b56176
+                Name: Player
+                Components:
+                    4163f4a83c128e0f3c789b369693595d: !TransformComponent
+                        Id: 9a8e6527-6dc9-4e2f-a405-47c42ad3f62c
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            ff04e97190b9a5ef640a298cba872a81: ref!! b30a7506-5e34-4ac0-997b-6e826c64b7d2
         -   Folder: Map
             Entity:
                 Id: 1851fcd3-3940-4034-a586-7291943f40d8
@@ -158,44 +171,66 @@ Hierarchy:
                 BasePartId: d10e7c12-990b-45cb-a418-e281491ef637
                 InstanceId: 485e915b-d736-49b2-b3f0-b2301e94c10f
         -   Entity:
-                Id: 505ddefc-2ca2-41fc-8394-830b08011f22
+                Id: 584f589d-4556-47ed-b1bc-7c8d00e3c38f
                 Name: Cube
                 Components:
                     66ab698db0b29439aba14a775130249c: !TransformComponent
-                        Id: e7649da4-f275-4bb5-aa33-2ffa5a53d429
+                        Id: b30a7506-5e34-4ac0-997b-6e826c64b7d2
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            afc98dd9b97667c7117d53c3f1914c76: ref!! 2ae0d9b1-6c03-4446-8fc4-8a540603eb58
+                            afc98dd9b97667c7117d53c3f1914c76: ref!! 8ab85eed-34f6-4672-9809-57de516056e6
                     e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
-                        Id: ebe97aa5-7303-4c7d-a38d-7c900419eb27
+                        Id: 7d4df440-af61-489d-9a5d-d0850059bc80
                         Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
                         ModelFlag: None
                         Materials:
                             7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
                     1350e172770f87606c27ed7ce8d53478: !Maze.Code.Game.PlayerControllerComponent,Maze
-                        Id: 41782966-16c4-4bc0-be6e-de7fb0488591
+                        Id: 7dab6753-e95d-4f65-b137-5678966090aa
                     975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
-                        Id: c6d2e122-72d4-43fe-b5dc-357da72edf50
+                        Id: ea794860-f68d-4fac-a810-bbb0dd6a8c51
                         TargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
                         LastTargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
                         Speed: 7.0
                         IsActive: true
                     5ccf7d52bbaac9678cfc4a460869f1bf: !Maze.Code.Game.PlacerComponent,Maze
-                        Id: 6d624c94-ee84-47b9-a030-b0dba767d39b
+                        Id: c03af3a7-bc19-4b0f-91cd-dd5688c9e99e
                         MaxPlaceItemCount: 3
                         ItemUrl: 42c9010b-9271-4c97-b012-669fd92b875c:Prefab/Bomb
                         LastPlacePos: {X: 65536.0, Y: 65536.0, Z: 65536.0}
                     717f66d9a9208f62b3ea0133d1d20f09: !Maze.Code.Game.HurtComponet,Maze
-                        Id: cd4b4af9-335a-4d44-95da-8dd17f857cd3
+                        Id: ec3a11d9-12b9-4459-a4bc-8f46d8d9bf9d
                     cfab4c9cf549776bed87c13f9b34ba5b: !Maze.Code.Game.HitPointComponet,Maze
-                        Id: a89e98b5-dc36-4565-acb7-dd4062557d5d
-                        MaxHp: 5
+                        Id: 63812d9f-3a66-4ea6-8e62-4628917ddd20
+                        MaxHp: 1
+                    f87ce83ef34fd5466771fba9df1b73c8: !RigidbodyComponent
+                        Id: da445a70-32a4-4372-805b-f97bbb0e8c30
+                        CanCollideWith: DefaultFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            7d065412d20e12a5643cd4e1744146fd: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
             Base:
                 BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
                 BasePartId: 9ecada88-4a48-4842-93be-d8a8d283b41d
-                InstanceId: d75382b8-8bdf-4f54-b83f-fe4943999e4f
+                InstanceId: f6ad450a-6d51-46d5-8450-e707ed3cc085
         -   Folder: null
             Entity:
                 Id: 5f4b15fc-5758-46cd-a19f-c13e3f8cdaa4
@@ -218,6 +253,27 @@ Hierarchy:
                 BasePartAsset: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
                 BasePartId: d10e7c12-990b-45cb-a418-e281491ef637
                 InstanceId: a4ee8ff2-6d3b-42fc-baf1-a8bd5c985bf0
+        -   Entity:
+                Id: 86c792af-e09f-4777-96ff-f2a0027b9615
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: 8ab85eed-34f6-4672-9809-57de516056e6
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 3298b51a-7896-47b9-bc17-d00a59fb3fbd
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: CellLight
+                        Materials:
+                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
+            Base:
+                BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
+                BasePartId: 4f6d3b8c-1cb7-4575-a42a-62e836024c89
+                InstanceId: f6ad450a-6d51-46d5-8450-e707ed3cc085
         -   Folder: Map
             Entity:
                 Id: 8a812567-7b6d-4dc7-9261-e59576a5f7b2
@@ -368,54 +424,22 @@ Hierarchy:
                 BasePartId: ceb082d0-00e0-4af5-b08a-b31f9ac55c20
                 InstanceId: 485e915b-d736-49b2-b3f0-b2301e94c10f
         -   Entity:
-                Id: d2f4008f-3372-481b-a120-b99f8307b27b
-                Name: Cube
-                Components:
-                    66ab698db0b29439aba14a775130249c: !TransformComponent
-                        Id: 2ae0d9b1-6c03-4446-8fc4-8a540603eb58
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
-                        Id: 00d8a13f-0293-4b9e-8f2b-ff27b2978bca
-                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
-                        IsShadowCaster: false
-                        ModelFlag: CellLight
-                        Materials:
-                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
-            Base:
-                BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
-                BasePartId: 4f6d3b8c-1cb7-4575-a42a-62e836024c89
-                InstanceId: d75382b8-8bdf-4f54-b83f-fe4943999e4f
-        -   Entity:
                 Id: e5d9657a-3b43-4960-aec2-a9f323b0883d
                 Name: Camera
                 Components:
                     3be41925fd0606b4deecf7d324c7546c: !TransformComponent
                         Id: a357487e-02dc-4b42-ac4d-dbe8e9123a41
-                        Position: {X: 0.0, Y: 12.777983, Z: 0.0}
-                        Rotation: {X: 2.7027178E-07, Y: -0.70710677, Z: -0.70710677, W: -2.7027178E-07}
+                        Position: {X: -0.24202317, Y: 6.4818525, Z: -3.1109016}
+                        Rotation: {X: -2.4377508E-07, Y: 0.8660254, Z: 0.5, W: 1.15506836E-07}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     e8cf92a5c3152c88edf51bd15475e7c9: !CameraComponent
                         Id: 68490a5b-bbcc-4c20-bc38-2124f72fce6a
                         Name: null
-                        Projection: Orthographic
+                        Projection: Perspective
                         OrthographicSize: 16.0
                         FarClipPlane: 100.0
                         Slot: 9aeac611-d1f6-46da-a235-e20cc154e170
-        -   Entity:
-                Id: ef875386-4301-47a9-b325-bdaca6623562
-                Name: Player
-                Components:
-                    623b7848e2cf72b62e2d80255b035996: !TransformComponent
-                        Id: 3f55c561-8759-4a23-b66b-61aef0766622
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            7c549b4c81a1669dca424e1fc31598fe: ref!! e7649da4-f275-4bb5-aa33-2ffa5a53d429
         -   Entity:
                 Id: f51f8b46-60ef-4fca-be27-ab3f5e737dc6
                 Name: Ground

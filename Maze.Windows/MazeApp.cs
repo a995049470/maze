@@ -1,5 +1,9 @@
+using Maze.Code.Game;
+using Microsoft.VisualBasic.Logging;
 using Stride.Engine;
 using Stride.Graphics;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Maze
 {
@@ -13,5 +17,7 @@ namespace Maze
                 game.Run();
             }
         }
+
+        
     }
 }

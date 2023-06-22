@@ -1,0 +1,8 @@
+!Texture
+Id: 1d206a46-53bf-4251-88a7-d55425ff6dcd
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file E:/ChromeDwonload/grunge-wall-texture.jpg
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+    PremultiplyAlpha: false

@@ -87,9 +87,16 @@ namespace Maze.Code.Game
             sceneSystem.SceneInstance.RootScene.Entities.Add(entity);
         }
 
-        protected void RemoveEntity(Entity entity)
+        /// <summary>
+        /// 移除实体
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="removeParent">如果移除失败, 是否尝试移除父实体</param>
+        protected void RemoveEntity(Entity entity, bool tryRemoveParent = true)
         {
-            sceneSystem.SceneInstance.RootScene.Entities.Remove(entity);
+            if (entity == null) return;
+            var success = entity.Scene.Entities.Remove(entity);
+            if (!success) RemoveEntity(entity.GetParent());
         }
       
     }

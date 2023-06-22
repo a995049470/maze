@@ -1,0 +1,8 @@
+﻿shader VertColor : ComputeColor
+{
+    stage stream float4 Color : COLOR;
+    override float4 Compute()
+    {
+        return streams.Color * streams.Color;
+    }
+};

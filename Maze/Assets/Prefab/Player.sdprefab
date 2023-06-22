@@ -57,4 +57,26 @@ Hierarchy:
                         Id: aa99ae90-5541-4bf1-a76b-6d34b71eaa12
                     cfab4c9cf549776bed87c13f9b34ba5b: !Maze.Code.Game.HitPointComponet,Maze
                         Id: 08ebf6f5-7a98-4e83-b66b-fe4fc65e4624
-                        MaxHp: 5
+                        MaxHp: 1
+                    f87ce83ef34fd5466771fba9df1b73c8: !RigidbodyComponent
+                        Id: c65f6a24-42c6-42ca-881b-e1657bec8b85
+                        CanCollideWith: DefaultFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            7d065412d20e12a5643cd4e1744146fd: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}

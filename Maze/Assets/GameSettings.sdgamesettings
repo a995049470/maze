@@ -3,7 +3,7 @@ Id: 3cd1284e-aad8-47ef-a4af-a42fd6bf46e3
 SerializedVersion: {Stride: 3.1.0.1}
 Tags: []
 DefaultScene: 30ebec82-dbed-4e07-b815-fce4db1036b9:LevelTest
-GraphicsCompositor: 7e117c72-46c1-471b-a062-0638080b6c8e:Test
+GraphicsCompositor: f92a9ad5-696f-4d25-94b3-9653b57f63f8:GraphicsCompositor
 Defaults:
     - !Stride.Audio.AudioEngineSettings,Stride.Audio
         HrtfSupport: false
