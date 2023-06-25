@@ -1,0 +1,61 @@
+!PrefabAsset
+Id: 2a463b87-d55d-4f20-9a25-cf15c1388897
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 8d7f34b8-930b-4a41-ae5e-a6a7eba94b2d
+    Parts:
+        -   Entity:
+                Id: 6722eb90-2fa5-4b00-92dd-23fccee59908
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: 1e4daabe-cde3-40bb-8a90-3d02464e21c2
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.1, Y: 0.1, Z: 0.1}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: a2ea2fcc-ad00-4b78-8f81-0d773eb819a3
+                        Enabled: false
+                        Model: e11654ce-effe-44f1-a983-a43169dcd75e:Ground
+                        IsShadowCaster: false
+                        ModelFlag: CellBarrier
+                        Materials:
+                            f66d6c0f3f1df4973111178e5e26a768~0: d4bf2d2f-7107-4467-a021-2638ee5c0caa:Material/WallCell
+        -   Entity:
+                Id: 8d7f34b8-930b-4a41-ae5e-a6a7eba94b2d
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: fca22396-e5d5-44f9-a2e4-e3d48cc89c7a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            930283f098ff3e7b325c71382348f180: ref!! 1e4daabe-cde3-40bb-8a90-3d02464e21c2
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 01f191ca-2a3f-4672-b497-cdd71ca85177
+                        Enabled: false
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: None
+                        Materials:
+                            7d9a78ed53b562a621b1fa3e1ec41113~0: 7675152a-48b8-4b4d-baa1-c331b73be89f:Material/Wall
+                    8c0caf8f3ef3188fd56baf1c52fd174a: !StaticColliderComponent
+                        Id: 05b15650-8278-4589-af7e-09654de92a5b
+                        CanCollideWith: DefaultFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
+                        ColliderShapes:
+                            57372b4e83a3e19ef1d34d914ec8e9a9: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}

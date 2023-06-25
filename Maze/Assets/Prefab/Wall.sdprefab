@@ -40,6 +40,11 @@ Hierarchy:
                                 Is2D: false
                                 Radius: 0.4
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                    2662eec771d424741ba5d1285b45e0f8: !Maze.Code.Game.HitPointComponet,Maze
+                        Id: 32c265ee-5ee7-4a15-9675-41b0b386b4dc
+                        MaxHp: 1
+                    ef596ad50df420bca73214b341071dcb: !Maze.Code.Game.HurtComponet,Maze
+                        Id: 23be447a-65f8-4f35-8acd-149a602fabe1
         -   Entity:
                 Id: d10e7c12-990b-45cb-a418-e281491ef637
                 Name: Cube

@@ -9,6 +9,7 @@ using Stride.Core.Threading;
 using System.Collections.Concurrent;
 using Stride.Core.Mathematics;
 using System.Collections.Generic;
+using SharpFont;
 
 namespace Maze.Code.Game
 {
@@ -26,6 +27,15 @@ namespace Maze.Code.Game
         public PlacerProcessor() : base(typeof(TransformComponent))
         {
 
+        }
+
+        private void ClearLastPlaceData(PlacerData data)
+        {
+            //离开上次的放置点后，清除上次的放置位置
+            if (Vector3.DistanceSquared(data.Transform.Position, data.Placer.LastPlacePos) > tiny)
+            {
+                data.Placer.LastPlacePos = PlacerComponent.InvalidPos;
+            }
         }
 
         private void PlaceItem(PlacerData data)
@@ -77,6 +87,10 @@ namespace Maze.Code.Game
                 {
                     data.Placer.IsReadyPlace = false;
                     PlaceItem(data);
+                }
+                else
+                {
+                    ClearLastPlaceData(data);
                 }
 
             });

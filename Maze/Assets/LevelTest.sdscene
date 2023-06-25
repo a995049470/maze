@@ -10,8 +10,6 @@ Hierarchy:
         - ref!! 30c10d94-eb64-4320-8b9a-b733958d9582
         - ref!! 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734
         - ref!! 053d5c90-69d9-4c89-94af-c8b2c7260e66
-        - ref!! 06059af8-a89f-4546-b1c1-55876dc6cf6b
-        - ref!! 565ba0a5-d220-4740-99bd-ab1484b87b22
     Parts:
         -   Entity:
                 Id: 053d5c90-69d9-4c89-94af-c8b2c7260e66
@@ -25,45 +23,13 @@ Hierarchy:
                         Children: {}
                     be599edb1e9cd28a61581911b02b5f24: !Maze.Code.Game.LevelLaunch,Maze
                         Id: b2e44128-eedc-40b5-b551-5880bd6fd1e4
-                        MapUrl: 92355295-b2c8-41e4-83c9-27de494b604f:Prefab/Map/map_21_21_4
+                        MapUrl: 4c60c77b-caa2-4329-88be-662562e49358:Prefab/Map/map_21_21_23
                         Origin: {X: -10, Y: -10}
-                        WallUrl: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
+                        WallUrl: 2a463b87-d55d-4f20-9a25-cf15c1388897:Prefab/AirWall
+                        BarrierUrl: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
                         CreatePlayer: true
                         PlayerUrl: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
-                        Run: false
-        -   Entity:
-                Id: 06059af8-a89f-4546-b1c1-55876dc6cf6b
-                Name: Player
-                Components:
-                    d9adddb681f893f8b419c26c19426f7d: !TransformComponent
-                        Id: eeb4919c-c7e8-4edb-a0b3-e1fb176e0427
-                        Position: {X: 1.0, Y: 0.0, Z: 1.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            4be70073b0d7359ef5657b2ce9c03f68: ref!! e09bf30f-cd65-428c-8c1d-5c6e70534af0
-        -   Entity:
-                Id: 193a9105-1be5-4bb1-9ac0-bbcf04060bfc
-                Name: Cube
-                Components:
-                    66ab698db0b29439aba14a775130249c: !TransformComponent
-                        Id: 2a622f5d-10ce-481d-bf1d-b7aa5e6586b1
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
-                        Id: 216aca73-4104-421d-b364-3f4cbb223cfa
-                        Enabled: false
-                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
-                        IsShadowCaster: false
-                        ModelFlag: CellLight
-                        Materials:
-                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
-            Base:
-                BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
-                BasePartId: 4f6d3b8c-1cb7-4575-a42a-62e836024c89
-                InstanceId: 37e7380f-3e2d-44e5-83d2-cd4e09ec1a1d
+                        Run: true
         -   Entity:
                 Id: 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734
                 Name: Directional light
@@ -101,83 +67,6 @@ Hierarchy:
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
                         Intensity: 0.6
-        -   Entity:
-                Id: 565ba0a5-d220-4740-99bd-ab1484b87b22
-                Name: map_21_21_23
-                Components:
-                    13fdb85aeadc78730554dbc76f757e82: !TransformComponent
-                        Id: b7725f37-8675-4c5e-8cf0-1bef0e050b5a
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 21.0, Y: 21.0, Z: 21.0}
-                        Children: {}
-                    6e84cd2c6f64bc2fba9952be0c7f6e2e: !ModelComponent
-                        Id: 58a245a2-9f24-4f2c-8816-a1623ac3b9bf
-                        Model: d7701fe3-3e89-4dbc-9263-361225b5f778:Model/Map/map_21_21_23
-                        ModelFlag: None
-                        Materials:
-                            dd5405215e55f6ac09e103164cf6cf7d~0: 6ac5d564-ad49-49fc-9eb7-334ed06cc20d:Model/Map/Material
-        -   Entity:
-                Id: 68cbc74b-65d8-4556-ac49-59af72d71e46
-                Name: Cube
-                Components:
-                    66ab698db0b29439aba14a775130249c: !TransformComponent
-                        Id: e09bf30f-cd65-428c-8c1d-5c6e70534af0
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale*: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            afc98dd9b97667c7117d53c3f1914c76: ref!! 2a622f5d-10ce-481d-bf1d-b7aa5e6586b1
-                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
-                        Id: 00621434-d29c-4ff9-8cdd-7069f939dac7
-                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
-                        ModelFlag: None
-                        Materials:
-                            7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
-                    1350e172770f87606c27ed7ce8d53478: !Maze.Code.Game.PlayerControllerComponent,Maze
-                        Id: fbb3e88a-0a6d-48e0-a9f1-0e570aa824f9
-                    975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
-                        Id: 4e107d2e-1449-43bd-8d80-ebee2ab960e0
-                        TargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
-                        LastTargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Speed: 7.0
-                        IsActive: true
-                    5ccf7d52bbaac9678cfc4a460869f1bf: !Maze.Code.Game.PlacerComponent,Maze
-                        Id: 5938fc35-8df8-4b31-9e4a-8a77e0efaf5f
-                        MaxPlaceItemCount: 3
-                        ItemUrl: 42c9010b-9271-4c97-b012-669fd92b875c:Prefab/Bomb
-                        LastPlacePos: {X: 65536.0, Y: 65536.0, Z: 65536.0}
-                    717f66d9a9208f62b3ea0133d1d20f09: !Maze.Code.Game.HurtComponet,Maze
-                        Id: ae408ebc-ffec-41c5-b444-436c4a859380
-                    cfab4c9cf549776bed87c13f9b34ba5b: !Maze.Code.Game.HitPointComponet,Maze
-                        Id: fbab6426-4db6-43f9-a1b7-0aa81de83e9c
-                        MaxHp: 1
-                    f87ce83ef34fd5466771fba9df1b73c8: !RigidbodyComponent
-                        Id: 3caa3046-d3ce-45bf-a46e-784212afc35a
-                        CanCollideWith: DefaultFilter
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: false
-                        IsKinematic: true
-                        Mass: 1.0
-                        LinearDamping: 0.0
-                        AngularDamping: 0.0
-                        OverrideGravity: false
-                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
-                        NodeName: null
-                        ColliderShapes:
-                            7d065412d20e12a5643cd4e1744146fd: !SphereColliderShapeDesc
-                                Is2D: false
-                                Radius: 0.4
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-            Base:
-                BasePartAsset: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
-                BasePartId: 9ecada88-4a48-4842-93be-d8a8d283b41d
-                InstanceId: 37e7380f-3e2d-44e5-83d2-cd4e09ec1a1d
         -   Entity:
                 Id: e5d9657a-3b43-4960-aec2-a9f323b0883d
                 Name: Camera

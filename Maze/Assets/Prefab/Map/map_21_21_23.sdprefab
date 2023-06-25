@@ -1,0 +1,24 @@
+!PrefabAsset
+Id: 4c60c77b-caa2-4329-88be-662562e49358
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 1dd903ae-aac7-4cf5-8111-0e9b0105b6d4
+    Parts:
+        -   Entity:
+                Id: 1dd903ae-aac7-4cf5-8111-0e9b0105b6d4
+                Name: map_21_21_23
+                Components:
+                    8c0907011f7f7cd5fe532e5485a85cae: !TransformComponent
+                        Id: af008e7c-1059-446b-8dd2-ad8f26f90d90
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    2f36398cc0c93ba8b1b8559b143925d3: !ModelComponent
+                        Id: c5d22ea2-8109-4a34-852a-f5f3226330b5
+                        Model: d7701fe3-3e89-4dbc-9263-361225b5f778:Model/Map/map_21_21_23
+                        ModelFlag: None
+                        Materials:
+                            b271faec68b4717783625684d370d3f9~0: 6ac5d564-ad49-49fc-9eb7-334ed06cc20d:Model/Map/Map

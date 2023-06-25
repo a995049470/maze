@@ -19,6 +19,12 @@ namespace Maze.Code.Game
         public Vector3 LastTargetPos;
         public float Speed;
         public bool IsActive = true;
+
+        public void UpdatePos(Vector3 currentPos)
+        {
+            TargetPos = currentPos;
+            LastTargetPos = currentPos;
+        }
     }
 
 }

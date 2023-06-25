@@ -15,6 +15,8 @@ namespace Maze.Code.Game
     [DataContract]
     public class PlacerComponent : EntityComponent
     {
+        public static Vector3 InvalidPos = Vector3.One * 65536;
+
         [DataMemberIgnore]
         public bool IsReadyPlace = false;
         [DataMemberIgnore]
@@ -31,6 +33,7 @@ namespace Maze.Code.Game
         public UrlReference<Prefab> ItemUrl;
         [DataMember(20)]
         public Vector3 LastPlacePos = Vector3.One * 65536;
+
     }
 
 }

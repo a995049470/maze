@@ -24,17 +24,22 @@ namespace Maze.Code.Game
         {
             base.Update(time);
             float delatTime = (float)time.Elapsed.TotalSeconds;
+            float scale = 1.0f + (input.MouseWheelDelta * 0.05f);
+            
             var target = GetProcessor<PlayerControllerProcessor>()?.Player;
             if(target != null)
             {
                 Dispatcher.ForEach(ComponentDatas, kvp =>
                 {
+                    
                     var data = kvp.Value;
                     var viewDir = data.Transform.WorldMatrix.Forward;
                     var targetPos = target.Position + data.FollowPlayer.TargetOffset - viewDir * data.FollowPlayer.Distance;
                     var currentPos = data.Transform.Position;
                     currentPos = MathHelper.SmoothDamp(currentPos, targetPos, ref data.FollowPlayer.CurrentVelocity, data.FollowPlayer.SmoothTime, data.FollowPlayer.MaxSpeed, delatTime);
                     data.Transform.Position = currentPos;
+
+                    data.FollowPlayer.Distance *= scale;
                 });
             }
         }

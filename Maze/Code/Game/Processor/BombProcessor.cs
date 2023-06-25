@@ -22,6 +22,7 @@ namespace Maze.Code.Game
     {
         private readonly static Vector3 farPos = Vector3.One * 65536;
         public Dictionary<Guid, int> OwnerBombCountDic = new Dictionary<Guid, int>();
+        
         private ThreadSafePool<FastCollection<HitResult>> hitResutlListPool = new ThreadSafePool<FastCollection<HitResult>>();
         private PlacerProcessor placerProcessor;
         private Simulation simulation;
@@ -80,6 +81,7 @@ namespace Maze.Code.Game
                         {
                             if (!hitResult.Succeeded) continue;
                             var entity = hitResult.Collider.Entity;
+                            //TODO:考虑使用索引去获取...
                             var hurt = entity.Get<HurtComponet>();
                             if (hurt == null) continue;
                             Interlocked.Add(ref hurt.HurtValue, 1);

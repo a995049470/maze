@@ -27,7 +27,7 @@ namespace Maze.Code.Game
                 if(data.Hurt.HurtValue > 0)
                 {
                     data.HitPoint.CurrentHp -= data.Hurt.HurtValue;
-                    log.Info($"case {data.Hurt.HurtValue} point damage, remain {data.HitPoint.CurrentHp} hitpoint");
+                    //log.Info($"case {data.Hurt.HurtValue} point damage, remain {data.HitPoint.CurrentHp} hitpoint");
                     data.Hurt.HurtValue = 0;
                     //死亡表现
                     if(data.HitPoint.CurrentHp <= 0)
@@ -35,7 +35,7 @@ namespace Maze.Code.Game
                         //使用移除测试死亡表现...
                         cacheActions.Add(() =>
                         {
-                            log.Info("die....");
+                            //log.Info("die....");
                             RemoveEntity(data.HitPoint.Entity);
                         });
                     }

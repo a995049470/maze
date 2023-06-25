@@ -7,7 +7,6 @@ Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
         - ref!! 4161bd04-66b7-4fa5-93f6-b9f69756482f
-        - ref!! fabca4e8-c1a3-4db0-92f5-4d20b921bd12
         - ref!! dd2fd935-d610-4187-bec3-77918e75fb7c
         - ref!! 4b288e2c-6d06-42a7-9747-3ecfbfdb0143
         - ref!! c4c23eea-516e-4de4-a680-ffa951af68ca
@@ -103,19 +102,3 @@ Hierarchy:
                         ModelFlag: None
                         Materials:
                             bae852667c74fa7207d18d29abf2991e~0: 62681361-9cb9-4f71-8d37-47b5dbfcd7dc:Model/Fox/Main
-        -   Entity:
-                Id: fabca4e8-c1a3-4db0-92f5-4d20b921bd12
-                Name: Camera
-                Components:
-                    3be41925fd0606b4deecf7d324c7546c: !TransformComponent
-                        Id: 046f7b53-77cb-4f8f-8614-ecfb9b6d87b9
-                        Position: {X: -8.904772E-06, Y: 5.036609, Z: 10.279659}
-                        Rotation: {X: -2.1656292E-07, Y: 0.8660254, Z: 0.5, W: 3.7509793E-07}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    e8cf92a5c3152c88edf51bd15475e7c9: !CameraComponent
-                        Id: 7dfe22bf-6dc8-48c2-a543-8d657b594140
-                        Name: null
-                        Projection: Orthographic
-                        OrthographicSize: 32.0
-                        Slot: 9aeac611-d1f6-46da-a235-e20cc154e170

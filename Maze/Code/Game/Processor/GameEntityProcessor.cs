@@ -29,7 +29,7 @@ namespace Maze.Code.Game
 
         protected static Vector3 defaultScale = Vector3.One;
         protected static Quaternion defaultRotation = Quaternion.Identity;
-        protected const float tiny = 0.001f;
+        protected const float tiny = 0.01f;
 
         protected GameEntityProcessor([NotNull] params Type[] requiredAdditionalTypes)
             : base(requiredAdditionalTypes)
