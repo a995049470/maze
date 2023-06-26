@@ -530,9 +530,30 @@ namespace Maze.Code.Game
                     
                 }
             }
+            var areaCount = areaGridNums.Count;
+            var areaGridIdLists = new List<int>[areaCount];
+            var monsterDensity = 0.15f;
+            for (int i = 0; i < areaCount; i++)
+            {
+                areaGridIdLists[i] = new List<int>(areaGridNums[i]);
+            }
             //TODO:放置宝物,放置怪物.....
             {
-
+                for (int i = 0; i < num; i++)
+                {
+                    var isEmptyUnit = grids[i] == Way && units[i] == emptyUnit;
+                    if (!isEmptyUnit) continue;
+                    var areaId = gridAreaIndices[i];
+                    areaGridIdLists[areaId].Add(i);
+                }
+                for (int i = 0; i < areaCount; i++)
+                {
+                    var areaGridNum = areaGridNums[i];
+                    var value = areaGridNum * monsterDensity;
+                    var f = value - (int)value;
+                    var monsterCount = (int)value + (f > random.NextSingle() ? 1 : 0);
+                    
+                }
             }
             //修复地图中的错误
             {

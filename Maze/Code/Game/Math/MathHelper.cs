@@ -5,6 +5,8 @@ namespace Maze.Code.Game
 {
     public static class MathHelper 
     {
+        
+
         public static Vector3 SmoothDamp(Vector3 current, Vector3 target, ref Vector3 currentVelocity, float smoothTime,  float maxSpeed,  float deltaTime)
         {
             float output_x = 0f;
