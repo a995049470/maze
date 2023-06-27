@@ -25,7 +25,7 @@ Hierarchy:
                             7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
                     975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
                         Id: 966b3989-52f9-45bf-b117-a6139acfa406
-                        Speed: 2.0
+                        Speed: 1.3
                         IsActive: true
                     717f66d9a9208f62b3ea0133d1d20f09: !Maze.Code.Game.HurtComponet,Maze
                         Id: fa58d924-624e-4ddb-a04d-04dacc7d6c06
