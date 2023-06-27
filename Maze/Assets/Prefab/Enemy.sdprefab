@@ -42,8 +42,6 @@ Hierarchy:
                             7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
                     975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
                         Id: fd20065d-9316-4f04-93e9-90431c65f40b
-                        TargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
-                        LastTargetPos: {X: 0.0, Y: 0.0, Z: 0.0}
                         Speed: 3.0
                         IsActive: true
                     6a2b409b0a05629338f8c0ce9f05bd49: !Maze.Code.Game.AutoMoveControllerComponent,Maze

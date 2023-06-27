@@ -49,7 +49,7 @@ namespace Maze.Code.Game
             if (dir == Vector3.Zero) return;
 
             var simulation = GetSimulation();
-            Dispatcher.ForEach(ComponentDatas, kvp =>
+            foreach(var kvp in ComponentDatas)
             {
                 
                 var velocity = kvp.Value.Velocity;
@@ -83,7 +83,7 @@ namespace Maze.Code.Game
                         velocity.FaceDirection = dir;
                     }
                 }
-            });
+            };
 
             
         }

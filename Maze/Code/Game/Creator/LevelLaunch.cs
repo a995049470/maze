@@ -6,6 +6,7 @@ using Stride.Core.Serialization;
 using Stride.Core.Threading;
 using Stride.Engine;
 using System;
+using System.Threading;
 
 namespace Maze.Code.Game
 {
@@ -24,13 +25,13 @@ namespace Maze.Code.Game
         [DataMember(40)]
         public Int2 Origin = Int2.Zero;
         [DataMember(50)]
-        public UrlReference<Prefab> WallUrl;
-        [DataMember(51)]
-        public UrlReference<Prefab> BarrierUrl;
-        [DataMember(51)]
-        public bool CreatePlayer;
-        [DataMember(52)]
         public UrlReference<Prefab> PlayerUrl;
+        [DataMember(51)]
+        public UrlReference<Prefab> WallUrl;
+        [DataMember(52)]
+        public UrlReference<Prefab> BarrierUrl;
+        [DataMember(53)]
+        public UrlReference<Prefab> MonsterUrl;
         [DataMember(60)]
         public bool Run;
         
@@ -91,17 +92,13 @@ namespace Maze.Code.Game
                 SceneSystem.SceneInstance.RootScene.Entities.Add(map);
 
                 //创建玩家
-                if (CreatePlayer)
+                if (PlayerUrl != null)
                 {
                     var playerPrefab = Content.Load(PlayerUrl);
                     var player = playerPrefab.Instantiate()[0];
                     var pos = IndexToPos(start, width, height);
                     player.Transform.Position = pos;
-                    var velocity = player.Get<VelocityComponent>();
-                    if(velocity != null)
-                    {
-                        velocity.UpdatePos(pos);
-                    }
+                    player.Get<VelocityComponent>()?.UpdatePos(pos);
                     SceneSystem.SceneInstance.RootScene.Entities.Add(player);
                 }
 
@@ -124,16 +121,31 @@ namespace Maze.Code.Game
                 var units = MapCreator.CreateMapUnit(grids, width, height, start, seed, 3, 8);
                 //创建地图单位
                 {
-                    var barrierUnitPrefab = Content.Load(BarrierUrl);
+                    var isCreateBarrier = BarrierUrl != null;
+                    var isCreateMonster = MonsterUrl != null;
+                    Prefab barrierUnitPrefab = null;
+                    Prefab monsterUnitPrefab = null;
+
+                    if(isCreateBarrier) barrierUnitPrefab = Content.Load(BarrierUrl);
+                    if(isCreateMonster) monsterUnitPrefab = Content.Load(MonsterUrl);
+
                     for (int i = 0; i < num; i++)
                     {
                         var unit = units[i];
-                        if ((unit & MapCreator.BarrierUnit) > 0)
+                        if (isCreateBarrier && (unit & MapCreator.BarrierUnit) > 0)
                         {
                             var pos = IndexToPos(i, width, height);
                             var barrier = barrierUnitPrefab.Instantiate()[0];
                             barrier.Transform.Position = pos;
                             SceneSystem.SceneInstance.RootScene.Entities.Add(barrier);
+                        }
+                        if(isCreateMonster && (unit & MapCreator.MonsterUnit) > 0)
+                        {
+                            var pos = IndexToPos(i, width, height);
+                            var monster = monsterUnitPrefab.Instantiate()[0];
+                            monster.Transform.Position = pos;
+                            monster.Get<VelocityComponent>()?.UpdatePos(pos);
+                            SceneSystem.SceneInstance.RootScene.Entities.Add(monster);
                         }
                     }
                 }

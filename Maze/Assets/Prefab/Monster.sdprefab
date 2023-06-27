@@ -1,0 +1,77 @@
+!PrefabAsset
+Id: 57da7221-0cf8-4c38-a1e4-d60ac38e622f
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 5092c63c-06d8-4109-b039-8cf0f0891c5c
+    Parts:
+        -   Entity:
+                Id: 5092c63c-06d8-4109-b039-8cf0f0891c5c
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: b59e825b-d902-4fe7-bc63-c9f4f7c807fa
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.5, Y: 0.5, Z: 0.5}
+                        Children:
+                            afc98dd9b97667c7117d53c3f1914c76: ref!! 9f32c691-dd43-4266-bb2a-1b51ebd8844f
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: d51664ee-9cbb-47bf-993f-a8c7753261a8
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        ModelFlag: None
+                        Materials:
+                            7d9a78ed53b562a621b1fa3e1ec41113~0: 12382ba9-bb26-4dd5-810e-fc37c6fb9877:Material/Player
+                    975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
+                        Id: 966b3989-52f9-45bf-b117-a6139acfa406
+                        Speed: 2.0
+                        IsActive: true
+                    717f66d9a9208f62b3ea0133d1d20f09: !Maze.Code.Game.HurtComponet,Maze
+                        Id: fa58d924-624e-4ddb-a04d-04dacc7d6c06
+                    cfab4c9cf549776bed87c13f9b34ba5b: !Maze.Code.Game.HitPointComponet,Maze
+                        Id: def35278-309d-4a68-9f20-648734c27330
+                        MaxHp: 1
+                    674b1dbd56d583d7517ac0653c353134: !Maze.Code.Game.AutoMoveControllerComponent,Maze
+                        Id: 749ac206-9b82-479b-adb0-f9b2c74165c4
+                        MoveRect: {X: 0.0, Y: 0.0, Width: 0.0, Height: 0.0}
+                    ae1e1cd2e185323f50186f9884270e9c: !RigidbodyComponent
+                        Id: ef737ef1-0316-430e-9ae2-edc7bb8ec01f
+                        CanCollideWith: DefaultFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            e2ea3bb8c6b865cd41703354b7b78296: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+        -   Entity:
+                Id: df3eb825-c91d-4045-8bf1-e569aacb476a
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: 9f32c691-dd43-4266-bb2a-1b51ebd8844f
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 4f6ad825-ee75-4c04-b16c-4d412c56bf88
+                        Enabled: false
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: CellLight
+                        Materials:
+                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell

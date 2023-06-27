@@ -2,6 +2,7 @@
 using Stride.Core.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Windows.Forms.VisualStyles;
 
 namespace Maze.Code.Game
@@ -486,8 +487,9 @@ namespace Maze.Code.Game
                             {
                                 var isEmptyNeighbor = grids[neighbor] == Way && units[neighbor] == emptyUnit;
                                 var isOldAreaGrid = !gridIdCache.Contains(neighbor);
+                                var isNotStartPoint = neighbor != start;
                                 //设置为障碍
-                                if (isEmptyNeighbor && isOldAreaGrid)
+                                if (isEmptyNeighbor && isOldAreaGrid && isNotStartPoint)
                                 {
                                     units[neighbor] |= BarrierUnit;
                                 }
@@ -532,13 +534,15 @@ namespace Maze.Code.Game
             }
             var areaCount = areaGridNums.Count;
             var areaGridIdLists = new List<int>[areaCount];
-            var monsterDensity = 0.15f;
+            var monsterDensity = 1.5f / (maxAreaGridNum - minAreaGridNum);
+            var minMonsterProbability = 0.15f;
             for (int i = 0; i < areaCount; i++)
             {
                 areaGridIdLists[i] = new List<int>(areaGridNums[i]);
             }
             //TODO:放置宝物,放置怪物.....
             {
+                var startPointAreaId = gridAreaIndices[start];
                 for (int i = 0; i < num; i++)
                 {
                     var isEmptyUnit = grids[i] == Way && units[i] == emptyUnit;
@@ -548,18 +552,29 @@ namespace Maze.Code.Game
                 }
                 for (int i = 0; i < areaCount; i++)
                 {
-                    var areaGridNum = areaGridNums[i];
-                    var value = areaGridNum * monsterDensity;
-                    var f = value - (int)value;
-                    var monsterCount = (int)value + (f > random.NextSingle() ? 1 : 0);
+                    //初始区域没怪
+                    if(i == startPointAreaId) continue;
+                    var gridIdList = areaGridIdLists[i];
+                    var areaGridNum = gridIdList.Count;
+                    if (areaGridNum == 0) continue;
+                    var p = (areaGridNum - minAreaGridNum) * monsterDensity;
+                    p = Math.Max(minMonsterProbability, p);
+                    var f = p - (int)p;
+                    var monsterCount = (int)p + (f > random.NextSingle() ? 1 : 0);
+                    for (int j = 0; j < monsterCount; j++)
+                    {
+                        var r = random.Next(j, areaGridNum);
+                        var gridId = gridIdList[r];
+                        units[gridId] |= MonsterUnit;
+
+                        //将抽取过的Id移到列表头部
+                        gridIdList[r] = gridIdList[j];
+                        gridIdList[j] = gridId;
+                    }
                     
                 }
             }
-            //修复地图中的错误
-            {
-                //起点始终为空
-                units[start] = emptyUnit;
-            }
+
             return units;
         }
 

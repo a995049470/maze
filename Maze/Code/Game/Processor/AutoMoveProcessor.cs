@@ -6,6 +6,7 @@ using Stride.Core.Mathematics;
 using Stride.Core.Threading;
 using Stride.Engine;
 using Stride.Games;
+using Stride.Physics;
 using System;
 
 namespace Maze.Code.Game
@@ -42,7 +43,7 @@ namespace Maze.Code.Game
             };
             var weights = new int[] { 1, 50, 100 };
 
-            Dispatcher.ForEach(ComponentDatas, kvp =>
+            foreach(var kvp in ComponentDatas)
             {
                 var velocity = kvp.Value.Velocity;
                 var controller = kvp.Value.Controller;
@@ -60,11 +61,12 @@ namespace Maze.Code.Game
                         var dir = directions[i];
                         var point = velocity.TargetPos + dir;
                         var isWay = true;
-                        var isOutOfRect = !controller.MoveRect.Contains(point.X, point.Z);
+                        //var isOutOfRect = !controller.MoveRect.Contains(point.X, point.Z);
+                        var isOutOfRect = false;
                         if (simulation != null)
                         {
                             //无障碍则判定是可行走的目标
-                            var hit = simulation.Raycast(velocity.TargetPos, point);
+                            var hit = simulation.Raycast(velocity.TargetPos, point, CollisionFilterGroups.DefaultFilter, CollisionFilterGroupFlags.DefaultFilter, false);
                             isWay = !hit.Succeeded;
                         }
                         if (isWay)
@@ -113,7 +115,7 @@ namespace Maze.Code.Game
                     }
 
                 }
-            });
+            };
         }
 
 

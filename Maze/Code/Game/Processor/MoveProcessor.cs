@@ -75,6 +75,12 @@ namespace Maze.Code.Game
                     }
                     data.Transform.Position = targetPos;
                 }
+                //静止时候自动更新TargetPos和LastTargetPos
+                else
+                {
+                    velocity.TargetPos = data.Transform.Position;
+                    velocity.LastTargetPos = data.Transform.Position;
+                }
             });
         }
 

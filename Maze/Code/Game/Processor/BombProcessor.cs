@@ -38,7 +38,7 @@ namespace Maze.Code.Game
             float delatTime = (float)time.Elapsed.TotalSeconds;
             simulation = GetSimulation();
             placerProcessor = placerProcessor ?? GetProcessor<PlacerProcessor>();
-            Dispatcher.ForEach(ComponentDatas, kvp =>
+            foreach(var kvp in ComponentDatas)
             {
                 var data = kvp.Value;
                 //放置者走出范围时激活
@@ -94,7 +94,7 @@ namespace Maze.Code.Game
                         });
                     }
                 }
-            });
+            };
             InvokeCacheActions();
         }
 
