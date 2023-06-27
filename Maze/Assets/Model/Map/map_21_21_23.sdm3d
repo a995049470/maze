@@ -2,7 +2,7 @@
 Id: d7701fe3-3e89-4dbc-9263-361225b5f778
 SerializedVersion: {Stride: 2.0.0.0}
 Tags: []
-Source: !file ../../../../Resources/Map/map_21_21_23.fbx
+Source: !file ../../../../Resources/Map/Model/map_21_21_23.fbx
 Skeleton: null
 PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
 Materials:
@@ -12,4 +12,4 @@ Materials:
             Material: null
 Modifiers: {}
 ~SourceHashes:
-    329d8a28fc42ce649318a37782648123~../../../../Resources/Map/map_21_21_23.fbx: a287bd5ee057485b24835ae0a62b0d27
+    329d8a28fc42ce649318a37782648123~../../../../Resources/Map/map_21_21_23.fbx: 00000000000000000000000000000000
