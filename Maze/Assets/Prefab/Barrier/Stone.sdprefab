@@ -1,0 +1,64 @@
+!PrefabAsset
+Id: c09ff6bd-d0db-40b9-bd42-2339d6bb5665
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! b947a772-e0ab-46f0-b368-ff110df62026
+    Parts:
+        -   Entity:
+                Id: 7f90d15e-6ef5-4ceb-a7ce-ad79c9105e7e
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: b52053ff-67f4-4156-8b3c-7ae23770c83f
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.1, Y: 0.1, Z: 0.1}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: eb887ad4-41ab-4a63-a836-027835322ee3
+                        Model: e11654ce-effe-44f1-a983-a43169dcd75e:Ground
+                        IsShadowCaster: false
+                        ModelFlag: CellBarrier
+                        Materials:
+                            f66d6c0f3f1df4973111178e5e26a768~0: d4bf2d2f-7107-4467-a021-2638ee5c0caa:Material/WallCell
+        -   Entity:
+                Id: b947a772-e0ab-46f0-b368-ff110df62026
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: 3b7f06e5-9225-4816-80f7-f9d827e87692
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            930283f098ff3e7b325c71382348f180: ref!! b52053ff-67f4-4156-8b3c-7ae23770c83f
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 19e48c04-2d1c-4432-b48a-251a2b793856
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: None
+                        Materials:
+                            7d9a78ed53b562a621b1fa3e1ec41113~0: 7675152a-48b8-4b4d-baa1-c331b73be89f:Material/Wall
+                    8c0caf8f3ef3188fd56baf1c52fd174a: !StaticColliderComponent
+                        Id: 4b4e5e15-da14-4f3e-8f23-291577c9919c
+                        CanCollideWith: DefaultFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
+                        ColliderShapes:
+                            57372b4e83a3e19ef1d34d914ec8e9a9: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                    2662eec771d424741ba5d1285b45e0f8: !Maze.Code.Game.HitPointComponet,Maze
+                        Id: 029eb23c-78ea-4987-9a5a-15e53f892526
+                        MaxHp: 1
+                    ef596ad50df420bca73214b341071dcb: !Maze.Code.Game.HurtComponet,Maze
+                        Id: d1b655de-dc9b-4d29-a604-4c64c397ffeb

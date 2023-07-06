@@ -1,6 +1,8 @@
 ﻿using Maze.Code;
 using System.Drawing;
 using System.Drawing.Imaging;
+using LitJson;
+using Maze.Code.Game;
 
 namespace MazeMapTool
 {
@@ -9,26 +11,45 @@ namespace MazeMapTool
     {
         static void Main(string[] args)
         {
-            int width, height, seed, tryCount, subCount;
-            try
+            string log = "";
+            foreach (var file in args)
             {
-                width = int.Parse(args[0]);
-                height = int.Parse(args[1]);
-                seed = int.Parse(args[2]);
-                tryCount = int.Parse(args[3]);
-                subCount = int.Parse(args[4]);
+                int width, height, mapSeed, tryCount, gridPixelSize, start;
+                try
+                {
+                    var content = File.ReadAllText(file);
+                    var data = JsonMapper.ToObject(content);
+                    width = ((int)data[MapJsonKeys.width]);
+                    height = ((int)data[MapJsonKeys.height]);
+                    mapSeed = ((int)data[MapJsonKeys.mapSeed]);
+                    gridPixelSize = ((int)data[MapJsonKeys.gridPixelSize]);
+                    start = ((int)data[MapJsonKeys.start]);
+                    tryCount = 64;
+
+                }
+                catch (Exception)
+                {
+                    log += $"{file} format error!\n";
+                    continue;
+                }
+                var creator = new LevelMapCreator(width, height, start);
+                bool isSuccess = creator.TryCraeteMapPicture(mapSeed, tryCount, gridPixelSize, out var currentSeed);
+
+                if(isSuccess)
+                {
+                    if (currentSeed == mapSeed)
+                        log += $"{file} pass!\n";
+                    else
+                        log += $"{file} newSeed:{currentSeed}";
+                }
+                else
+                {
+                    log += log += $"{file} fail!\n";
+                }
             }
-            catch (Exception)
-            {
-                throw new Exception("Format Error!");
-            }
 
-            var creator = new LevelMapCreator(width, height);
-            bool isSuccess = creator.TryCraeteMapPicture(seed, tryCount, subCount);
-            if (isSuccess) Console.WriteLine($"Success!");
-            else Console.WriteLine("Fail!");
-
-
+            Console.Write(log);
+            Console.ReadKey();
         }
     }
 }

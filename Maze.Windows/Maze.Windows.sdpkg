@@ -17,9 +17,17 @@ TemplateFolders: []
 RootAssets:
     - 05054482-7c52-4d6b-965d-f0fd66502ca0:MainScene
     - 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+    - 1190d4b8-3609-4e88-9bba-5a440259d0b6:Prefab/Monster/Ghost
+    - 2a463b87-d55d-4f20-9a25-cf15c1388897:Prefab/AirWall
     - 2c57425a-d3e1-47d3-bbfb-8bfaddcb8780:Main
     - 30ebec82-dbed-4e07-b815-fce4db1036b9:LevelTest
+    - 408297bc-c8a8-4b83-81e5-c1183214b07e:Level/Config/level_1
     - 43a08188-ad84-4679-9759-f1549bd4c100:CubeMat
+    - 4c60c77b-caa2-4329-88be-662562e49358:Prefab/Map/map_21_21_23
     - 676bc869-3ef1-4dd0-bf6a-d21f1b89be6c:Level/dungeon
+    - c09ff6bd-d0db-40b9-bd42-2339d6bb5665:Prefab/Barrier/Stone
+    - ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
+    - de90b661-1dcc-445e-b32c-4b1c8368a922:Level/Config/Global/barrier
     - f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
     - f84f9dfb-7579-4013-bab3-2311f9817aab:Tile/dungeon
+    - ff9832b4-6dda-4921-98fd-ed4a5c771be3:Level/Config/Global/monster

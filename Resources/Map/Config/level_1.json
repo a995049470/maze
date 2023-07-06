@@ -1,0 +1,31 @@
+{
+    "monsterJsonUrl" : "Level/Config/Global/monster",
+    "barrierJsonUrl" : "Level/Config/Global/barrier",
+    "mapUrl" : "Prefab/Map/map_21_21_23",
+    "playerUrl" : "Prefab/Player",
+    "airWallUrl" : "Prefab/AirWall",
+    "prefabSeed" : 21,
+    "width" : 21,
+    "height" : 21,
+    "gridPixelSize" : 3,
+    "start" : 10,
+    "mapSeed" : 23,
+    "minAreaGridNum" : 3,
+    "maxAreaGridNum" : 9,
+    "monsterDensity" : 0.25,
+    "minMonsterProbability" : 0.15,
+    "monster" : 
+    [
+        {
+            "name" : "ghost",
+            "weight" : 100 
+        }
+    ],
+    "barrier" : 
+    [
+        {
+            "name" : "stone",
+            "weight" : 100
+        }
+    ]
+}

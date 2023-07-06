@@ -23,13 +23,7 @@ Hierarchy:
                         Children: {}
                     be599edb1e9cd28a61581911b02b5f24: !Maze.Code.Game.LevelLaunch,Maze
                         Id: b2e44128-eedc-40b5-b551-5880bd6fd1e4
-                        MapUrl: 4c60c77b-caa2-4329-88be-662562e49358:Prefab/Map/map_21_21_23
-                        Origin: {X: -10, Y: -10}
-                        PlayerUrl: ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
-                        WallUrl: 2a463b87-d55d-4f20-9a25-cf15c1388897:Prefab/AirWall
-                        BarrierUrl: 3542d72d-9f66-454a-bcbd-7493ac29ec18:Prefab/Wall
-                        MonsterUrl: 57da7221-0cf8-4c38-a1e4-d60ac38e622f:Prefab/Monster
-                        Run: true
+                        LevelJsonUrl: Level/Config/level_1
         -   Entity:
                 Id: 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734
                 Name: Directional light

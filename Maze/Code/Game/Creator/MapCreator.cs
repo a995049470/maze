@@ -7,6 +7,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Maze.Code.Game
 {
+
     public class MapCreator
     {
         public const int Wall = 0;
@@ -292,15 +293,14 @@ namespace Maze.Code.Game
             return dic;
         }
 
-        public static int[] GetOriginGrids(int widht, int height, out int start)
+        public static int[] GetOriginGrids(int width, int height, int start)
         {
-            int num = widht * height;
+            int num = width * height;
             int[] grids = new int[num];
-            start = widht / 2;
             for (int i = 0; i < num; i++)
             {
-                bool isSide = i % widht == 0 || i % widht == widht - 1 ||
-                    i / widht == 0 || i / widht == height - 1;
+                bool isSide = i % width == 0 || i % width == width - 1 ||
+                    i / width == 0 || i / width == height - 1;
 
                 bool isStart = i == start;
                 grids[i] = isStart ? Way : (isSide ? Wall : Unknow);
@@ -315,7 +315,7 @@ namespace Maze.Code.Game
         /// 创建地图中的单位
         /// </summary>
         /// <param name="grids">0:障碍 1:可行走</param>
-        public static int[] CreateMapUnit(int[] grids, int width, int height, int start, int seed, int minAreaGridNum, int maxAreaGridNum)
+        public static int[] CreateMapUnits(int[] grids, int width, int height, int start, int seed, int minAreaGridNum, int maxAreaGridNum, float monsterDensity, float minMonsterProbability)
         {
             var random = new Random(seed);
             //先计算所有位置到起点的位置
@@ -534,8 +534,6 @@ namespace Maze.Code.Game
             }
             var areaCount = areaGridNums.Count;
             var areaGridIdLists = new List<int>[areaCount];
-            var monsterDensity = 1.5f / (maxAreaGridNum - minAreaGridNum);
-            var minMonsterProbability = 0.15f;
             for (int i = 0; i < areaCount; i++)
             {
                 areaGridIdLists[i] = new List<int>(areaGridNums[i]);

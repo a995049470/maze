@@ -8,28 +8,31 @@ namespace MazeMapTool
     {
         private int width;
         private int height;
+        private int start;
         private int[] grids;
         private string floder = "./output";
 
-        public LevelMapCreator(int _width, int _height)
+        public LevelMapCreator(int _width, int _height, int _start)
         {
             width = _width;
             height = _height;
+            start = _start;
             int num = width * height;
             grids = new int[num];
         }
 
-        public bool TryCraeteMapPicture(int startSeed, int tryCount, int subCount)
+        public bool TryCraeteMapPicture(int startSeed, int tryCount, int gridPixelSize, out int seed)
         {
             var result = CreateMap(startSeed, tryCount);
+            seed = result.Item2;
             if (result.Item1)
             {
-                SavePNG(result.Item2, subCount);
+                SavePNG(result.Item2, gridPixelSize);
             }
             return result.Item1;
         }
 
-        public void SavePNG(int seed, int subCount)
+        public void SavePNG(int seed, int gridPixelSize)
         {
             if(!Directory.Exists(floder))
             {
@@ -37,14 +40,14 @@ namespace MazeMapTool
             }
             string path = $"{floder}/map_{width}x{height}_{seed}.png";
             Console.WriteLine(path);
-            var bitmap = new Bitmap(width * subCount, height * subCount);
-            var num = width * subCount * height * subCount;
+            var bitmap = new Bitmap(width * gridPixelSize, height * gridPixelSize);
+            var num = width * gridPixelSize * height * gridPixelSize;
            
             for (int i = 0; i < num; i++)
             {
-                var x = i % (width * subCount);
-                var y = i / (width * subCount);
-                var v = (1 - grids[x / subCount + y / subCount * width]) * 255;
+                var x = i % (width * gridPixelSize);
+                var y = i / (width * gridPixelSize);
+                var v = (1 - grids[x / gridPixelSize + y / gridPixelSize * width]) * 255;
                 var color = Color.FromArgb((255 << 24) + (v) + (v << 8) + (v << 16));
                 bitmap.SetPixel(x, y, color);
             }
@@ -55,23 +58,9 @@ namespace MazeMapTool
         {
             bool isSuccess = false;
             int successSeed = 0;
-            int num = width * height;
-            int wall = 0;
-            int way = 1;
-            int unknow = 3;
-
             for (int seed = startSeed; seed < startSeed + tryCount; seed++)
             {
-                //tryCount--;
-                int start = width / 2;
-                for (int i = 0; i < num; i++)
-                {
-                    bool isSide = i % width == 0 || i % width == width - 1 ||
-                        i / width == 0 || i / width == height - 1;
-
-                    bool isStart = i == start;
-                    grids[i] = isStart ? way : (isSide ? wall : unknow);
-                }
+                grids = MapCreator.GetOriginGrids(width, height, start);
                 successSeed = seed;
                 isSuccess = MapCreator.TryCreateSimpleMap(grids, start, width, height, seed);
                 if (isSuccess) break;

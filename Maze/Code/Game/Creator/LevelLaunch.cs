@@ -1,4 +1,5 @@
 ﻿
+using LitJson;
 using Stride.Core;
 using Stride.Core.Annotations;
 using Stride.Core.Mathematics;
@@ -6,105 +7,127 @@ using Stride.Core.Serialization;
 using Stride.Core.Threading;
 using Stride.Engine;
 using System;
+using System.IO;
 using System.Threading;
 
 namespace Maze.Code.Game
 {
-    public class MapInfo
-    {
-        public int Width;
-        public int Height;
-        public int Seed;
-    }
-
     public class LevelLaunch : StartupScript
     {
-
-        [DataMember(30)]
-        public UrlReference<Prefab> MapUrl;
-        [DataMember(40)]
-        public Int2 Origin = Int2.Zero;
-        [DataMember(50)]
-        public UrlReference<Prefab> PlayerUrl;
-        [DataMember(51)]
-        public UrlReference<Prefab> WallUrl;
-        [DataMember(52)]
-        public UrlReference<Prefab> BarrierUrl;
-        [DataMember(53)]
-        public UrlReference<Prefab> MonsterUrl;
-        [DataMember(60)]
-        public bool Run;
-        
-        private MapInfo GetMapInfoFormUrl(string url)
-        {
-            var mapInfo = new MapInfo();
-            try
-            {
-                var info = url.Split('_');
-                var len = info.Length;
-                mapInfo.Width = int.Parse(info[len - 3]);
-                mapInfo.Height = int.Parse(info[len - 2]);
-                mapInfo.Seed = int.Parse(info[len - 1]);
-            }
-            catch (System.Exception)
-            {
-                Log.Error("format error!");
-                throw;
-            }
-
-            return mapInfo;
-        }
-
+        [DataMember(10)]
+        public string LevelJsonUrl;
+        private Int2 origin = Int2.Zero;
+       
         private Vector3 IndexToPos(int id, int width, int height)
         {
-            float x = Origin.X + id % width;
+            float x = origin.X + id % width;
             float y = 0;
-            float z = Origin.Y + id / width;
+            float z = origin.Y + id / width;
             Vector3 pos = new Vector3(x, y, z);
             return pos;
         }
 
-        public override void Start()
+
+        private (int, Prefab)[] GetUnitPrefabs(JsonData mapData, string key, JsonData configData)
+        {
+            var unitDatas = mapData[key];
+            var count = unitDatas.Count;
+            var res = new (int, Prefab)[count];
+            for (int i = 0; i < count; i++)
+            {
+                var unitData = unitDatas[i];
+                var weight = ((int)unitData[MapJsonKeys.weight]);
+                var url = configData[unitData[MapJsonKeys.name].ToString()][MapJsonKeys.url].ToString();
+                var prefab = Content.Load<Prefab>(url);
+                res[i] = (weight, prefab);
+            }
+            return res;
+        }
+
+        private Entity GetRandomUnit((int, Prefab)[] units, Random random)
+        {
+            int total = 0;
+            foreach (var unit in units) total += unit.Item1;
+            var value = random.Next(0, total);
+            Entity res = null;
+            foreach (var unit in units)
+            {
+                value -= unit.Item1;
+                if(value < 0)
+                {
+                    res = unit.Item2.Instantiate()[0];
+                    SceneSystem.SceneInstance.RootScene.Entities.Add(res);
+                }
+            }
+            return res;
+        }
+
+
+        public void CreateLevel(JsonData data)
         {
             
-            if (!Run) return;
-            base.Start();
-            var mapInfo = GetMapInfoFormUrl(MapUrl?.Url);
-            int width = mapInfo.Width;
-            int height = mapInfo.Height;
-            int seed = mapInfo.Seed;
-            bool isSuccess = false;
+            var monsterData = LoadJsonData(data[MapJsonKeys.monsterJsonUrl].ToString());
+            var barrierData = LoadJsonData(data[MapJsonKeys.barrierJsonUrl].ToString());
+            int width, height, start, mapSeed, minAreaGridNum, maxAreaGridNum;
+            double monsterDensity, minMonsterProbability;
+            int unitSeed;
+            try
+            {
+                width = ((int)data[MapJsonKeys.width]);
+                height = ((int)data[MapJsonKeys.height]);
+                start = ((int)data[MapJsonKeys.start]);
+                mapSeed = ((int)data[MapJsonKeys.mapSeed]);
+                minAreaGridNum = ((int)data[MapJsonKeys.minAreaGridNum]);
+                maxAreaGridNum = ((int)data[MapJsonKeys.maxAreaGridNum]);
+                monsterDensity = ((double)data[MapJsonKeys.monsterDensity]);
+                minMonsterProbability = ((double)data[MapJsonKeys.minMonsterProbability]);                          
+            }
+            catch (Exception)
+            {
+                throw new Exception("format error!");
+            }
+            unitSeed = mapSeed;
             int num = width * height;
-            int[] grids = MapCreator.GetOriginGrids(width, height, out var start);
-            isSuccess = MapCreator.TryCreateSimpleMap(grids, start, width, height, seed);
+            int[] grids = MapCreator.GetOriginGrids(width, height, start);
+            var isSuccess = MapCreator.TryCreateSimpleMap(grids, start, width, height, mapSeed);
+            
+
             if (isSuccess)
             {
-                //创建地图预制体
-                var mapPrefab = Content.Load(MapUrl);
-                var map = mapPrefab.Instantiate()[0];
-                var s = MathF.Max(width, height) * Vector3.One;
-                //起点还得偏移半格才是左下角的位置
-                var center = new Vector3(Origin.X - 0.5f, 0, Origin.Y - 0.5f);
-                center.X += (width) * 0.5f;
-                center.Z += (height) * 0.5f;
-                map.Transform.Scale = s;
-                map.Transform.Position = center;
-                SceneSystem.SceneInstance.RootScene.Entities.Add(map);
-
-                //创建玩家
-                if (PlayerUrl != null)
                 {
-                    var playerPrefab = Content.Load(PlayerUrl);
-                    var player = playerPrefab.Instantiate()[0];
-                    var pos = IndexToPos(start, width, height);
-                    player.Transform.Position = pos;
-                    player.Get<VelocityComponent>()?.UpdatePos(pos);
-                    SceneSystem.SceneInstance.RootScene.Entities.Add(player);
+                    var mapUrl = data[MapJsonKeys.mapUrl].ToString();
+                    //创建地图预制体
+                    var mapPrefab = Content.Load<Prefab>(mapUrl);
+                    var map = mapPrefab.Instantiate()[0];
+                    var s = MathF.Max(width, height) * Vector3.One;
+                    //起点还得偏移半格才是左下角的位置
+                    var center = new Vector3(origin.X - 0.5f, 0, origin.Y - 0.5f);
+                    center.X += (width) * 0.5f;
+                    center.Z += (height) * 0.5f;
+                    map.Transform.Scale = s;
+                    map.Transform.Position = center;
+                    SceneSystem.SceneInstance.RootScene.Entities.Add(map);
+
                 }
 
-                //创建墙
                 {
-                    var wallPrefab = Content.Load(WallUrl);
+                    var playerUrl = data[MapJsonKeys.playerUrl].ToString();
+                    //创建玩家
+                    if (playerUrl != null)
+                    {
+                        var playerPrefab = Content.Load<Prefab>(playerUrl);
+                        var player = playerPrefab.Instantiate()[0];
+                        var pos = IndexToPos(start, width, height);
+                        player.Transform.Position = pos;
+                        player.Get<VelocityComponent>()?.UpdatePos(pos);
+                        SceneSystem.SceneInstance.RootScene.Entities.Add(player);
+                    }
+                }
+
+                //创建空气墙
+                {
+                    var airWallUrl = data[MapJsonKeys.airWallUrl].ToString();
+                    var wallPrefab = Content.Load<Prefab>(airWallUrl);
                     for (int i = 0; i < num; i++)
                     {
                         var grid = grids[i];
@@ -115,19 +138,19 @@ namespace Maze.Code.Game
                             wall.Transform.Position = pos;
                             SceneSystem.SceneInstance.RootScene.Entities.Add(wall);
                         }
-
                     };
                 }
-                var units = MapCreator.CreateMapUnit(grids, width, height, start, seed, 3, 8);
+
+                var units = MapCreator.CreateMapUnits(grids, width, height, start, unitSeed, minAreaGridNum, maxAreaGridNum, (float)monsterDensity, (float)minMonsterProbability);
+
                 //创建地图单位
                 {
-                    var isCreateBarrier = BarrierUrl != null;
-                    var isCreateMonster = MonsterUrl != null;
-                    Prefab barrierUnitPrefab = null;
-                    Prefab monsterUnitPrefab = null;
+                    var unitRandom = new Random(((int)data[MapJsonKeys.prefabSeed]));
+                    var barrierPrefabs = GetUnitPrefabs(data, MapJsonKeys.barrier, barrierData);
+                    var monsterPrefabs = GetUnitPrefabs(data, MapJsonKeys.monster, monsterData);
 
-                    if(isCreateBarrier) barrierUnitPrefab = Content.Load(BarrierUrl);
-                    if(isCreateMonster) monsterUnitPrefab = Content.Load(MonsterUrl);
+                    var isCreateBarrier = barrierPrefabs.Length > 0;
+                    var isCreateMonster = monsterPrefabs.Length > 0;
 
                     for (int i = 0; i < num; i++)
                     {
@@ -135,22 +158,41 @@ namespace Maze.Code.Game
                         if (isCreateBarrier && (unit & MapCreator.BarrierUnit) > 0)
                         {
                             var pos = IndexToPos(i, width, height);
-                            var barrier = barrierUnitPrefab.Instantiate()[0];
+                            var barrier = GetRandomUnit(barrierPrefabs, unitRandom);
                             barrier.Transform.Position = pos;
-                            SceneSystem.SceneInstance.RootScene.Entities.Add(barrier);
+                           
                         }
-                        if(isCreateMonster && (unit & MapCreator.MonsterUnit) > 0)
+                        if (isCreateMonster && (unit & MapCreator.MonsterUnit) > 0)
                         {
                             var pos = IndexToPos(i, width, height);
-                            var monster = monsterUnitPrefab.Instantiate()[0];
+                            var monster = GetRandomUnit(monsterPrefabs, unitRandom);
                             monster.Transform.Position = pos;
                             monster.Get<VelocityComponent>()?.UpdatePos(pos);
-                            SceneSystem.SceneInstance.RootScene.Entities.Add(monster);
+                           
                         }
                     }
                 }
 
             }
+        }
+
+       
+
+        public override void Start()
+        {
+            var data = LoadJsonData(LevelJsonUrl);
+            CreateLevel(data);
+        }
+
+        private JsonData LoadJsonData(string url)
+        {
+            JsonData jsonData = null;
+            using (var stream = Content.OpenAsStream(url, Stride.Core.IO.StreamFlags.Seekable))
+            using (var streamReader = new StreamReader(stream))
+            {
+                jsonData = JsonMapper.ToObject(streamReader.ReadToEnd());
+            }
+            return jsonData;
         }
 
 
