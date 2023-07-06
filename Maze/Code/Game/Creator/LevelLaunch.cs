@@ -6,6 +6,8 @@ using Stride.Core.Mathematics;
 using Stride.Core.Serialization;
 using Stride.Core.Threading;
 using Stride.Engine;
+using Stride.Physics;
+using Stride.Rendering;
 using System;
 using System.IO;
 using System.Threading;
@@ -44,7 +46,8 @@ namespace Maze.Code.Game
             return res;
         }
 
-        private Entity GetRandomUnit((int, Prefab)[] units, Random random)
+        private Entity InstantiateRandomUnit((int, Prefab)[] units, Random random, Vector3 pos
+            )
         {
             int total = 0;
             foreach (var unit in units) total += unit.Item1;
@@ -55,7 +58,9 @@ namespace Maze.Code.Game
                 value -= unit.Item1;
                 if(value < 0)
                 {
+                    //static collider 不能在加入场景后在设置位置
                     res = unit.Item2.Instantiate()[0];
+                    res.Transform.Position = pos;
                     SceneSystem.SceneInstance.RootScene.Entities.Add(res);
                 }
             }
@@ -158,15 +163,13 @@ namespace Maze.Code.Game
                         if (isCreateBarrier && (unit & MapCreator.BarrierUnit) > 0)
                         {
                             var pos = IndexToPos(i, width, height);
-                            var barrier = GetRandomUnit(barrierPrefabs, unitRandom);
-                            barrier.Transform.Position = pos;
+                            var barrier = InstantiateRandomUnit(barrierPrefabs, unitRandom, pos);
                            
                         }
                         if (isCreateMonster && (unit & MapCreator.MonsterUnit) > 0)
                         {
                             var pos = IndexToPos(i, width, height);
-                            var monster = GetRandomUnit(monsterPrefabs, unitRandom);
-                            monster.Transform.Position = pos;
+                            var monster = InstantiateRandomUnit(monsterPrefabs, unitRandom, pos);
                             monster.Get<VelocityComponent>()?.UpdatePos(pos);
                            
                         }

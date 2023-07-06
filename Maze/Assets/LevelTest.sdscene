@@ -21,8 +21,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    be599edb1e9cd28a61581911b02b5f24: !Maze.Code.Game.LevelLaunch,Maze
-                        Id: b2e44128-eedc-40b5-b551-5880bd6fd1e4
+                    dd7f16e280181f17ddd1fe659c07d4aa: !Maze.Code.Game.LevelLaunch,Maze
+                        Id: 68a10d9e-70aa-4d9f-adc1-bbf4edebf839
                         LevelJsonUrl: Level/Config/level_1
         -   Entity:
                 Id: 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734

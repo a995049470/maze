@@ -8,7 +8,7 @@ Hierarchy:
     Parts:
         -   Entity:
                 Id: 7f90d15e-6ef5-4ceb-a7ce-ad79c9105e7e
-                Name: Cube
+                Name: Cube1
                 Components:
                     66ab698db0b29439aba14a775130249c: !TransformComponent
                         Id: b52053ff-67f4-4156-8b3c-7ae23770c83f
@@ -25,7 +25,7 @@ Hierarchy:
                             f66d6c0f3f1df4973111178e5e26a768~0: d4bf2d2f-7107-4467-a021-2638ee5c0caa:Material/WallCell
         -   Entity:
                 Id: b947a772-e0ab-46f0-b368-ff110df62026
-                Name: Cube
+                Name: Cube0
                 Components:
                     66ab698db0b29439aba14a775130249c: !TransformComponent
                         Id: 3b7f06e5-9225-4816-80f7-f9d827e87692
