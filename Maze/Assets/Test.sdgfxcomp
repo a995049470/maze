@@ -224,6 +224,7 @@ SharedRenderers:
         MSAALevel: None
         MSAAResolver: {}
         CellRenderer:
+            Enable: false
             ViewportWidthWS: 32
             ViewportHeightWS: 32
             DPM: 8

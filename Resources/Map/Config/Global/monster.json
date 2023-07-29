@@ -2,5 +2,9 @@
     "ghost" :
     {
         "url" : "Prefab/Monster/Ghost"
+    },
+    "fish" : 
+    {
+        "url" : "Prefab/Monster/Fish"
     }
 }

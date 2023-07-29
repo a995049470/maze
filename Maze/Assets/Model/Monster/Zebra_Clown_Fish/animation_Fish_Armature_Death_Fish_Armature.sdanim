@@ -1,0 +1,20 @@
+!Animation
+Id: 8a8d90b8-76e7-4ebb-b517-2fa13f85c7bf
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../../Resources/Animated Fish Bundle-glb/Zebra Clown Fish/animation_Fish_Armature_Death_Fish_Armature.fbx
+ClipDuration:
+    Enabled: false
+    StartAnimationTime: 0:00:00:00.0000000
+    EndAnimationTime: 0:00:30:00.0000000
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+RepeatMode: LoopInfinite
+Type: !StandardAnimationAssetType {}
+Skeleton: f0d7b04b-ad22-4c10-b6d4-f05f55cc9b40:Model/Monster/Zebra_Clown_Fish/Zebra_Clown_Fish Skeleton
+RootMotion: false
+PreviewModel: 6a4f6189-9c32-4615-b0b9-643bb0378d3b:Model/Monster/Zebra_Clown_Fish/Zebra_Clown_Fish
+AnimationTimeMinimum: 0:00:00:00.0000000
+AnimationTimeMaximum: 0:00:00:02.9583400
+~SourceHashes:
+    ? ad8c84d0df3477506770abf420144794~../../../../../Resources/Animated Fish Bundle-glb/Zebra Clown Fish/animation_Fish_Armature_Death_Fish_Armature.fbx
+    : d9ee7a5e48a9deadf7cde5f84d612bcb

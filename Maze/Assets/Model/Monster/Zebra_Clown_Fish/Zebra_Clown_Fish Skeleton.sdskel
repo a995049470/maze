@@ -1,0 +1,18 @@
+!Skeleton
+Id: f0d7b04b-ad22-4c10-b6d4-f05f55cc9b40
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../../Resources/Animated Fish Bundle-glb/Zebra Clown Fish/Zebra_Clown_Fish.fbx
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Nodes:
+    0bffd973f2ef4626527e748cb68f1581: {Name: RootNode, Depth: 0}
+    249e6eb8d0ab838b09751abdc60eb25a: {Name: Fish_Armature, Depth: 1}
+    a6e695900203a04572412976e84ca5a8: {Name: Main1, Depth: 2}
+    77653a6be9ed180e721ac76194ab220f: {Name: Main2, Depth: 3}
+    fe6d4785a76f26324a0b6ef2b14fd190: {Name: Main3, Depth: 4}
+    0e5b8ab7451b2ec1720fde1b88f12bfa: {Name: Main4, Depth: 5}
+    0d255e4474fb18e94271702910e69a7c: {Name: Main5, Depth: 6}
+    ecbc84127fe96e8a2cf4da97592afae7: {Name: Main6, Depth: 7}
+    02ddc570a352ca9773c511f6eaf640b0: {Name: ZebraClownfish, Depth: 1}
+~SourceHashes:
+    5b7bcfeb414b9676b56ad5663c549cf3~../../../../../Resources/Animated Fish Bundle-glb/Zebra Clown Fish/Zebra_Clown_Fish.fbx: 120810a8a5557cbfa9acc648974b0ec0

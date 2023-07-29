@@ -18,16 +18,21 @@ RootAssets:
     - 05054482-7c52-4d6b-965d-f0fd66502ca0:MainScene
     - 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
     - 1190d4b8-3609-4e88-9bba-5a440259d0b6:Prefab/Monster/Ghost
+    - 22eb8902-a093-46cf-a80c-f548b5a07098:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Normal_Fish_Armature
     - 2a463b87-d55d-4f20-9a25-cf15c1388897:Prefab/AirWall
     - 2c57425a-d3e1-47d3-bbfb-8bfaddcb8780:Main
     - 30ebec82-dbed-4e07-b815-fce4db1036b9:LevelTest
     - 408297bc-c8a8-4b83-81e5-c1183214b07e:Level/Config/level_1
     - 43a08188-ad84-4679-9759-f1549bd4c100:CubeMat
     - 4c60c77b-caa2-4329-88be-662562e49358:Prefab/Map/map_21_21_23
+    - 5a34fac6-5fa1-4a11-ac32-97ddbaf3787a:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Fast_Fish_Armature
     - 676bc869-3ef1-4dd0-bf6a-d21f1b89be6c:Level/dungeon
+    - 8884ed09-fdbc-43f7-88f0-267fbc6cfea0:Prefab/Monster/Fish
+    - 8a8d90b8-76e7-4ebb-b517-2fa13f85c7bf:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Death_Fish_Armature
     - c09ff6bd-d0db-40b9-bd42-2339d6bb5665:Prefab/Barrier/Stone
     - ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
     - de90b661-1dcc-445e-b32c-4b1c8368a922:Level/Config/Global/barrier
     - f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
+    - f6f1cbb7-78c1-4660-b962-eb82688d1d3f:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Impulse_Fish_Armature
     - f84f9dfb-7579-4013-bab3-2311f9817aab:Tile/dungeon
     - ff9832b4-6dda-4921-98fd-ed4a5c771be3:Level/Config/Global/monster

@@ -1,0 +1,85 @@
+!PrefabAsset
+Id: 8884ed09-fdbc-43f7-88f0-267fbc6cfea0
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 04a9940f-ae8d-4369-bd24-4f5569b46f79
+    Parts:
+        -   Entity:
+                Id: 04a9940f-ae8d-4369-bd24-4f5569b46f79
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: 45a0e141-87fa-4a43-a5aa-c14bb07b772e
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.15, Y: 0.15, Z: 0.15}
+                        Children:
+                            afc98dd9b97667c7117d53c3f1914c76: ref!! e797789d-e58c-442a-849c-ff3e8c0aa2d5
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 872e5d77-e2e8-45b0-bf4b-796afc883dc6
+                        Model: 6a4f6189-9c32-4615-b0b9-643bb0378d3b:Model/Monster/Zebra_Clown_Fish/Zebra_Clown_Fish
+                        ModelFlag: None
+                        Materials: {}
+                    975cd9c3faa3adf00157e25a6984778b: !Maze.Code.Game.VelocityComponent,Maze
+                        Id: 8ad52075-8072-45af-8ee9-0e503d216d7d
+                        Speed: 1.3
+                        IsActive: true
+                    717f66d9a9208f62b3ea0133d1d20f09: !Maze.Code.Game.HurtComponet,Maze
+                        Id: 15e49a6d-ec1c-4d63-bd0a-6d5cb0fd818c
+                    cfab4c9cf549776bed87c13f9b34ba5b: !Maze.Code.Game.HitPointComponet,Maze
+                        Id: 0ec469fd-d7c0-4ba5-a87e-9fc8b84f0b41
+                        MaxHp: 1
+                    674b1dbd56d583d7517ac0653c353134: !Maze.Code.Game.AutoMoveControllerComponent,Maze
+                        Id: a6758ae3-4f4e-4fe2-9b00-0c2053745563
+                        MoveRect: {X: 0.0, Y: 0.0, Width: 0.0, Height: 0.0}
+                    ae1e1cd2e185323f50186f9884270e9c: !RigidbodyComponent
+                        Id: 8f52582d-31e8-4a8a-bdd8-e0db1bf1b743
+                        CanCollideWith: DefaultFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            e2ea3bb8c6b865cd41703354b7b78296: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                    2ce3f7ff29834c6c01ebcf06620b75fb: !Maze.Code.Game.PoseComponent,Maze
+                        Id: dba6ed84-348b-46df-a097-0ebb51107a69
+                        FrameScale: 3
+                        PlaySpeed: 1.0
+                        Animations:
+                            eaecb233feb845115589fac8166dd46f~Idle: f6f1cbb7-78c1-4660-b962-eb82688d1d3f:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Impulse_Fish_Armature
+                            e5eda10cd07cd0ed81088d6e0805e08d~Walk: f6f1cbb7-78c1-4660-b962-eb82688d1d3f:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Impulse_Fish_Armature
+                    d10cb857432152d59318fba6c04fc510: !Maze.Code.Game.StateMachineComponent,Maze
+                        Id: 24fbb137-8a6d-4b69-983c-e152bccc2417
+        -   Entity:
+                Id: a34c6455-87be-4398-84a5-5281e9fc47f7
+                Name: Cube
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: e797789d-e58c-442a-849c-ff3e8c0aa2d5
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: b5d6ebac-0863-4ea6-bbb9-9514c1d226a2
+                        Enabled: false
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: CellLight
+                        Materials:
+                            403965cb71b85d4f7ad6fc02474045f9~0: f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell

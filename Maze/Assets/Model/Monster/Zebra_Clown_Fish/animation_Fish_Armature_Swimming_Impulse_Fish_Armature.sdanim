@@ -1,0 +1,20 @@
+!Animation
+Id: f6f1cbb7-78c1-4660-b962-eb82688d1d3f
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../../Resources/Animated Fish Bundle-glb/Zebra Clown Fish/animation_Fish_Armature_Swimming_Impulse_Fish_Armature.fbx
+ClipDuration:
+    Enabled: false
+    StartAnimationTime: 0:00:00:00.0000000
+    EndAnimationTime: 0:00:30:00.0000000
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+RepeatMode: LoopInfinite
+Type: !StandardAnimationAssetType {}
+Skeleton: f0d7b04b-ad22-4c10-b6d4-f05f55cc9b40:Model/Monster/Zebra_Clown_Fish/Zebra_Clown_Fish Skeleton
+RootMotion: false
+PreviewModel: 6a4f6189-9c32-4615-b0b9-643bb0378d3b:Model/Monster/Zebra_Clown_Fish/Zebra_Clown_Fish
+AnimationTimeMinimum: 0:00:00:00.0000000
+AnimationTimeMaximum: 0:00:00:01.1250000
+~SourceHashes:
+    ? 8f1f61930afb42b800a1130889e17e05~../../../../../Resources/Animated Fish Bundle-glb/Zebra Clown Fish/animation_Fish_Armature_Swimming_Impulse_Fish_Armature.fbx
+    : ae844c8d858ba91cffaab37afb9b5752

@@ -13,6 +13,8 @@ namespace Maze.Code.Render
     [DataContract]
     public class CellRenderer
     {
+        [DataMember(0)]
+        public bool Enable = false;
 
         private static readonly ProfilingKey Cell = new ProfilingKey(new ProfilingKey("Compositing"), "Cell");
         private int viewportWidthWS = 8;

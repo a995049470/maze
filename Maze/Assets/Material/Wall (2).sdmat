@@ -1,11 +1,14 @@
 !MaterialAsset
-Id: d4bf2d2f-7107-4467-a021-2638ee5c0caa
+Id: 39df7d51-6b13-45bb-a0c0-f4114faafc71
 SerializedVersion: {Stride: 2.0.0.0}
 Tags: []
 Attributes:
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeFloat
+            Value: 0.1
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeColor
-            Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
+            Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
     DiffuseModel: !MaterialPixelDiffuseLambertModelFeature {}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}

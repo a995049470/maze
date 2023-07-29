@@ -1,0 +1,9 @@
+﻿shader TestLitShading : ComputeColor
+{
+    override float4 Compute()
+    {   
+        return 1;  
+    };
+
+    
+};

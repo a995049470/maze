@@ -17,6 +17,7 @@ using System.Collections.Specialized;
 namespace Maze.Code.Render
 {
 
+
     [DataContract]
     [Display("Forward Renderer EX")]
     public class LForwardRenderer : ForwardRenderer
@@ -25,10 +26,14 @@ namespace Maze.Code.Render
         public RenderStage TransmittanceStage { get; set; }
         [NotNull]
         public VisionRenderer VisionRenderer = new VisionRenderer();
+       
 
-            
+
+
+
         public LForwardRenderer()
         { 
+            
         }
 
         protected override void InitializeCore()

@@ -19,6 +19,11 @@
         
         public UnitState(StateFlag _flag, float _protectTime, float _stateTime)
         {
+            Init(_flag, _protectTime, _stateTime);
+        }
+
+        public void Init(StateFlag _flag, float _protectTime, float _stateTime)
+        {
             Flag = _flag;
             protectTime = _protectTime;
             stateTime = _stateTime;

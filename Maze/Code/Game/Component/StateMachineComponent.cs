@@ -10,18 +10,20 @@ namespace Maze.Code.Game
     {
         [DataMemberIgnore]
         public UnitState CurrentState;
+        
 
         public StateMachineComponent()
         {
             CurrentState = new UnitState(StateFlag.Idle, 0, -1);
         }
 
+        //TODO:动作状态机设置
         public void TrySwitchState(StateFlag flag, float protecteTime, float stataTime)
         {
             if(CurrentState.IsCanSwtich() &&
                CurrentState.Flag != flag)
             {
-                CurrentState = new UnitState(flag, protecteTime, stataTime);
+                CurrentState.Init(flag, protecteTime, stataTime);
             }
         }
         

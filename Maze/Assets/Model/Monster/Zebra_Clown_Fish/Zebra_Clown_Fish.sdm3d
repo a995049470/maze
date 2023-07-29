@@ -1,0 +1,23 @@
+!Model
+Id: 6a4f6189-9c32-4615-b0b9-643bb0378d3b
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../../Resources/Animated Fish Bundle-glb/Zebra Clown Fish/Zebra_Clown_Fish.fbx
+Skeleton: f0d7b04b-ad22-4c10-b6d4-f05f55cc9b40:Model/Monster/Zebra_Clown_Fish/Zebra_Clown_Fish Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    b87a628e20ee8e884aa4d4f0cb0082b4:
+        Name: ZebraClownFish_Main
+        MaterialInstance:
+            Material: 8a23021a-d7f2-4525-9dd5-69739e3f75eb:Model/Monster/Zebra_Clown_Fish/ZebraClownFish_Main
+    e0e55cbc7e861ad9e3d9fcb662211a23:
+        Name: ZebraClownFish_Light
+        MaterialInstance:
+            Material: 476a3b32-c7dd-4014-a09b-3619b1ad47c4:Model/Monster/Zebra_Clown_Fish/ZebraClownFish_Light
+    39055b52b3d15e2e82078234c58a100a:
+        Name: Eyes
+        MaterialInstance:
+            Material: 92b274b8-1adf-47ed-bed9-7bd5b66ab7a0:Model/Monster/Zebra_Clown_Fish/Eyes
+Modifiers: {}
+~SourceHashes:
+    8121165d2d10083f9ce3e96aa9af66d6~../../../../../Resources/Animated Fish Bundle-glb/Zebra Clown Fish/Zebra_Clown_Fish.fbx: 120810a8a5557cbfa9acc648974b0ec0
