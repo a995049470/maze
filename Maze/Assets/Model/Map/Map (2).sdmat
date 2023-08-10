@@ -1,5 +1,5 @@
 !MaterialAsset
-Id: 6ac5d564-ad49-49fc-9eb7-334ed06cc20d
+Id: 618b2669-c5e9-436e-b142-2b58ff59f538
 SerializedVersion: {Stride: 2.0.0.0}
 Tags: []
 Attributes:
@@ -8,7 +8,6 @@ Attributes:
             MixinReference: VertColor
             Generics: {}
             CompositionNodes: {}
-    DiffuseModel: !MaterialPixelDiffuseLambertModelFeature {}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

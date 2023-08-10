@@ -10,7 +10,6 @@ Hierarchy:
         - ref!! 30c10d94-eb64-4320-8b9a-b733958d9582
         - ref!! 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734
         - ref!! 053d5c90-69d9-4c89-94af-c8b2c7260e66
-        - ref!! 5fc30ee7-3a33-480a-8c7c-dd29b868251d
     Parts:
         -   Entity:
                 Id: 053d5c90-69d9-4c89-94af-c8b2c7260e66
@@ -22,52 +21,9 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    dd7f16e280181f17ddd1fe659c07d4aa: !Maze.Code.Game.LevelLaunch,Maze
-                        Id: 68a10d9e-70aa-4d9f-adc1-bbf4edebf839
+                    6a440117d8eef468183de32bee4a8ff1: !Maze.Code.Game.LevelLaunch,Maze
+                        Id: 6897c081-3666-4072-900c-cf374a3a7d84
                         LevelJsonUrl: Level/Config/level_1
-        -   Entity:
-                Id: 287e636d-0240-461c-a0a0-51bd8b47adbf
-                Name: Cube0
-                Components:
-                    66ab698db0b29439aba14a775130249c: !TransformComponent
-                        Id: e23b50c9-b448-48f7-819d-011f9cfe4e8a
-                        Position*: {X: 2.189291, Y: 0.0, Z: -1.7861587}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            930283f098ff3e7b325c71382348f180: ref!! 9e0534c0-1c89-4753-a642-fe004b1cc204
-                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
-                        Id: d01112c3-fb2d-4f45-9de2-825daaab500f
-                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
-                        IsShadowCaster: false
-                        ModelFlag: None
-                        Materials:
-                            7d9a78ed53b562a621b1fa3e1ec41113*~0: 39df7d51-6b13-45bb-a0c0-f4114faafc71:Material/Wall (2)
-                    8c0caf8f3ef3188fd56baf1c52fd174a: !StaticColliderComponent
-                        Id: 0b33b2fc-671b-4606-95a9-1c91e5e3a744
-                        CanCollideWith: DefaultFilter
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: false
-                        AlwaysUpdateNaviMeshCache: false
-                        ColliderShapes:
-                            57372b4e83a3e19ef1d34d914ec8e9a9: !SphereColliderShapeDesc
-                                Is2D: false
-                                Radius: 0.4
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-                    2662eec771d424741ba5d1285b45e0f8: !Maze.Code.Game.HitPointComponet,Maze
-                        Id: e2cd8722-5f81-43df-ba51-bd0d2d7e3684
-                        MaxHp: 1
-                    ef596ad50df420bca73214b341071dcb: !Maze.Code.Game.HurtComponet,Maze
-                        Id: eb06781e-8fd5-4758-b879-e35849cd975e
-            Base:
-                BasePartAsset: c09ff6bd-d0db-40b9-bd42-2339d6bb5665:Prefab/Barrier/Stone
-                BasePartId: b947a772-e0ab-46f0-b368-ff110df62026
-                InstanceId: 811e41ef-8677-49e8-a1bd-b5bce96c6248
         -   Entity:
                 Id: 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734
                 Name: Directional light
@@ -80,7 +36,6 @@ Hierarchy:
                         Children: {}
                     4782f8b20da9a6cbeed5f5b08d7a8bd4: !LightComponent
                         Id: 5ac01ca6-3048-48fe-831f-376b8ffc5792
-                        Enabled: false
                         Type: !LightDirectional
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
@@ -102,46 +57,10 @@ Hierarchy:
                         Children: {}
                     46ac743b585a071bb043647041e0a05e: !LightComponent
                         Id: 74615da0-da27-4488-ad6c-ca356d4c2d96
-                        Type: !LightPoint
+                        Type: !LightAmbient
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
-                            Radius: 2.0
-                            Shadow:
-                                Size: Small
-                                BiasParameters: {}
                         Intensity: 0.6
-        -   Entity:
-                Id: 5fc30ee7-3a33-480a-8c7c-dd29b868251d
-                Name: Stone
-                Components:
-                    efa3988aa96c10867d80c22568cd01d5: !TransformComponent
-                        Id: 5fda6d9a-f0fa-4898-9f60-148479c8d55f
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            ea33b14055863f21fabc751b4a82412e: ref!! e23b50c9-b448-48f7-819d-011f9cfe4e8a
-        -   Entity:
-                Id: 80950bbd-f46d-4e8c-b75f-9918632976d0
-                Name: Cube1
-                Components:
-                    66ab698db0b29439aba14a775130249c: !TransformComponent
-                        Id: 9e0534c0-1c89-4753-a642-fe004b1cc204
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 0.1, Y: 0.1, Z: 0.1}
-                        Children: {}
-                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
-                        Id: 68f94188-61df-456d-8af6-fe9c7280362b
-                        Model: e11654ce-effe-44f1-a983-a43169dcd75e:Ground
-                        IsShadowCaster: false
-                        ModelFlag: CellBarrier
-                        Materials:
-                            f66d6c0f3f1df4973111178e5e26a768~0: d4bf2d2f-7107-4467-a021-2638ee5c0caa:Material/WallCell
-            Base:
-                BasePartAsset: c09ff6bd-d0db-40b9-bd42-2339d6bb5665:Prefab/Barrier/Stone
-                BasePartId: 7f90d15e-6ef5-4ceb-a7ce-ad79c9105e7e
-                InstanceId: 811e41ef-8677-49e8-a1bd-b5bce96c6248
         -   Entity:
                 Id: e5d9657a-3b43-4960-aec2-a9f323b0883d
                 Name: Camera
@@ -159,9 +78,9 @@ Hierarchy:
                         OrthographicSize: 16.0
                         FarClipPlane: 100.0
                         Slot: e615423e-7a28-400d-8f42-7460ee751176
-                    2f168dc4f068d67fd3a6bc8cd33c7b73: !Maze.Code.Game.FollowPlayerComponent,Maze
-                        Id: b3be1bb1-267c-4da8-bcd2-d72b79680d07
+                    3578fadfade8738de604cad16c1eae2e: !Maze.Code.Game.FollowPlayerComponent,Maze
+                        Id: ea57d6ce-0fb8-4d12-97a0-14f5fbcf5206
                         TargetOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                         Distance: 10.0
-                        SmoothTime: 0.15
+                        SmoothTime: 0.3
                         MaxSpeed: 200.0
