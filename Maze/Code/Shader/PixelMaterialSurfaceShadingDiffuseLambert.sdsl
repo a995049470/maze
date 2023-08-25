@@ -1,0 +1,61 @@
+// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ & https://stride3d.net) and Silicon Studio Corp. (https://www.siliconstudio.co.jp)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+namespace Stride.Rendering.Materials
+{
+    /// <summary>
+    /// Performs a Lambert shading
+    /// </summary>
+    shader PixelMaterialSurfaceShadingDiffuseLambert<bool TIsEnergyConservative> : IMaterialSurfaceShading, Math
+    {
+        float Dither(int2 pos)
+        {
+            const float m[16] = 
+            {
+                 0,  8,  2, 10,
+                12,  4, 14,  6,
+                 3, 11,  1,  9,
+                15,  7, 13,  5
+            };
+
+            int id = pos.x % 4 + pos.y % 4 * 4;
+            return m[id] / 15;
+        }
+
+        float DitherStrength(float s, int2 screenCoords)
+        {
+            float levels = 8;
+            float3 current = floor(s * levels) / levels;
+            float next = ceil(s * levels) / levels;
+            float3 f = frac(s * levels);
+            float3 t = Dither(screenCoords);
+            float stepper = step(t, f);
+            return  current * (1 - stepper) + next * stepper;
+        }
+
+
+        stage stream float4 ShadingPosition : SV_Position;
+        override float3 ComputeDirectLightContribution()
+        {
+            var diffuseColor = streams.matDiffuseVisible;
+            if (TIsEnergyConservative)
+            {
+                // Approximation see: http://research.tri-ace.com/Data/course_note_practical_implementation_at_triace.pdf
+                diffuseColor *= (1 - streams.matSpecularVisible);
+            }
+            int2 screenCoords = streams.ShadingPosition.xy / 4.0f;
+            float s = streams.lightColorNdotL * streams.matDiffuseSpecularAlphaBlend.x;
+            return diffuseColor / PI * s;
+        }
+
+        override float3 ComputeEnvironmentLightContribution()
+        {
+            // TODO: Check how to factorize this with DirectLight
+            var diffuseColor = streams.matDiffuseVisible;
+            if (TIsEnergyConservative)
+            {
+                diffuseColor *= (1 - streams.matSpecularVisible);
+            }
+            return diffuseColor * streams.envLightDiffuseColor;
+        }
+    };
+}

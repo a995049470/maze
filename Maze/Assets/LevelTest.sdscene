@@ -23,7 +23,7 @@ Hierarchy:
                         Children: {}
                     6a440117d8eef468183de32bee4a8ff1: !Maze.Code.Game.LevelLaunch,Maze
                         Id: 6897c081-3666-4072-900c-cf374a3a7d84
-                        LevelJsonUrl: Level/Config/level_1
+                        LevelJsonUrl: Config/Level/level_1
         -   Entity:
                 Id: 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734
                 Name: Directional light
@@ -82,5 +82,5 @@ Hierarchy:
                         Id: ea57d6ce-0fb8-4d12-97a0-14f5fbcf5206
                         TargetOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                         Distance: 10.0
-                        SmoothTime: 0.3
+                        SmoothTime: 1.0
                         MaxSpeed: 200.0

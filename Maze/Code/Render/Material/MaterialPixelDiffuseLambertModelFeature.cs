@@ -22,7 +22,7 @@ namespace Maze.Code.Render
         public override void GenerateShader(MaterialGeneratorContext context)
         {
             var shaderBuilder = context.AddShading(this);
-            shaderBuilder.LightDependentSurface = new ShaderClassSource("MaterialSurfaceShadingDiffuseLambert", IsEnergyConservative);
+            shaderBuilder.LightDependentSurface = new ShaderClassSource("PixelMaterialSurfaceShadingDiffuseLambert", IsEnergyConservative);
         }
 
         public bool Equals(MaterialPixelDiffuseLambertModelFeature other)

@@ -9,6 +9,21 @@ namespace Stride.Rendering.Materials
     {
         compose IMaterialSurfaceShading surfaces[];
 
+        float Dither(int2 pos)
+        {
+            const float m[16] = 
+            {
+                 0,  8,  2, 10,
+                12,  4, 14,  6,
+                 3, 11,  1,  9,
+                15,  7, 13,  5
+            };
+
+            int id = pos.x % 4 + pos.y % 4 * 4;
+            return m[id] / 15;
+        }
+
+
         override void Compute()
         {
             // Before performing the shading for all lights, update the NormalVS with the latest normal
@@ -85,16 +100,26 @@ namespace Stride.Rendering.Materials
             }
 
             // Add Direct (*PI over hemisphere) and Environment Lighting
-            streams.shadingColor += directLightingContribution * PI + environmentLightingContribution;
+            int2 screenCoords = streams.ShadingPosition.xy;
+            
+            float3 c = directLightingContribution * PI + environmentLightingContribution;
+            //float levels = 8;     
+            //float3 current = floor(c * levels) / levels;
+            //float next = ceil(c * levels) / levels;
+            //float3 f = frac(c * levels);
+            //float3 t = Dither(screenCoords);
+            //f = step(t, f);
+            //c = current * (1 - f) + next * f;
+
+            streams.shadingColor = c.rgb;
             streams.shadingColorAlpha = streams.matDiffuse.a;
+            
 
             // Do any computations after lighting and shading, like discarding pixels for example.
             foreach (var surface in surfaces)
             {
                 surface.AfterLightingAndShading();
             }
-
-            streams.shadingColor = float4(1, 1, 0, 0);
         }
     };
 }

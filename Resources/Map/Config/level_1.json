@@ -1,6 +1,6 @@
 {
-    "monsterJsonUrl": "Level/Config/Global/monster",
-    "barrierJsonUrl": "Level/Config/Global/barrier",
+    "monsterJsonUrl": "Config/Level/Global/monster",
+    "barrierJsonUrl": "Config/Level/Global/barrier",
     "mapUrl": "Prefab/Map/map_21_21_23",
     "playerUrl": "Prefab/Player",
     "airWallUrl": "Prefab/AirWall",
