@@ -17,7 +17,6 @@ TemplateFolders: []
 RootAssets:
     - 05054482-7c52-4d6b-965d-f0fd66502ca0:MainScene
     - 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
-    - 1190d4b8-3609-4e88-9bba-5a440259d0b6:Prefab/Monster/Ghost
     - 22eb8902-a093-46cf-a80c-f548b5a07098:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Normal_Fish_Armature
     - 2a463b87-d55d-4f20-9a25-cf15c1388897:Prefab/AirWall
     - 2c57425a-d3e1-47d3-bbfb-8bfaddcb8780:Main
@@ -25,8 +24,9 @@ RootAssets:
     - 39a8ef4b-12ac-4d04-b223-c8b61a6b376c:Prefab/UI/UI_Main
     - 43a08188-ad84-4679-9759-f1549bd4c100:CubeMat
     - 4c60c77b-caa2-4329-88be-662562e49358:Prefab/Map/map_21_21_23
+    - 5848f2e1-7b3f-41da-8cbf-2de6a02a8d16:Prefab/Monster/Ghost
     - 5a34fac6-5fa1-4a11-ac32-97ddbaf3787a:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Fast_Fish_Armature
-    - 676bc869-3ef1-4dd0-bf6a-d21f1b89be6c:Config/dungeon
+    - 676bc869-3ef1-4dd0-bf6a-d21f1b89be6c:Config/Level/dungeon
     - 8884ed09-fdbc-43f7-88f0-267fbc6cfea0:Prefab/Monster/Fish
     - 8a8d90b8-76e7-4ebb-b517-2fa13f85c7bf:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Death_Fish_Armature
     - 9fa49447-cd00-43bf-9da3-1433718b8c5e:Font/SpriteFont

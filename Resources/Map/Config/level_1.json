@@ -16,12 +16,12 @@
     "minMonsterProbability": 0.15,
     "monster": [
         {
-            "name": "ghost",
-            "weight": 100
-        },
-        {
             "name": "fish",
             "weight": 200
+        },
+        {
+            "name": "ghost",
+            "weight": 100
         }
     ],
     "barrier": [

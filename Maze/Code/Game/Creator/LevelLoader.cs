@@ -1,26 +1,39 @@
-﻿
+
 using LitJson;
 using Stride.Core;
-using Stride.Core.Annotations;
 using Stride.Core.Mathematics;
-using Stride.Core.Serialization;
-using Stride.Core.Threading;
+using Stride.Core.Serialization.Contents;
 using Stride.Engine;
-using Stride.Physics;
-using Stride.Rendering;
 using System;
 using System.IO;
-using System.Threading;
 
 namespace Maze.Code.Game
 {
-
-    public class LevelLaunch : StartupScript
-    {
-        [DataMember(10)]
-        public string LevelJsonUrl;
+    public class LevelLoader
+    {   
+        private IServiceRegistry service;
+        private ContentManager content;
+        protected SceneSystem sceneSystem;
+        private string levelJsonUrl;
         private Int2 origin = Int2.Zero;
-       
+
+        public LevelLoader(IServiceRegistry _service, Int2 _origin, string jsonUrl)
+        {
+            sceneSystem = _service.GetSafeServiceAs<SceneSystem>();
+            content = _service.GetSafeServiceAs<ContentManager>();
+
+            origin = _origin;
+            levelJsonUrl = jsonUrl;
+        }
+        
+
+        public void LoadLevel()
+        {
+            var data = LoadJsonData(levelJsonUrl);
+            CreateLevel(data);
+        }
+
+
         private Vector3 IndexToPos(int id, int width, int height)
         {
             float x = origin.X + id % width;
@@ -41,7 +54,7 @@ namespace Maze.Code.Game
                 var unitData = unitDatas[i];
                 var weight = ((int)unitData[MapJsonKeys.weight]);
                 var url = configData[unitData[MapJsonKeys.name].ToString()][MapJsonKeys.url].ToString();
-                var prefab = Content.Load<Prefab>(url);
+                var prefab = content.Load<Prefab>(url);
                 res[i] = (weight, prefab);
             }
             return res;
@@ -62,14 +75,15 @@ namespace Maze.Code.Game
                     //static collider 不能在加入场景后在设置位置
                     res = unit.Item2.Instantiate()[0];
                     res.Transform.Position = pos;
-                    SceneSystem.SceneInstance.RootScene.Entities.Add(res);
+                    sceneSystem.SceneInstance.RootScene.Entities.Add(res);
+                    break;
                 }
             }
             return res;
         }
 
 
-        public void CreateLevel(JsonData data)
+        private void CreateLevel(JsonData data)
         {
             
             var monsterData = LoadJsonData(data[MapJsonKeys.monsterJsonUrl].ToString());
@@ -103,7 +117,7 @@ namespace Maze.Code.Game
                 {
                     var mapUrl = data[MapJsonKeys.mapUrl].ToString();
                     //创建地图预制体
-                    var mapPrefab = Content.Load<Prefab>(mapUrl);
+                    var mapPrefab = content.Load<Prefab>(mapUrl);
                     var map = mapPrefab.Instantiate()[0];
                     var s = MathF.Max(width, height) * Vector3.One;
                     //起点还得偏移半格才是左下角的位置
@@ -112,7 +126,7 @@ namespace Maze.Code.Game
                     center.Z += (height) * 0.5f;
                     map.Transform.Scale = s;
                     map.Transform.Position = center;
-                    SceneSystem.SceneInstance.RootScene.Entities.Add(map);
+                    sceneSystem.SceneInstance.RootScene.Entities.Add(map);
 
                 }
 
@@ -121,30 +135,39 @@ namespace Maze.Code.Game
                     //创建玩家
                     if (playerUrl != null)
                     {
-                        var playerPrefab = Content.Load<Prefab>(playerUrl);
+                        var playerPrefab = content.Load<Prefab>(playerUrl);
                         var player = playerPrefab.Instantiate()[0];
                         var pos = IndexToPos(start, width, height);
                         player.Transform.Position = pos;
                         player.Get<VelocityComponent>()?.UpdatePos(pos);
-                        SceneSystem.SceneInstance.RootScene.Entities.Add(player);
+                        sceneSystem.SceneInstance.RootScene.Entities.Add(player);
                     }
                 }
 
                 //创建空气墙
                 {
                     var airWallUrl = data[MapJsonKeys.airWallUrl].ToString();
-                    var wallPrefab = Content.Load<Prefab>(airWallUrl);
+                    var wallPrefab = content.Load<Prefab>(airWallUrl);
                     for (int i = 0; i < num; i++)
                     {
                         var grid = grids[i];
+                        
                         if (grid == MapCreator.Wall)
                         {
                             var pos = IndexToPos(i, width, height);
                             var wall = wallPrefab.Instantiate()[0];
                             wall.Transform.Position = pos;
-                            SceneSystem.SceneInstance.RootScene.Entities.Add(wall);
+                            sceneSystem.SceneInstance.RootScene.Entities.Add(wall);
                         }
                     };
+                    //往起点放个空气墙
+                    {
+                        var pos = IndexToPos(start, width, height);
+                        var wall = wallPrefab.Instantiate()[0];
+                        wall.Transform.Position = pos;
+                        sceneSystem.SceneInstance.RootScene.Entities.Add(wall);
+
+                    }
                 }
 
                 var units = MapCreator.CreateMapUnits(grids, width, height, start, unitSeed, minAreaGridNum, maxAreaGridNum, (float)monsterDensity, (float)minMonsterProbability);
@@ -180,26 +203,16 @@ namespace Maze.Code.Game
             }
         }
 
-       
-
-        public override void Start()
-        {
-            var data = LoadJsonData(LevelJsonUrl);
-            CreateLevel(data);
-        }
 
         private JsonData LoadJsonData(string url)
         {
             JsonData jsonData = null;
-            using (var stream = Content.OpenAsStream(url, Stride.Core.IO.StreamFlags.Seekable))
+            using (var stream = content.OpenAsStream(url, Stride.Core.IO.StreamFlags.Seekable))
             using (var streamReader = new StreamReader(stream))
             {
                 jsonData = JsonMapper.ToObject(streamReader.ReadToEnd());
             }
             return jsonData;
         }
-
-
-
     }
 }

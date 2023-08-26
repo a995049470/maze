@@ -7,7 +7,7 @@ using Stride.UI;
 
 namespace Maze.Code.Game
 {
-    public class UIManager
+    public class UIManager : IManager
     {
         private const string uiRootPrefabUrl = "Prefab/UI/UIRoot";
         private Panel root;
@@ -15,18 +15,18 @@ namespace Maze.Code.Game
         protected ContentManager content;
         protected SceneSystem sceneSystem;
 
-        public UIManager(IServiceRegistry _service)
+        public UIManager()
+        {
+            
+        }
+
+        public void Initialize(IServiceRegistry _service)
         {
             service = _service;
             content = _service.GetSafeServiceAs<ContentManager>();
             sceneSystem = _service.GetSafeServiceAs<SceneSystem>();
-        }
 
-        /// <summary>
-        /// 加载初始UI
-        /// </summary>
-        public void Initialize()
-        {
+            //加载初始UI
             var prefab = content.Load<Prefab>(uiRootPrefabUrl);
             var entity = prefab.Instantiate()[0];
             root = entity.Get<UIComponent>().Page.RootElement as Panel;

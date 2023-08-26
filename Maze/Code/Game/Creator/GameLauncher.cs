@@ -2,6 +2,7 @@ using Stride.Engine;
 
 namespace Maze.Code.Game
 {
+
     public class GameLauncher : StartupScript
     {
         public override void Start()
@@ -15,9 +16,15 @@ namespace Maze.Code.Game
         /// </summary>
         private void Initialize()
         {
-            var uiManager = new UIManager(Services);
-            uiManager.Initialize();
+            var uiManager = new UIManager();
+            var levelManager = new LevelManager();
+
             Services.AddService(uiManager);
+            Services.AddService(levelManager);
+
+            //先加服务, 再初始化服务
+            uiManager.Initialize(Services);
+            levelManager.Initialize(Services);
             
         }
     }

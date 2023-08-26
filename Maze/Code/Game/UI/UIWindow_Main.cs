@@ -1,3 +1,5 @@
+using Stride.Core;
+using Stride.Core.Mathematics;
 using Stride.UI;
 using Stride.UI.Controls;
 using Stride.UI.Events;
@@ -11,7 +13,16 @@ namespace Maze.Code.Game
     {
         protected override string Url => "Prefab/UI/UI_Main";
         protected override UIWindowFlag Flag => UIWindowFlag.Main;
+        private LevelManager levelManager;
+
+
         private Button btn_enter;
+
+        protected override void InitServices(IServiceRegistry _service)
+        {
+            base.InitServices(_service);
+            levelManager = _service.GetSafeServiceAs<LevelManager>();
+        }
 
         protected override void BindUIElements()
         {
@@ -22,7 +33,8 @@ namespace Maze.Code.Game
 
         private void OnEnterButtonDown(object sender, RoutedEventArgs args)
         {
-            log.Info("i am click");
+            levelManager.LoadLevel("Config/Level/level_1", Int2.Zero);
+            root.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Maze.Code.Game
             root = uiPage.RootElement;
         }
 
-        private void InitServices(IServiceRegistry _service)
+        protected virtual void InitServices(IServiceRegistry _service)
         {
             service = _service;
             content = _service.GetSafeServiceAs<ContentManager>();
