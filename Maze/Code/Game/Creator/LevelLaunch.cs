@@ -14,6 +14,7 @@ using System.Threading;
 
 namespace Maze.Code.Game
 {
+
     public class LevelLaunch : StartupScript
     {
         [DataMember(10)]

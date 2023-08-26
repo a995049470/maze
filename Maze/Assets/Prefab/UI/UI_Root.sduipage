@@ -1,0 +1,25 @@
+!UIPageAsset
+Id: fcc0f454-065a-4b2a-b1b7-a884865bd358
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! d0722ccb-cb51-4c99-8a83-2b63490fe3ce
+    Parts:
+        -   UIElement: !Grid
+                Id: d0722ccb-cb51-4c99-8a83-2b63490fe3ce
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 1280.0
+                Height: 720.0
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Root
+                Children: {}
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}

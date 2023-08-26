@@ -1,0 +1,8 @@
+!SpriteFont
+Id: 9fa49447-cd00-43bf-9da3-1433718b8c5e
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+FontSource: !SystemFontProvider
+    FontName: "微软雅黑"
+    Style: Regular
+FontType: !RuntimeRasterizedSpriteFontType {}

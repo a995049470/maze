@@ -9,21 +9,8 @@ Hierarchy:
         - ref!! e5d9657a-3b43-4960-aec2-a9f323b0883d
         - ref!! 30c10d94-eb64-4320-8b9a-b733958d9582
         - ref!! 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734
-        - ref!! 053d5c90-69d9-4c89-94af-c8b2c7260e66
+        - ref!! afbf1325-40e9-49b9-aa3b-3125dddfd58c
     Parts:
-        -   Entity:
-                Id: 053d5c90-69d9-4c89-94af-c8b2c7260e66
-                Name: Entity
-                Components:
-                    a9d3f793ecd31adfeb630df6c1b1fc8b: !TransformComponent
-                        Id: bf1093ab-ddda-440e-bd3e-536006181e1e
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    6a440117d8eef468183de32bee4a8ff1: !Maze.Code.Game.LevelLaunch,Maze
-                        Id: 6897c081-3666-4072-900c-cf374a3a7d84
-                        LevelJsonUrl: Config/Level/level_1
         -   Entity:
                 Id: 2b127a49-0b6b-4f1e-b3ca-d8ad451cb734
                 Name: Directional light
@@ -61,6 +48,18 @@ Hierarchy:
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
                         Intensity: 0.6
+        -   Entity:
+                Id: afbf1325-40e9-49b9-aa3b-3125dddfd58c
+                Name: GameLaunhcer
+                Components:
+                    a6ea26c90d79972fb2df95947adfd47b: !TransformComponent
+                        Id: 83a4481a-431d-482a-93f2-80d5bacbd9fb
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4b3553f9a9ab1cfed322c449ddda31fb: !Maze.Code.Game.GameLauncher,Maze
+                        Id: c0183439-1411-4b61-b79d-1c740d9954dc
         -   Entity:
                 Id: e5d9657a-3b43-4960-aec2-a9f323b0883d
                 Name: Camera

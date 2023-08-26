@@ -1,0 +1,23 @@
+!PrefabAsset
+Id: a37cb6f8-559a-40d6-9271-e0ed293db3eb
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! de90ba12-d213-4e5b-b118-bfb467656811
+    Parts:
+        -   Entity:
+                Id: de90ba12-d213-4e5b-b118-bfb467656811
+                Name: Entity
+                Components:
+                    1d79b69741e86348117d2b20620ce3eb: !TransformComponent
+                        Id: 5821c0fd-e06b-4715-80db-2287d68ca085
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    1408895be0ea1b417aebdf80f7616f0a: !UIComponent
+                        Id: f7d58291-4f09-4d44-845b-537f08645d83
+                        Page: fcc0f454-065a-4b2a-b1b7-a884865bd358:Prefab/UI/UI_Root
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.28, Y: 0.72, Z: 1.0}
