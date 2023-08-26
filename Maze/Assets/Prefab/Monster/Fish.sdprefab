@@ -16,6 +16,7 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 0.15, Y: 0.15, Z: 0.15}
                         Children:
+                            2b07191b41402cc8269fcfa5dcc074f2: ref!! b25fc953-efe8-4629-809f-b1a9fdf9d556
                             afc98dd9b97667c7117d53c3f1914c76: ref!! e797789d-e58c-442a-849c-ff3e8c0aa2d5
                     e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
                         Id: 872e5d77-e2e8-45b0-bf4b-796afc883dc6
@@ -65,6 +66,22 @@ Hierarchy:
                             e5eda10cd07cd0ed81088d6e0805e08d~Walk: f6f1cbb7-78c1-4660-b962-eb82688d1d3f:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Impulse_Fish_Armature
                     d10cb857432152d59318fba6c04fc510: !Maze.Code.Game.StateMachineComponent,Maze
                         Id: 24fbb137-8a6d-4b69-983c-e152bccc2417
+        -   Entity:
+                Id: 06f12ba1-300a-4388-aee5-acab7ba1c1f0
+                Name: UI_HpBar
+                Components:
+                    dab35c81763d7e8304e7cb7d68e6e752: !TransformComponent
+                        Id: b25fc953-efe8-4629-809f-b1a9fdf9d556
+                        Position: {X: 0.0, Y: 4.235917, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c2261893a0a366d2209d7ddc615e54b8: !UIComponent
+                        Id: 1c7e0d1c-94a4-479d-bd38-45079925d05f
+                        Page: 3d500ec1-150d-4cdf-9593-542bcf53c704:Prefab/UI/UI_HpBar
+                        IsFullScreen: false
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 3.5, Y: 0.5, Z: 1.0}
         -   Entity:
                 Id: a34c6455-87be-4398-84a5-5281e9fc47f7
                 Name: Cube

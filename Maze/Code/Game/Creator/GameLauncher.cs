@@ -16,7 +16,7 @@ namespace Maze.Code.Game
         /// </summary>
         private void Initialize()
         {
-            var uiManager = new UIManager();
+            var uiManager = Entity.GetOrCreate<UIManager>();
             var levelManager = new LevelManager();
 
             Services.AddService(uiManager);

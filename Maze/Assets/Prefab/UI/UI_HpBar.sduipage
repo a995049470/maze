@@ -1,0 +1,36 @@
+!UIPageAsset
+Id: 3d500ec1-150d-4cdf-9593-542bcf53c704
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 256.0, Y: 32.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! 28539d8d-772d-46e3-9293-bfd0e4b04479
+    Parts:
+        -   UIElement: !ScrollBar
+                Id: 00069556-12a4-4c67-b297-49e2b328cef3
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 255}
+                Width: 256.0
+                Height: 32.0
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                BarColor: {R: 117, G: 255, B: 0, A: 255}
+        -   UIElement: !Grid
+                Id: 28539d8d-772d-46e3-9293-bfd0e4b04479
+                DependencyProperties: {}
+                BackgroundColor: {R: 255, G: 255, B: 255, A: 255}
+                Width: 256.0
+                Height: 32.0
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    968cd036c854fcfcd2229c6324fed326: !ScrollBar ref!! 00069556-12a4-4c67-b297-49e2b328cef3
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
