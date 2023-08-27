@@ -13,11 +13,17 @@ namespace Maze.Code.Game
         public int CurrentHp;
         [DataMember(10)]
         public int MaxHp = 1;
+        
 
         public override void Start()
         {
             base.Start();
             CurrentHp = MaxHp;
+        }
+
+        public float GetCurrentHitPointPercent()
+        {
+            return System.Math.Clamp((float)CurrentHp / MaxHp, 0, 1);
         }
 
     }

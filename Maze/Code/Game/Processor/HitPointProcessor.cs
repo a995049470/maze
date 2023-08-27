@@ -8,7 +8,6 @@ namespace Maze.Code.Game
         HitPointComponet HitPoint;
     }
 
-
     public class HitPointProcessor : GameEntityProcessor<HitPointComponet, HitPointData>
     {
         protected override HitPointData GenerateComponentData([NotNull] Entity entity, [NotNull] HitPointComponet component)

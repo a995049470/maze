@@ -1,0 +1,54 @@
+!UIPageAsset
+Id: e8993a16-adcb-4eb4-a560-7b48e241364c
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 256.0, Y: 32.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! ab648b05-5c30-482c-9a01-72842747587a
+    Parts:
+        -   UIElement: !Slider
+                Id: 91e343ff-ab45-484e-b9a2-a6a9abcf6769
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 5
+                CanBeHitByUser: false
+                Width: 256.0
+                Height: 32.0
+                HorizontalAlignment: Stretch
+                VerticalAlignment: Stretch
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: slider_hp
+                Value: 1.0
+                Step: 0.01
+                TrackForegroundImage: !SpriteFromSheet
+                    Sheet: 058549c7-e36f-4997-8d23-f2566c85cd66:Texture/UI/SpriteSheet
+                TrackStartingOffsets: {X: 0.0, Y: 0.0}
+                MouseOverThumbImage: !SpriteFromSheet
+                    Sheet: null
+                    CurrentFrame: 6
+                TickImage: !SpriteFromSheet
+                    Sheet: null
+                    CurrentFrame: 8
+                TickOffset: 13.0
+                IsDirectionReversed: true
+        -   UIElement: !Grid
+                Id: ab648b05-5c30-482c-9a01-72842747587a
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 256.0
+                Height: 32.0
+                DepthAlignment: Stretch
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    cf96d1499d29c13ffee3154b93ab4dc2: !Slider ref!! 91e343ff-ab45-484e-b9a2-a6a9abcf6769
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}

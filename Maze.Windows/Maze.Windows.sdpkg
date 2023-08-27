@@ -22,6 +22,7 @@ RootAssets:
     - 2c57425a-d3e1-47d3-bbfb-8bfaddcb8780:Main
     - 30ebec82-dbed-4e07-b815-fce4db1036b9:LevelTest
     - 39a8ef4b-12ac-4d04-b223-c8b61a6b376c:Prefab/UI/UI_Main
+    - 3d500ec1-150d-4cdf-9593-542bcf53c704:Prefab/UI/UI_EnemyHpBar
     - 43a08188-ad84-4679-9759-f1549bd4c100:CubeMat
     - 4c60c77b-caa2-4329-88be-662562e49358:Prefab/Map/map_21_21_23
     - 5848f2e1-7b3f-41da-8cbf-2de6a02a8d16:Prefab/Monster/Ghost
@@ -36,6 +37,7 @@ RootAssets:
     - c09ff6bd-d0db-40b9-bd42-2339d6bb5665:Prefab/Barrier/Stone
     - c6ab7783-031d-456d-825b-c7016b44a029:Config/Level/Global/barrier
     - ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
+    - e8993a16-adcb-4eb4-a560-7b48e241364c:Prefab/UI/UI_PlayerHpBar
     - f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell
     - f6f1cbb7-78c1-4660-b962-eb82688d1d3f:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Impulse_Fish_Armature
     - f84f9dfb-7579-4013-bab3-2311f9817aab:Tile/dungeon

@@ -76,7 +76,7 @@ namespace Maze.Code.Game
                             var to = pos - (attackRange + 0.5f) * Vector3.UnitZ;
                             simulation.RaycastPenetrating(from, to, list);
                         }
-                        //可能重复给予伤害的问题
+                        //可能存在重复给予伤害的问题
                         foreach (var hitResult in list)
                         {
                             if (!hitResult.Succeeded) continue;

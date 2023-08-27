@@ -1,0 +1,22 @@
+!SpriteSheet
+Id: 058549c7-e36f-4997-8d23-f2566c85cd66
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Type: UI
+ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+Packing: {}
+Sprites:
+    4c476186da394a6928b918996a577d95:
+        Source: !file ../../../../Resources/Texture/green.png
+        Name: green
+        TextureRegion: {X: 0, Y: 0, Width: 32, Height: 32}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    cfa2136efb26357ee595158a9389038d:
+        Source: !file ../../../../Resources/Texture/red.png
+        Name: red
+        TextureRegion: {X: 0, Y: 0, Width: 32, Height: 32}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}

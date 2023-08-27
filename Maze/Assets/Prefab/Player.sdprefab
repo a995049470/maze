@@ -7,6 +7,22 @@ Hierarchy:
         - ref!! 9ecada88-4a48-4842-93be-d8a8d283b41d
     Parts:
         -   Entity:
+                Id: 437919d8-52c8-42af-9737-2253591f94b3
+                Name: ui_hp
+                Components:
+                    91cf3e06b8fd1bf6fdb37a9dd1ee0cb7: !TransformComponent
+                        Id: cd920e59-d6b0-41c8-96e2-c71f7569a4ed
+                        Position: {X: 0.0, Y: 1.0386091, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    ef6c981a7ba0c1bff0b10b0012836989: !UIComponent
+                        Id: 877bb62c-4529-48ef-b7a7-45330111a2f9
+                        Page: e8993a16-adcb-4eb4-a560-7b48e241364c:Prefab/UI/UI_PlayerHpBar
+                        IsFullScreen: false
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 6.0, Y: 3.0, Z: 1.0}
+        -   Entity:
                 Id: 4f6d3b8c-1cb7-4575-a42a-62e836024c89
                 Name: Cube
                 Components:
@@ -35,6 +51,7 @@ Hierarchy:
                         Scale: {X: 0.5, Y: 0.5, Z: 0.5}
                         Children:
                             afc98dd9b97667c7117d53c3f1914c76: ref!! fc8f03c1-b98a-447f-a24a-38f4cb3389d6
+                            fd89e5330040dcd0668c0052004186d3: ref!! cd920e59-d6b0-41c8-96e2-c71f7569a4ed
                     e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
                         Id: 5adb94d0-ef56-434e-86bd-bf50cd89c1cb
                         Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
@@ -56,7 +73,7 @@ Hierarchy:
                         Id: aa99ae90-5541-4bf1-a76b-6d34b71eaa12
                     cfab4c9cf549776bed87c13f9b34ba5b: !Maze.Code.Game.HitPointComponet,Maze
                         Id: 08ebf6f5-7a98-4e83-b66b-fe4fc65e4624
-                        MaxHp: 1
+                        MaxHp: 3
                     f87ce83ef34fd5466771fba9df1b73c8: !RigidbodyComponent
                         Id: c65f6a24-42c6-42ca-881b-e1657bec8b85
                         CanCollideWith: DefaultFilter
@@ -79,3 +96,5 @@ Hierarchy:
                                 Is2D: false
                                 Radius: 0.4
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                    1ddcfb1216b6acd76f848c902b96087c: !Maze.Code.Game.HitPointBarComponent,Maze
+                        Id: b812f719-fafb-4870-b036-3e5f497f26b6
