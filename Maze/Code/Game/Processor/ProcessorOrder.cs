@@ -2,7 +2,10 @@
 {
     public static class ProcessorOrder
     {
-
+        /// <summary>
+        /// 最早执行, 用以回收oneShot组件
+        /// </summary>
+        public const int OneShot = -1000;
         /// <summary>
         /// 计算好攻击数值
         /// </summary>

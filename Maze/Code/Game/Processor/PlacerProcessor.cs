@@ -22,7 +22,7 @@ namespace Maze.Code.Game
     public class PlacerProcessor : GameEntityProcessor<PlacerComponent, PlacerData>
     {
         private Simulation simulation;
-        public Dictionary<Guid, TransformComponent> PlacerTransformDic = new Dictionary<Guid, TransformComponent>();
+        public Dictionary<Guid, PlacerComponent> PlacermDic = new Dictionary<Guid, PlacerComponent>();
         private BombProcessor bombProcessor;
         public PlacerProcessor() : base(typeof(TransformComponent))
         {
@@ -38,7 +38,7 @@ namespace Maze.Code.Game
             }
         }
 
-        private void PlaceItem(PlacerData data)
+        private void PlaceItem(PlacerData data, int frame)
         {
             //没有正在放置的物体
             int bombCount = GetBombCount(data);
@@ -58,19 +58,13 @@ namespace Maze.Code.Game
                     data.Placer.LastPlacePos = placePos;
                     cacheActions.Add(() =>
                     {
-                        var owner = new PlaceItemOwnerComponent()
+                        data.Placer.CurrentPlaceItemCount ++;
+                        var owner = new OwnerComponent(frame, -1)
                         {
                             OwnerId = data.Transform.Id
                         };
                         entity.Add(owner);
                         sceneSystem.SceneInstance.RootScene.Entities.Add(entity);
-                        //var cs = entity.Components;
-                        //var str = "";
-                        //foreach (var item in cs)
-                        //{
-                        //    str += "  " + item.ToString();
-                        //}
-                        //log.Info(str);
                     });                  
                 }
             }
@@ -86,7 +80,7 @@ namespace Maze.Code.Game
                 if (data.Placer.IsReadyPlace)
                 {
                     data.Placer.IsReadyPlace = false;
-                    PlaceItem(data);
+                    PlaceItem(data, time.FrameCount);
                 }
                 else
                 {
@@ -102,7 +96,7 @@ namespace Maze.Code.Game
         private int GetBombCount(PlacerData data)
         {
             int count = 0;
-            count = bombProcessor?.GetOwnerBombCount(data.Transform.Id) ?? 0;
+            count = data.Placer.CurrentPlaceItemCount;
             return count;
         }
 
@@ -123,13 +117,13 @@ namespace Maze.Code.Game
         protected override void OnEntityComponentAdding(Entity entity, [NotNull] PlacerComponent component, [NotNull] PlacerData data)
         {
             base.OnEntityComponentAdding(entity, component, data);
-            PlacerTransformDic[data.Transform.Id] = data.Transform;
+            PlacermDic[data.Transform.Id] = component;
         }
 
         protected override void OnEntityComponentRemoved(Entity entity, [NotNull] PlacerComponent component, [NotNull] PlacerData data)
         {
             base.OnEntityComponentRemoved(entity, component, data);
-            PlacerTransformDic.Remove(data.Transform.Id);
+            PlacermDic.Remove(data.Transform.Id);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Maze.Code.Game
                     data.HitPoint.CurrentHp -= data.Hurt.HurtValue;
                     //log.Info($"case {data.Hurt.HurtValue} point damage, remain {data.HitPoint.CurrentHp} hitpoint");
                     data.Hurt.HurtValue = 0;
-                    //死亡表现
+                    //Test:死亡表现
                     if(data.HitPoint.CurrentHp <= 0)
                     {                   
                         //使用移除测试死亡表现...

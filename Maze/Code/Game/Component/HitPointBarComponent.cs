@@ -23,7 +23,7 @@ namespace Maze.Code.Game
             {
                 slider = Entity.FindChild(DeafultConfig.UI_HITPOINT).Get<UIComponent>().Page.RootElement.FindName(DeafultConfig.SLIDER_HITPOINT) as Slider;
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 isSuccess = false;
             }

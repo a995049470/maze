@@ -15,19 +15,19 @@ namespace Maze.Code.Game
     {
         public BombComponent Bomb;
         public TransformComponent Transform;
-        public PlaceItemOwnerComponent Owner;
+        public OwnerComponent Owner;
     }
 
     public class BombProcessor : GameEntityProcessor<BombComponent, BombData>
     {
         private readonly static Vector3 farPos = Vector3.One * 65536;
-        public Dictionary<Guid, int> OwnerBombCountDic = new Dictionary<Guid, int>();
+       
         
         private ThreadSafePool<FastCollection<HitResult>> hitResutlListPool = new ThreadSafePool<FastCollection<HitResult>>();
         private PlacerProcessor placerProcessor;
         private Simulation simulation;
          
-        public BombProcessor() : base(typeof(TransformComponent), typeof(PlaceItemOwnerComponent))
+        public BombProcessor() : base(typeof(TransformComponent), typeof(OwnerComponent))
         {      
             Order = ProcessorOrder.Attack;
         }
@@ -100,8 +100,9 @@ namespace Maze.Code.Game
 
         private Vector3 GetOwnerGridPosition(BombData data)
         {
-            TransformComponent ownerTransform = null;
-            placerProcessor?.PlacerTransformDic.TryGetValue(data.Owner.OwnerId, out ownerTransform);
+            PlacerComponent placer = null;
+            placerProcessor?.PlacermDic.TryGetValue(data.Owner.OwnerId, out placer);
+            var ownerTransform = placer?.Entity?.Transform;
             
             var ownerGridPos = ownerTransform == null ? farPos : PosToGridCenter(ownerTransform.Position);
             return ownerGridPos;
@@ -113,7 +114,7 @@ namespace Maze.Code.Game
             {
                 Bomb = component,            
                 Transform = entity.Get<TransformComponent>(),
-                Owner = entity.Get<PlaceItemOwnerComponent>()
+                Owner = entity.Get<OwnerComponent>()
             };
         }
 
@@ -121,28 +122,23 @@ namespace Maze.Code.Game
         {
             return associatedData.Bomb == component &&
                 associatedData.Transform == entity.Get<TransformComponent>() &&
-                associatedData.Owner == entity.Get<PlaceItemOwnerComponent>();
+                associatedData.Owner == entity.Get<OwnerComponent>();
         }
 
         protected override void OnEntityComponentAdding(Entity entity, [NotNull] BombComponent component, [NotNull] BombData data)
         {
             base.OnEntityComponentAdding(entity, component, data);
-            if (!OwnerBombCountDic.TryGetValue(data.Owner.OwnerId, out var num)) num = 0;
-            num++;
-            OwnerBombCountDic[data.Owner.OwnerId] = num;
         }
 
         protected override void OnEntityComponentRemoved(Entity entity, [NotNull] BombComponent component, [NotNull] BombData data)
         {
             base.OnEntityComponentRemoved(entity, component, data);
-            OwnerBombCountDic[data.Owner.OwnerId]--;
+           if(placerProcessor != null && placerProcessor.PlacermDic.TryGetValue(data.Owner.OwnerId, out var placer))
+            {
+                placer.CurrentPlaceItemCount --;
+            }
         }
 
-        public int GetOwnerBombCount(Guid id)
-        {
-            if(!OwnerBombCountDic.TryGetValue(id, out var bombCount)) bombCount = 0;
-            return bombCount;
-
-        }
+       
     }
 }
