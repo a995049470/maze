@@ -38,6 +38,7 @@ namespace Maze.Code.Game
             float delatTime = (float)time.Elapsed.TotalSeconds;
             simulation = GetSimulation();
             placerProcessor = placerProcessor ?? GetProcessor<PlacerProcessor>();
+            //物理检测不能多线程操作
             foreach(var kvp in ComponentDatas)
             {
                 var data = kvp.Value;
@@ -101,8 +102,13 @@ namespace Maze.Code.Game
         private Vector3 GetOwnerGridPosition(BombData data)
         {
             PlacerComponent placer = null;
-            placerProcessor?.PlacermDic.TryGetValue(data.Owner.OwnerId, out placer);
-            var ownerTransform = placer?.Entity?.Transform;
+            TransformComponent ownerTransform = null;
+            if(placerProcessor != null)
+            {
+                placerProcessor?.PlacermDic.TryGetValue(data.Owner.OwnerId, out placer);
+                ownerTransform = placer?.Entity?.Transform;
+
+            }
             
             var ownerGridPos = ownerTransform == null ? farPos : PosToGridCenter(ownerTransform.Position);
             return ownerGridPos;

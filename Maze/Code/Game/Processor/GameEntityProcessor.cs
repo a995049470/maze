@@ -34,6 +34,7 @@ namespace Maze.Code.Game
         protected GameEntityProcessor([NotNull] params Type[] requiredAdditionalTypes)
             : base(requiredAdditionalTypes)
         {
+
         }
 
         
@@ -44,12 +45,15 @@ namespace Maze.Code.Game
 
         protected override void OnSystemAdd()
         {
-            game = Services.GetSafeServiceAs<IGame>();
-            input = Services.GetSafeServiceAs<InputManager>();       
-            sceneSystem = Services.GetSafeServiceAs<SceneSystem>();
-            content = Services.GetSafeServiceAs<ContentManager>();
-            var className = GetType().FullName;
-            log = GlobalLogger.GetLogger(className);
+            game = game ?? Services.GetSafeServiceAs<IGame>();
+            input = input ?? Services.GetSafeServiceAs<InputManager>();       
+            sceneSystem = sceneSystem ?? Services.GetSafeServiceAs<SceneSystem>();
+            content = content ?? Services.GetSafeServiceAs<ContentManager>();
+            if(log == null)
+            {
+                var className = GetType().FullName;
+                log = GlobalLogger.GetLogger(className);
+            }
         }
 
         /// <summary>

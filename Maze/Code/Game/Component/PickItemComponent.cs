@@ -5,12 +5,13 @@ namespace Maze.Code.Game
 {
     //标记捡到的物体id
     [DataContract]
-    public class PickItemComponent : OneShotEntityComponent
+    public class PickedItemComponent : OneShotComponent
     {
         public Guid ItemId;
 
-        public PickItemComponent(int bornFrame, int life = -1) : base(bornFrame, life)
+        public PickedItemComponent(int bornFrame, int life = -1) : base(bornFrame, life)
         {
+
         }
     }
 
