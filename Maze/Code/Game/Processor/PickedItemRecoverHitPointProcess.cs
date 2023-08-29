@@ -20,30 +20,28 @@ namespace Maze.Code.Game
             Order = ProcessorOrder.PickedItemTakeEffect;
         }
 
-        protected override void OnSystemAdd()
-        {
-            base.OnSystemAdd();
-            pickerProcess = pickerProcess ?? GetProcessor<PickerProcess>();
-        }
+      
 
         public override void Update(GameTime time)
         {
             base.Update(time);
-            if(pickerProcess == null) return;
-            Dispatcher.ForEach(ComponentDatas, kvp =>
+            pickerProcess = pickerProcess ?? GetProcessor<PickerProcess>();
+            if (pickerProcess == null) return;
+            foreach(var kvp in ComponentDatas)
             {
                 var data = kvp.Value;
-                var ownerId = data.Owner.Id;
+                var ownerId = data.Owner.OwnerId;
                 if(pickerProcess.PikerDic.TryGetValue(ownerId, out var picker))
                 {
                     var hurt = picker.Entity.Get<HurtComponet>();
                     //回血
                     if(hurt != null)
                     {
+                        log.Info($"recover hp : {data.RecoverHitPoint.Value}");
                         Interlocked.Add(ref hurt.HurtValue, -data.RecoverHitPoint.Value);
                     }    
                 }
-            });
+            };
         }
 
         protected override PickedItemRecoverHitPointData GenerateComponentData([NotNull] Entity entity, [NotNull] RecoverHitPointComponent component)

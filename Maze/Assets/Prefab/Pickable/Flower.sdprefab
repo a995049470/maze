@@ -1,0 +1,32 @@
+!PrefabAsset
+Id: 208145b6-d581-434f-98f8-e1f36bbdc7b0
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 1dfd31ad-968e-45c9-a7ee-ae635b85de8b
+    Parts:
+        -   Entity:
+                Id: 1dfd31ad-968e-45c9-a7ee-ae635b85de8b
+                Name: Cube0
+                Components:
+                    66ab698db0b29439aba14a775130249c: !TransformComponent
+                        Id: f6178b21-cb34-46e6-8a7f-62c5f9d021e6
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.6, Y: 0.6, Z: 0.6}
+                        Children: {}
+                    e25715f29e4cfb89e6ee426e7841e56b: !ModelComponent
+                        Id: 3ccf4c46-22fe-4538-ad44-b5c60519edaf
+                        Model: d57d5056-adf9-4cd4-96f9-2febf7288249:Cube
+                        IsShadowCaster: false
+                        ModelFlag: None
+                        Materials:
+                            7d9a78ed53b562a621b1fa3e1ec41113~0: 39df7d51-6b13-45bb-a0c0-f4114faafc71:Material/Wall (2)
+                    4f52a56c4d770a6a5cda6741820fc6dc: !Maze.Code.Game.PickableComponent,Maze
+                        Id: 7c37e72d-04ee-451e-b3ed-4fb1a36fdc16
+                    c11b46354fe5a6352261655f5c239e39: !Maze.Code.Game.RecoverHitPointComponent,Maze
+                        Id: 42fe46a8-0a59-4be4-821e-bf4bcfeecbc4
+                        Value: 1
+                    0ba319b245f775996cce70b0c02f781a: !Maze.Code.Game.DestoryComponent,Maze
+                        Id: 4dd2c7fe-6b25-40f5-9e81-84bb3cbc2bb8

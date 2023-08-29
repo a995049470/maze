@@ -18,6 +18,11 @@ namespace Maze.Code.Game
         public Dictionary<Guid, PickerComponent> PikerDic = new Dictionary<Guid, PickerComponent>();
         private PickableProcessor pickableProcessor;
 
+        public PickerProcess() : base()
+        {
+            Order = ProcessorOrder.Pick;
+        }
+
         protected override PickerData GenerateComponentData([NotNull] Entity entity, [NotNull] PickerComponent component)
         {
             return new PickerData()
@@ -26,16 +31,13 @@ namespace Maze.Code.Game
             };
         }
 
-        protected override void OnSystemAdd()
-        {
-            base.OnSystemAdd();
-            pickableProcessor = pickableProcessor ?? GetProcessor<PickableProcessor>();
-        }
+       
 
         public override void Update(GameTime time)
         {
             base.Update(time);
-            if(pickableProcessor == null) return;
+            pickableProcessor = pickableProcessor ?? GetProcessor<PickableProcessor>();
+            if (pickableProcessor == null) return;
             var currentFrame = time.FrameCount;
             //TODO:控制更新的频率
             //一格不允许同时存在两个角色
@@ -43,6 +45,7 @@ namespace Maze.Code.Game
             Dispatcher.ForEach(ComponentDatas, kvp =>
             {
                 var data = kvp.Value;
+                var picker = kvp.Key;;
                 var position = data.Picker.Entity.Transform.Position;
                 bool isPick = pickableProcessor.TryGetPickableItemList(position, out var list);
                 if(isPick)
@@ -53,7 +56,10 @@ namespace Maze.Code.Game
                         var owner = entity.Get<OwnerComponent>();
                         if(owner == null)
                         {
-                            owner = new OwnerComponent(currentFrame, 1);
+                            owner = new OwnerComponent(currentFrame, 1)
+                            {
+                                OwnerId = picker.Id,
+                            };
                             entity.Add(owner);
                         }
                     }

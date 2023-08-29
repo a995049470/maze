@@ -98,3 +98,5 @@ Hierarchy:
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                     1ddcfb1216b6acd76f848c902b96087c: !Maze.Code.Game.HitPointBarComponent,Maze
                         Id: b812f719-fafb-4870-b036-3e5f497f26b6
+                    31389ba057c3c42fc630b412da675ee5: !Maze.Code.Game.PickerComponent,Maze
+                        Id: 95b44ded-9846-4fd1-8676-cc22d8984d3c

@@ -88,6 +88,7 @@ namespace Maze.Code.Game
             
             var monsterData = LoadJsonData(data[MapJsonKeys.monsterJsonUrl].ToString());
             var barrierData = LoadJsonData(data[MapJsonKeys.barrierJsonUrl].ToString());
+            var pickbleData = LoadJsonData(data[MapJsonKeys.pickableJsonUrl].ToString());
             int width, height, start, mapSeed, minAreaGridNum, maxAreaGridNum;
             double monsterDensity, minMonsterProbability;
             int unitSeed;
@@ -177,9 +178,12 @@ namespace Maze.Code.Game
                     var unitRandom = new Random(((int)data[MapJsonKeys.prefabSeed]));
                     var barrierPrefabs = GetUnitPrefabs(data, MapJsonKeys.barrier, barrierData);
                     var monsterPrefabs = GetUnitPrefabs(data, MapJsonKeys.monster, monsterData);
+                    var pickablePrefabs = GetUnitPrefabs(data, MapJsonKeys.pickable, 
+                    pickbleData);
 
                     var isCreateBarrier = barrierPrefabs.Length > 0;
                     var isCreateMonster = monsterPrefabs.Length > 0;
+                    var isCreatePickable = pickablePrefabs.Length > 0;
 
                     for (int i = 0; i < num; i++)
                     {
@@ -196,6 +200,12 @@ namespace Maze.Code.Game
                             var monster = InstantiateRandomUnit(monsterPrefabs, unitRandom, pos);
                             monster.Get<VelocityComponent>()?.UpdatePos(pos);
                            
+                        }
+                        //测试道具的生成
+                        if(isCreatePickable && (unit & MapCreator.MonsterUnit) > 0)
+                        {
+                            var pos = IndexToPos(i, width, height);
+                            InstantiateRandomUnit(pickablePrefabs, unitRandom, pos);
                         }
                     }
                 }

@@ -9,8 +9,9 @@ namespace Maze.Code.Game
     [DataContract]
     public class HitPointComponet : StartupScript
     {
+        private int currentHp;
         [DataMemberIgnore]
-        public int CurrentHp;
+        public int CurrentHp { get => currentHp; set => currentHp = System.Math.Clamp(value, 0, MaxHp); }
         [DataMember(10)]
         public int MaxHp = 1;
         

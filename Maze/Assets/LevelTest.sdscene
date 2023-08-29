@@ -81,5 +81,5 @@ Hierarchy:
                         Id: ea57d6ce-0fb8-4d12-97a0-14f5fbcf5206
                         TargetOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                         Distance: 10.0
-                        SmoothTime: 0.2
-                        MaxSpeed: 20.0
+                        SmoothTime: 0.25
+                        MaxSpeed: 10.0

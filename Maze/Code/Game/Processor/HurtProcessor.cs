@@ -24,8 +24,9 @@ namespace Maze.Code.Game
             Dispatcher.ForEach(ComponentDatas, kvp =>
             {
                 var data = kvp.Value;
-                if(data.Hurt.HurtValue > 0)
+                if(data.Hurt.HurtValue != 0)
                 {
+                    
                     data.HitPoint.CurrentHp -= data.Hurt.HurtValue;
                     //log.Info($"case {data.Hurt.HurtValue} point damage, remain {data.HitPoint.CurrentHp} hitpoint");
                     data.Hurt.HurtValue = 0;

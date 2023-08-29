@@ -17,6 +17,11 @@ namespace Maze.Code.Game
         private int maxDieFrame = -1;
         private FastCollection<OneShotComponent> waitDelList = new FastCollection<OneShotComponent>();
 
+        public OneShotProcessor() : base()
+        {
+            Order = ProcessorOrder.OneShot;
+        }
+
         public override void Update(GameTime time)
         {
             base.Update(time);
@@ -34,6 +39,7 @@ namespace Maze.Code.Game
                 {
                     oneShot.Entity.Remove(oneShot);
                 }     
+                waitDelList.Clear();
             }
         }
 

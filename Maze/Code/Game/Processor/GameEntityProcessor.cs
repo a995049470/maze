@@ -100,7 +100,7 @@ namespace Maze.Code.Game
         {
             if (entity == null) return;
             var success = entity.Scene.Entities.Remove(entity);
-            if (!success) RemoveEntity(entity.GetParent());
+            if (!success && tryRemoveParent) RemoveEntity(entity.GetParent());
         }
       
     }

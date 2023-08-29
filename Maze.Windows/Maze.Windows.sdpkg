@@ -17,6 +17,7 @@ TemplateFolders: []
 RootAssets:
     - 05054482-7c52-4d6b-965d-f0fd66502ca0:MainScene
     - 0b7430b1-85e2-40a4-ba25-ebf63d542f5e:Tile/SpriteSheet
+    - 208145b6-d581-434f-98f8-e1f36bbdc7b0:Prefab/Pickable/Flower
     - 22eb8902-a093-46cf-a80c-f548b5a07098:Model/Monster/Zebra_Clown_Fish/animation_Fish_Armature_Swimming_Normal_Fish_Armature
     - 2a463b87-d55d-4f20-9a25-cf15c1388897:Prefab/AirWall
     - 2c57425a-d3e1-47d3-bbfb-8bfaddcb8780:Main
@@ -36,6 +37,7 @@ RootAssets:
     - b76080ae-c612-4fe0-a188-cdaed1ad0ba7:Config/Level/level_1
     - c09ff6bd-d0db-40b9-bd42-2339d6bb5665:Prefab/Barrier/Stone
     - c6ab7783-031d-456d-825b-c7016b44a029:Config/Level/Global/barrier
+    - c6ae05da-428e-487e-820e-402c31665808:Config/Level/Global/pickable
     - ca8ade4d-1b34-414c-9279-88381f3ca340:Prefab/Player
     - e8993a16-adcb-4eb4-a560-7b48e241364c:Prefab/UI/UI_PlayerHpBar
     - f1210038-83ac-4451-93e0-e477384ed114:Material/PlayerCell

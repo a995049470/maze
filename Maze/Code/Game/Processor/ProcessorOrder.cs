@@ -6,7 +6,6 @@
         /// 最早执行, 用以回收oneShot组件
         /// </summary>
         public const int OneShot = -1000;
-
         /// <summary>
         /// 计算好攻击数值
         /// </summary>
@@ -27,14 +26,14 @@
         /// 角色真正收到伤害
         /// </summary>
         public const int Hurt = 1000;
-
-
+        /// <summary>
+        /// 拾取物体
+        /// </summary>
+        public const int Pick = 1500;        
         /// <summary>
         /// 被捡到的物体生效
         /// </summary>
         public const int PickedItemTakeEffect = 2000;
-
-
         /// <summary>
         /// 捡到的物体进入销毁流程
         /// </summary>

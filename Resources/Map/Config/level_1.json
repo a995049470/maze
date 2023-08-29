@@ -1,6 +1,7 @@
 {
     "monsterJsonUrl": "Config/Level/Global/monster",
     "barrierJsonUrl": "Config/Level/Global/barrier",
+    "pickableJsonUrl": "Config/Level/Global/pickable",
     "mapUrl": "Prefab/Map/map_21_21_23",
     "playerUrl": "Prefab/Player",
     "airWallUrl": "Prefab/AirWall",
@@ -27,6 +28,12 @@
     "barrier": [
         {
             "name": "stone",
+            "weight": 100
+        }
+    ],
+    "pickable": [
+        {
+            "name": "flower",
             "weight": 100
         }
     ]
