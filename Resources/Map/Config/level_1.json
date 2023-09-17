@@ -13,28 +13,33 @@
     "mapSeed": 23,
     "minAreaGridNum": 3,
     "maxAreaGridNum": 9,
-    "monsterDensity": 0.25,
-    "minMonsterProbability": 0.15,
+    "monsterDensity": 0.15,
     "monster": [
         {
             "name": "fish",
-            "weight": 200
+            "weight": 200,
+            "weightCut" : 200
         },
         {
             "name": "ghost",
-            "weight": 100
+            "weight": 100,
+            "weightCut" : 0
         }
     ],
     "barrier": [
         {
             "name": "stone",
-            "weight": 100
+            "weight": 100,
+            "weightCut" : 0
         }
     ],
+    "pickableDensity": 0.02,
     "pickable": [
         {
             "name": "flower",
-            "weight": 100
+            "weight": 100,
+            "weightCut" : 0
         }
     ]
+    
 }

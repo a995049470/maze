@@ -10,11 +10,14 @@
         public readonly static string maxAreaGridNum = "maxAreaGridNum";
         public readonly static string monsterDensity = "monsterDensity";
         public readonly static string minMonsterProbability = "minMonsterProbability";
+        public readonly static string pickableDensity = "pickableDensity";
+        public readonly static string minPickableProbability = "minPickableProbability";
         public readonly static string monster = "monster";
         public readonly static string barrier = "barrier";
         public readonly static string pickable = "pickable";
         public readonly static string name = "name";
         public readonly static string weight = "weight";
+        public readonly static string weightCut = "weightCut";
         public readonly static string url = "url";
         public readonly static string gridPixelSize = "gridPixelSize";
         public readonly static string monsterJsonUrl = "monsterJsonUrl";

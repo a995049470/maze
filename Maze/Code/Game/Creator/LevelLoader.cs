@@ -9,6 +9,14 @@ using System.IO;
 
 namespace Maze.Code.Game
 {
+    public class RandomUnit
+    {
+        public Prefab Prefab;
+        private int weight;
+        public int Weight { get => weight; set => weight = Math.Max(0, value); }
+        public int WeightCut;
+    }
+
     public class LevelLoader
     {   
         private IServiceRegistry service;
@@ -44,36 +52,45 @@ namespace Maze.Code.Game
         }
 
 
-        private (int, Prefab)[] GetUnitPrefabs(JsonData mapData, string key, JsonData configData)
+        private RandomUnit[] GetUnitPrefabs(JsonData mapData, string key, JsonData configData)
         {
             var unitDatas = mapData[key];
             var count = unitDatas.Count;
-            var res = new (int, Prefab)[count];
+            var res = new RandomUnit[count];
             for (int i = 0; i < count; i++)
             {
                 var unitData = unitDatas[i];
                 var weight = ((int)unitData[MapJsonKeys.weight]);
+                var weightCut = ((int)unitData[MapJsonKeys.weightCut]);
                 var url = configData[unitData[MapJsonKeys.name].ToString()][MapJsonKeys.url].ToString();
                 var prefab = content.Load<Prefab>(url);
-                res[i] = (weight, prefab);
+                res[i] = new RandomUnit()
+                {
+                    Prefab = prefab,
+                    Weight = weight,
+                    WeightCut = weightCut
+                };
             }
             return res;
         }
 
-        private Entity InstantiateRandomUnit((int, Prefab)[] units, Random random, Vector3 pos
-            )
+        /// <summary>
+        /// 创建随机单位
+        private Entity InstantiateRandomUnit(RandomUnit[] units, Random random, Vector3 pos,  int weightCut = 0)
         {
             int total = 0;
-            foreach (var unit in units) total += unit.Item1;
+            foreach (var unit in units) total += unit.Weight;
             var value = random.Next(0, total);
             Entity res = null;
             foreach (var unit in units)
             {
-                value -= unit.Item1;
+                value -= unit.Weight;
                 if(value < 0)
                 {
+                    //降低自身权重
+                    unit.Weight -= unit.WeightCut;
                     //static collider 不能在加入场景后在设置位置
-                    res = unit.Item2.Instantiate()[0];
+                    res = unit.Prefab.Instantiate()[0];
                     res.Transform.Position = pos;
                     sceneSystem.SceneInstance.RootScene.Entities.Add(res);
                     break;
@@ -90,7 +107,7 @@ namespace Maze.Code.Game
             var barrierData = LoadJsonData(data[MapJsonKeys.barrierJsonUrl].ToString());
             var pickbleData = LoadJsonData(data[MapJsonKeys.pickableJsonUrl].ToString());
             int width, height, start, mapSeed, minAreaGridNum, maxAreaGridNum;
-            double monsterDensity, minMonsterProbability;
+            double monsterDensity, pickableDensity;
             int unitSeed;
             try
             {
@@ -100,8 +117,8 @@ namespace Maze.Code.Game
                 mapSeed = ((int)data[MapJsonKeys.mapSeed]);
                 minAreaGridNum = ((int)data[MapJsonKeys.minAreaGridNum]);
                 maxAreaGridNum = ((int)data[MapJsonKeys.maxAreaGridNum]);
-                monsterDensity = ((double)data[MapJsonKeys.monsterDensity]);
-                minMonsterProbability = ((double)data[MapJsonKeys.minMonsterProbability]);                          
+                monsterDensity = ((double)data[MapJsonKeys.monsterDensity]);   
+                pickableDensity = ((double)data[MapJsonKeys.pickableDensity]);                  
             }
             catch (Exception)
             {
@@ -171,7 +188,7 @@ namespace Maze.Code.Game
                     }
                 }
 
-                var units = MapCreator.CreateMapUnits(grids, width, height, start, unitSeed, minAreaGridNum, maxAreaGridNum, (float)monsterDensity, (float)minMonsterProbability);
+                var units = MapCreator.CreateMapUnits(grids, width, height, start, unitSeed, minAreaGridNum, maxAreaGridNum, (float)monsterDensity, (float)pickableDensity);
 
                 //创建地图单位
                 {
@@ -201,8 +218,8 @@ namespace Maze.Code.Game
                             monster.Get<VelocityComponent>()?.UpdatePos(pos);
                            
                         }
-                        //测试道具的生成
-                        if(isCreatePickable && (unit & MapCreator.MonsterUnit) > 0)
+                        //道具的生成
+                        if(isCreatePickable && (unit & MapCreator.PickableUnit) > 0)
                         {
                             var pos = IndexToPos(i, width, height);
                             InstantiateRandomUnit(pickablePrefabs, unitRandom, pos);

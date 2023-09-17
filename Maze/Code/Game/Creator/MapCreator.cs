@@ -20,6 +20,7 @@ namespace Maze.Code.Game
         private const int emptyUnit = 0;
         public const int BarrierUnit = 1;
         public const int MonsterUnit = 2;
+        public const int PickableUnit = 4;
 
         private static Dictionary<int, int> blockWeightDic;
         public static Dictionary<int, int> BlockWeightDic
@@ -156,7 +157,7 @@ namespace Maze.Code.Game
 
         }
         /// <summary>
-        /// 检查一篇区域的块是否合法
+        /// 检查一片区域的块是否合法
         /// </summary>
         static bool BlockTest(int sx, int sy, int ex, int ey, int[] temp, int width)
         {
@@ -315,7 +316,8 @@ namespace Maze.Code.Game
         /// 创建地图中的单位
         /// </summary>
         /// <param name="grids">0:障碍 1:可行走</param>
-        public static int[] CreateMapUnits(int[] grids, int width, int height, int start, int seed, int minAreaGridNum, int maxAreaGridNum, float monsterDensity, float minMonsterProbability)
+        /// <param name="monsterDensity">每个区域的怪兽密度</param>
+        public static int[] CreateMapUnits(int[] grids, int width, int height, int start, int seed, int minAreaGridNum, int maxAreaGridNum, float monsterDensity, float pickableDensity)
         {
             var random = new Random(seed);
             //先计算所有位置到起点的位置
@@ -548,32 +550,44 @@ namespace Maze.Code.Game
                     var areaId = gridAreaIndices[i];
                     areaGridIdLists[areaId].Add(i);
                 }
-                for (int i = 0; i < areaCount; i++)
-                {
-                    //初始区域没怪
-                    if(i == startPointAreaId) continue;
-                    var gridIdList = areaGridIdLists[i];
-                    var areaGridNum = gridIdList.Count;
-                    if (areaGridNum == 0) continue;
-                    var p = (areaGridNum - minAreaGridNum) * monsterDensity;
-                    p = Math.Max(minMonsterProbability, p);
-                    var f = p - (int)p;
-                    var monsterCount = (int)p + (f > random.NextSingle() ? 1 : 0);
-                    for (int j = 0; j < monsterCount; j++)
-                    {
-                        var r = random.Next(j, areaGridNum);
-                        var gridId = gridIdList[r];
-                        units[gridId] |= MonsterUnit;
-
-                        //将抽取过的Id移到列表头部
-                        gridIdList[r] = gridIdList[j];
-                        gridIdList[j] = gridId;
-                    }
-                    
-                }
+                //创建随机怪物
+                CreateRadomUnit(startPointAreaId, areaGridIdLists, monsterDensity, random, units, MonsterUnit);
+                //创建随机道具
+                CreateRadomUnit(startPointAreaId, areaGridIdLists, pickableDensity, random, units, PickableUnit);
             }
 
             return units;
+        }
+
+        /// <summary>
+        /// 根据参数创建随机的单位
+        /// </summary>
+        private static void CreateRadomUnit(int startPointAreaId, List<int>[] areaGridIdLists, float density, Random random, int[] units, int unitValue)
+        {
+            var areaCount = areaGridIdLists.Length;
+            
+            for (int i = 0; i < areaCount; i++)
+            {
+                //初始区域没怪
+                if (i == startPointAreaId) continue;
+                var gridIdList = areaGridIdLists[i];
+                var areaGridNum = gridIdList.Count;
+                if (areaGridNum == 0) continue;
+                var p = (areaGridNum) * density;
+                var f = p - (int)p;
+                var monsterCount = (int)p + (f > random.NextSingle() ? 1 : 0);
+                for (int j = 0; j < monsterCount; j++)
+                {
+                    var r = random.Next(j, areaGridNum);
+                    var gridId = gridIdList[r];
+                    units[gridId] |= unitValue;
+
+                    //将抽取过的Id移到列表头部
+                    gridIdList[r] = gridIdList[j];
+                    gridIdList[j] = gridId;
+                }
+
+            }
         }
 
         #endregion
