@@ -5,7 +5,8 @@
     "mapUrl": "Prefab/Map/map_21_21_23",
     "playerUrl": "Prefab/Player",
     "airWallUrl": "Prefab/AirWall",
-    "prefabSeed": 21,
+    "prefabSeed": 99,
+    "unitSeed" : 32,
     "width": 21,
     "height": 21,
     "gridPixelSize": 3,
@@ -17,8 +18,8 @@
     "monster": [
         {
             "name": "fish",
-            "weight": 200,
-            "weightCut" : 200
+            "weight": 9999,
+            "weightCut" : 9999
         },
         {
             "name": "ghost",
@@ -33,7 +34,7 @@
             "weightCut" : 0
         }
     ],
-    "pickableDensity": 0.02,
+    "pickableDensity": 0.03,
     "pickable": [
         {
             "name": "flower",

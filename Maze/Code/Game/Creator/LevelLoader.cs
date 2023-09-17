@@ -108,13 +108,15 @@ namespace Maze.Code.Game
             var pickbleData = LoadJsonData(data[MapJsonKeys.pickableJsonUrl].ToString());
             int width, height, start, mapSeed, minAreaGridNum, maxAreaGridNum;
             double monsterDensity, pickableDensity;
-            int unitSeed;
+            int unitSeed, prefabSeed;
             try
             {
                 width = ((int)data[MapJsonKeys.width]);
                 height = ((int)data[MapJsonKeys.height]);
                 start = ((int)data[MapJsonKeys.start]);
                 mapSeed = ((int)data[MapJsonKeys.mapSeed]);
+                prefabSeed = ((int)data[MapJsonKeys.prefabSeed]);
+                unitSeed = ((int)data[MapJsonKeys.unitSeed]);
                 minAreaGridNum = ((int)data[MapJsonKeys.minAreaGridNum]);
                 maxAreaGridNum = ((int)data[MapJsonKeys.maxAreaGridNum]);
                 monsterDensity = ((double)data[MapJsonKeys.monsterDensity]);   
@@ -124,7 +126,6 @@ namespace Maze.Code.Game
             {
                 throw new Exception("format error!");
             }
-            unitSeed = mapSeed;
             int num = width * height;
             int[] grids = MapCreator.GetOriginGrids(width, height, start);
             var isSuccess = MapCreator.TryCreateSimpleMap(grids, start, width, height, mapSeed);
@@ -192,7 +193,7 @@ namespace Maze.Code.Game
 
                 //创建地图单位
                 {
-                    var unitRandom = new Random(((int)data[MapJsonKeys.prefabSeed]));
+                    var prefabRandom = new Random(prefabSeed);
                     var barrierPrefabs = GetUnitPrefabs(data, MapJsonKeys.barrier, barrierData);
                     var monsterPrefabs = GetUnitPrefabs(data, MapJsonKeys.monster, monsterData);
                     var pickablePrefabs = GetUnitPrefabs(data, MapJsonKeys.pickable, 
@@ -202,27 +203,30 @@ namespace Maze.Code.Game
                     var isCreateMonster = monsterPrefabs.Length > 0;
                     var isCreatePickable = pickablePrefabs.Length > 0;
 
+                    var randomArray = MapCreator.CreateRandomArray(num, prefabRandom);
+
                     for (int i = 0; i < num; i++)
                     {
-                        var unit = units[i];
+                        var uintId = randomArray[i];
+                        var unit = units[uintId];
                         if (isCreateBarrier && (unit & MapCreator.BarrierUnit) > 0)
                         {
-                            var pos = IndexToPos(i, width, height);
-                            var barrier = InstantiateRandomUnit(barrierPrefabs, unitRandom, pos);
+                            var pos = IndexToPos(uintId, width, height);
+                            var barrier = InstantiateRandomUnit(barrierPrefabs, prefabRandom, pos);
                            
                         }
                         if (isCreateMonster && (unit & MapCreator.MonsterUnit) > 0)
                         {
-                            var pos = IndexToPos(i, width, height);
-                            var monster = InstantiateRandomUnit(monsterPrefabs, unitRandom, pos);
+                            var pos = IndexToPos(uintId, width, height);
+                            var monster = InstantiateRandomUnit(monsterPrefabs, prefabRandom, pos);
                             monster.Get<VelocityComponent>()?.UpdatePos(pos);
                            
                         }
                         //道具的生成
                         if(isCreatePickable && (unit & MapCreator.PickableUnit) > 0)
                         {
-                            var pos = IndexToPos(i, width, height);
-                            InstantiateRandomUnit(pickablePrefabs, unitRandom, pos);
+                            var pos = IndexToPos(uintId, width, height);
+                            InstantiateRandomUnit(pickablePrefabs, prefabRandom, pos);
                         }
                     }
                 }

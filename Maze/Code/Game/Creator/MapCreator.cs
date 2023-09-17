@@ -566,11 +566,13 @@ namespace Maze.Code.Game
         {
             var areaCount = areaGridIdLists.Length;
             
+
             for (int i = 0; i < areaCount; i++)
             {
+                var areaId = i;
                 //初始区域没怪
-                if (i == startPointAreaId) continue;
-                var gridIdList = areaGridIdLists[i];
+                if (areaId == startPointAreaId) continue;
+                var gridIdList = areaGridIdLists[areaId];
                 var areaGridNum = gridIdList.Count;
                 if (areaGridNum == 0) continue;
                 var p = (areaGridNum) * density;
@@ -588,6 +590,23 @@ namespace Maze.Code.Game
                 }
 
             }
+        }
+
+        public static int[] CreateRandomArray(int count, Random random)
+        {
+            int[] nums = new int[count];
+            for (int i = 0; i < count; i++)
+            {
+                nums[i] = i;
+            }
+            for (int i = 0; i < count; i++)
+            {
+                var r = random.Next(i, count);
+                var temp = nums[r];
+                nums[r] = nums[i];
+                nums[i] = temp;
+            }
+            return nums;
         }
 
         #endregion

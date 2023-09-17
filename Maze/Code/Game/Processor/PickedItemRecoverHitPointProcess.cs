@@ -37,7 +37,6 @@ namespace Maze.Code.Game
                     //回血
                     if(hurt != null)
                     {
-                        log.Info($"recover hp : {data.RecoverHitPoint.Value}");
                         Interlocked.Add(ref hurt.HurtValue, -data.RecoverHitPoint.Value);
                     }    
                 }

@@ -6,6 +6,7 @@
         public readonly static string height = "height";
         public readonly static string start = "start";
         public readonly static string mapSeed = "mapSeed";
+        public readonly static string unitSeed = "unitSeed";
         public readonly static string minAreaGridNum = "minAreaGridNum";
         public readonly static string maxAreaGridNum = "maxAreaGridNum";
         public readonly static string monsterDensity = "monsterDensity";
